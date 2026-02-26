@@ -1,0 +1,1066 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sparta Tech Solutions - Elite Slider</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Playfair+Display:ital,wght@1,900&display=swap');
+        
+        body { font-family: 'Inter', sans-serif;  overflow-x: hidden; }
+        .font-serif-italic { font-family: 'Playfair+Display', serif; }
+
+        .card-container {
+            transition: all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+            perspective: 1200px;
+            transform-style: preserve-3d;
+        }
+
+        .glass-inner {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(25px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Background Image Layer Styling */
+        .bg-image-layer {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('Images/banner5.jfif');
+            background-size: cover;
+            background-position: center;
+            opacity: 90; /* Isay set kiya takay background manageable rahay */
+            mix-blend-mode: overlay;
+            pointer-events: none;
+        }
+
+        /* Navbar specific styles */
+        .nav-link { font-weight: 700; color: white; position: relative; font-size: 15px; }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0; height: 2px;
+            bottom: -4px; left: 0;
+            background-color: white;
+            transition: width 0.3s;
+        }
+        .nav-link:hover::after, .nav-link.active::after { width: 100%; }
+
+        @media (max-width: 768px) {
+            .slider-text-h1 { font-size: 2.8rem !important; line-height: 1; }
+        }
+
+        @keyframes float-slow {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        .animate-float { animation: float-slow 4s ease-in-out infinite; }
+        
+        #slider-subtitle { transition: opacity 0.3s ease; }
+    </style>
+</head>
+<body>
+
+<header class="w-full z-[100] relative bg-transparent">
+    <div class="w-full bg-gradient-to-r from-[#000000] via-[#05080f] to-[#0c1322]  py-3 px-6 md:px-16 flex flex-wrap justify-between items-center text-[13px] text-gray-400">
+        <div class="flex items-center gap-6">
+            <div class="flex items-center gap-2">
+                <i class="fa-regular fa-envelope"></i>
+                <span>spartatechsolutions.com</span>
+            </div>
+            <div class="hidden md:flex items-center gap-2 border-l border-white/20 pl-6">
+                <i class="fa-regular fa-clock"></i>
+                <span>Always open—here to serve you 24/7.</span>
+            </div>
+        </div>
+        <div class="flex items-center gap-5 ">
+            <a href="#" class="hover:text-white transition-colors"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#" class="hover:text-white transition-colors"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" class="hover:text-white transition-colors"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="#" class="hover:text-white transition-colors"><i class="fa-brands fa-x-twitter"></i></a>
+        </div>
+    </div>
+
+    <nav class="w-full py-3 px-6 md:px-16 flex justify-between items-center bg-gradient-to-r from-[#000000] via-[#05080f] to-[#0c1322]">
+        <div class="flex items-center">
+    <div class="w-12 h-12 flex items-center justify-center">
+        <img 
+            src="Images/logo.png" 
+            alt="Logo" 
+            class="w-92 h-62 object-contain"
+        />
+    </div>
+</div>
+        <div class="hidden lg:flex items-center gap-10">
+            <a href="#" class="nav-link active">Home</a>
+            <a href="#" class="nav-link">About us</a>
+            <a href="#" class="nav-link">Services</a>
+            <a href="#" class="nav-link">Pricing</a>
+             <a href="#" class="nav-link">Contact Us</a>
+    
+        </div>
+
+    <div>
+    <a href="#" class="group bg-[#febd69] hover:bg-[#e66e00] text-black font-black font-black leading-[0.85] tracking-tighter px-4 py-3 rounded-full transition-all duration-300 text-[13px] shadow-xl shadow-orange-600/30 flex items-center gap-">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 group-hover:-translate-y-1 group-hover:rotate-[10deg] transition-all duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M8 10h.01M12 10h.01M16 10h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+        </svg>
+        
+        <span class="tracking-wide">Book Meeting</span>
+    </a>
+</div>
+    </nav>
+</header>
+
+<main class="max-w-[1440px] mx-auto min-h-[95vh] flex items-center -mt-12">
+    <div class="relative w-full h-[750px] md:h-[600px] lg:h-[550px] overflow-hidden bg-gradient-to-r from-[#000000] via-[#05080f] to-[#0c1322] shadow-[0_0_50px_-12px_rgba(59,130,246,0.2)] rounded-[1rem] border border-white/5 mx-" >
+        
+        <div class="bg-image-layer"></div>
+
+        <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-blue-600/10 blur-[150px] rounded-full"></div>
+        <div class="absolute bottom-0 left-0 w-[500px] h-[500px] bg-[#febd69]/5 blur-[150px] rounded-full"></div>
+        
+        <div class="relative h-full w-full flex flex-col lg:flex-row items-center px-6 md:px-12 lg:px-18">
+            <div class="z-20 flex flex-col justify-center items-center lg:items-start lg:w-[45%] text-center lg:text-left mb-12 lg:mb-0">
+                <div id="badge-top" class="bg-[#febd69] text-black text-[10px] font-black px-5 py-2 rounded-full uppercase tracking-[0.2em] w-fit mb-6 shadow-lg shadow-[#febd69]/20">
+                    Innovation Excellence
+                </div>
+                
+                <div id="text-content">
+                    <h1 id="main-title" class="text-white slider-text-h1 lg:text-[85px] font-black leading-[0.85] tracking-tighter">
+                        Sparta <span class="text-[#febd69]">Tech</span> <span class="text-white/30 font-serif-italic lowercase">solutions</span>
+                    </h1>
+                    <p id="slider-subtitle" class="text-gray-400 text-sm md:text-base lg:text-lg max-w-sm font-medium leading-relaxed pt-6 opacity-80">
+                        Architecting the digital future with precision and power.
+                    </p>
+                    <div id="cta-buttons" class="flex gap-3 mt-8">
+                        <button class="bg-[#febd69] hover:bg-white text-black px-8 py-4 rounded-2xl font-black transition-all transform hover:-translate-y-1 shadow-xl text-sm uppercase tracking-wider">
+                            Our Services
+                        </button>
+                        <button class="border border-white/10 hover:bg-white/5 text-white px-8 py-4 rounded-2xl font-black transition-all text-sm uppercase tracking-wider">
+                            Live Demo
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="relative lg:w-[55%] w-full h-[400px] md:h-full flex items-center justify-center animate-float">
+                
+                <div id="discount-badge" class="absolute right-0 bottom-10 lg:right-2 lg:bottom-20 z-40 flex flex-col items-center">
+                    <div class="w-14 h-14 bg-[#febd69] rounded-full flex items-center justify-center shadow-2xl mb-2 ">
+                        <span class="text-black font-black text-xl">%</span>
+                    </div>
+                    <div class="bg-white/10 backdrop-blur-md p-4 rounded-[14px] border border-white/20 text-center min-w-[150px]">
+                        <p class="text-[9px] text-[#febd69] font-black uppercase mb-1">Scale Your Business</p>
+                        <p id="dynamic-badge-text" class="text-lg font-black text-white leading-none">AI Integration</p>
+                    </div>
+                </div>
+
+                <div id="cards-wrapper" class="relative w-full flex justify-center items-center h-full">
+                </div>
+            </div>
+        </div>
+
+        <div class="absolute bottom-10 left-1/2 -translate-x-1/2 lg:left-24 lg:translate-x-0 z-50">
+            <div id="indicators" class="flex gap-3"></div>
+        </div>
+    </div>
+</main>
+
+<script>
+    const slides = [
+        { title: "AI ENGINE", subtitle: "Custom Artificial Intelligence and Machine Learning models.", image: "Images/1.jfif" },
+        { title: "CYBER SHIELD", subtitle: "Enterprise-grade security for your digital assets.", image: "Images/2.jfif" },
+        { title: "CLOUD OPS", subtitle: "Seamless cloud migration and infrastructure management.", image: "Images/3.jfif" },
+        { title: "APP DEV", subtitle: "Next-gen mobile and web applications built to scale.", image: "Images/4.jfif" },
+        { title: "DATA ANALYTICS", subtitle: "Turning complex data into actionable business insights.", image: "Images/5.jfif" }
+    ];
+
+    let currentIndex = 0;
+    const cardsWrapper = document.getElementById('cards-wrapper');
+    const indicators = document.getElementById('indicators');
+
+    function createSlider() {
+        indicators.innerHTML = slides.map((_, i) => `
+            <div class="indicator-dot h-1.5 rounded-full cursor-pointer transition-all duration-700 bg-white/20 ${i === 0 ? 'w-12 bg-[#febd69]' : 'w-3'}" onclick="goToSlide(${i})"></div>
+        `).join('');
+        updateCards(true); // Initial load
+    }
+
+    function updateCards(isFirstLoad = false) {
+        cardsWrapper.innerHTML = '';
+        const offsets = [ -3, -2, -1, 0, 1, 2, 3];
+        
+        if(!isFirstLoad) {
+            gsap.to(["#main-title", "#slider-subtitle", "#cta-buttons"], {
+                y: -20,
+                opacity: 0,
+                duration: 0.2,
+                stagger: 0.05,
+                ease: "power2.in",
+                onComplete: () => {
+                    document.getElementById('slider-subtitle').innerText = slides[currentIndex].subtitle;
+                    document.getElementById('dynamic-badge-text').innerText = slides[currentIndex].title;
+                    animateTextIn();
+                }
+            });
+        }
+
+        offsets.forEach(offset => {
+            const index = (currentIndex + offset + slides.length) % slides.length;
+            const absOffset = Math.abs(offset);
+            
+            const card = document.createElement('div');
+            card.className = 'absolute card-container';
+            
+            const xGap = window.innerWidth < 768 ? 95 : 105; 
+            const xPos = offset * xGap;
+            const scale = 1 - (absOffset * 0.32); 
+            const opacity = 1 - (absOffset * 0.25);
+            const zIndex = 10 - absOffset;
+            const rotateY = offset * 26; 
+
+            card.style.cssText = `
+                z-index: ${zIndex};
+                opacity: ${opacity};
+                transform: translateX(${xPos}px) scale(${scale}) rotateY(${rotateY}deg);
+            `;
+
+            card.innerHTML = `
+                <div class="glass-inner w-[180px] h-[260px] md:w-[240px] md:h-[340px] rounded-[2.5rem] p-3 flex flex-col overflow-hidden group">
+                    <div class="flex justify-between items-center px-3 py-2">
+                        <span class="text-[#febd69] text-[9px] font-black tracking-widest uppercase">Sparta_System</span>
+                        <div class="w-2 h-2 rounded-full bg-orange-300 animate-pulse"></div>
+                    </div>
+                    <div class="overflow-hidden rounded-[2rem] h-[70%] shadow-2xl">
+                         <img src="${slides[index].image}" class="slide-img w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" alt="tech">
+                    </div>
+                    <div class="mt-auto pb-4 text-center">
+                        <p class="text-white font-black text-[10px] tracking-[0.2em] uppercase">
+                            ${slides[index].title}
+                        </p>
+                    </div>
+                </div>
+            `;
+            cardsWrapper.appendChild(card);
+        });
+
+        gsap.fromTo(".card-container", 
+            { x: (i) => (offsets[i] * 100), opacity: 0, scale: 0.5 }, 
+            { x: (i) => (offsets[i] * (window.innerWidth < 768 ? 45 : 85)), opacity: 1, scale: (i) => 1 - (Math.abs(offsets[i]) * 0.12), duration: 0.8, ease: "expo.out" }
+        );
+
+        gsap.fromTo(".slide-img", { scale: 1.4 }, { scale: 1, duration: 1.2, ease: "power2.out" });
+
+        document.querySelectorAll('.indicator-dot').forEach((dot, i) => {
+            dot.className = `indicator-dot h-1.5 rounded-full transition-all duration-700 ${currentIndex === i ? 'w-12 bg-[#febd69]' : 'w-3 bg-white/20'}`;
+        });
+
+        if(isFirstLoad) animateTextIn();
+    }
+
+    function animateTextIn() {
+        gsap.fromTo("#badge-top", { y: -50, opacity: 0 }, { y: 0, opacity: 1, duration: 0.5, ease: "back.out(2)" });
+        gsap.fromTo("#main-title", { y: 40, opacity: 0, skewY: 5 }, { y: 0, opacity: 1, skewY: 0, duration: 0.8, ease: "power4.out" });
+        gsap.fromTo("#slider-subtitle", { y: 20, opacity: 0 }, { y: 0, opacity: 0.8, duration: 0.8, delay: 0.1 });
+        gsap.fromTo("#cta-buttons", { x: -30, opacity: 0 }, { x: 0, opacity: 1, duration: 0.6, delay: 0.3, ease: "power2.out" });
+        gsap.fromTo("#discount-badge", { scale: 0, rotation: -45 }, { scale: 1, rotation: 0, duration: 0.7, ease: "back.out(1.7)" });
+    }
+
+    function goToSlide(n) {
+        if (n === currentIndex) return;
+        clearInterval(autoPlay);
+        currentIndex = n;
+        updateCards();
+        startAutoPlay();
+    }
+
+    let autoPlay;
+    function startAutoPlay() {
+        autoPlay = setInterval(() => {
+            currentIndex = (currentIndex + 1) % slides.length;
+            updateCards();
+        }, 6000);
+    }
+
+    window.addEventListener('resize', () => updateCards(true));
+    createSlider();
+    startAutoPlay();
+</script>
+
+
+
+
+
+
+
+
+<section class="py-10 bg-white overflow-hidden font-sans">
+    <div class="max-w-7xl mx-auto px-4">
+        
+        <div class="text-center mb-20 group" id="animated-header">
+            <span class="inline-block py-1 right-1 px-4 rounded-full border border-[#d9933e]/60 text-[#d9933e] text-[9px] font-bold tracking-[0.4em] uppercase mb-4 transition-transform duration-500" id="scroll-tag">
+                Our Ecosystem
+            </span>
+            <div class="relative inline-block transition-transform duration-700 ease-out" id="scroll-title">
+                <h2 class="text-3xl md:text-5xl font-black uppercase tracking-tighter text-[#05080d] mb-2 italic">
+                    Trusted <span class="text-[#d9933e]">Partners</span>
+                </h2>
+                <div class="absolute -bottom-2 left-1/2 -translate-x-1/2 w-12 h-[3px] bg-[#d9933e] rounded-full transition-all duration-700 group-hover:w-full group-hover:bg-gradient-to-r group-hover:from-transparent group-hover:via-[#d9933e] group-hover:to-transparent"></div>
+            </div>
+            <p class="text-gray-500 text-[10px] font-medium tracking-[0.1em] uppercase mt-6 max-w-md mx-auto leading-relaxed transition-transform duration-500" id="scroll-desc">
+                Collaborating with industry leaders to deliver <span class="text-[#05080d] font-bold">excellence</span> globally.
+            </p>
+        </div>
+
+        <div class="grid grid-cols-2 md:grid-cols-5 gap-6 min-h-[220px]" id="partners-grid">
+            
+            <style>
+                .original-dark-leaf {
+                    background: #161b22;
+                    border-radius: 0px 0px 70px 0px; 
+                    height: 180px;
+                    position: relative;
+                    border-bottom: 3px solid #d9933e;
+                    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+                    opacity: 0;
+                    transform: translateY(30px);
+                    display: none;
+                }
+                .box-active { display: flex !important; opacity: 1; transform: translateY(0); }
+                .box-exit { opacity: 0; transform: translateY(-20px); }
+                .original-dark-leaf:hover { background: #05080d; transform: translateY(-10px) scale(1.02); box-shadow: 0 15px 30px rgba(0,0,0,0.2); }
+                .floating-icon-box { position: absolute; top: -22px; left: 0; width: 48px; height: 48px; background: #d9933e; border-radius: 12px; display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 20px rgba(217, 147, 62, 0.2); z-index: 10; }
+                .content-wrapper { position: relative; width: 100%; height: 80px; overflow: hidden; }
+                .stat-content, .partner-content { position: absolute; width: 100%; transition: all 0.8s ease; }
+                .partner-content { transform: translateY(100px); opacity: 0; }
+                .show-partner .stat-content { transform: translateY(-100px); opacity: 0; }
+                .show-partner .partner-content { transform: translateY(0); opacity: 1; }
+                .bg-num-dark { position: absolute; bottom: 8px; right: 15px; font-size: 55px; font-weight: 900; color: rgba(255, 255, 255, 0.03); line-height: 1; pointer-events: none; }
+                
+                /* Naya Icon Style Jo Maine Add Kiya */
+                .inner-mini-icon { width: 15px; height: 14px; margin-bottom: 6px; color: #d9933e; opacity: 0.8; }
+            </style>
+
+       <div class="original-dark-leaf p-8 flex-col justify-end group toggle-card box-batch-1 relative">
+    <div class="floating-icon-box">
+        <svg class="w-10 h-10 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
+        </svg>
+    </div>
+
+    <div class="content-wrapper">
+        <div class="stat-content">
+           <svg class="inner-mini-icon w-28 h-28" fill="currentColor" viewBox="0 0 20 20">
+    <path d="M2 11a1 1 0 011-1h2a1 1 0 011 1v5a1 1 0 01-1 1H3a1 1 0 01-1-1v-5zM8 7a1 1 0 011-1h2a1 1 0 011 1v9a1 1 0 01-1 1H9a1 1 0 01-1-1V7zM14 4a1 1 0 011-1h2a1 1 0 011 1v12a1 1 0 01-1 1h-2a1 1 0 01-1-1V4z"></path>
+</svg>
+            <h3 class="text-white text-2xl font-black italic">12+</h3>
+            <p class="text-[#d9933e] text-[8px] font-bold uppercase mt-1">Growth Index</p>
+        </div>
+        <div class="partner-content">
+            <svg class="inner-mini-icon" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M11 3a1 1 0 10-2 0v1a1 1 0 102 0V3zM5.884 6.607a1 1 0 01-.226 1.396l-.868.65a1 1 0 11-1.2-1.6l.868-.65a1 1 0 011.426.204zM18 10a1 1 0 11-2 0 1 1 0 012 0zM14.516 11.232a1 1 0 01-1.396.226l-.65-.868a1 1 0 011.6-1.2l.65.868a1 1 0 01-.204 1.426zM11 13a1 1 0 10-2 0v1a1 1 0 102 0v-1zM4.344 11.232a1 1 0 01.204 1.426l-.65.868a1 1 0 11-1.6-1.2l.65-.868a1 1 0 011.396-.226zM15.342 6.607a1 1 0 011.426-.204l.868.65a1 1 0 11-1.2 1.6l-.868-.65a1 1 0 01-.226-1.396z"></path>
+            </svg>
+            <h3 class="text-white text-xl font-black italic">TECH-CORE</h3>
+            <p class="text-gray-400 text-[9px] font-bold uppercase mt-1">Systems Integration</p>
+        </div>
+    </div>
+
+    <span class="bg-num-dark absolute bottom-8 left-36 text-4xl font-bold opacity-10 ">01</span>
+</div>
+
+            <div class="original-dark-leaf p-8 flex-col justify-end group toggle-card box-batch-1">
+                <div class="floating-icon-box"><svg class="w-6 h-6 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M13 10V3L4 14h7v7l9-11h-7z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+                <div class="content-wrapper">
+                    <div class="stat-content">
+                        <svg class="inner-mini-icon" fill="currentColor" viewBox="0 0 20 20"><path d="M10.394 2.08a1 1 0 00-.788 0l-7 3a1 1 0 000 1.84L5.25 8.051a.999.999 0 01.356-.257l4-1.714a1 1 0 11.788 1.838L7.667 9.088l1.94.831a1 1 0 00.787 0l7-3a1 1 0 000-1.838l-7-3zM3.31 9.397L5 10.12v4.102a8.969 8.969 0 00-1.05-.174 1 1 0 01-.89-.89 11.115 11.115 0 01.25-3.762zM9.3 16.573A9.026 9.026 0 007 14.935v-3.957l1.818.78a3 3 0 002.364 0l5.508-2.361a11.026 11.026 0 01.25 3.762 1 1 0 01-.89.89 8.968 8.968 0 00-5.35 2.524 1 1 0 01-1.4 0z"></path></svg>
+                        <h3 class="text-white text-2xl font-black italic">14k</h3>
+                        <p class="text-[#d9933e] text-[8px] font-bold uppercase mt-1">Active Hubs</p>
+                    </div>
+                    <div class="partner-content">
+                        <svg class="inner-mini-icon" fill="currentColor" viewBox="0 0 20 20"><path d="M3 1a1 1 0 000 2h1.22l.305 1.222a.997.997 0 00.01.042l1.358 5.43-.893.892C3.74 11.846 4.632 14 6.414 14H15a1 1 0 100-2H6.414l1-1H14a1 1 0 00.894-.553l3-6A1 1 0 0017 3H6.28l-.31-1.243A1 1 0 005 1H3zM16 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM6.5 18a1.5 1.5 0 100-3 1.5 1.5 0 000 3z"></path></svg>
+                        <h3 class="text-white text-xl font-black italic">NEXUS LTD</h3>
+                        <p class="text-gray-400 text-[8px] font-bold uppercase mt-1">Market Dynamics</p>
+                    </div>
+                </div><span class="bg-num-dark">02</span>
+            </div>
+
+            <div class="original-dark-leaf p-8 flex-col justify-end group toggle-card box-batch-1">
+                <div class="floating-icon-box"><svg class="w-6 h-6 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" stroke="currentColor" stroke-width="2"/></svg></div>
+                <div class="content-wrapper">
+                    <div class="stat-content">
+                        <svg class="inner-mini-icon" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                        <h3 class="text-white text-2xl font-black italic">100%</h3>
+                        <p class="text-[#d9933e] text-[8px] font-bold uppercase mt-1">Encrypted</p>
+                    </div>
+                    <div class="partner-content">
+                        <svg class="inner-mini-icon " fill="currentColor" viewBox="0 0 20 20"><path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-3a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v3h-3zM4.75 12.094A5.973 5.973 0 004 15v3H1v-3a3 3 0 013.75-2.906z"></path></svg>
+                        <h3 class="text-white text-xl font-black italic">SAFE-GUARD</h3>
+                        <p class="text-gray-400 text-[8px] font-bold uppercase mt-1">Protocol Division</p>
+                    </div>
+                </div><span class="bg-num-dark">03</span>
+            </div>
+
+            <div class="original-dark-leaf p-8 flex-col justify-end group toggle-card box-batch-1">
+                <div class="floating-icon-box"><svg class="w-6 h-6 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.175 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" stroke="currentColor" stroke-width="2"/></svg></div>
+                <div class="content-wrapper">
+                    <div class="stat-content">
+                        <svg class="inner-mini-icon" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                        <h3 class="text-white text-2xl font-black italic">4.9</h3>
+                        <p class="text-[#d9933e] text-[8px] font-bold uppercase mt-1">Client Score</p>
+                    </div>
+                    <div class="partner-content">
+                        <svg class="inner-mini-icon" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M11.3 1.047a1 1 0 01.897.95l1.135 11.455 1.137-11.455a1 1 0 111.99 0l1.135 11.455 1.137-11.455a1 1 0 011.99.197l-1.333 13.434a1 1 0 01-.994.901H4.636a1 1 0 01-.994-.901L2.31 1.244a1 1 0 011.99-.197l1.136 11.455L6.574 1.047a1 1 0 111.99 0l1.135 11.455 1.137-11.455a1 1 0 011.99 0z" clip-rule="evenodd"></path></svg>
+                        <h3 class="text-white text-xl font-black italic">PRIME SVCS</h3>
+                        <p class="text-gray-400 text-[8px] font-bold uppercase mt-1">Global Quality</p>
+                    </div>
+                </div><span class="bg-num-dark">04</span>
+            </div>
+
+            <div class="original-dark-leaf p-8 flex-col justify-end group toggle-card box-batch-1">
+                <div class="floating-icon-box"><svg class="w-6 h-6 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" stroke="currentColor" stroke-width="2"/></svg></div>
+                <div class="content-wrapper">
+                    <div class="stat-content">
+                        <svg class="inner-mini-icon" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"></path></svg>
+                        <h3 class="text-white text-2xl font-black italic">24/7</h3>
+                        <p class="text-[#d9933e] text-[8px] font-bold uppercase mt-1">Live Sync</p>
+                    </div>
+                    <div class="partner-content">
+                        <svg class="inner-mini-icon" fill="currentColor" viewBox="0 0 20 20"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"></path></svg>
+                        <h3 class="text-white text-xl font-black italic">FAST-HELPS</h3>
+                        <p class="text-gray-400 text-[8px] font-bold uppercase mt-1">Response Unit</p>
+                    </div>
+                </div><span class="bg-num-dark">05</span>
+            </div>
+
+            <div class="original-dark-leaf p-8 flex-col justify-end group toggle-card box-batch-2">
+                <div class="floating-icon-box"><svg class="w-6 h-6 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M12 11c0 3.517-1.009 6.799-2.753 9.571m-3.44-2.04l.054-.09A10.003 10.003 0 0012 20a10.003 10.003 0 006.235-2.152" stroke="currentColor" stroke-width="2"/></svg></div>
+                <div class="content-wrapper">
+                    <div class="stat-content">
+                        <svg class="inner-mini-icon" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M12.395 2.553a1 1 0 00-1.450 3.27c.211.69.451 1.348.708 1.987l-9.445 9.445a1 1 0 001.414 1.414l9.445-9.445c.64.257 1.297.497 1.987.708a1 1 0 10.596-1.908 1 1 0 00-3.255-1.450 1 1 0 00-1.450 3.27c.211.69.451 1.348.708 1.987L2.053 17.553a1 1 0 001.414 1.414l9.445-9.445c.64.257 1.297.497 1.987.708a1 1 0 10.596-1.908 1 1 0 00-3.255-1.450z" clip-rule="evenodd"></path></svg>
+                        <h3 class="text-white text-2xl font-black italic">50+</h3>
+                        <p class="text-[#d9933e] text-[8px] font-bold uppercase mt-1">Edge Nodes</p>
+                    </div>
+                    <div class="partner-content">
+                        <svg class="inner-mini-icon" fill="currentColor" viewBox="0 0 20 20"><path d="M5.5 16a3.5 3.5 0 01-.369-6.98 4 4 0 117.753-1.977A4.5 4.5 0 1113.5 16h-8z"></path></svg>
+                        <h3 class="text-white text-xl font-black italic">CYBER-X</h3>
+                        <p class="text-gray-400 text-[8px] font-bold uppercase mt-1">Cloud Solutions</p>
+                    </div>
+                </div><span class="bg-num-dark">06</span>
+            </div>
+
+            <div class="original-dark-leaf p-8 flex-col justify-end group toggle-card box-batch-2">
+                <div class="floating-icon-box"><svg class="w-6 h-6 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 005.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" stroke="currentColor" stroke-width="2"/></svg></div>
+                <div class="content-wrapper">
+                    <div class="stat-content">
+                        <svg class="inner-mini-icon" fill="currentColor" viewBox="0 0 20 20"><path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+                        <h3 class="text-white text-2xl font-black italic">8k</h3>
+                        <p class="text-[#d9933e] text-[8px] font-bold uppercase mt-1">Community</p>
+                    </div>
+                    <div class="partner-content">
+                        <svg class="inner-mini-icon" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M12.586 4.586a2 2 0 112.828 2.828l-3 3a2 2 0 01-2.828 0 1 1 0 00-1.414 1.414 4 4 0 005.656 0l3-3a4 4 0 00-5.656-5.656l-1.5 1.5a1 1 0 101.414 1.414l1.5-1.5zm-5 5a2 2 0 012.828 0 1 1 0 101.414-1.414 4 4 0 00-5.656 0l-3 3a4 4 0 105.656 5.656l1.5-1.5a1 1 0 10-1.414-1.414l-1.5 1.5a2 2 0 11-2.828-2.828l3-3z" clip-rule="evenodd"></path></svg>
+                        <h3 class="text-white text-xl font-black italic">VIBE-NET</h3>
+                        <p class="text-gray-400 text-[8px] font-bold uppercase mt-1">Social Growth</p>
+                    </div>
+                </div><span class="bg-num-dark">07</span>
+            </div>
+
+            <div class="original-dark-leaf p-8 flex-col justify-end group toggle-card box-batch-2">
+                <div class="floating-icon-box"><svg class="w-6 h-6 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" stroke="currentColor" stroke-width="2"/></svg></div>
+                <div class="content-wrapper">
+                    <div class="stat-content">
+                        <svg class="inner-mini-icon" fill="currentColor" viewBox="0 0 20 20"><path d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.429A1 1 0 009 15.571V11a1 1 0 112 0v4.571a1 1 0 00.725.962l5 1.428a1 1 0 001.17-1.408l-7-14z"></path></svg>
+                        <h3 class="text-white text-2xl font-black italic">Global</h3>
+                        <p class="text-[#d9933e] text-[8px] font-bold uppercase mt-1">Satellite</p>
+                    </div>
+                    <div class="partner-content">
+                        <svg class="inner-mini-icon" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM7 9H5v2h2V9zm8 0h-2v2h2V9zM9 9h2v2H9V9z" clip-rule="evenodd"></path></svg>
+                        <h3 class="text-white text-xl font-black italic">ORBIT INC</h3>
+                        <p class="text-gray-400 text-[8px] font-bold uppercase mt-1">Aerospace Dev</p>
+                    </div>
+                </div><span class="bg-num-dark">08</span>
+            </div>
+
+            <div class="original-dark-leaf p-8 flex-col justify-end group toggle-card box-batch-2">
+                <div class="floating-icon-box"><svg class="w-6 h-6 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.628.283a2 2 0 01-1.186.127l-2.431-.486a2 2 0 00-1.638.327l-1.822 1.215a2 2 0 00-.71 2.441l.948 2.37a2 2 0 002.399 1.2l2.316-.579a2 2 0 011.233.023l2.422.605a2 2 0 001.977-.494l1.83-1.83a2 2 0 00.327-2.316l-1.215-1.822z" stroke="currentColor" stroke-width="2"/></svg></div>
+                <div class="content-wrapper">
+                    <div class="stat-content">
+                        <svg class="inner-mini-icon" fill="currentColor" viewBox="0 0 20 20"><path d="M11 3a1 1 0 10-2 0v1a1 1 0 102 0V3zM5.884 6.607a1 1 0 01-.226 1.396l-.868.65a1 1 0 11-1.2-1.6l.868-.65a1 1 0 011.426.204zM18 10a1 1 0 11-2 0 1 1 0 012 0zM14.516 11.232a1 1 0 01-1.396.226l-.65-.868a1 1 0 011.6-1.2l.65.868a1 1 0 01-.204 1.426zM11 13a1 1 0 10-2 0v1a1 1 0 102 0v-1z"></path></svg>
+                        <h3 class="text-white text-2xl font-black italic">Pro</h3>
+                        <p class="text-[#d9933e] text-[8px] font-bold uppercase mt-1">Deep Learning</p>
+                    </div>
+                    <div class="partner-content">
+                        <svg class="inner-mini-icon" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a6 6 0 00-6 6v3.586l-.707.707A1 1 0 004 14h12a1 1 0 00.707-1.707L16 11.586V8a6 6 0 00-6-6zM10 18a3 3 0 01-3-3h6a3 3 0 01-3 3z"></path></svg>
+                        <h3 class="text-white text-xl font-black italic">DATA-MIND</h3>
+                        <p class="text-gray-400 text-[8px] font-bold uppercase mt-1">Cognitive Intel</p>
+                    </div>
+                </div><span class="bg-num-dark">09</span>
+            </div>
+
+            <div class="original-dark-leaf p-8 flex-col justify-end group toggle-card box-batch-2">
+                <div class="floating-icon-box"><svg class="w-6 h-6 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M13 10V3L4 14h7v7l9-11h-7z" stroke="currentColor" stroke-width="2"/></svg></div>
+                <div class="content-wrapper">
+                    <div class="stat-content">
+                        <svg class="inner-mini-icon" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd"></path></svg>
+                        <h3 class="text-white text-2xl font-black italic">Speed</h3>
+                        <p class="text-[#d9933e] text-[8px] font-bold uppercase mt-1">High FPS</p>
+                    </div>
+                    <div class="partner-content">
+                        <svg class="inner-mini-icon" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM6.293 6.707a1 1 0 010-1.414l3-3a1 1 0 011.414 0l3 3a1 1 0 01-1.414 1.414L11 5.414V13a1 1 0 11-2 0V5.414L7.707 6.707a1 1 0 01-1.414 0z" clip-rule="evenodd"></path></svg>
+                        <h3 class="text-white text-xl font-black italic">VELOCITY</h3>
+                        <p class="text-gray-400 text-[8px] font-bold uppercase mt-1">Direct Shipment</p>
+                    </div>
+                </div><span class="bg-num-dark">10</span>
+            </div>
+
+        </div>
+    </div>
+</section>
+<script>
+    // 1. Heading Scroll Animation
+    window.addEventListener('scroll', () => {
+        const scrolled = window.scrollY;
+        document.getElementById('scroll-title').style.transform = `translateX(${scrolled * 0.08}px)`;
+        document.getElementById('scroll-tag').style.transform = `translateX(-${scrolled * 0.04}px)`;
+    });
+
+    // 2. 5-by-5 Sliding Logic (Optimized & Fast)
+    let currentBatch = 1;
+    const batch1 = document.querySelectorAll('.box-batch-1');
+    const batch2 = document.querySelectorAll('.box-batch-2');
+
+    function switchBoxes() {
+        const exitBatch = currentBatch === 1 ? batch1 : batch2;
+        const enterBatch = currentBatch === 1 ? batch2 : batch1;
+
+        // Purane boxes ko tezi se exit karwana
+        exitBatch.forEach(box => {
+            box.classList.add('box-exit');
+            setTimeout(() => {
+                box.classList.remove('box-active', 'box-exit');
+            }, 400); // Fast removal
+        });
+
+        // Naye boxes ko jaldi aur ek saath (simultaneously) lana
+        setTimeout(() => {
+            enterBatch.forEach((box) => {
+                box.classList.add('box-active'); // i * 100 wala delay khatam kar diya
+            });
+            currentBatch = currentBatch === 1 ? 2 : 1;
+        }, 400); // 700ms se kam karke 400ms kar diya
+    }
+
+    // Initial Start (Pehli dafa bhi jaldi load honge)
+    batch1.forEach((box) => {
+        box.classList.add('box-active');
+    });
+
+    // Auto-Switch Batch every 6 seconds
+    setInterval(switchBoxes, 6000);
+
+    // 3. Stats to Partner Name Toggling
+    setInterval(() => {
+        document.querySelectorAll('.toggle-card').forEach(card => {
+            card.classList.toggle('show-partner');
+        });
+    }, 3000);
+</script>
+
+
+
+
+
+
+
+
+
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+<section class="relative py-10 bg-white overflow-hidden font-sans">
+    <div class="absolute top-1/2 right-5 -translate-y-1/12 text-[14rem] text-gray-300 font-black  opacity-[0.4] select-none pointer-events-none tracking-tighter italic leading-none">
+        SPARTA
+    </div>
+
+    <div class="max-w-7xl mx-auto px-6 relative z-10">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
+            
+            <div class="relative">
+                <div class="relative z-10 w-4/5 rounded-[2rem] overflow-hidden shadow-[20px_40px_80px_rgba(0,0,0,0.1)] border border-gray-100" data-aos="fade-right" data-aos-duration="1500">
+                    <img src="Images/k.jfif" alt="Sparta HQ" class="w-full h-[600px] object-cover hover:scale-110 transition-transform duration-1000">
+                </div>
+
+                <div class="absolute top-20 -right-4 z-20 w-1/2 rounded-[1.5rem] overflow-hidden shadow-2xl border-[6px] border-white" data-aos="fade-up" data-aos-delay="500" data-aos-duration="1200">
+                    <img src="Images/8.jfif" alt="Sparta Tech Team" class="w-full h-[300px] object-cover">
+                </div>
+
+                <div class="absolute -bottom-8 left-10 z-30 bg-[#05080d] p-10 rounded-3xl shadow-[0_30px_60px_rgba(0,0,0,0.3)] border-t-4 border-[#d9933e]" data-aos="zoom-in" data-aos-delay="800">
+                    <div class="flex items-center space-x-4">
+                        <span class="text-[#d9933e] text-6xl font-black italic">10+</span>
+                        <div class="h-12 w-[2px] bg-white/20"></div>
+                        <span class="text-white text-xs font-bold uppercase tracking-[0.2em] leading-tight">Years Of<br>Digital Warfare</span>
+                    </div>
+                </div>
+
+                <div class="absolute -top-10 -left-10 w-40 h-40 border-[20px] border-[#d9933e]/5 rounded-full animate-pulse"></div>
+            </div>
+
+            <div class="space-y-12">
+                <div data-aos="fade-left" data-aos-duration="1000">
+                    <div class="flex items-center space-x-4 mb-6">
+                        <span class="w-10 h-[3px] bg-[#d9933e]"></span>
+                        <span class="text-[#d9933e] text-sm font-black uppercase tracking-[0.6em]">Who We Are</span>
+                    </div>
+                    <h2 class="text-6xl md:text-7xl font-black text-[#05080d] uppercase italic leading-[0.85] tracking-tighter">
+                        We Follow <br> <span class="text-[#d9933e] relative">
+                            Standards
+                            <svg class="absolute -bottom-2 left-0 w-full h-4 text-[#d9933e]/40" viewBox="0 0 100 10" preserveAspectRatio="none"><path d="M0 5 Q 25 0 50 5 T 100 5" fill="none" stroke="currentColor" stroke-width="4"/></svg>
+                        </span>
+                    </h2>
+                </div>
+
+                <p class="text-[#05080d] text-2xl font-light leading-relaxed max-w-xl italic" data-aos="fade-up" data-aos-delay="300">
+                    "Sparta Tech Solutions builds the <span class="font-bold border-b-4 border-[#d9933e]">unbreakable infrastructure</span> that modern giants stand upon."
+                </p>
+
+                <div class="grid grid-cols-1 gap-10" data-aos="fade-up" data-aos-delay="500">
+                    <div class="flex group cursor-pointer">
+                        <div class="mr-6 flex-shrink-0 w-12 h-12 flex items-center justify-center border-2 border-[#05080d] rounded-full group-hover:bg-[#05080d] group-hover:text-[#d9933e] transition-all duration-300 font-black italic">
+                            01
+                        </div>
+                        <div class="border-b border-gray-100 pb- w-full group-hover:border-[#d9933e] transition-colors duration-300">
+                            <h4 class="text-[#05080d] text-xl font-black uppercase italic mb-2">Tactical Innovation</h4>
+                            <p class="text-gray-500 text-sm">Deploying aggressive tech strategies for market dominance.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex group cursor-pointer">
+                        <div class="mr-6 flex-shrink-0 w-12 h-12 flex items-center justify-center border-2 border-[#05080d] rounded-full group-hover:bg-[#05080d] group-hover:text-[#d9933e] transition-all duration-300 font-black italic">
+                            02
+                        </div>
+                        <div class="border-b border-gray-100 pb-6 w-full group-hover:border-[#d9933e] transition-colors duration-300">
+                            <h4 class="text-[#05080d] text-xl font-black uppercase italic mb-2">Iron-Clad Integrity</h4>
+                            <p class="text-gray-500 text-sm">Security protocols that exceed military-grade requirements.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pt-4" data-aos="zoom-in-up" data-aos-delay="700">
+                    <a href="#" class="group relative inline-flex items-center justify-start px-12 py-5 overflow-hidden font-black transition-all bg-[#05080d] rounded-none hover:bg-white border-2 border-[#05080d]">
+                        <span class="w-0 h-0 bg-[#d9933e] absolute top-0 left-0 ease-out duration-500 transition-all group-hover:w-full group-hover:h-full -z-1"></span>
+                        <span class="w-full text-white transition-colors duration-300 ease-in-out group-hover:text-black z-10 uppercase italic tracking-widest">Connect With The Elite</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    AOS.init({
+        duration: 1200,
+        once: false,
+        mirror: true,
+        anchorPlacement: 'top-bottom',
+    });
+</script>
+
+<style>
+    /* Custom spacing for the 'Standards' underline */
+    .tracking-tighter { letter-spacing: -0.05em; }
+    
+    /* Smooth Parallax-like effect for images */
+    [data-aos="fade-up"] {
+        transform: translateY(50px);
+        transition-property: transform, opacity;
+    }
+</style>
+
+
+
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;700;800&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="https://unpkg.com/lucide@latest"></script>
+
+<section class="relative py-24 bg-[#ffffff] overflow-hidden" style="font-family: 'Plus Jakarta Sans', sans-serif;">
+    
+    <div class="absolute inset-0 pointer-events-none">
+        <div class="absolute top-[5%] left-[-5%] w-[600px] h-[600px] bg-[#d9933e]/5 rounded-full blur-[130px]"></div>
+        <div class="absolute bottom-[5%] right-[-5%] w-[600px] h-[600px] bg-blue-50/40 rounded-full blur-[130px]"></div>
+    </div>
+
+    <div class="max-w-6xl mx-auto px-6 relative z-10">
+        <div class="flex flex-col items-center mb-28" data-aos="fade-up">
+            <div class="flex items-center space-x-3 mb-6">
+                <span class="w-12 h-[1px] bg-[#d9933e]"></span>
+                <span class="text-[#d9933e] text-[12px] font-extrabold uppercase tracking-[0.7em]">Elite Deployment</span>
+                <span class="w-12 h-[1px] bg-[#d9933e]"></span>
+            </div>
+            <h2 class="text-5xl md:text-7xl font-[900] text-[#05080d] tracking-[-0.05em] text-center leading-[0.9] uppercase italic">
+                The <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#d9933e] to-[#b0742a]">Spartan</span> Method
+            </h2>
+            <p class="mt-6 text-gray-400 text-center max-w-lg font-medium italic">Precision-engineered workflows designed for market dominance and technological superiority.</p>
+        </div>
+
+        <div class="relative">
+            <div class="absolute left-1/2 transform -translate-x-1/2 h-full w-[1px] bg-gray-100 hidden md:block">
+                <div id="scroll-progress" class="absolute top-0 left-[-1.5px] w-[4px] bg-gradient-to-b from-[#d9933e] via-[#f5c285] to-[#d9933e] transition-all duration-500 ease-out shadow-[0_0_25px_rgba(217,147,62,0.4)]" style="height: 0%;">
+                    <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-6 h-6 bg-white border-[6px] border-[#d9933e] rounded-full shadow-2xl z-30 pulse-node"></div>
+                </div>
+            </div>
+
+            <div class="space-y-40">
+                
+                <div class="relative flex flex-col md:flex-row items-center group">
+                    <div class="md:w-1/2 md:pr-24 text-right order-2 md:order-1 relative" data-aos="fade-right">
+                        <span class="absolute -top-16 -right-10 text-[12rem] font-black text-gray-100/60 select-none z-[-1] italic pointer-events-none group-hover:text-[#d9933e]/5 transition-colors duration-700">01</span>
+                        
+                        <div class="inline-block px-4 py-1.5 bg-[#05080d] rounded-md mb-6 transform group-hover:-translate-y-1 transition-transform shadow-lg">
+                             <span class="text-[10px] font-black text-[#d9933e] uppercase tracking-widest">Phase _Forge</span>
+                        </div>
+                        <h3 class="text-3xl md:text-5xl font-[900] text-[#05080d] mb-5 uppercase italic tracking-tighter group-hover:text-[#d9933e] transition-colors">Core Architecture</h3>
+                        <p class="text-gray-500 text-lg leading-relaxed mb-8 font-medium italic">At Sparta Tech, we don't just code; we forge unbreakable digital foundations using high-concurrency systems and proprietary security protocols.</p>
+                        
+                        <div class="flex flex-wrap justify-end gap-4 opacity-50 group-hover:opacity-100 transition-all duration-500">
+                            <div class="flex items-center space-x-2 border-r border-gray-200 pr-4"><i data-lucide="shield-half" class="w-4 h-4 text-[#d9933e]"></i> <span class="text-[11px] font-black uppercase">Military Grade</span></div>
+                            <div class="flex items-center space-x-2"><i data-lucide="zap" class="w-4 h-4 text-[#d9933e]"></i> <span class="text-[11px] font-black uppercase">Ultra-Low Latency</span></div>
+                        </div>
+                    </div>
+
+                    <div class="relative z-20 flex-shrink-0 order-1 md:order-2 mb-12 md:mb-0">
+                        <div class="w-20 h-20 bg-white rounded-3xl border border-gray-100 flex items-center justify-center shadow-2xl group-hover:scale-110 group-hover:rotate-[15deg] transition-all duration-700 group-hover:border-[#d9933e]">
+                            <i data-lucide="cpu" class="w-8 h-8 text-gray-300 group-hover:text-[#d9933e] transition-colors"></i>
+                        </div>
+                    </div>
+
+                    <div class="md:w-1/2 md:pl-24 order-3" data-aos="fade-left">
+                        <div class="relative p-2.5 bg-gray-50 rounded-[3rem] border border-gray-100 overflow-hidden group/img shadow-xl">
+                            <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=600" class="w-full h-64 object-cover rounded-[2.5rem] grayscale group-hover/img:grayscale-0 transition-all duration-1000 scale-105 group-hover/img:scale-100">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="relative flex flex-col md:flex-row items-center group">
+                    <div class="md:w-1/2 md:pr-24 order-3 md:order-1" data-aos="fade-right">
+                        <div class="relative p-2.5 bg-gray-50 rounded-[3rem] border border-gray-100 overflow-hidden group/img shadow-xl">
+                            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=600" class="w-full h-64 object-cover rounded-[2.5rem] grayscale group-hover/img:grayscale-0 transition-all duration-1000 scale-105 group-hover/img:scale-100">
+                        </div>
+                    </div>
+
+                    <div class="relative z-20 flex-shrink-0 order-1 md:order-2 mb-12 md:mb-0">
+                        <div class="w-20 h-20 bg-white rounded-3xl border border-gray-100 flex items-center justify-center shadow-2xl group-hover:scale-110 group-hover:rotate-[-15deg] transition-all duration-700 group-hover:border-[#d9933e]">
+                            <i data-lucide="swords" class="w-8 h-8 text-gray-300 group-hover:text-[#d9933e] transition-colors"></i>
+                        </div>
+                    </div>
+
+                    <div class="md:w-1/2 md:pl-24 text-left order-2 md:order-3 relative" data-aos="fade-left">
+                         <span class="absolute -top-16 -left-10 text-[12rem] font-black text-gray-100/60 select-none z-[-1] italic pointer-events-none group-hover:text-[#d9933e]/5 transition-colors duration-700">02</span>
+                        
+                        <div class="inline-block px-4 py-1.5 bg-[#05080d] rounded-md mb-6 shadow-lg">
+                             <span class="text-[10px] font-black text-[#d9933e] uppercase tracking-widest">Phase _Tactical</span>
+                        </div>
+                        <h3 class="text-3xl md:text-5xl font-[900] text-[#05080d] mb-5 uppercase italic tracking-tighter group-hover:text-[#d9933e] transition-colors">Strategic Growth</h3>
+                        <p class="text-gray-500 text-lg leading-relaxed mb-8 font-medium italic">Our tactical experts deploy aggressive market-capture strategies, ensuring your brand stands as a phalanx against the competition.</p>
+                        
+                        <div class="flex flex-wrap justify-start gap-4 opacity-50 group-hover:opacity-100 transition-all duration-500">
+                            <div class="flex items-center space-x-2 border-r border-gray-200 pr-4"><i data-lucide="bar-chart-big" class="w-4 h-4 text-[#d9933e]"></i> <span class="text-[11px] font-black uppercase">Revenue War-Room</span></div>
+                            <div class="flex items-center space-x-2"><i data-lucide="target" class="w-4 h-4 text-[#d9933e]"></i> <span class="text-[11px] font-black uppercase">Precision Targeting</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="relative flex flex-col md:flex-row items-center group">
+                    <div class="md:w-1/2 md:pr-24 text-right order-2 md:order-1 relative" data-aos="fade-right">
+                         <span class="absolute -top-16 -right-10 text-[12rem] font-black text-gray-100/60 select-none z-[-1] italic pointer-events-none group-hover:text-[#d9933e]/5 transition-colors duration-700">03</span>
+                        
+                        <div class="inline-block px-4 py-1.5 bg-[#05080d] rounded-md mb-6 shadow-lg">
+                             <span class="text-[10px] font-black text-[#d9933e] uppercase tracking-widest">Phase _Apex</span>
+                        </div>
+                        <h3 class="text-3xl md:text-5xl font-[900] text-[#05080d] mb-5 uppercase italic tracking-tighter group-hover:text-[#d9933e] transition-colors">Apex Experience</h3>
+                        <p class="text-gray-500 text-lg leading-relaxed mb-8 font-medium italic">The final strike. We deliver sensory-rich UI/UX interfaces that are as sharp as a Spartan blade and as smooth as liquid gold.</p>
+                        
+                        <div class="flex flex-wrap justify-end gap-4 opacity-50 group-hover:opacity-100 transition-all duration-500">
+                            <div class="flex items-center space-x-2 border-r border-gray-200 pr-4"><i data-lucide="eye" class="w-4 h-4 text-[#d9933e]"></i> <span class="text-[11px] font-black uppercase">Visual Dominance</span></div>
+                            <div class="flex items-center space-x-2"><i data-lucide="fingerprint" class="w-4 h-4 text-[#d9933e]"></i> <span class="text-[11px] font-black uppercase">Unique Identity</span></div>
+                        </div>
+                    </div>
+
+                    <div class="relative z-20 flex-shrink-0 order-1 md:order-2 mb-12 md:mb-0">
+                        <div class="w-20 h-20 bg-white rounded-3xl border border-gray-100 flex items-center justify-center shadow-2xl group-hover:scale-110 group-hover:rotate-[15deg] transition-all duration-700 group-hover:border-[#d9933e]">
+                            <i data-lucide="crown" class="w-8 h-8 text-gray-300 group-hover:text-[#d9933e] transition-colors"></i>
+                        </div>
+                    </div>
+
+                    <div class="md:w-1/2 md:pl-24 order-3" data-aos="fade-left">
+                        <div class="relative p-2.5 bg-gray-50 rounded-[3rem] border border-gray-100 overflow-hidden group/img shadow-xl">
+                            <img src="https://images.unsplash.com/photo-1558655146-d09347e92766?auto=format&fit=crop&q=80&w=600" class="w-full h-64 object-cover rounded-[2.5rem] grayscale group-hover/img:grayscale-0 transition-all duration-1000 scale-105 group-hover/img:scale-100">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    lucide.createIcons();
+    AOS.init({ duration: 1200, once: false, mirror: true });
+
+    window.addEventListener('scroll', () => {
+        const progressLine = document.getElementById('scroll-progress');
+        const section = progressLine.closest('section');
+        const sectionRect = section.getBoundingClientRect();
+        const windowHeight = window.innerHeight;
+        
+        // Smoother scroll interpolation
+        let progress = ((-sectionRect.top + windowHeight/2) / (section.offsetHeight - windowHeight/3)) * 100;
+        progressLine.style.height = Math.max(0, Math.min(100, progress)) + '%';
+
+        // Spartan Node Activation
+        document.querySelectorAll('.relative.z-20 .w-20').forEach(node => {
+            const nodeRect = node.getBoundingClientRect();
+            if(nodeRect.top < windowHeight/1.8) {
+                node.style.borderColor = '#d9933e';
+                node.style.boxShadow = '0 25px 50px -12px rgba(217,147,62,0.25)';
+                node.querySelector('svg').style.color = '#d9933e';
+                node.classList.add('active-spartan');
+            } else {
+                node.style.borderColor = '#f3f4f6';
+                node.style.boxShadow = 'none';
+                node.querySelector('svg').style.color = '#d1d5db';
+                node.classList.remove('active-spartan');
+            }
+        });
+    });
+</script>
+
+<style>
+    /* Premium Spacing & Typography */
+    .tracking-tighter { letter-spacing: -0.06em; }
+    
+    /* Spartan Pulse Animation */
+    .active-spartan {
+        animation: spartan-glow 2.5s infinite;
+    }
+
+    @keyframes spartan-glow {
+        0% { transform: scale(1.1) rotate(5deg); box-shadow: 0 0 0 0 rgba(217, 147, 62, 0.4); }
+        70% { transform: scale(1.1) rotate(5deg); box-shadow: 0 0 0 20px rgba(217, 147, 62, 0); }
+        100% { transform: scale(1.1) rotate(5deg); box-shadow: 0 0 0 0 rgba(217, 147, 62, 0); }
+    }
+
+    /* Glossy Shimmer for Images */
+    .group\/img::after {
+        content: '';
+        position: absolute;
+        top: 0; left: -150%;
+        width: 100%; height: 100%;
+        background: linear-gradient(to right, transparent, rgba(255,255,255,0.4), transparent);
+        transition: 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .group\/img:hover::after {
+        left: 150%;
+    }
+
+    /* Number Overlay Sharpness */
+    span.absolute {
+        text-shadow: 2px 2px 0px rgba(255,255,255,0.8);
+        -webkit-text-stroke: 1px rgba(0,0,0,0.02);
+    }
+</style>
+
+
+
+
+
+
+
+
+<script src="https://unpkg.com/lucide@latest"></script>
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
+    
+    :root {
+        --sparta-gold: #d9933e;
+        --sparta-black: #05080d;
+    }
+
+    .glass-card {
+        background: rgba(255, 255, 255, 0.03);
+        backdrop-filter: blur(15px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+    }
+
+    .glass-card:hover {
+        background: rgba(255, 255, 255, 0.07);
+        border: 1px solid rgba(217, 147, 62, 0.4);
+        transform: translateY(-15px) scale(1.02);
+    }
+
+    /* Floating Balloons (3D Mesh Orbs) */
+    .orb {
+        position: absolute;
+        filter: blur(40px);
+        border-radius: 50%;
+        z-index: 0;
+        opacity: 0.3;
+        transition: all 0.8s ease;
+    }
+
+    /* NEW: Small Micro Balloons Styling */
+    .micro-orb {
+        position: absolute;
+        border-radius: 50%;
+        filter: blur(10px);
+        background: var(--sparta-gold);
+        opacity: 0.4;
+        transition: all 1s ease;
+        z-index: 1;
+    }
+
+    .group:hover .micro-orb {
+        transform: translate(-20px, -20px) scale(1.5);
+        opacity: 0.7;
+    }
+
+    .group:hover .orb {
+        opacity: 0.6;
+        filter: blur(30px);
+    }
+
+    .titan-stroke {
+        -webkit-text-stroke: 2px rgba(0,0,0,0.05);
+        color: transparent;
+    }
+
+    .tracking-tighter-extra { letter-spacing: -0.05em; }
+</style>
+
+<section class="relative py-20 bg-[#ffffff] overflow-hidden font-['Plus_Jakarta_Sans']">
+    
+    <div class="absolute top-0 right-0 w-[800px] h-[800px] bg-[#d9933e]/5 rounded-full blur-[150px] -z-10 animate-pulse"></div>
+    <div class="absolute -bottom-20 -left-20 w-[600px] h-[600px] bg-blue-50 rounded-full blur-[150px] -z-10"></div>
+
+    <div class="max-w-7xl mx-auto px-6 relative z-10">
+        
+        <div class="relative mb-32 flex flex-col md:flex-row justify-between items-end gap-8" data-aos="fade-up">
+            <div class="relative">
+                <span class="text-[9vw] absolute -top-24 left-0 titan-stroke font-black uppercase italic select-none">Services</span>
+                <h2 class="text-7xl md:text-7xl font-black text-var(--sparta-black) leading-[0.8]  italic tracking-tighter-extra">
+                    Choose The Right <br><span class="text-transparent bg-clip-text bg-gradient-to-r from-[#d9933e] to-[#8a5a1f]">Plan For Your Growth</span>
+                </h2>
+            </div>
+            <p class="max-w-sm text-gray-400 font-medium text-sm leading-relaxed border-l-2 border-[#d9933e] pl-6 italic">
+                Destroying market barriers through high-performance digital architecture and psychological warfare.
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-7">
+            
+            <div class="group relative min-h-[450px] glass-card rounded-[10px] p-10 flex flex-col justify-between overflow-hidden" data-aos="zoom-in-up" data-aos-delay="100">
+                <div class="orb w-32 h-32 bg-[#d9933e] -top-10 -right-10"></div>
+                <div class="orb w-20 h-20 bg-blue-400 -bottom-5 -left-5"></div>
+                <div class="micro-orb w-4 h-4 top-20 right-20"></div>
+                <div class="micro-orb w-2 h-2 top-40 left-10" style="background: #60a5fa;"></div>
+                
+                <div class="relative z-10">
+                    <div class="w-16 h-16 bg-[#05080d] rounded-[1.5rem] flex items-center justify-center mb-10 shadow-2xl group-hover:bg-[#d9933e] group-hover:rotate-[15deg] transition-all duration-500">
+                        <i data-lucide="layout-template" class="w-7 h-7 text-white"></i>
+                    </div>
+                    <h3 class="text-3xl font-black text-[#05080d] uppercase italic leading-none mb-4">Web Design Development</h3>
+                    <p class="text-gray-500 text-sm font-semibold leading-relaxed">Customized Responsive User-friendly websites at cost effective rates.</p>
+                </div>
+
+                <div class="relative z-10 flex flex-col gap-6">
+                    <span class="text-7xl font-black text-gray-100/80 italic group-hover:text-[#d9933e]/20 transition-colors">01</span>
+                    <a href="#" class="w-full py-4 px-6 bg-[#05080d] text-white rounded-2xl text-[10px] font-black uppercase tracking-widest text-center group-hover:bg-[#d9933e] transition-all">View Pricing</a>
+                </div>
+            </div>
+
+            <div class="group relative min-h-[450px] glass-card rounded-[10px] p-10 flex flex-col justify-between overflow-hidden" data-aos="zoom-in-up" data-aos-delay="200">
+                <div class="orb w-32 h-32 bg-blue-200 -top-10 -left-10 opacity-20"></div>
+                <div class="orb w-32 h-32 bg-[#d9933e] -bottom-10 -right-10"></div>
+                <div class="micro-orb w-3 h-3 bottom-20 left-10"></div>
+                <div class="micro-orb w-5 h-5 top-10 right-32" style="background: #ffffff; opacity: 0.2;"></div>
+                
+                <div class="relative z-10">
+                    <div class="w-16 h-16 bg-[#05080d] rounded-[1.5rem] flex items-center justify-center mb-10 shadow-2xl group-hover:bg-[#d9933e] group-hover:-rotate-[15deg] transition-all duration-500">
+                        <i data-lucide="target" class="w-7 h-7 text-white"></i>
+                    </div>
+                    <h3 class="text-3xl font-black text-[#05080d] uppercase italic leading-none mb-4">Digital Marketing</h3>
+                    <p class="text-gray-500 text-sm font-semibold leading-relaxed">Marketing packages designed for every stage of success.</p>
+                </div>
+
+                <div class="relative z-10 flex flex-col gap-6">
+                    <span class="text-7xl font-black text-gray-100/80 italic group-hover:text-[#d9933e]/20 transition-colors">02</span>
+                    <a href="#" class="w-full py-4 px-6 bg-[#05080d] text-white rounded-2xl text-[10px] font-black uppercase tracking-widest text-center group-hover:bg-[#d9933e] transition-all">View Pricing</a>
+                </div>
+            </div>
+
+            <div class="group relative min-h-[450px] glass-card rounded-[10px] p-10 flex flex-col justify-between overflow-hidden" data-aos="zoom-in-up" data-aos-delay="300">
+                <div class="orb w-40 h-40 bg-[#d9933e] -top-20 right-0"></div>
+                <div class="micro-orb w-4 h-4 bottom-32 right-10"></div>
+                <div class="micro-orb w-2 h-2 top-20 left-20"></div>
+                
+                <div class="relative z-10">
+                    <div class="w-16 h-16 bg-[#05080d] rounded-[1.5rem] flex items-center justify-center mb-10 shadow-2xl group-hover:bg-[#d9933e] group-hover:rotate-[15deg] transition-all duration-500">
+                        <i data-lucide="scroll-text" class="w-7 h-7 text-white"></i>
+                    </div>
+                    <h3 class="text-3xl font-black text-[#05080d] uppercase italic leading-none mb-4">Content Writing</h3>
+                    <p class="text-gray-500 text-sm font-semibold leading-relaxed">Optimized content guaranteed to drive results</p>
+                </div>
+
+                <div class="relative z-10 flex flex-col gap-6">
+                    <span class="text-7xl font-black text-gray-100/80 italic group-hover:text-[#d9933e]/20 transition-colors">03</span>
+                    <a href="#" class="w-full py-4 px-6 bg-[#05080d] text-white rounded-2xl text-[10px] font-black uppercase tracking-widest text-center group-hover:bg-[#d9933e] transition-all">View Pricing</a>
+                </div>
+            </div>
+
+            <div class="group relative min-h-[450px] bg-[#05080d] rounded-[10px] p-10 flex flex-col justify-between overflow-hidden shadow-[0_50px_100px_-20px_rgba(0,0,0,0.4)] transition-all duration-700 hover:scale-[1.05]" data-aos="zoom-in-up" data-aos-delay="400">
+                <div class="orb w-48 h-48 bg-[#d9933e]/40 -right-10 -top-10 blur-[60px]"></div>
+                <div class="orb w-32 h-32 bg-blue-500/20 -left-10 -bottom-10 blur-[50px]"></div>
+                <div class="micro-orb w-3 h-3 top-20 left-20" style="background: white;"></div>
+                <div class="micro-orb w-5 h-5 bottom-40 right-20" style="background: var(--sparta-gold);"></div>
+                
+                <div class="relative z-10">
+                    <div class="w-16 h-16 bg-[#d9933e] rounded-[1.5rem] flex items-center justify-center mb-10 shadow-[0_0_50px_rgba(217,147,62,0.4)]">
+                        <i data-lucide="component" class="w-7 h-7 text-[#05080d]"></i>
+                    </div>
+                    <h3 class="text-3xl font-black text-white uppercase italic leading-none mb-4">Graphic Design</h3>
+                    <p class="text-gray-400 text-sm font-semibold leading-relaxed italic">Affordable design solutions to make your brand stand out.</p>
+                </div>
+
+                <div class="relative z-10 flex flex-col gap-6">
+                    <span class="text-7xl font-black text-white/5 italic">04</span>
+                    <a href="#" class="w-full py-5 px-6 bg-[#d9933e] text-[#05080d] rounded-2xl text-[10px] font-black uppercase tracking-[0.2em] text-center hover:bg-white transition-all">View Pricing</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<script>
+    lucide.createIcons();
+    AOS.init({ duration: 1200, once: false });
+</script>
+
+
+
+</body>
+</html>
