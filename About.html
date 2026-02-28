@@ -1,0 +1,1124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us | Sparta Tech - Innovation with Edge</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap');
+    
+    :root {
+      --navy: #1e2a5a;
+      --orange: #f8b172;
+    }
+
+    * { font-family: 'Plus Jakarta Sans', sans-serif; scroll-behavior: smooth; }
+    body { background-color: #fcfdfe; overflow-x: hidden; }
+
+    /* Custom Animations */
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes scaleIn {
+      from { transform: scale(0.9); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+
+    .animate-fade-up { animation: fadeInUp 0.8s ease-out forwards; }
+    .delay-1 { animation-delay: 0.2s; }
+    .delay-2 { animation-delay: 0.4s; }
+
+    /* Hero Video Overlay Styling */
+    .hero-gradient {
+      background: linear-gradient(to bottom, rgba(30, 42, 90, 0.8), rgba(30, 42, 90, 0.4));
+    }
+
+    /* Glassmorphism */
+    .glass-card {
+      background: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(248, 177, 114, 0.2);
+    }
+
+    /* Shimmer Effect for Values */
+    .value-card {
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+    .value-card:hover {
+      transform: translateY(-12px);
+      border-color: var(--orange);
+      box-shadow: 0 20px 40px rgba(30, 42, 90, 0.1);
+    }
+
+    /* Infinite Marquee */
+    @keyframes marquee {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    .animate-marquee {
+      display: flex;
+      width: max-content;
+      animation: marquee 25s linear infinite;
+    }
+  </style>
+</head>
+<body class="text-gray-800">
+
+  
+  <!-- ********** NAVBAR (navy/khaki theme) ********** -->
+ <style>
+  /* Ghoomti hui border line ka animation */
+  @keyframes rotateBorder {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+
+  .animated-border-box {
+    position: relative;
+    padding: 2px; /* Border ki thickness */
+    overflow: hidden;
+    border-radius: 12px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .animated-border-box::before {
+    content: '';
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    background: conic-gradient(transparent, #E89D4B, transparent, #E89D4B);
+    animation: rotateBorder 3s linear infinite;
+  }
+
+  .inner-button {
+    position: relative;
+    background: #1e2a4a;
+    color: white;
+    padding: 10px 24px;
+    border-radius: 10px;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 11px;
+    font-weight: 900;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    transition: 0.3s;
+  }
+  
+  .inner-button:hover {
+    background: #25335d;
+  }
+
+  .nav-link {
+    position: relative;
+    transition: all 0.3s ease;
+  }
+
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #E89D4B;
+    transition: width 0.3s ease;
+  }
+
+  .nav-link:hover::after {
+    width: 100%;
+  }
+</style>
+
+<header class="fixed top-0 left-0 right-0 z-[100] w-full bg-[#0f172a]/95 backdrop-blur-md " id="navbar">
+    <div class="mx-auto max-w-full transition-all duration-500 ease-in-out px-6 md:px-12 py-3 flex items-center justify-between">
+      
+      <div class="flex items-center gap-3 group cursor-pointer">
+        <div class="relative h-10 w-10 flex items-center justify-center overflow-hidden rounded-lg border border-[#E89D4B]/30 shadow-sm">
+          <div class="h-full w-full bg-[#E89D4B] flex items-center justify-center transition-transform duration-500 group-hover:scale-110">
+              <i class="fas fa-shield-halved text-[#1e2a4a] text-xl"></i>
+          </div>
+        </div>
+        <div class="flex flex-col leading-none">
+            <span class="text-lg font-black tracking-tighter text-white">SPARTA <span class="text-[#E89D4B]">TECH</span></span>
+            <span class="text-[8px] tracking-[0.4em] text-[#E89D4B]/80 font-bold uppercase">Engineering Center</span>
+        </div>
+      </div>
+
+      <nav class="hidden md:flex items-center gap-8">
+        <a href="#" class="nav-link text-[11px] font-bold text-white uppercase tracking-[0.2em] hover:text-[#E89D4B]">Home</a>
+        <a href="#" class="nav-link text-[11px] font-bold text-white uppercase tracking-[0.2em] hover:text-[#E89D4B]">About Us</a>
+        <a href="#" class="nav-link text-[11px] font-bold text-white uppercase tracking-[0.2em] hover:text-[#E89D4B]">Services</a>
+        <a href="#" class="nav-link text-[11px] font-bold text-white uppercase tracking-[0.2em] hover:text-[#E89D4B]">Pricing</a>
+        <a href="#" class="nav-link text-[11px] font-bold text-white uppercase tracking-[0.2em] hover:text-[#E89D4B]">Contact Us</a>
+      </nav>
+
+      <div class="flex items-center">
+        <div class="animated-border-box">
+            <button class="inner-button">
+                <i class="fas fa-calendar-check text-[#E89D4B]"></i>
+                <span>Book Meeting</span>
+            </button>
+        </div>
+      </div>
+
+    </div>
+</header>
+
+<div class="pt-16"></div>
+
+
+
+  <style>
+/* ===== HERO SECTION ===== */
+.hero-section {
+  position: relative;
+  height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+.hero-section video {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom right, rgba(30,42,90,0.8), rgba(0,0,0,0.6));
+}
+
+.hero-content {
+  position: relative;
+  z-index: 10;
+  text-align: center;
+  padding: 0 20px;
+  color: white;
+}
+
+.hero-content h1 {
+  font-size: 3rem;
+  font-weight: 900;
+  margin-bottom: 20px;
+  line-height: 1.2;
+}
+
+@media (min-width: 768px) {
+  .hero-content h1 {
+    font-size: 4.5rem;
+  }
+}
+
+.hero-content p {
+  font-size: 1.2rem;
+  color: #e5e7eb;
+  max-width: 700px;
+  margin: 0 auto 30px;
+}
+
+.hero-btn {
+  background: #f8b172;
+  color: #1e2a5a;
+  padding: 14px 35px;
+  border-radius: 50px;
+  font-weight: bold;
+  font-size: 18px;
+  text-decoration: none;
+  display: inline-block;
+  transition: 0.3s ease;
+}
+
+.hero-btn:hover {
+  background: white;
+  transform: scale(1.05);
+}
+
+/* ===== ANIMATIONS ===== */
+.animate-left,
+.animate-right,
+.animate-up,
+.animate-zoom {
+  opacity: 0;
+  transition: all 1s ease;
+}
+
+.animate-left {
+  transform: translateX(-100px);
+}
+
+.animate-right {
+  transform: translateX(100px);
+}
+
+.animate-up {
+  transform: translateY(60px);
+}
+
+.animate-zoom {
+  transform: scale(0.7);
+}
+
+.show {
+  opacity: 1;
+  transform: translateX(0) translateY(0) scale(1);
+}
+</style>
+
+<section class="hero-section">
+  <video autoplay muted loop playsinline>
+    <source src="Images/about.mp4" type="video/mp4">
+  </video>
+
+  <div class="hero-overlay"></div>
+
+ <!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+.hero-content h1 {
+  font-family: 'Cinzel', serif;
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  text-shadow: 0 10px 30px rgba(0,0,0,0.4);
+}
+
+.hero-content h1 span {
+  background: linear-gradient(135deg, #f8b172, #ffcc8a);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero-content p {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 400;
+  font-size: 1.15rem;
+  letter-spacing: 0.5px;
+  color: #e5e7eb;
+  max-width: 700px;
+  margin: 20px auto 40px;
+  line-height: 1.7;
+}
+
+/* Premium Button */
+.hero-btn {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  padding: 16px 40px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #f8b172, #ffcc8a);
+  color: #1e2a5a;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s ease;
+  box-shadow: 0 15px 40px rgba(248,177,114,0.4);
+}
+
+.hero-btn:hover {
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 25px 60px rgba(248,177,114,0.6);
+}
+
+/* Subtle Shine Effect */
+.hero-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(120deg, transparent, rgba(255,255,255,0.6), transparent);
+  transition: 0.6s;
+}
+
+.hero-btn:hover::before {
+  left: 100%;
+}
+</style>
+
+<div class="hero-content">
+  <h1>
+    <div class="animate-left text-5xl md:text-7xl">
+      Building the <span class="italic">Future</span>
+    </div>
+    <div class="animate-right text-5xl md:text-7xl">
+      With Spartan Discipline
+    </div>
+  </h1>
+
+  <p class="animate-up">
+    Hum sirf code nahi likhte, hum digital empire khara karte hain.
+    Modern engineering meets timeless dedication.
+  </p>
+
+  <a href="#our-values" class="hero-btn animate-zoom">
+    Explore Our Story
+  </a>
+</div>
+</section>
+<script>
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("show");
+    } else {
+      entry.target.classList.remove("show"); // reset so animation repeats
+    }
+  });
+}, { threshold: 0.3 });
+
+document.querySelectorAll(".animate-left, .animate-right, .animate-up, .animate-zoom")
+  .forEach(el => observer.observe(el));
+</script>
+
+
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+<section class="relative -mt-20 z-20 max-w-7xl mx-auto px-4 overflow-visible">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        
+        <div class="premium-card group">
+            <div class="card-glow"></div>
+            <div class="card-inner overflow-hidden relative bg-white/80 backdrop-blur-xl border border-white/20 px-8 py-5 rounded-[1.5rem] shadow-[0_20px_50px_rgba(0,0,0,0.1)] transition-all duration-500 group-hover:-translate-y-4">
+                
+                <div class="bubbles-wrap">
+                    <span class="b-drop"></span><span class="b-drop"></span><span class="b-drop"></span>
+                </div>
+
+                <div class="relative z-10 text-center">
+                    <div class="icon-box mx-auto mb-3 w-16 h-16 bg-white/80 rounded-3xl flex items-center justify-center grayscale group-hover:grayscale-0 group-hover:rotate-[360deg] transition-all duration-700 shadow-inner">
+                        <img src="https://cdn-icons-png.flaticon.com/512/1055/1055666.png" alt="Projects" class="w-9 h-9 object-contain">
+                    </div>
+                    <h3 class="stats-number text-4xl font-black text-[#0f172a] mb-2">
+                        <span class="counter" data-target="150">0</span><span class="text-[#E89D4B]">+</span>
+                    </h3>
+                    <div class="h-1 w-12 bg-[#0f172a] mx-auto mb-3 rounded-full group-hover:w-24 transition-all duration-500"></div>
+                    <p class="stats-label text-[10px] text-gray-400 uppercase font-black tracking-[0.3em]">Digital Projects</p>
+                </div>
+                
+                <div class="absolute bottom-0 left-0 w-full h-2 bg-gradient-to-r from-[#0f172a] to-[#1e293b]"></div>
+            </div>
+        </div>
+
+        <div class="premium-card group">
+            <div class="card-glow orange"></div>
+            <div class="card-inner overflow-hidden relative bg-white/80 backdrop-blur-xl border border-white/20 px-8 py-5 rounded-[1.5rem] shadow-[0_20px_50px_rgba(0,0,0,0.1)] transition-all duration-500 group-hover:-translate-y-4">
+                
+                <div class="bubbles-wrap">
+                    <span class="b-drop orange"></span><span class="b-drop orange"></span><span class="b-drop orange"></span>
+                </div>
+
+                <div class="relative z-10 text-center">
+                    <div class="icon-box mx-auto mb-3 w-16 h-16 bg-orange-50 rounded-3xl flex items-center justify-center grayscale group-hover:grayscale-0 group-hover:rotate-[360deg] transition-all duration-700 shadow-inner">
+                        <img src="https://cdn-icons-png.flaticon.com/512/1534/1534938.png" alt="Clients" class="w-10 h-10 object-contain">
+                    </div>
+                    <h3 class="stats-number text-4xl font-black text-[#0f172a] mb-2">
+                        <span class="counter" data-target="50">0</span><span class="text-[#E89D4B]">+</span>
+                    </h3>
+                    <div class="h-1 w-12 bg-[#E89D4B] mx-auto mb-3 rounded-full group-hover:w-24 transition-all duration-500"></div>
+                    <p class="stats-label text-[10px] text-gray-400 uppercase font-black tracking-[0.3em]">Global Clients</p>
+                </div>
+                <div class="absolute bottom-0 left-0 w-full h-2 bg-gradient-to-r from-[#E89D4B] to-[#f8b172]"></div>
+            </div>
+        </div>
+
+        <div class="premium-card group">
+            <div class="card-glow"></div>
+            <div class="card-inner overflow-hidden relative bg-white/80 backdrop-blur-xl border border-white/20 px-8 py-5 rounded-[1.5rem] shadow-[0_20px_50px_rgba(0,0,0,0.1)] transition-all duration-500 group-hover:-translate-y-4">
+                
+                <div class="bubbles-wrap">
+                    <span class="b-drop"></span><span class="b-drop"></span><span class="b-drop"></span>
+                </div>
+
+                <div class="relative z-10 text-center">
+                    <div class="icon-box mx-auto mb-4 w-16 h-16 bg-slate-100 rounded-3xl flex items-center justify-center grayscale group-hover:grayscale-0 group-hover:rotate-[360deg] transition-all duration-700 shadow-inner">
+                        <img src="https://cdn-icons-png.flaticon.com/512/1904/1904423.png" alt="Awards" class="w-10 h-10 object-contain">
+                    </div>
+                    <h3 class="stats-number text-4xl font-black text-[#0f172a] mb-2">
+                        <span class="counter" data-target="10">0</span><span class="text-[#E89D4B]">+</span>
+                    </h3>
+                    <div class="h-1 w-12 bg-[#0f172a] mx-auto mb-3 rounded-full group-hover:w-24 transition-all duration-500"></div>
+                    <p class="stats-label text-[10px] text-gray-400 uppercase font-black tracking-[0.3em]">Awards Won</p>
+                </div>
+                <div class="absolute bottom-0 left-0 w-full h-2 bg-gradient-to-r from-[#0f172a] to-[#1e293b]"></div>
+            </div>
+        </div>
+
+        <div class="premium-card group">
+            <div class="card-glow orange"></div>
+            <div class="card-inner overflow-hidden relative bg-white/80 backdrop-blur-xl border border-white/20 px-8 py-5 rounded-[1.5rem] shadow-[0_20px_50px_rgba(0,0,0,0.1)] transition-all duration-500 group-hover:-translate-y-4">
+                
+                <div class="bubbles-wrap">
+                    <span class="b-drop orange"></span><span class="b-drop orange"></span><span class="b-drop orange"></span>
+                </div>
+
+                <div class="relative z-10 text-center">
+                    <div class="icon-box mx-auto mb-4 w-16 h-16 bg-orange-50 rounded-3xl flex items-center justify-center grayscale group-hover:grayscale-0 group-hover:rotate-[360deg] transition-all duration-700 shadow-inner">
+                        <img src="https://cdn-icons-png.flaticon.com/512/561/561127.png" alt="Support" class="w-10 h-10 object-contain">
+                    </div>
+                    <h3 class="stats-number text-4xl font-black text-[#0f172a] mb-2">24/7</h3>
+                    <div class="h-1 w-12 bg-[#E89D4B] mx-auto mb-3 rounded-full group-hover:w-24 transition-all duration-500"></div>
+                    <p class="stats-label text-[10px] text-gray-400 uppercase font-black tracking-[0.3em]">Active Support</p>
+                </div>
+                <div class="absolute bottom-0 left-0 w-full h-2 bg-gradient-to-r from-[#E89D4B] to-[#f8b172]"></div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<style>
+    /* Premium Typography */
+    .stats-number { font-family: 'Montserrat', sans-serif; }
+    .stats-label { font-family: 'Poppins', sans-serif; }
+
+    /* Card Glow Effect */
+    .premium-card { position: relative; }
+    .card-glow {
+        position: absolute;
+        top: 50%; left: 50%;
+        width: 100%; height: 100%;
+        background: rgba(15, 23, 42, 0.2);
+        filter: blur(50px);
+        transform: translate(-50%, -50%);
+        opacity: 0;
+        transition: opacity 0.5s;
+        z-index: -1;
+    }
+    .card-glow.orange { background: rgba(232, 157, 75, 0.2); }
+    .group:hover .card-glow { opacity: 1; }
+
+    /* Enhanced Realistic Bubbles */
+    .bubbles-wrap {
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+    }
+    .b-drop {
+        position: absolute;
+        bottom: -20px;
+        background: radial-gradient(circle at 30% 30%, rgba(15, 23, 42, 0.4), rgba(15, 23, 42, 0.1));
+        border-radius: 50%;
+        box-shadow: inset -2px -2px 5px rgba(255,255,255,0.2);
+        animation: rise 4s infinite ease-in;
+    }
+    .b-drop.orange {
+        background: radial-gradient(circle at 30% 30%, rgba(232, 157, 75, 0.5), rgba(232, 157, 75, 0.1));
+    }
+
+    .b-drop:nth-child(1) { left: 10%; width: 40px; height: 40px; animation-delay: 0s; }
+    .b-drop:nth-child(2) { left: 60%; width: 25px; height: 25px; animation-delay: 1.5s; }
+    .b-drop:nth-child(3) { left: 85%; width: 35px; height: 35px; animation-delay: 3s; }
+
+    @keyframes rise {
+        0% { transform: translateY(0) scale(0.5); opacity: 0; }
+        50% { opacity: 0.6; }
+        100% { transform: translateY(-250px) scale(1.5); opacity: 0; }
+    }
+
+    /* Icon Rotation & Inner Shadow */
+    .icon-box { box-shadow: inset 5px 5px 10px rgba(0,0,0,0.05), inset -5px -5px 10px rgba(255,255,255,0.8); }
+</style>
+
+<script>
+    // Counter logic with intersection observer for performance
+    const observerOptions = { threshold: 0.5 };
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const counter = entry.target;
+                const target = +counter.getAttribute('data-target');
+                let count = 0;
+                const update = () => {
+                    const speed = target / 50;
+                    if (count < target) {
+                        count += speed;
+                        counter.innerText = Math.ceil(count);
+                        setTimeout(update, 30);
+                    } else { counter.innerText = target; }
+                };
+                update();
+                observer.unobserve(counter);
+            }
+        });
+    }, observerOptions);
+
+    document.querySelectorAll('.counter').forEach(c => observer.observe(c));
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<style>
+    /* Premium Compact Styling */
+    .stat-card {
+        min-height: 180px; 
+        background: #ffffff;
+    }
+
+    /* Bubbles made clearer and darker */
+    .bubbles-container {
+        position: absolute;
+        inset: 0;
+        overflow: hidden;
+        pointer-events: none;
+    }
+
+    .bubble {
+        position: absolute;
+        bottom: -30px;
+        /* Darker Blue Bubbles */
+        background: rgba(15, 23, 42, 0.2); 
+        border: 1px solid rgba(15, 23, 42, 0.1);
+        border-radius: 50%;
+        animation: floatUp 5s infinite ease-in;
+    }
+
+    .bubble.color-2 { 
+        /* Darker Orange Bubbles */
+        background: rgba(232, 157, 75, 0.3); 
+        border: 1px solid rgba(232, 157, 75, 0.2);
+    }
+
+    /* Individual Bubble Settings for varied flow */
+    .bubble:nth-child(1) { left: 15%; width: 25px; height: 25px; animation-duration: 4s; }
+    .bubble:nth-child(2) { left: 45%; width: 15px; height: 15px; animation-duration: 6s; animation-delay: 1s; }
+    .bubble:nth-child(3) { left: 75%; width: 20px; height: 20px; animation-duration: 5s; animation-delay: 2s; }
+    .bubble:nth-child(4) { left: 30%; width: 10px; height: 10px; animation-duration: 7s; animation-delay: 0.5s; }
+
+    @keyframes floatUp {
+        0% { transform: translateY(0) scale(1); opacity: 0; }
+        30% { opacity: 0.8; } /* Bubbles stay visible longer */
+        100% { transform: translateY(-220px) scale(1.3); opacity: 0; }
+    }
+
+    /* Grayscale to Color transition classes */
+    .grayscale { 
+        filter: grayscale(100%); 
+    }
+    .group:hover .grayscale { 
+        filter: grayscale(0%); 
+    }
+</style>
+
+<script>
+    function runCounters() {
+        const counters = document.querySelectorAll('.counter');
+        counters.forEach(counter => {
+            const target = +counter.getAttribute('data-target');
+            let count = 0;
+            const increment = target / 30; // Speed control
+            const updateCount = () => {
+                if (count < target) {
+                    count += increment;
+                    counter.innerText = Math.ceil(count);
+                    setTimeout(updateCount, 50); // Frame rate
+                } else {
+                    counter.innerText = target;
+                }
+            };
+            updateCount();
+        });
+    }
+    // Runs when everything is loaded
+    window.addEventListener('load', runCounters);
+</script>
+
+
+
+
+
+ <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;500;800&family=Playfair+Display:ital,wght@1,900&display=swap" rel="stylesheet">
+
+<section class="liquid-mission py-24 relative bg-white overflow-hidden">
+    <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-[#f8b172]/10 blur-[120px] rounded-full -mr-40 -mt-40 animate-pulse"></div>
+    <div class="absolute bottom-0 left-0 w-[400px] h-[400px] bg-[#1e2a5a]/5 blur-[100px] rounded-full -ml-20 -mb-20"></div>
+
+    <div class="max-w-7xl mx-auto px-6 relative z-10">
+        <div class="grid lg:grid-cols-2 gap-16 items-center">
+            
+            <div class="order-2 lg:order-1">
+                <div class="flex items-center gap-3 mb-6">
+                    <span class="w-12 h-[1px] bg-[#1e2a5a]"></span>
+                    <span class="text-sm font-bold tracking-[0.3em] uppercase text-[#1e2a5a]/60">Our Identity</span>
+                </div>
+
+                <h2 class="text-5xl md:text-7xl font-extrabold text-[#1e2a5a] leading-[0.9] mb-8 main-heading">
+                    Beyond <br>
+                    <span class="italic-serif text-[#f8b172]">Redefining</span> <br>
+                    Standards.
+                </h2>
+
+                <p class="text-xl text-gray-500 font-light leading-relaxed mb-10 max-w-lg">
+                    We don't just build software; we craft <span class="font-semibold text-[#1e2a5a]">digital legacies</span>. Sparta Tech blends the precision of modern code with the raw power of creative vision.
+                </p>
+
+                <div class="flex flex-wrap gap-4 mb-12">
+                    <div class="glass-tag">
+                        <i class="fas fa-bolt text-[#f8b172] mr-2"></i> Agile
+                    </div>
+                    <div class="glass-tag">
+                        <i class="fas fa-brain text-[#1e2a5a] mr-2"></i> AI Driven
+                    </div>
+                    <div class="glass-tag">
+                        <i class="fas fa-shield-alt text-[#f8b172] mr-2"></i> Robust
+                    </div>
+                </div>
+
+                <a href="#" class="liquid-btn group">
+                    <span>Explore Our DNA</span>
+                    <div class="btn-icon">
+                        <i class="fas fa-chevron-right group-hover:translate-x-1 transition-transform"></i>
+                    </div>
+                </a>
+            </div>
+
+            <div class="order-1 lg:order-2 relative">
+                <div class="relative w-full aspect-square max-w-[500px] mx-auto">
+                    <div class="blob-shape overflow-hidden shadow-[0_30px_60px_rgba(0,0,0,0.1)]">
+                        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=2070&auto=format&fit=crop" 
+                             class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-[2s]" alt="Office">
+                    </div>
+
+                    <div class="absolute -top-10 -right-10 glass-card animate-float">
+                        <div class="text-4xl font-black text-[#1e2a5a]">10<span class="text-[#f8b172]">+</span></div>
+                        <div class="text-[10px] uppercase font-bold tracking-widest text-gray-400">Years Mastery</div>
+                    </div>
+
+                    <div class="absolute -bottom-8 -left-8 glass-card p-6 max-w-[200px] animate-float-delayed">
+                        <p class="text-sm font-medium text-[#1e2a5a] leading-tight italic">"Strength is found in precision, not just power."</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<style>
+    .liquid-mission { font-family: 'Plus Jakarta Sans', sans-serif; }
+    .main-heading { font-family: 'Plus Jakarta Sans', sans-serif; letter-spacing: -2px; }
+    .italic-serif { font-family: 'Playfair Display', serif; }
+
+    /* The Organic Blob Shape */
+    .blob-shape {
+        width: 100%;
+        height: 100%;
+        background: #f8b172;
+        border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+        animation: blob-morph 8s linear infinite;
+    }
+
+    @keyframes blob-morph {
+        0%, 100% { border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%; }
+        34% { border-radius: 70% 30% 50% 50% / 30% 30% 70% 70%; }
+        67% { border-radius: 100% 60% 60% 100% / 100% 100% 60% 60%; }
+    }
+
+    /* Glass Tags */
+    .glass-tag {
+        padding: 10px 20px;
+        background: rgba(255, 255, 255, 0.5);
+        border: 1px solid rgba(0,0,0,0.05);
+        backdrop-filter: blur(10px);
+        border-radius: 100px;
+        font-size: 12px;
+        font-weight: 700;
+        color: #1e2a5a;
+        transition: all 0.3s;
+    }
+    .glass-tag:hover { background: #1e2a5a; color: white; transform: translateY(-3px); }
+
+    /* Glass Cards */
+    .glass-card {
+        background: rgba(255, 255, 255, 0.8);
+        backdrop-filter: blur(20px);
+        border: 1px solid white;
+        padding: 20px;
+        border-radius: 24px;
+        shadow: 0 20px 40px rgba(0,0,0,0.05);
+    }
+
+    /* Floating Animations */
+    @keyframes float {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-20px); }
+    }
+    .animate-float { animation: float 5s infinite ease-in-out; }
+    .animate-float-delayed { animation: float 6s infinite ease-in-out; animation-delay: 1s; }
+
+    /* Premium Button */
+    .liquid-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 20px;
+        background: #1e2a5a;
+        color: white;
+        padding: 10px 10px 10px 30px;
+        border-radius: 100px;
+        font-weight: 800;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        font-size: 12px;
+        transition: all 0.4s;
+    }
+    .btn-icon {
+        width: 40px;
+        height: 40px;
+        background: #f8b172;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #1e2a5a;
+    }
+    .liquid-btn:hover {
+        background: #f8b172;
+        color: #1e2a5a;
+        transform: scale(1.05);
+    }
+    .liquid-btn:hover .btn-icon { background: #1e2a5a; color: white; }
+</style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;600;900&family=Plus+Jakarta+Sans:wght@400;700&family=Playfair+Display:italic,wght@700&display=swap" rel="stylesheet">
+
+<section class="sparta-epic-vision py-32 bg-[#fafbfc] relative overflow-hidden">
+    
+    <div class="absolute top-0 left-0 w-full h-full opacity-20 pointer-events-none">
+        <svg width="100%" height="100%"><pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1" fill="#1e2a5a"/></pattern><rect width="100%" height="100%" fill="url(#grid)" /></svg>
+    </div>
+
+    <div class="max-w-7xl mx-auto px-6 relative z-10">
+        <div class="grid lg:grid-cols-2 gap-24 items-center">
+            
+            <div class="relative group flex justify-center">
+                
+                <div class="absolute inset-0 scale-125 opacity-40 animate-spin-slow pointer-events-none">
+                    <div class="w-full h-full border-[1.5px] border-dashed border-[#E89D4B] rounded-full"></div>
+                </div>
+
+                <div class="absolute -top-6 -left-6 w-full h-full border-[2px] border-[#1e2a5a]/5 rounded-[80px_20px_80px_20px] group-hover:-translate-x-4 transition-all duration-1000"></div>
+
+                <div class="relative z-10 w-[85%] aspect-square shadow-[0_60px_100px_-20px_rgba(30,42,90,0.3)] overflow-hidden" 
+                     style="border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;">
+                    
+                    <div class="image-slider h-full w-full relative">
+                        <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2070" class="slider-img active" alt="Tech 1">
+                        <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=2070" class="slider-img" alt="Tech 2">
+                        <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80&w=2070" class="slider-img" alt="Tech 3">
+                    </div>
+                    
+                    <div class="absolute inset-0 bg-gradient-to-tr from-[#1e2a5a]/60 via-transparent to-transparent pointer-events-none"></div>
+                </div>
+
+                <div class="absolute -top-12 -left-12 z-30 glass-note-heavy animate-float">
+                    <div class="flex items-center gap-4">
+                        <div class="relative">
+                            <svg class="w-14 h-14 rotate-[-90deg]">
+                                <circle cx="28" cy="28" r="24" stroke="#f1f5f9" stroke-width="4" fill="transparent" />
+                                <circle cx="28" cy="28" r="24" stroke="#E89D4B" stroke-width="4" fill="transparent" stroke-dasharray="150.8" stroke-dashoffset="30" />
+                            </svg>
+                            <i class="fas fa-chart-line absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[#1e2a5a]"></i>
+                        </div>
+                        <div>
+                            <span class="text-[9px] font-black uppercase tracking-[0.2em] text-slate-400">Live Traffic</span>
+                            <div class="text-xl font-black text-[#1e2a5a]">84.2k <span class="text-green-500 text-xs"><i class="fas fa-caret-up"></i></span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="absolute top-1/4 -right-16 z-30 glass-note-heavy animate-float-delayed">
+                    <div class="flex flex-col gap-3">
+                        <div class="flex items-center justify-between">
+                            <i class="fas fa-fingerprint text-[#E89D4B] text-xl"></i>
+                            <span class="w-2 h-2 rounded-full bg-red-500 animate-ping"></span>
+                        </div>
+                        <div class="text-[10px] font-bold text-[#1e2a5a] tracking-tight">Deep Security Scan</div>
+                        <div class="flex gap-1">
+                            <div class="h-1 w-4 bg-[#1e2a5a] rounded-full"></div>
+                            <div class="h-1 w-4 bg-[#1e2a5a] rounded-full"></div>
+                            <div class="h-1 w-4 bg-[#E89D4B] rounded-full"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="absolute bottom-4 -left-16 z-30 glass-note-heavy animate-float-delayed bg-white/95">
+                    <div class="flex items-center gap-3">
+                        <div class="p-3 bg-blue-50 rounded-2xl">
+                            <i class="fas fa-project-diagram text-[#1e2a5a]"></i>
+                        </div>
+                        <div>
+                            <div class="text-lg font-black text-[#1e2a5a] leading-none">Global</div>
+                            <div class="text-[8px] font-bold text-slate-400 uppercase tracking-widest mt-1">Infrastructure</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="relative">
+                <div class="absolute -top-24 -left-10 text-[10rem] font-black text-slate-100/80 select-none z-0 outfit-font italic">ARCH.</div>
+
+                <div class="relative z-10">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="flex -space-x-2">
+                            <div class="w-6 h-6 rounded-full bg-[#1e2a5a] border-2 border-white"></div>
+                            <div class="w-6 h-6 rounded-full bg-[#E89D4B] border-2 border-white"></div>
+                        </div>
+                        <span class="text-[#1e2a5a] font-black tracking-[0.4em] uppercase text-[10px]">Sparta Intelligence Unit</span>
+                    </div>
+
+                    <h2 class="mb-8">
+                        <span class="block text-4xl md:text-4xl font-light text-slate-400 jakarta-font italic">Mastering the</span>
+                        <span class="block text-7xl md:text-9xl font-black text-[#1e2a5a] outfit-font leading-[0.8] mt-2">
+                            Digital <br>
+                            <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#E89D4B] via-[#f5b36a] to-[#E89D4B] relative">
+                                Throne.
+                                <svg class="absolute -bottom-4 left-0 w-full" height="15" viewBox="0 0 200 15" fill="none"><path d="M2 12.5C40 3.5 160 3.5 198 12.5" stroke="#E89D4B" stroke-width="4" stroke-linecap="round" stroke-dasharray="10 5"/></svg>
+                            </span>
+                        </span>
+                    </h2>
+
+                    <p class="text-xl text-slate-500 playfair-font leading-relaxed max-w-lg mb-5">
+                      Our technology is not just algorithms, it is a <span class="text-[#1e2a5a] font-bold underline decoration-[#E89D4B] decoration-4">Legacy</span>. We craft digital experiences that breathe, evolve, and dominate.
+                    </p>
+
+                   
+
+                    <div class="flex items-center justify-between pt-5 border-t border-slate-200">
+                        <div class="flex gap-10">
+                            <div class="relative">
+                                <div class="text-4xl font-black text-[#1e2a5a] outfit-font leading-none">98<span class="text-[#E89D4B] text-xl">%</span></div>
+                                <div class="text-[9px] font-bold uppercase tracking-[0.2em] text-slate-400 mt-2">Retention</div>
+                            </div>
+                            <div class="relative">
+                                <div class="text-4xl font-black text-[#1e2a5a] outfit-font leading-none">24<span class="text-[#E89D4B] text-xl">/7</span></div>
+                                <div class="text-[9px] font-bold uppercase tracking-[0.2em] text-slate-400 mt-2">Support</div>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <span class="text-[10px] font-black text-[#1e2a5a] uppercase tracking-widest animate-pulse">Explore Protocol</span>
+                            <a href="#" class="w-14 h-14 rounded-full bg-[#E89D4B] flex items-center justify-center text-[#1e2a5a] hover:scale-110 transition-transform">
+                                <i class="fas fa-chevron-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    .outfit-font { font-family: 'Outfit', sans-serif; }
+    .jakarta-font { font-family: 'Plus Jakarta Sans', sans-serif; }
+    .playfair-font { font-family: 'Playfair Display', serif; }
+
+    /* Slider Logic */
+    .image-slider .slider-img {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-cover: cover;
+        opacity: 0;
+        transition: opacity 1.5s ease-in-out;
+    }
+    .image-slider .slider-img.active {
+        opacity: 1;
+        position: relative;
+    }
+
+    /* Heavy Glass Note Styling */
+    .glass-note-heavy {
+        background: rgba(255, 255, 255, 0.85);
+        backdrop-filter: blur(25px);
+        border: 1px solid rgba(255, 255, 255, 0.5);
+        padding: 18px 22px;
+        border-radius: 2.5rem;
+        box-shadow: 0 30px 60px -12px rgba(30, 42, 90, 0.15);
+    }
+
+    /* Animations */
+    @keyframes spin-slow {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(360deg); }
+    }
+    .animate-spin-slow { animation: spin-slow 25s linear infinite; }
+
+    @keyframes float {
+        0%, 100% { transform: translateY(0) rotate(0deg); }
+        50% { transform: translateY(-20px) rotate(2deg); }
+    }
+    @keyframes float-delayed {
+        0%, 100% { transform: translateY(0) rotate(0deg); }
+        50% { transform: translateY(20px) rotate(-2deg); }
+    }
+    .animate-float { animation: float 6s infinite ease-in-out; }
+    .animate-float-delayed { animation: float-delayed 8s infinite ease-in-out; }
+
+    .sparta-epic-vision * {
+        transition: all 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+    }
+</style>
+
+<script>
+    // Simple Slider Script
+    const images = document.querySelectorAll('.slider-img');
+    let currentIdx = 0;
+
+    function nextImage() {
+        images[currentIdx].classList.remove('active');
+        currentIdx = (currentIdx + 1) % images.length;
+        images[currentIdx].classList.add('active');
+    }
+
+    setInterval(nextImage, 4000); // Change image every 4 seconds
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+  
+
+<footer class="bg-[#0f172a] text-white pt-16 pb-10 px-6 font-sans border-t-4 border-[#E89D4B]">
+    <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-">
+        
+        <div class="space-y-5 px-12">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 bg-[#E89D4B] rounded-lg flex items-center justify-center shadow-lg shadow-[#E89D4B]/20">
+                    <span class="text-[#0f172a] font-black text-xl">S</span>
+                </div>
+                <h2 class="text-2xl font-black tracking-tighter uppercase">Sparta <span class="text-[#E89D4B]">Tech</span></h2>
+            </div>
+            <p class="text-gray-400 text-sm leading-relaxed">
+                Empowering next-gen businesses with AI-driven growth systems and unified digital infrastructure. Scale beyond guesswork.
+            </p>
+            <div class="flex gap-4">
+                <a href="#" class="w-10 h-10 rounded-full border border-gray-700 flex items-center justify-center hover:border-[#E89D4B] hover:text-[#E89D4B] transition-all"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="w-10 h-10 rounded-full border border-gray-700 flex items-center justify-center hover:border-[#E89D4B] hover:text-[#E89D4B] transition-all"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#" class="w-10 h-10 rounded-full border border-gray-700 flex items-center justify-center hover:border-[#E89D4B] hover:text-[#E89D4B] transition-all"><i class="fab fa-twitter"></i></a>
+            </div>
+        </div>
+
+        <div>
+            <h4 class="text-lg font-bold mb-6 border-b-2 border-[#E89D4B] w-fit pb-1">Quick Links</h4>
+            <ul class="space-y-4 text-gray-400 text-sm">
+                <li><a href="#" class="hover:text-white hover:pl-2 transition-all duration-300 block border-l-0 hover:border-l-4 hover:border-[#E89D4B] pl-0">About Us</a></li>
+                <li><a href="#" class="hover:text-white hover:pl-2 transition-all duration-300 block border-l-0 hover:border-l-4 hover:border-[#E89D4B] pl-0">Services</a></li>
+                <li><a href="#" class="hover:text-white hover:pl-2 transition-all duration-300 block border-l-0 hover:border-l-4 hover:border-[#E89D4B] pl-0">Pricing</a></li>
+                <li><a href="#" class="hover:text-white hover:pl-2 transition-all duration-300 block border-l-0 hover:border-l-4 hover:border-[#E89D4B] pl-0">Contact Us</a></li>
+            </ul>
+        </div>
+
+        <div>
+            <h4 class="text-lg font-bold mb-6 border-b-2 border-[#E89D4B] w-fit pb-1">Our Services</h4>
+            <ul class="space-y-4 text-gray-400 text-sm">
+                <li><a href="#" class="hover:text-white hover:pl-2 transition-all duration-300 block border-l-0 hover:border-l-4 hover:border-[#E89D4B] pl-0">Web Design & Development</a></li>
+                <li><a href="#" class="hover:text-white hover:pl-2 transition-all duration-300 block border-l-0 hover:border-l-4 hover:border-[#E89D4B] pl-0">Graphic Design</a></li>
+                <li><a href="#" class="hover:text-white hover:pl-2 transition-all duration-300 block border-l-0 hover:border-l-4 hover:border-[#E89D4B] pl-0">Digital Marketing</a></li>
+                <li><a href="#" class="hover:text-white hover:pl-2 transition-all duration-300 block border-l-0 hover:border-l-4 hover:border-[#E89D4B] pl-0">Content Writing</a></li>
+            </ul>
+        </div>
+
+        <div class="space-y-6">
+            <h4 class="text-lg font-bold mb-6 border-b-2 border-[#E89D4B] w-fit pb-1">Connect With Us</h4>
+            <div class="space-y-4 text-sm text-gray-400">
+                <div class="flex items-start gap-3 group">
+                    <i class="fas fa-envelope mt-1 text-[#E89D4B]"></i>
+                    <span class="group-hover:text-white transition-colors">hello@spartatech.com</span>
+                </div>
+                <div class="flex items-start gap-3 group">
+                    <i class="fas fa-phone-alt mt-1 text-[#E89D4B]"></i>
+                    <span class="group-hover:text-white transition-colors">+1 (555) 2345 - 67890</span>
+                </div>
+                <div class="flex items-start gap-3 group">
+                    <i class="fas fa-map-marker-alt mt-1 text-[#E89D4B]"></i>
+                    <span class="group-hover:text-white transition-colors leading-relaxed">
+                        Avenue, Suite 567 TechVille, <br>California, 90210 United States
+                    </span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="max-w-7xl mx-auto mt-8 pt-4 px-12 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center gap-4">
+        <p class="text-gray-500 text-xs text-center md:text-left">
+            © 2026 <span class="text-[#E89D4B] font-bold">Sparta Tech</span>. All Rights Reserved. 
+            <span class="mx-2">|</span> Designed for Scale.
+        </p>
+        <div class="flex gap-6 text-xs text-gray-500">
+            <a href="#" class="hover:text-[#E89D4B] transition-colors">Privacy Policy</a>
+            <a href="#" class="hover:text-[#E89D4B] transition-colors">Terms of Service</a>
+            <a href="#" class="hover:text-[#E89D4B] transition-colors">Cookies Setting</a>
+        </div>
+    </div>
+</footer>
+
+
+
+
+</body>
+</html>
