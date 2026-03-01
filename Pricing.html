@@ -1,0 +1,1525 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us | Sparta Tech - Innovation with Edge</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  
+
+
+</head>
+<body class="text-gray-800">
+
+  
+  <!-- ********** NAVBAR (navy/khaki theme) ********** -->
+ <style>
+  /* Ghoomti hui border line ka animation */
+  @keyframes rotateBorder {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+
+  .animated-border-box {
+    position: relative;
+    padding: 2px; /* Border ki thickness */
+    overflow: hidden;
+    border-radius: 12px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .animated-border-box::before {
+    content: '';
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    background: conic-gradient(transparent, #E89D4B, transparent, #E89D4B);
+    animation: rotateBorder 3s linear infinite;
+  }
+
+  .inner-button {
+    position: relative;
+    background: #1e2a4a;
+    color: white;
+    padding: 10px 24px;
+    border-radius: 10px;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 11px;
+    font-weight: 900;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    transition: 0.3s;
+  }
+  
+  .inner-button:hover {
+    background: #25335d;
+  }
+
+  .nav-link {
+    position: relative;
+    transition: all 0.3s ease;
+  }
+
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #E89D4B;
+    transition: width 0.3s ease;
+  }
+
+  .nav-link:hover::after {
+    width: 100%;
+  }
+</style>
+<script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+<header x-data="{ open: false }" class="fixed top-0 left-0 right-0 z-[100] w-full bg-[#0f172a]/95 backdrop-blur-md" id="navbar">
+    <div class="mx-auto max-w-full transition-all duration-500 ease-in-out px-6 md:px-12 py-3 flex items-center justify-between">
+      
+      <div class="flex items-center gap-3 group cursor-pointer">
+        <div class="relative h-10 w-10 flex items-center justify-center overflow-hidden rounded-lg border border-[#E89D4B]/30 shadow-sm">
+          <div class="h-full w-full bg-[#E89D4B] flex items-center justify-center transition-transform duration-500 group-hover:scale-110">
+              <i class="fas fa-shield-halved text-[#1e2a4a] text-xl"></i>
+          </div>
+        </div>
+        <div class="flex flex-col leading-none">
+            <span class="text-lg font-black tracking-tighter text-white">SPARTA <span class="text-[#E89D4B]">TECH</span></span>
+            <span class="text-[8px] tracking-[0.4em] text-[#E89D4B]/80 font-bold uppercase">Engineering Center</span>
+        </div>
+      </div>
+
+      <nav class="hidden md:flex items-center gap-8">
+        <a href="Index.html" class="nav-link text-[11px] font-bold text-white uppercase tracking-[0.2em] hover:text-[#E89D4B]">Home</a>
+        <a href="About.html" class="nav-link text-[11px] font-bold text-white uppercase tracking-[0.2em] hover:text-[#E89D4B]">About Us</a>
+        <a href="Services.html" class="nav-link text-[11px] font-bold text-white uppercase tracking-[0.2em] hover:text-[#E89D4B]">Services</a>
+        <a href="Pricing.html" class="nav-link text-[11px] font-bold text-white uppercase tracking-[0.2em] hover:text-[#E89D4B]">Pricing</a>
+        <a href="Contact.html" class="nav-link text-[11px] font-bold text-white uppercase tracking-[0.2em] hover:text-[#E89D4B]">Contact Us</a>
+      </nav>
+
+      <div class="flex items-center gap-4">
+        <div class="animated-border-box hidden sm:block">
+          <button class="inner-button">
+            <i class="fas fa-comments text-[#E89D4B] text-[17px]"></i>
+            <span>Let's Talk</span>
+          </button>
+        </div>
+
+        <button @click="open = !open" class="md:hidden text-[#E89D4B] text-2xl focus:outline-none">
+            <i :class="open ? 'fas fa-times' : 'fas fa-bars-staggered'"></i>
+        </button>
+      </div>
+    </div>
+
+    <div x-show="open" 
+         x-transition:enter="transition ease-out duration-300"
+         x-transition:enter-start="opacity-0 -translate-y-4"
+         x-transition:enter-end="opacity-100 translate-y-0"
+         x-transition:leave="transition ease-in duration-200"
+         x-transition:leave-start="opacity-100 translate-y-0"
+         x-transition:leave-end="opacity-0 -translate-y-4"
+         class="md:hidden bg-[#0f172a] border-t border-[#E89D4B]/10 px-6 py-6 flex flex-col gap-6 shadow-2xl">
+        
+        <a href="Index.html" class="text-[11px] font-bold text-white uppercase tracking-[0.2em] hover:text-[#E89D4B]">Home</a>
+        <a href="About.heml" class="text-[11px] font-bold text-white uppercase tracking-[0.2em] hover:text-[#E89D4B]">About Us</a>
+        <a href="Services.html" class="text-[11px] font-bold text-white uppercase tracking-[0.2em] hover:text-[#E89D4B]">Services</a>
+        <a href="Pricing.html" class="text-[11px] font-bold text-white uppercase tracking-[0.2em] hover:text-[#E89D4B]">Pricing</a>
+        <a href="Contact.heml" class="text-[11px] font-bold text-white uppercase tracking-[0.2em] hover:text-[#E89D4B]">Contact Us</a>
+        
+        <div class="animated-border-box w-full">
+            <button class="inner-button w-full justify-center">
+              <i class="fas fa-comments text-[#E89D4B] text-[17px]"></i>
+              <span>Let's Talk</span>
+            </button>
+        </div>
+    </div>
+</header>
+<div class="pt-16"></div>
+
+
+
+
+
+
+
+
+
+<div class="relative w-full h-[600px] overflow-hidden bg-slate-900 font-sans">
+    
+    <div class="absolute inset-0 z-0">
+        <div class="absolute inset-0 bg-cover bg-center animate-bg-slide" 
+             style="background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2015');">
+        </div>
+        <div class="absolute inset-0 bg-cover bg-center animate-bg-slide-delayed" 
+             style="background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80&w=2070');">
+        </div>
+    </div>
+
+    <div class="absolute inset-0 z-10 pointer-events-none">
+        <i class="fas fa-laptop-code text-[#E89D4B]/20 text-6xl absolute top-10 left-[10%] animate-float"></i>
+        <i class="fas fa-bullseye text-blue-400/20 text-5xl absolute bottom-20 left-[20%] animate-float-slow"></i>
+        <i class="fas fa-microchip text-purple-400/20 text-7xl absolute top-40 right-[15%] animate-float"></i>
+        <i class="fas fa-shield-alt text-green-400/20 text-4xl absolute bottom-10 right-[30%] animate-float-slow"></i>
+    </div>
+
+    <div class="absolute bottom-20 right-40 z-40 animate-bounce-subtle">
+        <div class="relative pt-12">
+            <div class="absolute top-0 left-1/2 -translate-x-1/2 w-16 h-16 bg-[#FFB366] rounded-full flex items-center justify-center border-4 border-[#1a1a1a] z-10">
+                <span class="text-2xl font-black text-black">%</span>
+            </div>
+            <div class="bg-white rounded-3xl px-5 py-4 shadow-2xl text-center min-w-[200px]">
+                <p class="text-gray-400 text-xs font-bold tracking-widest uppercase mb-1">Limited Offer</p>
+                <h3 class="text-black text-[15px] font-black italic">Premium Tech Packages</h3>
+            </div>
+        </div>
+    </div>
+
+    <div class="relative z-30 flex flex-col items-center justify-center h-full text-center px-4 overflow-hidden">
+        
+        <h2 class="text-[#E89D4B] uppercase tracking-[0.3em] text-xl font-bold mb-4 animate-line-in-1">
+            Smart Tech Solution Pricing
+        </h2>
+        
+        <h1 class="text-white text-5xl md:text-8xl font-black mb-6 animate-line-in-2 leading-tight">
+            Sparta Tech <br> <span class="font-serif italic text-blue-500 underline decoration-[#E89D4B]">Simple Pricing</span>
+        </h1>
+
+        <div class="bg-white/5 backdrop-blur-xl px-10 py-2 rounded-2xl border border-white/10 animate-line-in-3 shadow-2xl">
+            <p class="text-white text-lg">
+                <span class="text-4xl font-black text-[#E89D4B] mr-2">50+</span> 
+                <span class="font-light italic tracking-wide">Happy Clients Successfully Served</span>
+            </p>
+        </div>
+
+        <div class="mt-10 animate-fade-in-up">
+            <div class="animated-border-box">
+                <button class="inner-button">
+                    <i class="fas fa-comments text-[#E89D4B]"></i>
+                    <span>Let's Talk Pricing</span>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+/* Background Image Slider Animation */
+@keyframes bg-slide {
+    0%, 45% { opacity: 1; transform: translateX(0); }
+    50%, 95% { opacity: 0; transform: translateX(100%); }
+    100% { opacity: 1; transform: translateX(0); }
+}
+@keyframes bg-slide-delayed {
+    0%, 45% { opacity: 0; transform: translateX(-100%); }
+    50%, 95% { opacity: 1; transform: translateX(0); }
+    100% { opacity: 0; transform: translateX(-100%); }
+}
+.animate-bg-slide { animation: bg-slide 12s infinite ease-in-out; }
+.animate-bg-slide-delayed { animation: bg-slide-delayed 12s infinite ease-in-out; }
+
+/* Text Left to Right Animations */
+@keyframes line-in {
+    from { transform: translateX(-150%); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+.animate-line-in-1 { animation: line-in 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+.animate-line-in-2 { animation: line-in 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.4s forwards; opacity: 0; }
+.animate-line-in-3 { animation: line-in 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.8s forwards; opacity: 0; }
+
+@keyframes fade-in-up {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-in-up { animation: fade-in-up 1s ease-out 1.2s forwards; opacity: 0; }
+
+/* Floating Icons */
+@keyframes float {
+    0%, 100% { transform: translate(0, 0) rotate(0deg); }
+    33% { transform: translate(30px, -50px) rotate(10deg); }
+    66% { transform: translate(-20px, 20px) rotate(-10deg); }
+}
+.animate-float { animation: float 8s infinite ease-in-out; }
+.animate-float-slow { animation: float 12s infinite ease-in-out reverse; }
+
+/* Sticky Note Bounce */
+@keyframes bounce-subtle {
+    0%, 100% { transform: translateY(0) rotate(3deg); }
+    50% { transform: translateY(-10px) rotate(5deg); }
+}
+.animate-bounce-subtle { animation: bounce-subtle 4s infinite ease-in-out; }
+</style>
+
+
+
+
+
+
+
+
+
+
+<script src="https://unpkg.com/lucide@latest"></script>
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/TextPlugin.min.js"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;700&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Cinzel:wght@700;900&family=Playfair+Display:ital,wght@1,700&display=swap');
+    
+    :root {
+        --sparta-gold: #d9933e;
+        --sparta-black: #05080d;
+        --glow: rgba(217, 147, 62, 0.6);
+    }
+
+    #sparta-particle-canvas {
+        position: absolute;
+        top: 0; left: 0;
+        width: 100%; height: 100%;
+        pointer-events: none;
+        z-index: 0;
+        opacity: 0.6;
+    }
+
+    /* --- STYLISH CORNER RIBBON --- */
+    .corner-ribbon {
+        position: absolute;
+        top: 0; right: 0;
+        width: 120px; height: 120px;
+        overflow: hidden;
+        z-index: 25;
+    }
+
+    .ribbon-content {
+        position: absolute;
+        top: 25px; right: -35px;
+        width: 160px;
+        background: #333d42;
+        color: #fff;
+        text-align: center;
+        padding: 6px 0;
+        transform: rotate(45deg);
+        font-size: 9px;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        border: 1px solid rgba(255,255,255,0.1);
+    }
+
+    /* --- ✨ SNAKE BORDER --- */
+    .snake-btn-container {
+        position: relative;
+        padding: 5px; 
+        overflow: hidden; 
+        border-radius: 14px;
+        z-index: 10;
+        background: rgba(0, 0, 0, 0.2);
+        box-shadow: 0 0 20px rgba(138, 90, 31, 0.4);
+    }
+
+    .snake-btn-container::before {
+        content: ''; 
+        position: absolute;
+        width: 210%; height: 210%; 
+        background: conic-gradient(from var(--angle), transparent 10%, #8a5a1f, var(--sparta-gold), #fff, var(--sparta-gold), #8a5a1f, transparent 80%);
+        top: -75%; left: -75%;
+        animation: rotateSnake 2.5s linear infinite;
+    }
+
+    @property --angle { syntax: '<angle>'; initial-value: 0deg; inherits: false; }
+    @keyframes rotateSnake { to { --angle: 360deg; } }
+
+    /* --- 🎈 FLOATING BUBBLES --- */
+    .bubble-wrap {
+        position: absolute;
+        inset: 0;
+        overflow: hidden;
+        pointer-events: none;
+        z-index: 1;
+    }
+    .bubble-item {
+        position: absolute;
+        border-radius: 50%;
+        filter: blur(25px);
+        opacity: 0.25;
+        animation: floatBubble 6s ease-in-out infinite alternate;
+    }
+    .b-pink { background: #ff7eb9; width: 60px; height: 60px; }
+    .b-sky { background: #7ee8ff; width: 80px; height: 80px; }
+    
+    @keyframes floatBubble {
+        0% { transform: translate(0, 0) scale(1); }
+        100% { transform: translate(20px, -20px) scale(1.2); }
+    }
+
+    /* --- PRICE STYLING --- */
+    .price-tag {
+        font-family: 'Space Grotesk', sans-serif;
+        color: var(--sparta-black);
+        margin: 10px 0;
+        display: flex;
+        align-items: flex-start;
+    }
+    .currency { font-size: 1.2rem; font-weight: 700; margin-top: 5px; color: var(--sparta-gold); }
+    .amount { font-size: 2.8rem; font-weight: 800; letter-spacing: -2px; line-height: 1; }
+    .dark-box .amount { color: #fff; }
+
+    /* --- FEATURE LIST --- */
+    .feature-list { margin: 15px 0; }
+    .feature-item {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 12px;
+        font-weight: 600;
+        color: #4b5563;
+        margin-bottom: 6px;
+    }
+    .dark-box .feature-item { color: #9ca3af; }
+    .feature-item i { color: var(--sparta-gold); width: 14px; }
+
+    /* --- CARDS (COMPACT HEIGHT) --- */
+    .glass-card {
+        background: rgba(255, 255, 255, 0.7);
+        backdrop-filter: blur(20px);
+        border: 1px solid rgba(217, 147, 62, 0.15);
+        box-shadow: 0 40px 80px -20px rgba(0, 0, 0, 0.1);
+        transition: 0.5s ease;
+    }
+    .glass-card:hover { transform: translateY(-10px); }
+
+    /* --- NEW TYPOGRAPHY STYLING --- */
+    .box-heading {
+        font-family: 'Cinzel', serif;
+        font-size: 1.4rem;
+        letter-spacing: -0.5px;
+        color: var(--sparta-black);
+    }
+    .dark-box .box-heading { color: #fff; }
+
+    .hero-main-title {
+        font-family: 'Space Grotesk', sans-serif;
+        display: inline-block;
+    }
+    .title-offset {
+        display: inline-block;
+        transform: translateY(15px);
+        font-family: 'Playfair Display', serif;
+        font-style: italic;
+        color: var(--sparta-gold);
+        margin-right: 10px;
+    }
+</style>
+
+
+<section class="relative py-20 bg-[#f8f9fa] overflow-hidden font-['Plus_Jakarta_Sans']">
+    <canvas id="sparta-particle-canvas"></canvas>
+    
+    <div class="max-w-7xl mx-auto px-6 relative z-10">
+        
+        <div class="relative mb-24 flex flex-col md:flex-row justify-between items-center md:items-end gap-8" data-aos="fade-up">
+            <div class="relative">
+                <span class="text-[12vw] absolute -top-24 left-0 titan-stroke font-black uppercase italic select-none opacity-5">ELITE</span>
+                <h2 class="text-6xl md:text-[70px] font-black leading-tight tracking-tighter hero-main-title" style="color: var(--sparta-black);">
+                    <span id="sparta-typing-hero" class="text-[#05080d]"></span><br>
+                    <span class="title-offset">Elevate</span>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#d9933e] via-[#b67a2d] to-[#8a5a1f]">Digital Future</span>
+                </h2>
+            </div>
+            <p class="max-w-sm text-gray-500 font-bold text-xs leading-relaxed border-l-4 border-[#d9933e] pl-8 italic uppercase tracking-[0.2em]">
+                Crafting iconic <span class="text-black">legacies</span> through<br>advanced technical supremacy.
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            
+            <div class="group relative min-h-[480px] glass-card rounded-[25px] p-7 flex flex-col justify-between overflow-hidden" data-aos="fade-up" data-aos-delay="100">
+                <div class="bubble-wrap"><div class="bubble-item b-pink top-10 -left-5"></div></div>
+                <div class="corner-ribbon"><div class="ribbon-content">PREMIUM UX</div></div>
+                
+                <div class="relative z-10">
+                    <div class="w-14 h-14 bg-[#05080d] rounded-2xl flex items-center justify-center mb-6 shadow-lg group-hover:bg-[#d9933e] group-hover:rotate-[15deg] transition-all">
+                        <i data-lucide="layout-grid" class="w-6 h-6 text-white"></i>
+                    </div>
+                    <h3 class="box-heading uppercase leading-tight">Web Design <br>& UI/UX</h3>
+                    
+                    <div class="price-tag"><span class="currency">$</span><span class="amount">1,200</span></div>
+
+                    <div class="feature-list">
+                        <div class="feature-item"><i data-lucide="monitor"></i> Responsive Design</div>
+                        <div class="feature-item"><i data-lucide="component"></i> Custom UI Kit</div>
+                        <div class="feature-item"><i data-lucide="zap"></i> Core Web Vitals</div>
+                        <div class="feature-item"><i data-lucide="shield"></i> Prototyping</div>
+                    </div>
+                </div>
+
+                <div class="relative z-10">
+                    <span class="text-5xl font-black text-gray-200/60 italic">01</span>
+                    <div class="snake-btn-container mt-3">
+                        <a href="#" class="relative z-20 block w-full py-3 px-6 bg-[#05080d] text-white rounded-[10px] text-[9px] font-black uppercase tracking-[0.2em] text-center group-hover:bg-[#d9933e] group-hover:text-black transition-all">View Pricing</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="group relative min-h-[480px] glass-card rounded-[25px] p-7 flex flex-col justify-between overflow-hidden" data-aos="fade-up" data-aos-delay="200">
+                <div class="bubble-wrap"><div class="bubble-item b-sky bottom-20 -right-5"></div></div>
+                <div class="corner-ribbon"><div class="ribbon-content">ROI GROWTH</div></div>
+                
+                <div class="relative z-10">
+                    <div class="w-14 h-14 bg-[#05080d] rounded-2xl flex items-center justify-center mb-6 shadow-lg group-hover:bg-[#d9933e] group-hover:-rotate-[15deg] transition-all">
+                        <i data-lucide="zap" class="w-6 h-6 text-white"></i>
+                    </div>
+                    <h3 class="box-heading uppercase leading-tight">Digital <br>Marketing</h3>
+                    
+                    <div class="price-tag"><span class="currency">$</span><span class="amount">850</span></div>
+
+                    <div class="feature-list">
+                        <div class="feature-item"><i data-lucide="trending-up"></i> Advanced SEO</div>
+                        <div class="feature-item"><i data-lucide="target"></i> PPC Management</div>
+                        <div class="feature-item"><i data-lucide="users"></i> Social Lead Gen</div>
+                        <div class="feature-item"><i data-lucide="pie-chart"></i> ROI Reporting</div>
+                    </div>
+                </div>
+
+                <div class="relative z-10">
+                    <span class="text-5xl font-black text-gray-200/60 italic">02</span>
+                    <div class="snake-btn-container mt-3">
+                        <a href="#" class="relative z-20 block w-full py-3 px-6 bg-[#05080d] text-white rounded-[10px] text-[9px] font-black uppercase tracking-[0.2em] text-center group-hover:bg-[#d9933e] group-hover:text-black transition-all">View Pricing</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="group relative min-h-[480px] glass-card rounded-[25px] p-7 flex flex-col justify-between overflow-hidden" data-aos="fade-up" data-aos-delay="300">
+                <div class="bubble-wrap"><div class="bubble-item b-pink bottom-10 left-5" style="animation-delay: 2s;"></div></div>
+                <div class="corner-ribbon"><div class="ribbon-content">STRATEGIC</div></div>
+                
+                <div class="relative z-10">
+                    <div class="w-14 h-14 bg-[#05080d] rounded-2xl flex items-center justify-center mb-6 shadow-lg group-hover:bg-[#d9933e] group-hover:rotate-[15deg] transition-all">
+                        <i data-lucide="pen-tool" class="w-6 h-6 text-white"></i>
+                    </div>
+                    <h3 class="box-heading uppercase leading-tight">Content <br>Strategy</h3>
+                    
+                    <div class="price-tag"><span class="currency">$</span><span class="amount">499</span></div>
+
+                    <div class="feature-list">
+                        <div class="feature-item"><i data-lucide="book-open"></i> Storytelling</div>
+                        <div class="feature-item"><i data-lucide="mail"></i> Email Funnels</div>
+                        <div class="feature-item"><i data-lucide="edit-3"></i> Ad Copywriting</div>
+                        <div class="feature-item"><i data-lucide="video"></i> Video Scripts</div>
+                    </div>
+                </div>
+
+                <div class="relative z-10">
+                    <span class="text-5xl font-black text-gray-200/60 italic">03</span>
+                    <div class="snake-btn-container mt-3">
+                        <a href="#" class="relative z-20 block w-full py-3 px-6 bg-[#05080d] text-white rounded-[10px] text-[9px] font-black uppercase tracking-[0.2em] text-center group-hover:bg-[#d9933e] group-hover:text-black transition-all">View Pricing</a>
+                    </div>
+                </div>
+            </div>
+
+           <div class="group relative min-h-[480px] bg-[#05080d] rounded-[25px] p-7 flex flex-col justify-between overflow-hidden shadow-2xl transition-all hover:scale-[1.03] dark-box" data-aos="fade-up" data-aos-delay="400">
+                <div class="bubble-wrap"><div class="bubble-item b-sky top-20 right-10" style="opacity: 0.1;"></div></div>
+                <div class="corner-ribbon"><div class="ribbon-content">ELITE BRAND</div></div>
+                
+                <div class="relative z-10">
+                    <div class="w-14 h-14 bg-[#d9933e] rounded-2xl flex items-center justify-center mb-6 shadow-[0_0_60px_rgba(217,147,62,0.5)]">
+                        <i data-lucide="layout" class="w-6 h-6 text-[#05080d]"></i>
+                    </div>
+                    
+                    <h3 class="box-heading uppercase leading-tight">WordPress <br>Design</h3>
+                    
+                    <div class="price-tag"><span class="currency">$</span><span class="amount">2,500</span></div>
+
+                    <div class="feature-list">
+                        <div class="feature-item"><i data-lucide="cpu"></i> Custom Themes</div>
+                        <div class="feature-item"><i data-lucide="shopping-cart"></i> E-Commerce Ready</div>
+                        <div class="feature-item"><i data-lucide="zap"></i> Speed Optimized</div>
+                        <div class="feature-item"><i data-lucide="shield-check"></i> Advanced Security</div>
+                    </div>
+                </div>
+
+                <div class="relative z-10">
+                    <span class="text-5xl font-black text-white/10 italic">04</span>
+                    <div class="snake-btn-container mt-3">
+                        <a href="#" class="relative z-20 block w-full py-3 px-6 bg-[#d9933e] text-[#05080d] rounded-[10px] text-[9px] font-black uppercase tracking-[0.3em] text-center hover:bg-white transition-all">View Pricing</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<script>
+    lucide.createIcons();
+    AOS.init({ duration: 1200, once: false });
+
+    gsap.registerPlugin(TextPlugin);
+    const phrases = ["Sparta Vision", "Elite Performance", "Market Dominance", "Strategic Growth"];
+    let mainTimeline = gsap.timeline({repeat: -1});
+
+    phrases.forEach(phrase => {
+        mainTimeline.to("#sparta-typing-hero", {
+            duration: 1.5,
+            text: phrase,
+            ease: "power2.inOut",
+        }).to("#sparta-typing-hero", {
+            duration: 0.8,
+            delay: 2.5,
+            text: "",
+            ease: "power2.inOut"
+        });
+    });
+
+    // --- Particle Logic (KEEP UNCHANGED) ---
+    const canvas = document.getElementById('sparta-particle-canvas');
+    const ctx = canvas.getContext('2d');
+    let particles = [];
+
+    function resize() {
+        canvas.width = window.innerWidth;
+        canvas.height = canvas.parentElement.offsetHeight;
+    }
+    window.addEventListener('resize', resize);
+    resize();
+
+    class Particle {
+        constructor() {
+            this.x = Math.random() * canvas.width;
+            this.y = Math.random() * canvas.height;
+            this.size = Math.random() * 2.5 + 0.5;
+            this.speedX = Math.random() * 0.8 - 0.4;
+            this.speedY = Math.random() * 0.8 - 0.4;
+        }
+        update() {
+            this.x += this.speedX;
+            this.y += this.speedY;
+            if (this.x > canvas.width) this.x = 0; else if (this.x < 0) this.x = canvas.width;
+            if (this.y > canvas.height) this.y = 0; else if (this.y < 0) this.y = canvas.height;
+        }
+        draw() {
+            ctx.fillStyle = '#d9933e';
+            ctx.shadowBlur = 10; ctx.shadowColor = '#d9933e';
+            ctx.beginPath();
+            ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.shadowBlur = 0;
+        }
+    }
+
+    function init() {
+        particles = [];
+        for (let i = 0; i < 120; i++) particles.push(new Particle());
+    }
+
+    function connect() {
+        for (let a = 0; a < particles.length; a++) {
+            for (let b = a; b < particles.length; b++) {
+                let dx = particles[a].x - particles[b].x;
+                let dy = particles[a].y - particles[b].y;
+                let distance = Math.sqrt(dx * dx + dy * dy);
+                if (distance < 120) {
+                    ctx.strokeStyle = `rgba(217, 147, 62, ${0.15 - (distance/120)})`;
+                    ctx.lineWidth = 0.5;
+                    ctx.beginPath();
+                    ctx.moveTo(particles[a].x, particles[a].y);
+                    ctx.lineTo(particles[b].x, particles[b].y);
+                    ctx.stroke();
+                }
+            }
+        }
+    }
+
+    function animate() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        particles.forEach(p => { p.update(); p.draw(); });
+        connect();
+        requestAnimationFrame(animate);
+    }
+    init();
+    animate();
+</script>
+
+
+
+
+
+
+
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;700&family=Playfair+Display:ital,wght@1,700&family=Plus+Jakarta+Sans:wght@200;800&display=swap" rel="stylesheet">
+
+<section class="relative bg-[#fcfcfd] py-10 px-6 md:px-20 overflow-hidden font-['Plus_Jakarta_Sans'] min-h-fit flex items-center">
+    
+    <div class="absolute top-5 left-10 opacity-20 pointer-events-none">
+        <svg width="250" height="250" viewBox="0 0 200 200"><path d="M10,100 C30,40 80,40 100,100 C120,160 170,160 190,100" fill="none" stroke="#E89D4B" stroke-width="1.5" stroke-dasharray="6,6"/></svg>
+    </div>
+    <div class="absolute -bottom-10 -right-10 opacity-10 pointer-events-none transform rotate-180">
+        <svg width="400" height="400" viewBox="0 0 200 200"><path d="M10,100 Q50,10 100,100 T190,100" fill="none" stroke="#1e293b" stroke-width="3"/></svg>
+    </div>
+
+    <div class="max-w-9xl mx-auto flex flex-col lg:flex-row items-center gap-32 relative z-10">
+        
+        <div class="lg:w-1/2 relative flex items-center justify-center min-h-[400px]">
+            
+            <div class="absolute w-[90%] h-[95%] border-[2px] border-[#E89D4B]/40 rounded-[50px] rotate-[8deg] transition-transform duration-700 hover:rotate-0"></div>
+            <div class="absolute w-[85%] h-[90%] border-[2px] border-[#1e293b]/10 rounded-[40px] -rotate-[4deg]"></div>
+            <div class="absolute w-[100%] h-[70%] border-t-[1px] border-b-[1px] border-[#E89D4B]/20 rounded-full scale-110 opacity-50"></div>
+            
+            <div class="relative z-10 p-3 bg-white rounded-[40px] shadow-[0_40px_80px_-20px_rgba(0,0,0,0.15)] border border-slate-100">
+                <div class="rounded-[30px] overflow-hidden h-[350px] w-full md:w-[340px]">
+                    <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=2070" alt="Advanced Coding" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-gradient-to-t from-[#1e293b]/40 to-transparent"></div>
+                </div>
+            </div>
+
+            <div class="absolute -top-4 -right-6 bg-white shadow-2xl p-3 rounded-2xl flex items-center gap-3 border-r-4 border-[#E89D4B] animate-float-slow z-20">
+                <div class="bg-orange-50 p-2 rounded-xl text-[#E89D4B]"><i class="fas fa-gauge-high"></i></div>
+                <div>
+                    <p class="text-[8px] font-black text-slate-400 uppercase tracking-widest">Efficiency</p>
+                    <p class="text-[10px] font-bold text-[#1e293b]">99+ Speed Score</p>
+                </div>
+            </div>
+
+            <div class="absolute top-1/2 -left-12 bg-[#1e293b] text-white shadow-2xl p-3 rounded-2xl flex items-center gap-3 animate-float-delayed z-20">
+                <div class="bg-blue-500/20 p-2 rounded-xl text-blue-400"><i class="fas fa-server"></i></div>
+                <div>
+                    <p class="text-[8px] font-bold text-blue-300 uppercase tracking-widest">Architecture</p>
+                    <p class="text-[10px] font-bold">API Scalability</p>
+                </div>
+            </div>
+
+            <div class="absolute bottom-10 -right-8 bg-white shadow-2xl p-3 rounded-2xl flex items-center gap-3 border-l-4 border-blue-600 animate-float-slow z-20">
+                <div class="bg-blue-50 p-2 rounded-xl text-blue-600"><i class="fas fa-shield-virus"></i></div>
+                <p class="text-[10px] font-black text-[#1e293b] leading-tight">Secure <br>Codebase</p>
+            </div>
+
+            <div class="absolute top-10 -left-8 bg-[#E89D4B] text-white p-3 rounded-xl shadow-xl animate-bounce-custom z-20">
+                <i class="fas fa-mobile-screen-button text-xl"></i>
+            </div>
+
+            <div class="absolute -bottom-6 left-10 bg-white shadow-xl p-2 px-6 rounded-full border border-slate-100 flex items-center gap-2 animate-float-delayed z-20">
+                <span class="flex h-2 w-2 relative"><span class="animate-ping absolute h-full w-full rounded-full bg-green-400 opacity-75"></span><span class="relative rounded-full h-2 w-2 bg-green-500"></span></span>
+                <p class="text-[9px] font-black text-slate-500 uppercase tracking-[0.2em]">SEO Optimized</p>
+            </div>
+        </div>
+
+        <div class="lg:w-1/2 flex flex-col justify-center py-4">
+            
+            <div class="space-y-4">
+                <div class="flex items-center gap-4">
+                    <span class="h-[1.5px] w-12 bg-[#E89D4B]"></span>
+                    <span class="text-[#1e293b] font-black text-[9px] uppercase tracking-[0.5em]">Future Web Development</span>
+                </div>
+                
+                <h2 class="text-[#1e293b] leading-[0.9] tracking-tighter">
+                    <span class="text-5xl md:text-6xl font-black block transform -translate-x-1">Modern</span> 
+                    <span class="font-['Playfair_Display'] italic text-[#E89D4B] text-6xl md:text-8xl block my-2">Solutions.</span>
+                    <span class="text-3xl md:text-5xl font-extralight opacity-70 block tracking-normal">Built for Scalability.</span>
+                </h2>
+
+               <p class="text-slate-500 text-base leading-relaxed max-w-xl">
+    We don't just write code, we engineer <span class="text-[#1e293b] font-bold text-lg italic">Growth Engines</span>. 
+    Every pixel is optimized for <span class="text-[#E89D4B] font-bold underline decoration-wavy">High-Performance</span> results.
+</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4 pt-6">
+                <div class="group border-b border-slate-100 pb-2 hover:border-[#E89D4B] transition-all duration-300">
+                    <h4 class="text-[#1e293b] font-black text-[10px] uppercase tracking-widest mb-1 flex items-center gap-2">
+                        <span class="w-2 h-2 bg-[#E89D4B] rounded-full"></span> Next-Gen Tech
+                    </h4>
+                    <p class="text-[11px] text-slate-400 font-medium">Using React & Next.js for lightning fast rendering.</p>
+                </div>
+                <div class="group border-b border-slate-100 pb-2 hover:border-[#1e293b] transition-all duration-300">
+                    <h4 class="text-[#1e293b] font-black text-[10px] uppercase tracking-widest mb-1 flex items-center gap-2">
+                        <span class="w-2 h-2 bg-blue-500 rounded-full"></span> Cyber Shield
+                    </h4>
+                    <p class="text-[11px] text-slate-400 font-medium">Enterprise level security protocols for every app.</p>
+                </div>
+                <div class="group border-b border-slate-100 pb-2 hover:border-[#E89D4B] transition-all duration-300">
+                    <h4 class="text-[#1e293b] font-black text-[10px] uppercase tracking-widest mb-1 flex items-center gap-2">
+                        <span class="w-2 h-2 bg-[#E89D4B] rounded-full"></span> Global Hosting
+                    </h4>
+                    <p class="text-[11px] text-slate-400 font-medium">AWS and Cloudflare deployment for 100% uptime.</p>
+                </div>
+                <div class="group border-b border-slate-100 pb-2 hover:border-[#1e293b] transition-all duration-300">
+                    <h4 class="text-[#1e293b] font-black text-[10px] uppercase tracking-widest mb-1 flex items-center gap-2">
+                        <span class="w-2 h-2 bg-blue-500 rounded-full"></span> UI Mastery
+                    </h4>
+                    <p class="text-[11px] text-slate-400 font-medium">Human-centric design that converts users to customers.</p>
+                </div>
+            </div>
+
+            <div class="pt-8 flex flex-wrap items-center gap-8">
+                <button class="bg-[#1e293b] text-white px-8 py-4 rounded-xl font-black uppercase tracking-[0.2em] text-[10px] transition-all hover:shadow-xl hover:bg-black">
+                    Let's Build Together <i class="fas fa-arrow-right-long ml-3 text-[#E89D4B]"></i>
+                </button>
+                <div class="text-[9px] font-black text-slate-400 uppercase leading-tight italic">
+                    Clean Code. <br> Modern Delivery. <br> Fast Result.
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+/* --- ANIMATIONS --- */
+@keyframes float-slow {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-15px) rotate(2deg); }
+}
+.animate-float-slow { animation: float-slow 7s infinite ease-in-out; }
+
+@keyframes float-delayed {
+    0%, 100% { transform: translateY(0px) translateX(0px); }
+    50% { transform: translateY(-12px) translateX(10px); }
+}
+.animate-float-delayed { animation: float-delayed 9s infinite ease-in-out; }
+
+@keyframes bounce-custom {
+    0%, 100% { transform: translateY(0) scale(1); }
+    50% { transform: translateY(-12px) scale(1.05); }
+}
+.animate-bounce-custom { animation: bounce-custom 5s infinite ease-in-out; }
+
+.tracking-tighter { letter-spacing: -0.06em; }
+</style>
+
+
+
+
+
+
+
+
+
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;800&family=Playfair+Display:ital,wght@1,700&family=Plus+Jakarta+Sans:wght@200;800&display=swap" rel="stylesheet">
+
+<section class="relative bg-[#f8fafc] py-12 px-6 md:px-20 overflow-hidden font-['Space_Grotesk'] min-h-fit flex items-center">
+    
+    <div class="absolute top-5 right-10 opacity-20 pointer-events-none">
+        <svg width="250" height="250" viewBox="0 0 200 200"><path d="M10,100 C30,40 80,40 100,100 C120,160 170,160 190,100" fill="none" stroke="#065f46" stroke-width="1.5" stroke-dasharray="6,6"/></svg>
+    </div>
+    <div class="absolute -bottom-10 -left-10 opacity-10 pointer-events-none transform">
+        <svg width="400" height="400" viewBox="0 0 200 200"><path d="M10,100 Q50,10 100,100 T190,100" fill="none" stroke="#3730a3" stroke-width="3"/></svg>
+    </div>
+
+    <div class="max-w-9xl mx-auto flex flex-col lg:flex-row-reverse items-center gap-28 relative z-10">
+        
+        <div class="lg:w-1/2 relative flex items-center justify-center min-h-[400px]">
+            
+            <div class="absolute w-[90%] h-[95%] border-[2px] border-[#065f46]/40 rounded-[50px] rotate-[8deg] transition-transform duration-700 hover:rotate-0"></div>
+            <div class="absolute w-[85%] h-[90%] border-[2px] border-[#3730a3]/10 rounded-[40px] -rotate-[4deg]"></div>
+            <div class="absolute w-[100%] h-[70%] border-t-[1px] border-b-[1px] border-[#065f46]/20 rounded-full scale-110 opacity-50"></div>
+            
+            <div class="relative z-10 p-3 bg-white rounded-[40px] shadow-[0_40px_80px_-20px_rgba(0,0,0,0.15)] border border-slate-100">
+                <div class="rounded-[30px] overflow-hidden h-[350px] w-full md:w-[340px]">
+                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2015" alt="Digital Marketing Strategy" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-gradient-to-t from-[#3730a3]/30 to-transparent"></div>
+                </div>
+            </div>
+
+            <div class="absolute -top-4 -left-6 bg-white shadow-2xl p-3 rounded-2xl flex items-center gap-3 border-r-4 border-[#065f46] animate-float-slow z-20">
+                <div class="bg-emerald-50 p-2 rounded-xl text-[#065f46]"><i class="fas fa-chart-line"></i></div>
+                <div>
+                    <p class="text-[8px] font-black text-slate-400 uppercase tracking-widest">Growth</p>
+                    <p class="text-[10px] font-bold text-slate-800">200% ROI Boost</p>
+                </div>
+            </div>
+
+            <div class="absolute top-1/2 -right-12 bg-[#3730a3] text-white shadow-2xl p-3 rounded-2xl flex items-center gap-3 animate-float-delayed z-20">
+                <div class="bg-white/20 p-2 rounded-xl text-white"><i class="fas fa-bullseye"></i></div>
+                <div>
+                    <p class="text-[8px] font-bold text-indigo-100 uppercase tracking-widest">Targeting</p>
+                    <p class="text-[10px] font-bold">Smart Ads</p>
+                </div>
+            </div>
+
+            <div class="absolute bottom-10 -left-8 bg-white shadow-2xl p-3 rounded-2xl flex items-center gap-3 border-l-4 border-indigo-900 animate-float-slow z-20">
+                <div class="bg-indigo-50 p-2 rounded-xl text-[#3730a3]"><i class="fas fa-share-nodes"></i></div>
+                <p class="text-[10px] font-black text-slate-800 leading-tight">Social <br>Authority</p>
+            </div>
+
+            <div class="absolute top-10 -right-8 bg-[#065f46] text-white p-3 rounded-xl shadow-xl animate-bounce-custom z-20">
+                <i class="fas fa-rocket text-xl"></i>
+            </div>
+        </div>
+
+        <div class="lg:w-1/2 flex flex-col justify-center py-4">
+            
+            <div class="space-y-4">
+                <div class="flex items-center gap-4">
+                    <span class="h-[1.5px] w-12 bg-[#3730a3]"></span>
+                    <span class="text-[#3730a3] font-black text-[9px] uppercase tracking-[0.5em]">Global Digital Marketing</span>
+                </div>
+                
+                <h2 class="text-slate-900 leading-[0.9] tracking-tighter">
+                    <span class="text-5xl md:text-6xl font-black block transform -translate-x-1">Data-Driven</span> 
+                    <span class="font-['Playfair_Display'] italic text-[#065f46] text-6xl md:text-8xl block my-2">Marketing.</span>
+                    <span class="text-3xl md:text-5xl font-extralight opacity-60 block tracking-normal">Scale Your Revenue.</span>
+                </h2>
+
+                <p class="text-slate-500 text-base leading-relaxed max-w-xl">
+    We don't just drive traffic, we build <span class="text-[#3730a3] font-bold text-lg italic">Sales Pipelines</span>. 
+    Every campaign is optimized for <span class="text-[#065f46] font-bold underline decoration-wavy">Maximum Conversion</span>.
+</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4 pt-6">
+                <div class="group border-b border-slate-200 pb-2 hover:border-[#065f46] transition-all duration-300">
+                    <h4 class="text-slate-800 font-black text-[10px] uppercase tracking-widest mb-1 flex items-center gap-2">
+                        <span class="w-2 h-2 bg-[#065f46] rounded-full"></span> Search Engine
+                    </h4>
+                    <p class="text-[11px] text-slate-400 font-medium">Dominating search results with advanced SEO tactics.</p>
+                </div>
+                <div class="group border-b border-slate-200 pb-2 hover:border-[#3730a3] transition-all duration-300">
+                    <h4 class="text-slate-800 font-black text-[10px] uppercase tracking-widest mb-1 flex items-center gap-2">
+                        <span class="w-2 h-2 bg-[#3730a3] rounded-full"></span> Social Scaling
+                    </h4>
+                    <p class="text-[11px] text-slate-400 font-medium">Building community engagement that converts to fans.</p>
+                </div>
+                <div class="group border-b border-slate-200 pb-2 hover:border-[#065f46] transition-all duration-300">
+                    <h4 class="text-slate-800 font-black text-[10px] uppercase tracking-widest mb-1 flex items-center gap-2">
+                        <span class="w-2 h-2 bg-[#065f46] rounded-full"></span> PPC Excellence
+                    </h4>
+                    <p class="text-[11px] text-slate-400 font-medium">Paid campaigns that focus on profit, not just clicks.</p>
+                </div>
+                <div class="group border-b border-slate-200 pb-2 hover:border-[#3730a3] transition-all duration-300">
+                    <h4 class="text-slate-800 font-black text-[10px] uppercase tracking-widest mb-1 flex items-center gap-2">
+                        <span class="w-2 h-2 bg-[#3730a3] rounded-full"></span> Analytics
+                    </h4>
+                    <p class="text-[11px] text-slate-400 font-medium">Real-time data tracking to refine your marketing spend.</p>
+                </div>
+            </div>
+
+            <div class="pt-8 flex flex-wrap items-center gap-8">
+                <button class="bg-[#3730a3] text-white px-8 py-4 rounded-xl font-black uppercase tracking-[0.2em] text-[10px] transition-all hover:shadow-xl hover:bg-[#1e1b4b]">
+                    Boost My Brand <i class="fas fa-arrow-right-long ml-3 text-[#065f46]"></i>
+                </button>
+                <div class="text-[9px] font-black text-slate-400 uppercase leading-tight italic">
+                    Smart Insights. <br> Target Reach. <br> 24/7 Growth.
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+/* --- ANIMATIONS KEPT UNTOUCHED AS REQUESTED --- */
+@keyframes float-slow {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-15px) rotate(2deg); }
+}
+.animate-float-slow { animation: float-slow 7s infinite ease-in-out; }
+
+@keyframes float-delayed {
+    0%, 100% { transform: translateY(0px) translateX(0px); }
+    50% { transform: translateY(-12px) translateX(10px); }
+}
+.animate-float-delayed { animation: float-delayed 9s infinite ease-in-out; }
+
+@keyframes bounce-custom {
+    0%, 100% { transform: translateY(0) scale(1); }
+    50% { transform: translateY(-12px) scale(1.05); }
+}
+.animate-bounce-custom { animation: bounce-custom 5s infinite ease-in-out; }
+
+.tracking-tighter { letter-spacing: -0.06em; }
+</style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;700&family=Playfair+Display:ital,wght@1,700&family=Plus+Jakarta+Sans:wght@200;800&display=swap" rel="stylesheet">
+
+<section class="relative bg-[#fcfcfd] py-10 px-6 md:px-20 overflow-hidden font-['Plus_Jakarta_Sans'] min-h-fit flex items-center">
+    
+    <div class="absolute top-5 left-10 opacity-20 pointer-events-none">
+        <svg width="250" height="250" viewBox="0 0 200 200"><path d="M10,100 C30,40 80,40 100,100 C120,160 170,160 190,100" fill="none" stroke="#E89D4B" stroke-width="1.5" stroke-dasharray="6,6"/></svg>
+    </div>
+    <div class="absolute -bottom-10 -right-10 opacity-10 pointer-events-none transform rotate-180">
+        <svg width="400" height="400" viewBox="0 0 200 200"><path d="M10,100 Q50,10 100,100 T190,100" fill="none" stroke="#1e293b" stroke-width="3"/></svg>
+    </div>
+
+    <div class="max-w-9xl mx-auto flex flex-col lg:flex-row items-center gap-32 relative z-10">
+        
+        <div class="lg:w-1/2 relative flex items-center justify-center min-h-[400px]">
+            
+            <div class="absolute w-[90%] h-[95%] border-[2px] border-[#E89D4B]/40 rounded-[50px] rotate-[8deg] transition-transform duration-700 hover:rotate-0"></div>
+            <div class="absolute w-[85%] h-[90%] border-[2px] border-[#1e293b]/10 rounded-[40px] -rotate-[4deg]"></div>
+            <div class="absolute w-[100%] h-[70%] border-t-[1px] border-b-[1px] border-[#E89D4B]/20 rounded-full scale-110 opacity-50"></div>
+            
+            <div class="relative z-10 p-3 bg-white rounded-[40px] shadow-[0_40px_80px_-20px_rgba(0,0,0,0.15)] border border-slate-100">
+                <div class="rounded-[30px] overflow-hidden h-[350px] w-full md:w-[340px]">
+                    <img src="https://images.unsplash.com/photo-1455390582262-044cdead277a?q=80&w=1973" alt="Professional Writing" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-gradient-to-t from-[#1e293b]/40 to-transparent"></div>
+                </div>
+            </div>
+
+            <div class="absolute -top-4 -right-6 bg-white shadow-2xl p-3 rounded-2xl flex items-center gap-3 border-r-4 border-[#E89D4B] animate-float-slow z-20">
+                <div class="bg-orange-50 p-2 rounded-xl text-[#E89D4B]"><i class="fas fa-pen-nib"></i></div>
+                <div>
+                    <p class="text-[8px] font-black text-slate-400 uppercase tracking-widest">Engagement</p>
+                    <p class="text-[10px] font-bold text-[#1e293b]">High ROI Copy</p>
+                </div>
+            </div>
+
+            <div class="absolute top-1/2 -left-12 bg-[#1e293b] text-white shadow-2xl p-3 rounded-2xl flex items-center gap-3 animate-float-delayed z-20">
+                <div class="bg-blue-500/20 p-2 rounded-xl text-blue-400"><i class="fas fa-feather-pointed"></i></div>
+                <div>
+                    <p class="text-[8px] font-bold text-blue-300 uppercase tracking-widest">Storytelling</p>
+                    <p class="text-[10px] font-bold">Brand Voice</p>
+                </div>
+            </div>
+
+            <div class="absolute bottom-10 -right-8 bg-white shadow-2xl p-3 rounded-2xl flex items-center gap-3 border-l-4 border-blue-600 animate-float-slow z-20">
+                <div class="bg-blue-50 p-2 rounded-xl text-blue-600"><i class="fas fa-spell-check"></i></div>
+                <p class="text-[10px] font-black text-[#1e293b] leading-tight">Error Free <br>Content</p>
+            </div>
+
+            <div class="absolute top-10 -left-8 bg-[#E89D4B] text-white p-3 rounded-xl shadow-xl animate-bounce-custom z-20">
+                <i class="fas fa-file-signature text-xl"></i>
+            </div>
+
+            <div class="absolute -bottom-6 left-10 bg-white shadow-xl p-2 px-6 rounded-full border border-slate-100 flex items-center gap-2 animate-float-delayed z-20">
+                <span class="flex h-2 w-2 relative"><span class="animate-ping absolute h-full w-full rounded-full bg-green-400 opacity-75"></span><span class="relative rounded-full h-2 w-2 bg-green-500"></span></span>
+                <p class="text-[9px] font-black text-slate-500 uppercase tracking-[0.2em]">SEO Optimized Writing</p>
+            </div>
+        </div>
+
+        <div class="lg:w-1/2 flex flex-col justify-center py-4">
+            
+            <div class="space-y-4">
+                <div class="flex items-center gap-4">
+                    <span class="h-[1.5px] w-12 bg-[#E89D4B]"></span>
+                    <span class="text-[#1e293b] font-black text-[9px] uppercase tracking-[0.5em]">Premium Content Writing</span>
+                </div>
+                
+                <h2 class="text-[#1e293b] leading-[0.9] tracking-tighter">
+                    <span class="text-5xl md:text-6xl font-black block transform -translate-x-1">Creative</span> 
+                    <span class="font-['Playfair_Display'] italic text-[#E89D4B] text-6xl md:text-8xl block my-2">Strategies.</span>
+                    <span class="text-3xl md:text-5xl font-extralight opacity-70 block tracking-normal">Built for Conversion.</span>
+                </h2>
+
+               <p class="text-slate-500 text-base leading-relaxed max-w-xl">
+    We don't just write words, we craft <span class="text-[#1e293b] font-bold text-lg italic">Brand Stories</span>. 
+    Every sentence is optimized for <span class="text-[#E89D4B] font-bold underline decoration-wavy">Audience Engagement</span> results.
+</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4 pt-6">
+                <div class="group border-b border-slate-100 pb-2 hover:border-[#E89D4B] transition-all duration-300">
+                    <h4 class="text-[#1e293b] font-black text-[10px] uppercase tracking-widest mb-1 flex items-center gap-2">
+                        <span class="w-2 h-2 bg-[#E89D4B] rounded-full"></span> SEO Copywriting
+                    </h4>
+                    <p class="text-[11px] text-slate-400 font-medium">Keywords integration that ranks you on top of Google.</p>
+                </div>
+                <div class="group border-b border-slate-100 pb-2 hover:border-[#1e293b] transition-all duration-300">
+                    <h4 class="text-[#1e293b] font-black text-[10px] uppercase tracking-widest mb-1 flex items-center gap-2">
+                        <span class="w-2 h-2 bg-blue-500 rounded-full"></span> Ghostwriting
+                    </h4>
+                    <p class="text-[11px] text-slate-400 font-medium">Expert articles and blogs without the hassle of credits.</p>
+                </div>
+                <div class="group border-b border-slate-100 pb-2 hover:border-[#E89D4B] transition-all duration-300">
+                    <h4 class="text-[#1e293b] font-black text-[10px] uppercase tracking-widest mb-1 flex items-center gap-2">
+                        <span class="w-2 h-2 bg-[#E89D4B] rounded-full"></span> Sales Copy
+                    </h4>
+                    <p class="text-[11px] text-slate-400 font-medium">Persuasive writing that turns visitors into loyal buyers.</p>
+                </div>
+                <div class="group border-b border-slate-100 pb-2 hover:border-[#1e293b] transition-all duration-300">
+                    <h4 class="text-[#1e293b] font-black text-[10px] uppercase tracking-widest mb-1 flex items-center gap-2">
+                        <span class="w-2 h-2 bg-blue-500 rounded-full"></span> Social Media
+                    </h4>
+                    <p class="text-[11px] text-slate-400 font-medium">Catchy captions and posts that spark viral conversations.</p>
+                </div>
+            </div>
+
+            <div class="pt-8 flex flex-wrap items-center gap-8">
+                <button class="bg-[#1e293b] text-white px-8 py-4 rounded-xl font-black uppercase tracking-[0.2em] text-[10px] transition-all hover:shadow-xl hover:bg-black">
+                    Start Your Project <i class="fas fa-arrow-right-long ml-3 text-[#E89D4B]"></i>
+                </button>
+                <div class="text-[9px] font-black text-slate-400 uppercase leading-tight italic">
+                    Pure Quality. <br> Unique Tone. <br> Fast Delivery.
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+/* --- ANIMATIONS KEPT UNTOUCHED --- */
+@keyframes float-slow {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-15px) rotate(2deg); }
+}
+.animate-float-slow { animation: float-slow 7s infinite ease-in-out; }
+
+@keyframes float-delayed {
+    0%, 100% { transform: translateY(0px) translateX(0px); }
+    50% { transform: translateY(-12px) translateX(10px); }
+}
+.animate-float-delayed { animation: float-delayed 9s infinite ease-in-out; }
+
+@keyframes bounce-custom {
+    0%, 100% { transform: translateY(0) scale(1); }
+    50% { transform: translateY(-12px) scale(1.05); }
+}
+.animate-bounce-custom { animation: bounce-custom 5s infinite ease-in-out; }
+
+.tracking-tighter { letter-spacing: -0.06em; }
+</style>
+
+
+
+
+
+
+
+
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;800&family=Playfair+Display:ital,wght@1,700&family=Plus+Jakarta+Sans:wght@200;800&display=swap" rel="stylesheet">
+
+<section class="relative bg-[#f8fafc] py-12 px-6 md:px-20  overflow-hidden font-['Space_Grotesk'] min-h-fit flex items-center">
+    
+    <div class="absolute top-5 right-10 opacity-20 pointer-events-none">
+        <svg width="250" height="250" viewBox="0 0 200 200"><path d="M10,100 C30,40 80,40 100,100 C120,160 170,160 190,100" fill="none" stroke="#065f46" stroke-width="1.5" stroke-dasharray="6,6"/></svg>
+    </div>
+    <div class="absolute -bottom-10 -left-10 opacity-10 pointer-events-none transform">
+        <svg width="400" height="400" viewBox="0 0 200 200"><path d="M10,100 Q50,10 100,100 T190,100" fill="none" stroke="#3730a3" stroke-width="3"/></svg>
+    </div>
+
+    <div class="max-w-9xl mx-auto flex flex-col lg:flex-row-reverse items-center gap-28 relative z-10">
+        
+        <div class="lg:w-1/2 relative flex items-center justify-center min-h-[400px]">
+            
+            <div class="absolute w-[90%] h-[95%] border-[2px] border-[#065f46]/40 rounded-[50px] rotate-[8deg] transition-transform duration-700 hover:rotate-0"></div>
+            <div class="absolute w-[85%] h-[90%] border-[2px] border-[#3730a3]/10 rounded-[40px] -rotate-[4deg]"></div>
+            <div class="absolute w-[100%] h-[70%] border-t-[1px] border-b-[1px] border-[#065f46]/20 rounded-full scale-110 opacity-50"></div>
+            
+            <div class="relative z-10 p-3 bg-white rounded-[40px] shadow-[0_40px_80px_-20px_rgba(0,0,0,0.15)] border border-slate-100">
+                <div class="rounded-[30px] overflow-hidden h-[350px] w-full md:w-[340px]">
+                    <img src="https://images.unsplash.com/photo-1559028012-481c04fa702d?q=80&w=1936" alt="WordPress Design" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-gradient-to-t from-[#3730a3]/30 to-transparent"></div>
+                </div>
+            </div>
+
+            <div class="absolute -top-4 -left-6 bg-white shadow-2xl p-3 rounded-2xl flex items-center gap-3 border-r-4 border-[#065f46] animate-float-slow z-20">
+                <div class="bg-emerald-50 p-2 rounded-xl text-[#065f46]"><i class="fab fa-wordpress"></i></div>
+                <div>
+                    <p class="text-[8px] font-black text-slate-400 uppercase tracking-widest">Performance</p>
+                    <p class="text-[10px] font-bold text-slate-800">Fast & Responsive</p>
+                </div>
+            </div>
+
+            <div class="absolute top-1/2 -right-12 bg-[#3730a3] text-white shadow-2xl p-3 rounded-2xl flex items-center gap-3 animate-float-delayed z-20">
+                <div class="bg-white/20 p-2 rounded-xl text-white"><i class="fas fa-swatchbook"></i></div>
+                <div>
+                    <p class="text-[8px] font-bold text-indigo-100 uppercase tracking-widest">Customization</p>
+                    <p class="text-[10px] font-bold">Pro Themes</p>
+                </div>
+            </div>
+
+            <div class="absolute bottom-10 -left-8 bg-white shadow-2xl p-3 rounded-2xl flex items-center gap-3 border-l-4 border-indigo-900 animate-float-slow z-20">
+                <div class="bg-indigo-50 p-2 rounded-xl text-[#3730a3]"><i class="fas fa-shield-halved"></i></div>
+                <p class="text-[10px] font-black text-slate-800 leading-tight">Secure <br>Architecture</p>
+            </div>
+
+            <div class="absolute top-10 -right-8 bg-[#065f46] text-white p-3 rounded-xl shadow-xl animate-bounce-custom z-20">
+                <i class="fas fa-code text-xl"></i>
+            </div>
+        </div>
+
+        <div class="lg:w-1/2 flex flex-col justify-center py-4">
+            
+            <div class="space-y-4">
+                <div class="flex items-center gap-4">
+                    <span class="h-[1.5px] w-12 bg-[#3730a3]"></span>
+                    <span class="text-[#3730a3] font-black text-[9px] uppercase tracking-[0.5em]">Premium WordPress Design</span>
+                </div>
+                
+                <h2 class="text-slate-900 leading-[0.9] tracking-tighter">
+                    <span class="text-5xl md:text-6xl font-black block transform -translate-x-1">Custom Built</span> 
+                    <span class="font-['Playfair_Display'] italic text-[#065f46] text-6xl md:text-8xl block my-2">WordPress.</span>
+                    <span class="text-3xl md:text-5xl font-extralight opacity-60 block tracking-normal">Launch Your Vision.</span>
+                </h2>
+
+               <p class="text-slate-500 text-base leading-relaxed max-w-xl">
+    We don't just build templates, we create <span class="text-[#3730a3] font-bold text-lg italic">Digital Experiences</span>. 
+    Every element is optimized for <span class="text-[#065f46] font-bold underline decoration-wavy">Seamless Performance</span>.
+</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4 pt-6">
+                <div class="group border-b border-slate-200 pb-2 hover:border-[#065f46] transition-all duration-300">
+                    <h4 class="text-slate-800 font-black text-[10px] uppercase tracking-widest mb-1 flex items-center gap-2">
+                        <span class="w-2 h-2 bg-[#065f46] rounded-full"></span> Elementor Pro
+                    </h4>
+                    <p class="text-[11px] text-slate-400 font-medium">Drag-and-drop perfection with highly customized widgets.</p>
+                </div>
+                <div class="group border-b border-slate-200 pb-2 hover:border-[#3730a3] transition-all duration-300">
+                    <h4 class="text-slate-800 font-black text-[10px] uppercase tracking-widest mb-1 flex items-center gap-2">
+                        <span class="w-2 h-2 bg-[#3730a3] rounded-full"></span> E-Commerce
+                    </h4>
+                    <p class="text-[11px] text-slate-400 font-medium">Powerful WooCommerce stores built for high-volume sales.</p>
+                </div>
+                <div class="group border-b border-slate-200 pb-2 hover:border-[#065f46] transition-all duration-300">
+                    <h4 class="text-slate-800 font-black text-[10px] uppercase tracking-widest mb-1 flex items-center gap-2">
+                        <span class="w-2 h-2 bg-[#065f46] rounded-full"></span> Speed Optimization
+                    </h4>
+                    <p class="text-[11px] text-slate-400 font-medium">Blazing fast loading speeds to keep your visitors engaged.</p>
+                </div>
+                <div class="group border-b border-slate-200 pb-2 hover:border-[#3730a3] transition-all duration-300">
+                    <h4 class="text-slate-800 font-black text-[10px] uppercase tracking-widest mb-1 flex items-center gap-2">
+                        <span class="w-2 h-2 bg-[#3730a3] rounded-full"></span> Dynamic CMS
+                    </h4>
+                    <p class="text-[11px] text-slate-400 font-medium">Easy to manage backend designed for your specific needs.</p>
+                </div>
+            </div>
+
+            <div class="pt-8 flex flex-wrap items-center gap-8">
+                <button class="bg-[#3730a3] text-white px-8 py-4 rounded-xl font-black uppercase tracking-[0.2em] text-[10px] transition-all hover:shadow-xl hover:bg-[#1e1b4b]">
+                    Build My Site <i class="fas fa-arrow-right-long ml-3 text-[#065f46]"></i>
+                </button>
+                <div class="text-[9px] font-black text-slate-400 uppercase leading-tight italic">
+                    Clean Code. <br> Modern UI. <br> Fully Responsive.
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+/* --- ANIMATIONS KEPT UNTOUCHED AS REQUESTED --- */
+@keyframes float-slow {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-15px) rotate(2deg); }
+}
+.animate-float-slow { animation: float-slow 7s infinite ease-in-out; }
+
+@keyframes float-delayed {
+    0%, 100% { transform: translateY(0px) translateX(0px); }
+    50% { transform: translateY(-12px) translateX(10px); }
+}
+.animate-float-delayed { animation: float-delayed 9s infinite ease-in-out; }
+
+@keyframes bounce-custom {
+    0%, 100% { transform: translateY(0) scale(1); }
+    50% { transform: translateY(-12px) scale(1.05); }
+}
+.animate-bounce-custom { animation: bounce-custom 5s infinite ease-in-out; }
+
+.tracking-tighter { letter-spacing: -0.06em; }
+</style>
+
+
+
+
+
+
+
+
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+
+<div class="max-w-8xl  py-20 bg-[#f8fafc]">
+    <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 px-24  gap-16 md:gap-12">
+        
+        <div class="cube-container group">
+            <div class="cube-wrapper">
+                <div class="bubble"></div><div class="bubble"></div>
+                
+                <div class="cube-face cube-front">
+                    <div class="flex flex-col items-center justify-center h-full p-4 text-center">
+                        <div class="w-12 h-12 bg-[#1e293b] text-[#fbbf24] rounded-lg flex items-center justify-center mb-3 shadow-lg">
+                            <i class="fas fa-medal text-xl"></i>
+                        </div>
+                        <p class="text-[9px] font-black uppercase tracking-widest text-slate-400">Trust</p>
+                        <p class="text-[11px] font-bold text-[#1e293b]">100% Money <br> Protection</p>
+                    </div>
+                </div>
+                <div class="cube-face cube-bottom"></div>
+                <div class="cube-face cube-side"></div>
+            </div>
+        </div>
+
+        <div class="cube-container group">
+            <div class="cube-wrapper delay-100">
+                <div class="bubble"></div>
+                <div class="cube-face cube-front">
+                    <div class="flex flex-col items-center justify-center h-full p-4 text-center">
+                        <div class="w-12 h-12 bg-[#1e293b] text-[#fbbf24] rounded-lg flex items-center justify-center mb-3 shadow-lg">
+                            <i class="fas fa-fingerprint text-xl"></i>
+                        </div>
+                        <p class="text-[9px] font-black uppercase tracking-widest text-slate-400">Security</p>
+                        <p class="text-[11px] font-bold text-[#1e293b]">SSL Secure <br> Checkout</p>
+                    </div>
+                </div>
+                <div class="cube-face cube-bottom"></div>
+                <div class="cube-face cube-side"></div>
+            </div>
+        </div>
+
+        <div class="cube-container group">
+            <div class="cube-wrapper delay-200">
+                <div class="bubble"></div><div class="bubble"></div>
+                <div class="cube-face cube-front">
+                    <div class="flex flex-col items-center justify-center h-full p-4 text-center">
+                        <div class="w-12 h-12 bg-[#1e293b] text-[#fbbf24] rounded-lg flex items-center justify-center mb-3 shadow-lg">
+                            <i class="fas fa-headset text-xl"></i>
+                        </div>
+                        <p class="text-[9px] font-black uppercase tracking-widest text-slate-400">Support</p>
+                        <p class="text-[11px] font-bold text-[#1e293b]">24/7 Live <br> Sparta Help</p>
+                    </div>
+                </div>
+                <div class="cube-face cube-bottom"></div>
+                <div class="cube-face cube-side"></div>
+            </div>
+        </div>
+
+        <div class="cube-container group">
+            <div class="cube-wrapper delay-300">
+                <div class="bubble"></div>
+                <div class="cube-face cube-front">
+                    <div class="flex flex-col items-center justify-center h-full p-4 text-center">
+                        <div class="w-12 h-12 bg-[#1e293b] text-[#fbbf24] rounded-lg flex items-center justify-center mb-3 shadow-lg">
+                            <i class="fas fa-gem text-xl"></i>
+                        </div>
+                        <p class="text-[9px] font-black uppercase tracking-widest text-slate-400">Quality</p>
+                        <p class="text-[11px] font-bold text-[#1e293b]">Five-Star <br> Engineering</p>
+                    </div>
+                </div>
+                <div class="cube-face cube-bottom"></div>
+                <div class="cube-face cube-side"></div>
+            </div>
+        </div>
+
+        <div class="cube-container group">
+            <div class="cube-wrapper delay-400">
+                <div class="bubble"></div><div class="bubble"></div>
+                <div class="cube-face cube-front">
+                    <div class="flex flex-col items-center justify-center h-full p-4 text-center">
+                        <div class="w-12 h-12 bg-[#1e293b] text-[#fbbf24] rounded-lg flex items-center justify-center mb-3 shadow-lg">
+                            <i class="fas fa-bolt-lightning text-xl"></i>
+                        </div>
+                        <p class="text-[9px] font-black uppercase tracking-widest text-slate-400">Timeline</p>
+                        <p class="text-[11px] font-bold text-[#1e293b]">Rapid Tech <br> Delivery</p>
+                    </div>
+                </div>
+                <div class="cube-face cube-bottom"></div>
+                <div class="cube-face cube-side"></div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<style>
+    /* 3D Perspective Setup */
+    .cube-container {
+        perspective: 1000px;
+        height: 180px;
+        width: 160px;
+        margin: auto;
+    }
+
+    .cube-wrapper {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        transform-style: preserve-3d;
+        transform: rotateX(-15deg) rotateY(15deg);
+        transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+        animation: float-cube 5s ease-in-out infinite;
+    }
+
+    .cube-container:hover .cube-wrapper {
+        transform: rotateX(0deg) rotateY(0deg) scale(1.1);
+    }
+
+    .cube-face {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        backface-visibility: hidden;
+        border-radius: 15px;
+    }
+
+    /* Front Face - Glass effect */
+    .cube-front {
+        background: rgba(255, 255, 255, 0.8);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 1);
+        box-shadow: 20px 20px 60px rgba(0,0,0,0.05);
+        z-index: 2;
+    }
+
+    /* Bottom Face - Dark Blue/Shadow */
+    .cube-bottom {
+        background: #1e293b;
+        height: 40px;
+        bottom: -20px;
+        transform: rotateX(-90deg);
+        transform-origin: top;
+        filter: brightness(0.8);
+        z-index: 1;
+        opacity: 0.9;
+    }
+
+    /* Side Face - Golden/Orange tint */
+    .cube-side {
+        background: #fbbf24;
+        width: 40px;
+        right: -20px;
+        transform: rotateY(90deg);
+        transform-origin: left;
+        filter: brightness(0.9);
+        z-index: 1;
+        opacity: 0.4;
+    }
+
+    /* Bubbles Animation */
+    .bubble {
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        background: rgba(251, 191, 36, 0.9);
+        border-radius: 50%;
+        pointer-events: none;
+        z-index: 3;
+        animation: bubble-move 4s infinite ease-in-out;
+    }
+    .bubble:nth-child(1) { top: -10%; left: 10%; width: 15px; height: 15px; }
+    .bubble:nth-child(2) { bottom: 10%; right: -5%; width: 25px; height: 25px; animation-delay: 1s; }
+
+    @keyframes float-cube {
+        0%, 100% { transform: rotateX(-15deg) rotateY(15deg) translateY(0px); }
+        50% { transform: rotateX(-12deg) rotateY(18deg) translateY(-10px); }
+    }
+
+    @keyframes bubble-move {
+        0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.3; }
+        50% { transform: translate(5px, -15px) scale(1.2); opacity: 0.6; }
+    }
+
+    .delay-100 { animation-delay: 0.2s; }
+    .delay-200 { animation-delay: 0.4s; }
+    .delay-300 { animation-delay: 0.6s; }
+    .delay-400 { animation-delay: 0.8s; }
+</style>
+
+
+
+
+
+
+  
+
+  
+
+<footer class="bg-[#0f172a] text-white pt-16 pb-10 px-6 font-sans border-t-4 border-[#E89D4B]">
+    <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-">
+        
+        <div class="space-y-5 px-12">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 bg-[#E89D4B] rounded-lg flex items-center justify-center shadow-lg shadow-[#E89D4B]/20">
+                    <span class="text-[#0f172a] font-black text-xl">S</span>
+                </div>
+                <h2 class="text-2xl font-black tracking-tighter uppercase">Sparta <span class="text-[#E89D4B]">Tech</span></h2>
+            </div>
+            <p class="text-gray-400 text-sm leading-relaxed">
+                Empowering next-gen businesses with AI-driven growth systems and unified digital infrastructure. Scale beyond guesswork.
+            </p>
+            <div class="flex gap-4">
+                <a href="#" class="w-10 h-10 rounded-full border border-gray-700 flex items-center justify-center hover:border-[#E89D4B] hover:text-[#E89D4B] transition-all"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="w-10 h-10 rounded-full border border-gray-700 flex items-center justify-center hover:border-[#E89D4B] hover:text-[#E89D4B] transition-all"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#" class="w-10 h-10 rounded-full border border-gray-700 flex items-center justify-center hover:border-[#E89D4B] hover:text-[#E89D4B] transition-all"><i class="fab fa-twitter"></i></a>
+            </div>
+        </div>
+
+        <div>
+            <h4 class="text-lg font-bold mb-6 border-b-2 border-[#E89D4B] w-fit pb-1">Quick Links</h4>
+            <ul class="space-y-4 text-gray-400 text-sm">
+                <li><a href="#" class="hover:text-white hover:pl-2 transition-all duration-300 block border-l-0 hover:border-l-4 hover:border-[#E89D4B] pl-0">About Us</a></li>
+                <li><a href="#" class="hover:text-white hover:pl-2 transition-all duration-300 block border-l-0 hover:border-l-4 hover:border-[#E89D4B] pl-0">Services</a></li>
+                <li><a href="#" class="hover:text-white hover:pl-2 transition-all duration-300 block border-l-0 hover:border-l-4 hover:border-[#E89D4B] pl-0">Pricing</a></li>
+                <li><a href="#" class="hover:text-white hover:pl-2 transition-all duration-300 block border-l-0 hover:border-l-4 hover:border-[#E89D4B] pl-0">Contact Us</a></li>
+            </ul>
+        </div>
+
+        <div>
+            <h4 class="text-lg font-bold mb-6 border-b-2 border-[#E89D4B] w-fit pb-1">Our Services</h4>
+            <ul class="space-y-4 text-gray-400 text-sm">
+                <li><a href="#" class="hover:text-white hover:pl-2 transition-all duration-300 block border-l-0 hover:border-l-4 hover:border-[#E89D4B] pl-0">Web Design & Development</a></li>
+                <li><a href="#" class="hover:text-white hover:pl-2 transition-all duration-300 block border-l-0 hover:border-l-4 hover:border-[#E89D4B] pl-0">Graphic Design</a></li>
+                <li><a href="#" class="hover:text-white hover:pl-2 transition-all duration-300 block border-l-0 hover:border-l-4 hover:border-[#E89D4B] pl-0">Digital Marketing</a></li>
+                <li><a href="#" class="hover:text-white hover:pl-2 transition-all duration-300 block border-l-0 hover:border-l-4 hover:border-[#E89D4B] pl-0">Content Writing</a></li>
+            </ul>
+        </div>
+
+        <div class="space-y-6">
+            <h4 class="text-lg font-bold mb-6 border-b-2 border-[#E89D4B] w-fit pb-1">Connect With Us</h4>
+            <div class="space-y-4 text-sm text-gray-400">
+                <div class="flex items-start gap-3 group">
+                    <i class="fas fa-envelope mt-1 text-[#E89D4B]"></i>
+                    <span class="group-hover:text-white transition-colors">hello@spartatech.com</span>
+                </div>
+                <div class="flex items-start gap-3 group">
+                    <i class="fas fa-phone-alt mt-1 text-[#E89D4B]"></i>
+                    <span class="group-hover:text-white transition-colors">+1 (555) 2345 - 67890</span>
+                </div>
+                <div class="flex items-start gap-3 group">
+                    <i class="fas fa-map-marker-alt mt-1 text-[#E89D4B]"></i>
+                    <span class="group-hover:text-white transition-colors leading-relaxed">
+                        Avenue, Suite 567 TechVille, <br>California, 90210 United States
+                    </span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="max-w-7xl mx-auto mt-8 pt-4 px-12 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center gap-4">
+        <p class="text-gray-500 text-xs text-center md:text-left">
+            © 2026 <span class="text-[#E89D4B] font-bold">Sparta Tech</span>. All Rights Reserved. 
+            <span class="mx-2">|</span> Designed for Scale.
+        </p>
+        <div class="flex gap-6 text-xs text-gray-500">
+            <a href="#" class="hover:text-[#E89D4B] transition-colors">Privacy Policy</a>
+            <a href="#" class="hover:text-[#E89D4B] transition-colors">Terms of Service</a>
+            <a href="#" class="hover:text-[#E89D4B] transition-colors">Cookies Setting</a>
+        </div>
+    </div>
+</footer>
+
+
+
+
+</body>
+</html>

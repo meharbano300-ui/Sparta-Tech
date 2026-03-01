@@ -68,9 +68,10 @@
     </style>
 </head>
 <body>
+<script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
 
-<header class="w-full z-[100] relative bg-transparent">
-    <div class="w-full bg-gradient-to-r from-[#000000] via-[#05080f] to-[#0c1322]  py-3 px-6 md:px-16 flex flex-wrap justify-between items-center text-[13px] text-gray-400">
+<header x-data="{ mobileMenuOpen: false }" class="w-full z-[100] relative bg-transparent font-sans">
+    <div class="w-full bg-gradient-to-r from-[#010409] via-[#020817] to-[#010409] ] py-3 px-6 md:px-16 flex justify-between items-center text-[13px] text-gray-400">
         <div class="flex items-center gap-6">
             <div class="flex items-center gap-2">
                 <i class="fa-regular fa-envelope"></i>
@@ -78,50 +79,79 @@
             </div>
             <div class="hidden md:flex items-center gap-2 border-l border-white/20 pl-6">
                 <i class="fa-regular fa-clock"></i>
-                <span>Always open—here to serve you 24/7.</span>
+                <span>Always open—24/7.</span>
             </div>
         </div>
-        <div class="flex items-center gap-5 ">
+        <div class="flex items-center gap-5">
             <a href="#" class="hover:text-white transition-colors"><i class="fa-brands fa-facebook-f"></i></a>
             <a href="#" class="hover:text-white transition-colors"><i class="fa-brands fa-instagram"></i></a>
             <a href="#" class="hover:text-white transition-colors"><i class="fa-brands fa-linkedin-in"></i></a>
-            <a href="#" class="hover:text-white transition-colors"><i class="fa-brands fa-x-twitter"></i></a>
         </div>
     </div>
 
-    <nav class="w-full py-3 px-6 md:px-16 flex justify-between items-center bg-gradient-to-r from-[#000000] via-[#05080f] to-[#0c1322]">
-        <div class="flex items-center">
-    <div class="w-12 h-12 flex items-center justify-center">
-        <img 
-            src="Images/logo.png" 
-            alt="Logo" 
-            class="w-92 h-62 object-contain"
-        />
-    </div>
-</div>
+    <nav class="w-full py-4 px-6 md:px-16 flex justify-between items-center bg-gradient-to-r from-[#010409] via-[#020817] to-[#010409] ] relative">
+        <div class="flex items-center gap-3">
+            <div class="w-10 h-10 flex items-center justify-center">
+                <img src="Images/logo.png" alt="Logo" class="w-full h-full object-contain" />
+            </div>
+            <span class="text-white font-black text-xl tracking-tighter uppercase italic">
+                Sparta<span class="text-[#febd69]">Tech</span>
+            </span>
+        </div>
+
         <div class="hidden lg:flex items-center gap-10">
-            <a href="#" class="nav-link active">Home</a>
-            <a href="About.html" class="nav-link">About us</a>
-            <a href="Services.html" class="nav-link">Services</a>
-            <a href=".html" class="nav-link">Pricing</a>
-             <a href="#" class="nav-link">Contact Us</a>
-    
+            <a href="#" class="nav-link active text-white">Home</a>
+            <a href="About.html" class="nav-link text-gray-300 hover:text-white transition-all">About us</a>
+            <a href="Services.html" class="nav-link text-gray-300 hover:text-white transition-all">Services</a>
+            <a href="Pricing.html" class="nav-link text-gray-300 hover:text-white transition-all">Pricing</a>
+            <a href="Contact.html" class="nav-link text-gray-300 hover:text-white transition-all">Contact Us</a>
         </div>
 
-    <div>
-    <a href="#" class="group bg-[#febd69] hover:bg-[#e66e00] text-black font-black font-black leading-[0.85] tracking-tighter px-4 py-3 rounded-full transition-all duration-300 text-[13px] shadow-xl shadow-orange-600/30 flex items-center gap-">
-        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 group-hover:-translate-y-1 group-hover:rotate-[10deg] transition-all duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M8 10h.01M12 10h.01M16 10h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
-        </svg>
-        
-        <span class="tracking-wide">Book Meeting</span>
-    </a>
-</div>
+        <div class="flex items-center gap-4">
+            <div class="relative group p-[2px] rounded-full overflow-hidden inline-flex items-center justify-center">
+                <div class="absolute inset-0 w-full h-full bg-conic-gradient from-[#febd69] via-transparent to-[#febd69] animate-[spin_3s_linear_infinite] opacity-100"></div>
+                
+                <a href="#" class="relative bg-gradient-to-r from-[#010409] via-[#020817] to-[#010409] shadow-[0_10px_40px_-15px_rgba(2,132,199,0.15)] hover:bg-[#febd69] text-[#febd69] hover:text-black font-black px-5 py-2.5 rounded-full transition-all duration-300 text-[12px] flex items-center gap-2">
+                    <i class="fa-solid fa-comments text-sm"></i>
+                    <span class="tracking-wide uppercase">Let's Talk</span>
+                </a>
+            </div>
+
+            <button @click="mobileMenuOpen = !mobileMenuOpen" class="lg:hidden text-white text-2xl">
+                <i :class="mobileMenuOpen ? 'fa-solid fa-xmark' : 'fa-solid fa-bars-staggered'"></i>
+            </button>
+        </div>
+
+        <div x-show="mobileMenuOpen" 
+             x-transition:enter="transition ease-out duration-200"
+             x-transition:enter-start="opacity-0 -translate-y-5"
+             x-transition:enter-end="opacity-100 translate-y-0"
+             class="absolute top-full left-0 w-full bg-[#05080f] border-t border-white/10 flex flex-col p-6 gap-4 lg:hidden z-50 shadow-2xl">
+            <a href="#" class="nav-link active text-white border-b border-white/5 pb-2">Home</a>
+            <a href="About.html" class="nav-link text-gray-300 pb-2 border-b border-white/5">About us</a>
+            <a href="Services.html" class="nav-link text-gray-300 pb-2 border-b border-white/5">Services</a>
+            <a href="Pricing.html" class="nav-link text-gray-300 pb-2 border-b border-white/5">Pricing</a>
+            <a href="Contact.html" class="nav-link text-gray-300">Contact Us</a>
+        </div>
     </nav>
 </header>
 
-<main class="max-w-[1440px] mx-auto min-h-[95vh] flex items-center -mt-12">
-    <div class="relative w-full h-[750px] md:h-[600px] lg:h-[550px] overflow-hidden bg-gradient-to-r from-[#000000] via-[#05080f] to-[#0c1322] shadow-[0_0_50px_-12px_rgba(59,130,246,0.2)] rounded-[1rem] border border-white/5 mx-" >
+<style>
+/* Rotating Border Glow Effect */
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+.bg-conic-gradient {
+    background: conic-gradient(from 0deg, transparent 0%, #febd69 50%, transparent 100%);
+}
+</style>
+
+
+
+
+<main class="max-w-[1440px] mx-auto min-h-[90vh] flex items-center -mt-12">
+    <div class="relative w-full px-6 h-[750px] md:h-[600px] lg:h-[580px] overflow-hidden bg-gradient-to-r from-[#010409] via-[#020817] to-[#010409] shadow-[0_10px_40px_-15px_rgba(2,132,199,0.15)] rounded-[1rem] border border-white/5 ">
         
         <div class="bg-image-layer"></div>
 
@@ -130,13 +160,38 @@
         
         <div class="relative h-full w-full flex flex-col lg:flex-row items-center px-6 md:px-12 lg:px-18">
             <div class="z-20 flex flex-col justify-center items-center lg:items-start lg:w-[45%] text-center lg:text-left mb-12 lg:mb-0">
-                <div id="badge-top" class="bg-[#febd69] text-black text-[10px] font-black px-5 py-2 rounded-full uppercase tracking-[0.2em] w-fit mb-6 shadow-lg shadow-[#febd69]/20">
-                    Innovation Excellence
-                </div>
+               
+
+
+
+    <div id="badge-top" class="relative flex items-center gap-3 mb-6 group cursor-default">
+    <div class="relative">
+        <span class="text-4xl md:text-3xl font-black text-[#febd69] italic leading-none drop-shadow-[0_0_15px_rgba(254,189,105,0.3)]">
+            50<span class="text-2xl ml-0.5">+</span>
+        </span>
+        <div class="absolute -bottom-1 left-0 w-full h-[3px] bg-gradient-to-r from-[#febd69] to-transparent rounded-full"></div>
+    </div>
+
+    <div class="flex flex-col justify-center translate-y-[-2px]">
+        <span class="text-[#febd69] text-[8px] font-black uppercase tracking-[0.3em] leading-none mb-1 opacity-80">
+            Highly Trusted
+        </span>
+        <span class="text-white text-[12px] font-extrabold uppercase tracking-widest leading-none italic">
+            Happy Clients
+        </span>
+    </div>
+
+    <div class="ml-2 flex items-center">
+        <span class="relative flex h-2 w-2">
+            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#febd69] opacity-75"></span>
+            <span class="relative inline-flex rounded-full h-2 w-2 bg-[#febd69]"></span>
+        </span>
+    </div>
+</div>
                 
                 <div id="text-content">
                     <h1 id="main-title" class="text-white slider-text-h1 lg:text-[85px] font-black leading-[0.85] tracking-tighter">
-                        Sparta <span class="text-[#febd69]">Tech</span> <span class="text-white/30 font-serif-italic lowercase">solutions</span>
+                        Sparta <span class="text-[#febd69]">Tech</span> <span class="text-white/30 font-serif-italic ">Solutions</span>
                     </h1>
                     <p id="slider-subtitle" class="text-gray-400 text-sm md:text-base lg:text-lg max-w-sm font-medium leading-relaxed pt-6 opacity-80">
                         Architecting the digital future with precision and power.
@@ -152,7 +207,7 @@
                 </div>
             </div>
 
-            <div class="relative lg:w-[55%] w-full h-[400px] md:h-full flex items-center justify-center animate-float">
+            <div class="relative lg:w-[55%] w-full h-[400px] md:h-full flex items-center justify-center animate-spartaSliderFloat">
                 
                 <div id="discount-badge" class="absolute right-0 bottom-10 lg:right-2 lg:bottom-20 z-40 flex flex-col items-center">
                     <div class="w-14 h-14 bg-[#febd69] rounded-full flex items-center justify-center shadow-2xl mb-2 ">
@@ -175,6 +230,28 @@
     </div>
 </main>
 
+<style>
+/* Unique Animation Names to avoid conflict */
+@keyframes spartaSliderFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+}
+
+.animate-spartaSliderFloat {
+    animation: spartaSliderFloat 6s ease-in-out infinite;
+}
+
+/* Unique pulse for slider orange dot */
+@keyframes spartaDotPulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(1.2); }
+}
+
+.animate-spartaDotPulse {
+    animation: spartaDotPulse 2s infinite;
+}
+</style>
+
 <script>
     const slides = [
         { title: "AI ENGINE", subtitle: "Custom Artificial Intelligence and Machine Learning models.", image: "Images/1.jfif" },
@@ -192,7 +269,7 @@
         indicators.innerHTML = slides.map((_, i) => `
             <div class="indicator-dot h-1.5 rounded-full cursor-pointer transition-all duration-700 bg-white/20 ${i === 0 ? 'w-12 bg-[#febd69]' : 'w-3'}" onclick="goToSlide(${i})"></div>
         `).join('');
-        updateCards(true); // Initial load
+        updateCards(true); 
     }
 
     function updateCards(isFirstLoad = false) {
@@ -238,7 +315,7 @@
                 <div class="glass-inner w-[180px] h-[260px] md:w-[240px] md:h-[340px] rounded-[2.5rem] p-3 flex flex-col overflow-hidden group">
                     <div class="flex justify-between items-center px-3 py-2">
                         <span class="text-[#febd69] text-[9px] font-black tracking-widest uppercase">Sparta_System</span>
-                        <div class="w-2 h-2 rounded-full bg-orange-300 animate-pulse"></div>
+                        <div class="w-2 h-2 rounded-full bg-orange-300 animate-spartaDotPulse"></div>
                     </div>
                     <div class="overflow-hidden rounded-[2rem] h-[70%] shadow-2xl">
                          <img src="${slides[index].image}" class="slide-img w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" alt="tech">
@@ -303,236 +380,332 @@
 
 
 
-<section class="py-10 bg-white overflow-hidden font-sans">
-    <div class="max-w-7xl mx-auto px-4">
-        
-        <div class="text-center mb-20 group" id="animated-header">
-            <span class="inline-block py-1 right-1 px-4 rounded-full border border-[#d9933e]/60 text-[#d9933e] text-[9px] font-bold tracking-[0.4em] uppercase mb-4 transition-transform duration-500" id="scroll-tag">
-                Our Ecosystem
-            </span>
-            <div class="relative inline-block transition-transform duration-700 ease-out" id="scroll-title">
-                <h2 class="text-3xl md:text-5xl font-black uppercase tracking-tighter text-[#05080d] mb-2 italic">
-                    Trusted <span class="text-[#d9933e]">Partners</span>
-                </h2>
-                <div class="absolute -bottom-2 left-1/2 -translate-x-1/2 w-12 h-[3px] bg-[#d9933e] rounded-full transition-all duration-700 group-hover:w-full group-hover:bg-gradient-to-r group-hover:from-transparent group-hover:via-[#d9933e] group-hover:to-transparent"></div>
-            </div>
-            <p class="text-gray-500 text-[10px] font-medium tracking-[0.1em] uppercase mt-6 max-w-md mx-auto leading-relaxed transition-transform duration-500" id="scroll-desc">
-                Collaborating with industry leaders to deliver <span class="text-[#05080d] font-bold">excellence</span> globally.
-            </p>
+
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,900;1,900&display=swap" rel="stylesheet">
+
+<section class="py-16  bg-[#f8fafc] overflow-hidden font-sans relative min-h-[600px] flex flex-col justify-center border-y border-gray-100">
+    <div class="absolute inset-0 z-0 opacity-40">
+        <div class="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] rounded-full bg-gradient-to-br from-[#3b82f6]/10 to-transparent blur-[120px]"></div>
+        <div class="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] rounded-full bg-gradient-to-br from-[#f472b6]/10 to-transparent blur-[120px]"></div>
+    </div>
+
+    <div class="absolute inset-0 pointer-events-none">
+        <div class="bubble-container">
+            <div class="bubble"></div><div class="bubble"></div><div class="bubble"></div>
+            <div class="bubble"></div><div class="bubble"></div><div class="bubble"></div>
+            <div class="bubble"></div><div class="bubble"></div><div class="bubble"></div>
+            <div class="bubble"></div><div class="bubble"></div><div class="bubble"></div>
+            <div class="bubble"></div><div class="bubble"></div><div class="bubble"></div>
+            <div class="bubble"></div><div class="bubble"></div><div class="bubble"></div>
         </div>
 
-        <div class="grid grid-cols-2 md:grid-cols-5 gap-6 min-h-[220px]" id="partners-grid">
-            
-            <style>
-                .original-dark-leaf {
-                    background: #161b22;
-                    border-radius: 0px 0px 70px 0px; 
-                    height: 180px;
-                    position: relative;
-                    border-bottom: 3px solid #d9933e;
-                    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-                    opacity: 0;
-                    transform: translateY(30px);
-                    display: none;
-                }
-                .box-active { display: flex !important; opacity: 1; transform: translateY(0); }
-                .box-exit { opacity: 0; transform: translateY(-20px); }
-                .original-dark-leaf:hover { background: #05080d; transform: translateY(-10px) scale(1.02); box-shadow: 0 15px 30px rgba(0,0,0,0.2); }
-                .floating-icon-box { position: absolute; top: -22px; left: 0; width: 48px; height: 48px; background: #d9933e; border-radius: 12px; display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 20px rgba(217, 147, 62, 0.2); z-index: 10; }
-                .content-wrapper { position: relative; width: 100%; height: 80px; overflow: hidden; }
-                .stat-content, .partner-content { position: absolute; width: 100%; transition: all 0.8s ease; }
-                .partner-content { transform: translateY(100px); opacity: 0; }
-                .show-partner .stat-content { transform: translateY(-100px); opacity: 0; }
-                .show-partner .partner-content { transform: translateY(0); opacity: 1; }
-                .bg-num-dark { position: absolute; bottom: 8px; right: 15px; font-size: 55px; font-weight: 900; color: rgba(255, 255, 255, 0.03); line-height: 1; pointer-events: none; }
-                
-                /* Naya Icon Style Jo Maine Add Kiya */
-                .inner-mini-icon { width: 15px; height: 14px; margin-bottom: 6px; color: #d9933e; opacity: 0.8; }
-            </style>
-
-       <div class="original-dark-leaf p-8 flex-col justify-end group toggle-card box-batch-1 relative">
-    <div class="floating-icon-box">
-        <svg class="w-10 h-10 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
+        <svg class="absolute top-0 left-0 w-full h-full opacity-40" viewBox="0 0 1440 800" fill="none">
+            <path d="M-100,300 C300,100 600,600 900,300 C1200,100 1500,500 1800,200" stroke="#3b82f6" stroke-width="2" stroke-dasharray="10 20" fill="none" class="dash-anim-slow"/>
+            <path d="M-100,500 C200,700 500,200 800,500 C1100,800 1400,300 1700,600" stroke="#f472b6" stroke-width="1.5" fill="none" class="dash-anim"/>
         </svg>
     </div>
 
-    <div class="content-wrapper">
-        <div class="stat-content">
-           <svg class="inner-mini-icon w-28 h-28" fill="currentColor" viewBox="0 0 20 20">
-    <path d="M2 11a1 1 0 011-1h2a1 1 0 011 1v5a1 1 0 01-1 1H3a1 1 0 01-1-1v-5zM8 7a1 1 0 011-1h2a1 1 0 011 1v9a1 1 0 01-1 1H9a1 1 0 01-1-1V7zM14 4a1 1 0 011-1h2a1 1 0 011 1v12a1 1 0 01-1 1h-2a1 1 0 01-1-1V4z"></path>
-</svg>
-            <h3 class="text-white text-2xl font-black italic">12+</h3>
-            <p class="text-[#d9933e] text-[8px] font-bold uppercase mt-1">Growth Index</p>
+    <div class="max-w-7xl mx-auto px-14 relative z-10 w-full">
+        <div class="flex flex-col md:flex-row items-center justify-between mb-20 gap-8" id="animated-header">
+            <div class="text-left md:w-1/2 transition-all duration-1000 ease-out relative" id="scroll-title">
+               <span class="inline-block py-2 px-6 rounded-full text-[#0f172a] border-[0.5px] border-[#D4AF37]/50 text-[10px] font-bold tracking-[0.5em] uppercase mb-6 shadow-xl animate-bounce"> Our Ecosystem </span>
+               <h2 class="text-5xl md:text-7xl font-black uppercase tracking-tighter text-[#0f172a] leading-none italic reveal-text">
+    
+    <span style="font-family: 'Syne', sans-serif;">
+        Trusted
+    </span> 
+    
+    <br/> 
+    
+    <span class="text-[#d9933e] hover:text-[#1e3a8a] transition-colors duration-500" 
+          style="font-family: 'Syne', sans-serif;  font-weight: 800; font-style: italic;">
+        Partners
+    </span>
+    
+</h2>
+                
+                <div class="mt-4 w-48">
+                    <svg viewBox="0 0 200 20" fill="none" xmlns="http://www.w3.org/2000/svg" class="text-[#d9933e] animate-pulse">
+                        <path d="M0 10 Q25 0 50 10 T100 10 T150 10 T200 10" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
+                    </svg>
+                </div>
+            </div>
+            
+            <div class="md:w-1/3 text-right" id="scroll-tag">
+                <div class="h-1.5 w-24 bg-[#d9933e] ml-auto mb-6 rounded-full"></div>
+                <p class="text-[#1e3a8a] text-base font-medium tracking-widest uppercase leading-relaxed">
+                    Collaborating with industry leaders to deliver <span class="text-[#0f172a] font-black underline decoration-[#d9933e] decoration-4 underline-offset-4">excellence</span> globally.
+                </p>
+            </div>
         </div>
-        <div class="partner-content">
-            <svg class="inner-mini-icon" fill="currentColor" viewBox="0 0 20 20">
-                <path d="M11 3a1 1 0 10-2 0v1a1 1 0 102 0V3zM5.884 6.607a1 1 0 01-.226 1.396l-.868.65a1 1 0 11-1.2-1.6l.868-.65a1 1 0 011.426.204zM18 10a1 1 0 11-2 0 1 1 0 012 0zM14.516 11.232a1 1 0 01-1.396.226l-.65-.868a1 1 0 011.6-1.2l.65.868a1 1 0 01-.204 1.426zM11 13a1 1 0 10-2 0v1a1 1 0 102 0v-1zM4.344 11.232a1 1 0 01.204 1.426l-.65.868a1 1 0 11-1.6-1.2l.65-.868a1 1 0 011.396-.226zM15.342 6.607a1 1 0 011.426-.204l.868.65a1 1 0 11-1.2 1.6l-.868-.65a1 1 0 01-.226-1.396z"></path>
-            </svg>
-            <h3 class="text-white text-xl font-black italic">TECH-CORE</h3>
-            <p class="text-gray-400 text-[9px] font-bold uppercase mt-1">Systems Integration</p>
-        </div>
-    </div>
 
-    <span class="bg-num-dark absolute bottom-8 left-36 text-4xl font-bold opacity-10 ">01</span>
-</div>
+        <div class="relative">
+            <div class="absolute -inset-8 border border-dashed border-gray-300 rounded-[50px] pointer-events-none opacity-50"></div>
+            
+            <div class="grid grid-cols-2 md:grid-cols-5 gap-6 min-h-[220px] relative z-20" id="partners-grid">
+                <style>
+                    /* BUBBLES - PINK AND SKYBLUE EFFECT */
+                    .bubble {
+                        position: absolute;
+                        background: rgba(125, 211, 252, 0.2); /* Sky Blue */
+                        border-radius: 50%;
+                        animation: float-bubble 15s infinite ease-in-out;
+                        z-index: 0;
+                        border: 1px solid rgba(244, 114, 182, 0.2); /* Pink border */
+                        backdrop-filter: blur(2px);
+                    }
+                    .bubble:nth-child(3n) { background: rgba(244, 114, 182, 0.15); width: 80px; height: 80px; } /* Pinkish */
+                    .bubble:nth-child(4n) { background: rgba(125, 211, 252, 0.15); width: 150px; height: 150px; animation-duration: 20s; }
+                    
+                    .bubble:nth-child(1) { left: 5%; top: 10%; animation-delay: 0s; width: 40px; height: 40px; }
+                    .bubble:nth-child(2) { left: 85%; top: 15%; animation-delay: 2s; width: 100px; height: 100px; }
+                    .bubble:nth-child(4) { left: 15%; top: 75%; animation-delay: 1s; width: 60px; height: 60px; }
+                    .bubble:nth-child(5) { left: 55%; top: 5%; animation-delay: 5s; width: 30px; height: 30px; }
+                    .bubble:nth-child(6) { left: 40%; top: 85%; animation-delay: 3s; width: 120px; height: 120px; }
+                    .bubble:nth-child(7) { left: 70%; top: 60%; width: 90px; height: 90px; animation-delay: 4s; }
+                    .bubble:nth-child(8) { left: 25%; top: 20%; width: 50px; height: 50px; animation-delay: 1s; }
 
-            <div class="original-dark-leaf p-8 flex-col justify-end group toggle-card box-batch-1">
-                <div class="floating-icon-box"><svg class="w-6 h-6 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M13 10V3L4 14h7v7l9-11h-7z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-                <div class="content-wrapper">
-                    <div class="stat-content">
-                        <svg class="inner-mini-icon" fill="currentColor" viewBox="0 0 20 20"><path d="M10.394 2.08a1 1 0 00-.788 0l-7 3a1 1 0 000 1.84L5.25 8.051a.999.999 0 01.356-.257l4-1.714a1 1 0 11.788 1.838L7.667 9.088l1.94.831a1 1 0 00.787 0l7-3a1 1 0 000-1.838l-7-3zM3.31 9.397L5 10.12v4.102a8.969 8.969 0 00-1.05-.174 1 1 0 01-.89-.89 11.115 11.115 0 01.25-3.762zM9.3 16.573A9.026 9.026 0 007 14.935v-3.957l1.818.78a3 3 0 002.364 0l5.508-2.361a11.026 11.026 0 01.25 3.762 1 1 0 01-.89.89 8.968 8.968 0 00-5.35 2.524 1 1 0 01-1.4 0z"></path></svg>
-                        <h3 class="text-white text-2xl font-black italic">14k</h3>
-                        <p class="text-[#d9933e] text-[8px] font-bold uppercase mt-1">Active Hubs</p>
+                    @keyframes float-bubble {
+                        0%, 100% { transform: translateY(0) scale(1) rotate(0deg); }
+                        50% { transform: translateY(-120px) translateX(40px) scale(1.1) rotate(180deg); }
+                    }
+
+                    /* Heading Reveal Animation */
+                    .reveal-text {
+                        background: linear-gradient(to right, #0f172a 50%, #d9933e 50%);
+                        background-size: 200% 100%;
+                        background-position: 0% 0%;
+                        -webkit-background-clip: text;
+                        transition: background-position 0.8s ease;
+                    }
+                    .reveal-text:hover { background-position: -100% 0%; }
+
+                    .dash-anim-slow { stroke-dasharray: 1200; stroke-dashoffset: 1200; animation: dash-anim 15s linear infinite; }
+                    .dash-anim { stroke-dasharray: 1000; stroke-dashoffset: 1000; animation: dash-anim 10s linear infinite; }
+                    @keyframes dash-anim { to { stroke-dashoffset: 0; } }
+
+                    /* BOX STYLING - UNTOUCHED */
+                    .original-dark-leaf {
+                        background: #0f172a;
+                        border-radius: 20px 0px 60px 0px; 
+                        height: 200px;
+                        position: relative;
+                        border-bottom: 4px solid #d9933e;
+                        transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+                        opacity: 0;
+                        transform: scale(0.9);
+                        display: none;
+                        box-shadow: 0 15px 35px rgba(15, 23, 42, 0.3);
+                        overflow: visible;
+                    }
+                    .box-active { display: flex !important; opacity: 1; transform: scale(1); }
+                    .box-exit { opacity: 0; transform: scale(0.8) translateY(-20px); }
+                    .original-dark-leaf:hover { 
+                        background: #1e3a8a; 
+                        transform: translateY(-12px) rotateX(5deg); 
+                        box-shadow: 0 40px 70px rgba(30, 58, 138, 0.3);
+                    }
+                    
+                    .floating-icon-box { 
+                        position: absolute; top: -20px; right: -15px;
+                        width: 55px; height: 55px; background: #d9933e; 
+                        border-radius: 18px; display: flex; align-items: center; justify-content: center; 
+                        box-shadow: 0 12px 20px rgba(217, 147, 62, 0.4); z-index: 10;
+                        border: 3px solid #f8fafc;
+                        transition: transform 0.3s ease;
+                    }
+                    .original-dark-leaf:hover .floating-icon-box { transform: scale(1.1) rotate(15deg); }
+                    
+                    .content-wrapper { position: relative; width: 100%; height: 120px; overflow: hidden; } 
+                    .inner-mini-icon { width: 42px; height: 42px; margin-bottom: 10px; color: #d9933e; }
+                    
+                    .stat-content, .partner-content { position: absolute; width: 100%; transition: all 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55); }
+                    .partner-content { transform: translateY(120px); opacity: 0; }
+                    .show-partner .stat-content { transform: translateY(-120px); opacity: 0; }
+                    .show-partner .partner-content { transform: translateY(0); opacity: 1; }
+                    
+                    .bg-num-dark { position: absolute; bottom: 10px; left: 15px; font-size: 70px; font-weight: 900; color: rgba(255, 255, 255, 0.05); line-height: 1; pointer-events: none; font-style: italic; transition: color 0.3s ease; }
+                    .original-dark-leaf:hover .bg-num-dark { color: rgba(217, 147, 62, 0.1); }
+                </style>
+
+                <div class="original-dark-leaf p-8 flex-col justify-end group toggle-card box-batch-1 relative">
+                    <div class="floating-icon-box">
+                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>
                     </div>
-                    <div class="partner-content">
-                        <svg class="inner-mini-icon" fill="currentColor" viewBox="0 0 20 20"><path d="M3 1a1 1 0 000 2h1.22l.305 1.222a.997.997 0 00.01.042l1.358 5.43-.893.892C3.74 11.846 4.632 14 6.414 14H15a1 1 0 100-2H6.414l1-1H14a1 1 0 00.894-.553l3-6A1 1 0 0017 3H6.28l-.31-1.243A1 1 0 005 1H3zM16 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM6.5 18a1.5 1.5 0 100-3 1.5 1.5 0 000 3z"></path></svg>
-                        <h3 class="text-white text-xl font-black italic">NEXUS LTD</h3>
-                        <p class="text-gray-400 text-[8px] font-bold uppercase mt-1">Market Dynamics</p>
+                    <div class="content-wrapper">
+                        <div class="stat-content">
+                            <svg class="inner-mini-icon" fill="currentColor" viewBox="0 0 20 20"><path d="M2 11a1 1 0 011-1h2a1 1 0 011 1v5a1 1 0 01-1 1H3a1 1 0 01-1-1v-5zM8 7a1 1 0 011-1h2a1 1 0 011 1v9a1 1 0 01-1 1H9a1 1 0 01-1-1V7zM14 4a1 1 0 011-1h2a1 1 0 011 1v12a1 1 0 01-1 1h-2a1 1 0 01-1-1V4z"></path></svg>
+                            <h3 class="text-white text-3xl font-black italic">12+</h3>
+                            <p class="text-[#d9933e] text-[9px] font-bold uppercase tracking-widest mt-1">Growth Index</p>
+                        </div>
+                        <div class="partner-content">
+                            <svg class="inner-mini-icon" fill="currentColor" viewBox="0 0 20 20"><path d="M11 3a1 1 0 10-2 0v1a1 1 0 102 0V3zM5.884 6.607a1 1 0 01-.226 1.396l-.868.65a1 1 0 11-1.2-1.6l.868-.65a1 1 0 011.426.204zM18 10a1 1 0 11-2 0 1 1 0 012 0z"></path></svg>
+                            <h3 class="text-white text-xl font-black italic">TECH-CORE</h3>
+                            <p class="text-gray-400 text-[9px] font-bold uppercase mt-1">Systems Integration</p>
+                        </div>
                     </div>
-                </div><span class="bg-num-dark">02</span>
+                    <span class="bg-num-dark">01</span>
+                </div>
+
+                <div class="original-dark-leaf p-8 flex-col justify-end group toggle-card box-batch-1">
+                    <div class="floating-icon-box"><svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M13 10V3L4 14h7v7l9-11h-7z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+                    <div class="content-wrapper">
+                        <div class="stat-content">
+                            <svg class="inner-mini-icon" fill="currentColor" viewBox="0 0 20 20"><path d="M10.394 2.08a1 1 0 00-.788 0l-7 3a1 1 0 000 1.84L5.25 8.051a.999.999 0 01.356-.257l4-1.714a1 1 0 11.788 1.838L7.667 9.088l1.94.831a1 1 0 00.787 0l7-3a1 1 0 000-1.838l-7-3z"></path></svg>
+                            <h3 class="text-white text-3xl font-black italic">14k</h3>
+                            <p class="text-[#d9933e] text-[9px] font-bold uppercase tracking-widest mt-1">Active Hubs</p>
+                        </div>
+                        <div class="partner-content">
+                            <svg class="inner-mini-icon" fill="currentColor" viewBox="0 0 20 20"><path d="M3 1a1 1 0 000 2h1.22l.305 1.222a.997.997 0 00.01.042l1.358 5.43-.893.892C3.74 11.846 4.632 14 6.414 14H15a1 1 0 100-2H6.414l1-1H14a1 1 0 00.894-.553l3-6A1 1 0 0017 3H6.28l-.31-1.243A1 1 0 005 1H3z"></path></svg>
+                            <h3 class="text-white text-xl font-black italic">NEXUS LTD</h3>
+                            <p class="text-gray-400 text-[9px] font-bold uppercase mt-1">Market Dynamics</p>
+                        </div>
+                    </div><span class="bg-num-dark">02</span>
+                </div>
+
+                <div class="original-dark-leaf p-8 flex-col justify-end group toggle-card box-batch-1">
+                    <div class="floating-icon-box"><svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" stroke="currentColor" stroke-width="2"/></svg></div>
+                    <div class="content-wrapper">
+                        <div class="stat-content">
+                            <svg class="inner-mini-icon" fill="currentColor" viewBox="0 0 20 20"><path d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001z"></path></svg>
+                            <h3 class="text-white text-3xl font-black italic">100%</h3>
+                            <p class="text-[#d9933e] text-[9px] font-bold uppercase tracking-widest mt-1">Encrypted</p>
+                        </div>
+                        <div class="partner-content">
+                            <svg class="inner-mini-icon" fill="currentColor" viewBox="0 0 20 20"><path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3z"></path></svg>
+                            <h3 class="text-white text-xl font-black italic">SAFE-GUARD</h3>
+                            <p class="text-gray-400 text-[9px] font-bold uppercase mt-1">Protocol Division</p>
+                        </div>
+                    </div><span class="bg-num-dark">03</span>
+                </div>
+
+                <div class="original-dark-leaf p-8 flex-col justify-end group toggle-card box-batch-1">
+                    <div class="floating-icon-box"><svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.175 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" stroke="currentColor" stroke-width="2"/></svg></div>
+                    <div class="content-wrapper">
+                        <div class="stat-content">
+                            <svg class="inner-mini-icon" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                            <h3 class="text-white text-3xl font-black italic">4.9</h3>
+                            <p class="text-[#d9933e] text-[9px] font-bold uppercase tracking-widest mt-1">Client Score</p>
+                        </div>
+                        <div class="partner-content">
+                            <svg class="inner-mini-icon" fill="currentColor" viewBox="0 0 20 20"><path d="M11.3 1.047a1 1 0 01.897.95l1.135 11.455 1.137-11.455a1 1 0 111.99 0l1.135 11.455 1.137-11.455a1 1 0 011.99.197l-1.333 13.434a1 1 0 01-.994.901H4.636a1 1 0 01-.994-.901L2.31 1.244a1 1 0 011.99-.197l1.136 11.455L6.574 1.047a1 1 0 111.99 0l1.135 11.455 1.137-11.455a1 1 0 011.99 0z"></path></svg>
+                            <h3 class="text-white text-xl font-black italic">PRIME SVCS</h3>
+                            <p class="text-gray-400 text-[9px] font-bold uppercase mt-1">Global Quality</p>
+                        </div>
+                    </div><span class="bg-num-dark">04</span>
+                </div>
+
+                <div class="original-dark-leaf p-8 flex-col justify-end group toggle-card box-batch-1">
+                    <div class="floating-icon-box"><svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" stroke="currentColor" stroke-width="2"/></svg></div>
+                    <div class="content-wrapper">
+                        <div class="stat-content">
+                            <svg class="inner-mini-icon" fill="currentColor" viewBox="0 0 20 20"><path d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z"></path></svg>
+                            <h3 class="text-white text-3xl font-black italic">24/7</h3>
+                            <p class="text-[#d9933e] text-[9px] font-bold uppercase tracking-widest mt-1">Live Sync</p>
+                        </div>
+                        <div class="partner-content">
+                            <svg class="inner-mini-icon" fill="currentColor" viewBox="0 0 20 20"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"></path></svg>
+                            <h3 class="text-white text-xl font-black italic">FAST-HELPS</h3>
+                            <p class="text-gray-400 text-[9px] font-bold uppercase mt-1">Response Unit</p>
+                        </div>
+                    </div><span class="bg-num-dark">05</span>
+                </div>
+
+                <div class="original-dark-leaf p-8 flex-col justify-end group toggle-card box-batch-2">
+                    <div class="floating-icon-box"><svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M12 11c0 3.517-1.009 6.799-2.753 9.571m-3.44-2.04l.054-.09A10.003 10.003 0 0012 20a10.003 10.003 0 006.235-2.152" stroke="currentColor" stroke-width="2"/></svg></div>
+                    <div class="content-wrapper">
+                        <div class="stat-content">
+                            <svg class="inner-mini-icon" fill="currentColor" viewBox="0 0 20 20"><path d="M12.395 2.553a1 1 0 00-1.450 3.27c.211.69.451 1.348.708 1.987l-9.445 9.445a1 1 0 001.414 1.414l9.445-9.445c.64.257 1.297.497 1.987.708a1 1 0 10.596-1.908z"></path></svg>
+                            <h3 class="text-white text-3xl font-black italic">50+</h3>
+                            <p class="text-[#d9933e] text-[9px] font-bold uppercase tracking-widest mt-1">Edge Nodes</p>
+                        </div>
+                        <div class="partner-content">
+                            <svg class="inner-mini-icon" fill="currentColor" viewBox="0 0 20 20"><path d="M5.5 16a3.5 3.5 0 01-.369-6.98 4 4 0 117.753-1.977A4.5 4.5 0 1113.5 16h-8z"></path></svg>
+                            <h3 class="text-white text-xl font-black italic">CYBER-X</h3>
+                            <p class="text-gray-400 text-[9px] font-bold uppercase mt-1">Cloud Solutions</p>
+                        </div>
+                    </div><span class="bg-num-dark">06</span>
+                </div>
+
+                <div class="original-dark-leaf p-8 flex-col justify-end group toggle-card box-batch-2">
+                    <div class="floating-icon-box"><svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 005.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" stroke="currentColor" stroke-width="2"/></svg></div>
+                    <div class="content-wrapper">
+                        <div class="stat-content">
+                            <svg class="inner-mini-icon" fill="currentColor" viewBox="0 0 20 20"><path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3z"></path></svg>
+                            <h3 class="text-white text-3xl font-black italic">8k</h3>
+                            <p class="text-[#d9933e] text-[9px] font-bold uppercase tracking-widest mt-1">Community</p>
+                        </div>
+                        <div class="partner-content">
+                            <svg class="inner-mini-icon" fill="currentColor" viewBox="0 0 20 20"><path d="M12.586 4.586a2 2 0 112.828 2.828l-3 3a2 2 0 01-2.828 0 1 1 0 00-1.414 1.414 4 4 0 005.656 0z"></path></svg>
+                            <h3 class="text-white text-xl font-black italic">VIBE-NET</h3>
+                            <p class="text-gray-400 text-[9px] font-bold uppercase mt-1">Social Growth</p>
+                        </div>
+                    </div><span class="bg-num-dark">07</span>
+                </div>
+
+                <div class="original-dark-leaf p-8 flex-col justify-end group toggle-card box-batch-2">
+                    <div class="floating-icon-box"><svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" stroke="currentColor" stroke-width="2"/></svg></div>
+                    <div class="content-wrapper">
+                        <div class="stat-content">
+                            <svg class="inner-mini-icon" fill="currentColor" viewBox="0 0 20 20"><path d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.429A1 1 0 009 15.571V11a1 1 0 112 0v4.571a1 1 0 00.725.962l5 1.428a1 1 0 001.17-1.408l-7-14z"></path></svg>
+                            <h3 class="text-white text-3xl font-black italic uppercase">Global</h3>
+                            <p class="text-[#d9933e] text-[9px] font-bold uppercase tracking-widest mt-1">Satellite</p>
+                        </div>
+                        <div class="partner-content">
+                            <svg class="inner-mini-icon" fill="currentColor" viewBox="0 0 20 20"><path d="M10 18a8 8 0 100-16 8 8 0 000 16zM7 9H5v2h2V9zm8 0h-2v2h2V9zM9 9h2v2H9V9z"></path></svg>
+                            <h3 class="text-white text-xl font-black italic">ORBIT INC</h3>
+                            <p class="text-gray-400 text-[9px] font-bold uppercase mt-1">Aerospace Dev</p>
+                        </div>
+                    </div><span class="bg-num-dark">08</span>
+                </div>
+
+                <div class="original-dark-leaf p-8 flex-col justify-end group toggle-card box-batch-2">
+                    <div class="floating-icon-box"><svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.628.283a2 2 0 01-1.186.127l-2.431-.486a2 2 0 00-1.638.327l-1.822 1.215a2 2 0 00-.71 2.441l.948 2.37a2 2 0 002.399 1.2l2.316-.579a2 2 0 011.233.023l2.422.605a2 2 0 001.977-.494l1.83-1.83a2 2 0 00.327-2.316l-1.215-1.822z" stroke="currentColor" stroke-width="2"/></svg></div>
+                    <div class="content-wrapper">
+                        <div class="stat-content">
+                            <svg class="inner-mini-icon" fill="currentColor" viewBox="0 0 20 20"><path d="M11 3a1 1 0 10-2 0v1a1 1 0 102 0V3zM5.884 6.607a1 1 0 01-.226 1.396l-.868.65a1 1 0 11-1.2-1.6l.868-.65a1 1 0 011.426.204zM18 10a1 1 0 11-2 0z"></path></svg>
+                            <h3 class="text-white text-3xl font-black italic uppercase">Pro</h3>
+                            <p class="text-[#d9933e] text-[9px] font-bold uppercase tracking-widest mt-1">Deep Learning</p>
+                        </div>
+                        <div class="partner-content">
+                            <svg class="inner-mini-icon" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a6 6 0 00-6 6v3.586l-.707.707A1 1 0 004 14h12a1 1 0 00.707-1.707L16 11.586V8a6 6 0 00-6-6z"></path></svg>
+                            <h3 class="text-white text-xl font-black italic">DATA-MIND</h3>
+                            <p class="text-gray-400 text-[9px] font-bold uppercase mt-1">Cognitive Intel</p>
+                        </div>
+                    </div><span class="bg-num-dark">09</span>
+                </div>
+
+                <div class="original-dark-leaf p-8 flex-col justify-end group toggle-card box-batch-2">
+                    <div class="floating-icon-box"><svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M13 10V3L4 14h7v7l9-11h-7z" stroke="currentColor" stroke-width="2"/></svg></div>
+                    <div class="content-wrapper">
+                        <div class="stat-content">
+                            <svg class="inner-mini-icon" fill="currentColor" viewBox="0 0 20 20"><path d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2z"></path></svg>
+                            <h3 class="text-white text-3xl font-black italic uppercase">Speed</h3>
+                            <p class="text-[#d9933e] text-[9px] font-bold uppercase tracking-widest mt-1">High FPS</p>
+                        </div>
+                        <div class="partner-content">
+                            <svg class="inner-mini-icon" fill="currentColor" viewBox="0 0 20 20"><path d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM6.293 6.707a1 1 0 010-1.414l3-3a1 1 0 011.414 0l3 3a1 1 0 01-1.414 1.414z"></path></svg>
+                            <h3 class="text-white text-xl font-black italic">VELOCITY</h3>
+                            <p class="text-gray-400 text-[9px] font-bold uppercase mt-1">Direct Shipment</p>
+                        </div>
+                    </div><span class="bg-num-dark">10</span>
+                </div>
             </div>
-
-            <div class="original-dark-leaf p-8 flex-col justify-end group toggle-card box-batch-1">
-                <div class="floating-icon-box"><svg class="w-6 h-6 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" stroke="currentColor" stroke-width="2"/></svg></div>
-                <div class="content-wrapper">
-                    <div class="stat-content">
-                        <svg class="inner-mini-icon" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
-                        <h3 class="text-white text-2xl font-black italic">100%</h3>
-                        <p class="text-[#d9933e] text-[8px] font-bold uppercase mt-1">Encrypted</p>
-                    </div>
-                    <div class="partner-content">
-                        <svg class="inner-mini-icon " fill="currentColor" viewBox="0 0 20 20"><path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-3a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v3h-3zM4.75 12.094A5.973 5.973 0 004 15v3H1v-3a3 3 0 013.75-2.906z"></path></svg>
-                        <h3 class="text-white text-xl font-black italic">SAFE-GUARD</h3>
-                        <p class="text-gray-400 text-[8px] font-bold uppercase mt-1">Protocol Division</p>
-                    </div>
-                </div><span class="bg-num-dark">03</span>
-            </div>
-
-            <div class="original-dark-leaf p-8 flex-col justify-end group toggle-card box-batch-1">
-                <div class="floating-icon-box"><svg class="w-6 h-6 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.175 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" stroke="currentColor" stroke-width="2"/></svg></div>
-                <div class="content-wrapper">
-                    <div class="stat-content">
-                        <svg class="inner-mini-icon" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
-                        <h3 class="text-white text-2xl font-black italic">4.9</h3>
-                        <p class="text-[#d9933e] text-[8px] font-bold uppercase mt-1">Client Score</p>
-                    </div>
-                    <div class="partner-content">
-                        <svg class="inner-mini-icon" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M11.3 1.047a1 1 0 01.897.95l1.135 11.455 1.137-11.455a1 1 0 111.99 0l1.135 11.455 1.137-11.455a1 1 0 011.99.197l-1.333 13.434a1 1 0 01-.994.901H4.636a1 1 0 01-.994-.901L2.31 1.244a1 1 0 011.99-.197l1.136 11.455L6.574 1.047a1 1 0 111.99 0l1.135 11.455 1.137-11.455a1 1 0 011.99 0z" clip-rule="evenodd"></path></svg>
-                        <h3 class="text-white text-xl font-black italic">PRIME SVCS</h3>
-                        <p class="text-gray-400 text-[8px] font-bold uppercase mt-1">Global Quality</p>
-                    </div>
-                </div><span class="bg-num-dark">04</span>
-            </div>
-
-            <div class="original-dark-leaf p-8 flex-col justify-end group toggle-card box-batch-1">
-                <div class="floating-icon-box"><svg class="w-6 h-6 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" stroke="currentColor" stroke-width="2"/></svg></div>
-                <div class="content-wrapper">
-                    <div class="stat-content">
-                        <svg class="inner-mini-icon" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"></path></svg>
-                        <h3 class="text-white text-2xl font-black italic">24/7</h3>
-                        <p class="text-[#d9933e] text-[8px] font-bold uppercase mt-1">Live Sync</p>
-                    </div>
-                    <div class="partner-content">
-                        <svg class="inner-mini-icon" fill="currentColor" viewBox="0 0 20 20"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"></path></svg>
-                        <h3 class="text-white text-xl font-black italic">FAST-HELPS</h3>
-                        <p class="text-gray-400 text-[8px] font-bold uppercase mt-1">Response Unit</p>
-                    </div>
-                </div><span class="bg-num-dark">05</span>
-            </div>
-
-            <div class="original-dark-leaf p-8 flex-col justify-end group toggle-card box-batch-2">
-                <div class="floating-icon-box"><svg class="w-6 h-6 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M12 11c0 3.517-1.009 6.799-2.753 9.571m-3.44-2.04l.054-.09A10.003 10.003 0 0012 20a10.003 10.003 0 006.235-2.152" stroke="currentColor" stroke-width="2"/></svg></div>
-                <div class="content-wrapper">
-                    <div class="stat-content">
-                        <svg class="inner-mini-icon" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M12.395 2.553a1 1 0 00-1.450 3.27c.211.69.451 1.348.708 1.987l-9.445 9.445a1 1 0 001.414 1.414l9.445-9.445c.64.257 1.297.497 1.987.708a1 1 0 10.596-1.908 1 1 0 00-3.255-1.450 1 1 0 00-1.450 3.27c.211.69.451 1.348.708 1.987L2.053 17.553a1 1 0 001.414 1.414l9.445-9.445c.64.257 1.297.497 1.987.708a1 1 0 10.596-1.908 1 1 0 00-3.255-1.450z" clip-rule="evenodd"></path></svg>
-                        <h3 class="text-white text-2xl font-black italic">50+</h3>
-                        <p class="text-[#d9933e] text-[8px] font-bold uppercase mt-1">Edge Nodes</p>
-                    </div>
-                    <div class="partner-content">
-                        <svg class="inner-mini-icon" fill="currentColor" viewBox="0 0 20 20"><path d="M5.5 16a3.5 3.5 0 01-.369-6.98 4 4 0 117.753-1.977A4.5 4.5 0 1113.5 16h-8z"></path></svg>
-                        <h3 class="text-white text-xl font-black italic">CYBER-X</h3>
-                        <p class="text-gray-400 text-[8px] font-bold uppercase mt-1">Cloud Solutions</p>
-                    </div>
-                </div><span class="bg-num-dark">06</span>
-            </div>
-
-            <div class="original-dark-leaf p-8 flex-col justify-end group toggle-card box-batch-2">
-                <div class="floating-icon-box"><svg class="w-6 h-6 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 005.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" stroke="currentColor" stroke-width="2"/></svg></div>
-                <div class="content-wrapper">
-                    <div class="stat-content">
-                        <svg class="inner-mini-icon" fill="currentColor" viewBox="0 0 20 20"><path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
-                        <h3 class="text-white text-2xl font-black italic">8k</h3>
-                        <p class="text-[#d9933e] text-[8px] font-bold uppercase mt-1">Community</p>
-                    </div>
-                    <div class="partner-content">
-                        <svg class="inner-mini-icon" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M12.586 4.586a2 2 0 112.828 2.828l-3 3a2 2 0 01-2.828 0 1 1 0 00-1.414 1.414 4 4 0 005.656 0l3-3a4 4 0 00-5.656-5.656l-1.5 1.5a1 1 0 101.414 1.414l1.5-1.5zm-5 5a2 2 0 012.828 0 1 1 0 101.414-1.414 4 4 0 00-5.656 0l-3 3a4 4 0 105.656 5.656l1.5-1.5a1 1 0 10-1.414-1.414l-1.5 1.5a2 2 0 11-2.828-2.828l3-3z" clip-rule="evenodd"></path></svg>
-                        <h3 class="text-white text-xl font-black italic">VIBE-NET</h3>
-                        <p class="text-gray-400 text-[8px] font-bold uppercase mt-1">Social Growth</p>
-                    </div>
-                </div><span class="bg-num-dark">07</span>
-            </div>
-
-            <div class="original-dark-leaf p-8 flex-col justify-end group toggle-card box-batch-2">
-                <div class="floating-icon-box"><svg class="w-6 h-6 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" stroke="currentColor" stroke-width="2"/></svg></div>
-                <div class="content-wrapper">
-                    <div class="stat-content">
-                        <svg class="inner-mini-icon" fill="currentColor" viewBox="0 0 20 20"><path d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.429A1 1 0 009 15.571V11a1 1 0 112 0v4.571a1 1 0 00.725.962l5 1.428a1 1 0 001.17-1.408l-7-14z"></path></svg>
-                        <h3 class="text-white text-2xl font-black italic">Global</h3>
-                        <p class="text-[#d9933e] text-[8px] font-bold uppercase mt-1">Satellite</p>
-                    </div>
-                    <div class="partner-content">
-                        <svg class="inner-mini-icon" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM7 9H5v2h2V9zm8 0h-2v2h2V9zM9 9h2v2H9V9z" clip-rule="evenodd"></path></svg>
-                        <h3 class="text-white text-xl font-black italic">ORBIT INC</h3>
-                        <p class="text-gray-400 text-[8px] font-bold uppercase mt-1">Aerospace Dev</p>
-                    </div>
-                </div><span class="bg-num-dark">08</span>
-            </div>
-
-            <div class="original-dark-leaf p-8 flex-col justify-end group toggle-card box-batch-2">
-                <div class="floating-icon-box"><svg class="w-6 h-6 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.628.283a2 2 0 01-1.186.127l-2.431-.486a2 2 0 00-1.638.327l-1.822 1.215a2 2 0 00-.71 2.441l.948 2.37a2 2 0 002.399 1.2l2.316-.579a2 2 0 011.233.023l2.422.605a2 2 0 001.977-.494l1.83-1.83a2 2 0 00.327-2.316l-1.215-1.822z" stroke="currentColor" stroke-width="2"/></svg></div>
-                <div class="content-wrapper">
-                    <div class="stat-content">
-                        <svg class="inner-mini-icon" fill="currentColor" viewBox="0 0 20 20"><path d="M11 3a1 1 0 10-2 0v1a1 1 0 102 0V3zM5.884 6.607a1 1 0 01-.226 1.396l-.868.65a1 1 0 11-1.2-1.6l.868-.65a1 1 0 011.426.204zM18 10a1 1 0 11-2 0 1 1 0 012 0zM14.516 11.232a1 1 0 01-1.396.226l-.65-.868a1 1 0 011.6-1.2l.65.868a1 1 0 01-.204 1.426zM11 13a1 1 0 10-2 0v1a1 1 0 102 0v-1z"></path></svg>
-                        <h3 class="text-white text-2xl font-black italic">Pro</h3>
-                        <p class="text-[#d9933e] text-[8px] font-bold uppercase mt-1">Deep Learning</p>
-                    </div>
-                    <div class="partner-content">
-                        <svg class="inner-mini-icon" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a6 6 0 00-6 6v3.586l-.707.707A1 1 0 004 14h12a1 1 0 00.707-1.707L16 11.586V8a6 6 0 00-6-6zM10 18a3 3 0 01-3-3h6a3 3 0 01-3 3z"></path></svg>
-                        <h3 class="text-white text-xl font-black italic">DATA-MIND</h3>
-                        <p class="text-gray-400 text-[8px] font-bold uppercase mt-1">Cognitive Intel</p>
-                    </div>
-                </div><span class="bg-num-dark">09</span>
-            </div>
-
-            <div class="original-dark-leaf p-8 flex-col justify-end group toggle-card box-batch-2">
-                <div class="floating-icon-box"><svg class="w-6 h-6 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M13 10V3L4 14h7v7l9-11h-7z" stroke="currentColor" stroke-width="2"/></svg></div>
-                <div class="content-wrapper">
-                    <div class="stat-content">
-                        <svg class="inner-mini-icon" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd"></path></svg>
-                        <h3 class="text-white text-2xl font-black italic">Speed</h3>
-                        <p class="text-[#d9933e] text-[8px] font-bold uppercase mt-1">High FPS</p>
-                    </div>
-                    <div class="partner-content">
-                        <svg class="inner-mini-icon" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM6.293 6.707a1 1 0 010-1.414l3-3a1 1 0 011.414 0l3 3a1 1 0 01-1.414 1.414L11 5.414V13a1 1 0 11-2 0V5.414L7.707 6.707a1 1 0 01-1.414 0z" clip-rule="evenodd"></path></svg>
-                        <h3 class="text-white text-xl font-black italic">VELOCITY</h3>
-                        <p class="text-gray-400 text-[8px] font-bold uppercase mt-1">Direct Shipment</p>
-                    </div>
-                </div><span class="bg-num-dark">10</span>
-            </div>
-
         </div>
     </div>
 </section>
+
 <script>
-    // 1. Heading Scroll Animation
+    // Parallax Scroll Logic
     window.addEventListener('scroll', () => {
         const scrolled = window.scrollY;
-        document.getElementById('scroll-title').style.transform = `translateX(${scrolled * 0.08}px)`;
-        document.getElementById('scroll-tag').style.transform = `translateX(-${scrolled * 0.04}px)`;
+        const title = document.getElementById('scroll-title');
+        const tag = document.getElementById('scroll-tag');
+        if(title) title.style.transform = `translateY(${scrolled * 0.05}px)`;
+        if(tag) tag.style.transform = `translateY(-${scrolled * 0.02}px)`;
     });
 
-    // 2. 5-by-5 Sliding Logic (Optimized & Fast)
     let currentBatch = 1;
     const batch1 = document.querySelectorAll('.box-batch-1');
     const batch2 = document.querySelectorAll('.box-batch-2');
@@ -541,32 +714,29 @@
         const exitBatch = currentBatch === 1 ? batch1 : batch2;
         const enterBatch = currentBatch === 1 ? batch2 : batch1;
 
-        // Purane boxes ko tezi se exit karwana
         exitBatch.forEach(box => {
             box.classList.add('box-exit');
             setTimeout(() => {
                 box.classList.remove('box-active', 'box-exit');
-            }, 400); // Fast removal
+            }, 500); 
         });
 
-        // Naye boxes ko jaldi aur ek saath (simultaneously) lana
         setTimeout(() => {
             enterBatch.forEach((box) => {
-                box.classList.add('box-active'); // i * 100 wala delay khatam kar diya
+                box.classList.add('box-active');
             });
             currentBatch = currentBatch === 1 ? 2 : 1;
-        }, 400); // 700ms se kam karke 400ms kar diya
+        }, 500); 
     }
 
-    // Initial Start (Pehli dafa bhi jaldi load honge)
+    // Init first batch
     batch1.forEach((box) => {
         box.classList.add('box-active');
     });
 
-    // Auto-Switch Batch every 6 seconds
+    // Intervals
     setInterval(switchBoxes, 6000);
 
-    // 3. Stats to Partner Name Toggling
     setInterval(() => {
         document.querySelectorAll('.toggle-card').forEach(card => {
             card.classList.toggle('show-partner');
@@ -582,16 +752,17 @@
 
 
 
+
 <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
-<section class="relative py-10 bg-white overflow-hidden font-sans">
+<section class="relative py-24 bg-white overflow-hidden font-sans">
     <div class="absolute top-1/2 right-5 -translate-y-1/12 text-[14rem] text-gray-300 font-black  opacity-[0.4] select-none pointer-events-none tracking-tighter italic leading-none">
         SPARTA
     </div>
 
-    <div class="max-w-7xl mx-auto px-6 relative z-10">
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
+    <div class="max-w-8xl mx-auto px-12 ms-10 relative z-10">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-28 items-center">
             
             <div class="relative">
                 <div class="relative z-10 w-4/5 rounded-[2rem] overflow-hidden shadow-[20px_40px_80px_rgba(0,0,0,0.1)] border border-gray-100" data-aos="fade-right" data-aos-duration="1500">
@@ -602,18 +773,34 @@
                     <img src="Images/8.jfif" alt="Sparta Tech Team" class="w-full h-[300px] object-cover">
                 </div>
 
-                <div class="absolute -bottom-8 left-10 z-30 bg-[#05080d] p-10 rounded-3xl shadow-[0_30px_60px_rgba(0,0,0,0.3)] border-t-4 border-[#d9933e]" data-aos="zoom-in" data-aos-delay="800">
-                    <div class="flex items-center space-x-4">
-                        <span class="text-[#d9933e] text-6xl font-black italic">10+</span>
-                        <div class="h-12 w-[2px] bg-white/20"></div>
-                        <span class="text-white text-xs font-bold uppercase tracking-[0.2em] leading-tight">Years Of<br>Digital Warfare</span>
-                    </div>
-                </div>
+                
 
-                <div class="absolute -top-10 -left-10 w-40 h-40 border-[20px] border-[#d9933e]/5 rounded-full animate-pulse"></div>
+                <div class="absolute -bottom-8 left-10 z-30 bg-[#05080d] p-6 rounded-3xl shadow-[0_30px_60px_rgba(0,0,0,0.6)] border-t-4 border-[#d9933e] overflow-hidden group" data-aos="zoom-in" data-aos-delay="800">
+    <div class="absolute top-0 right-0 -mr-10 -mt-10 w-32 h-32 bg-[#d9933e]/10 blur-3xl rounded-full"></div>
+    
+    <div class="relative flex items-center space-x-6">
+        <div class="relative">
+            <span class="text-[#d9933e] text-6xl font-black italic tracking-tighter drop-shadow-[0_0_15px_rgba(217,147,62,0.3)]">10+</span>
+            <div class="absolute -bottom-1 left-0 w-full h-1 bg-gradient-to-r from-[#d9933e] to-transparent opacity-50"></div>
+        </div>
+
+        <div class="h-14 w-[1px] bg-gradient-to-b from-transparent via-white/20 to-transparent"></div>
+
+        <div class="flex flex-col space-y-1">
+            <span class="text-white text-[11px] font-bold uppercase tracking-[0.3em] leading-tight opacity-90">Years Of</span>
+            <span class="text-[#d9933e] text-[13px] font-black uppercase tracking-[0.1em] leading-tight">Digital Warfare</span>
+            
+            <div class="flex items-center pt-1">
+                <span class="h-1.5 w-1.5 rounded-full bg-red-600 animate-pulse mr-2"></span>
+                <span class="text-white/40 text-[8px] font-bold uppercase tracking-widest">Live Operations</span>
+            </div>
+        </div>
+    </div>
+</div>
+                <div class="absolute -top-10 -left-10 w-40 h-40 border-[20px] border-[#d9933e]/50 rounded-full animate-pulse"></div>
             </div>
 
-            <div class="space-y-12">
+            <div class="space-y-8">
                 <div data-aos="fade-left" data-aos-duration="1000">
                     <div class="flex items-center space-x-4 mb-6">
                         <span class="w-10 h-[3px] bg-[#d9933e]"></span>
@@ -686,19 +873,42 @@
 
 
 
+
+
+
+
+
+
+
 <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;700;800&display=swap" rel="stylesheet">
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script src="https://unpkg.com/lucide@latest"></script>
 
-<section class="relative py-24 bg-[#ffffff] overflow-hidden" style="font-family: 'Plus Jakarta Sans', sans-serif;">
+<section class="relative py-16 bg-[#ffffff] overflow-hidden" style="font-family: 'Plus Jakarta Sans', sans-serif;">
     
     <div class="absolute inset-0 pointer-events-none">
         <div class="absolute top-[5%] left-[-5%] w-[600px] h-[600px] bg-[#d9933e]/5 rounded-full blur-[130px]"></div>
         <div class="absolute bottom-[5%] right-[-5%] w-[600px] h-[600px] bg-blue-50/40 rounded-full blur-[130px]"></div>
     </div>
-
+    
     <div class="max-w-6xl mx-auto px-6 relative z-10">
+      <div class="absolute top-5 -left-2 w-36 h-36 pointer-events-none group">
+    <div class="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-[#d9933e]"></div>
+    <div class="absolute top-0 right-0 w-2 h-2 border-t-2 border-r-2 border-[#d9933e]/90"></div>
+    <div class="absolute bottom-0 left-0 w-2 h-2 border-b-2 border-l-2 border-[#d9933e]/90"></div>
+
+    <div class="absolute inset-4 border border-dashed border-[#d9933e]/80 rounded-full animate-[spin_10s_linear_infinite]"></div>
+    
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+        <div class="w-2 h-2 bg-[#d9933e] rounded-full animate-ping"></div>
+        <div class="absolute inset-0 w-2 h-2 bg-[#d9933e] rounded-full"></div>
+    </div>
+
+    <div class="absolute -top-2 left-6 text-[7px] font-bold text-[#d9933e] tracking-[0.3em] uppercase opacity-70 animate-pulse">
+        System_Active
+    </div>
+</div>  
         <div class="flex flex-col items-center mb-28" data-aos="fade-up">
             <div class="flex items-center space-x-3 mb-6">
                 <span class="w-12 h-[1px] bg-[#d9933e]"></span>
@@ -710,7 +920,7 @@
             </h2>
             <p class="mt-6 text-gray-400 text-center max-w-lg font-medium italic">Precision-engineered workflows designed for market dominance and technological superiority.</p>
         </div>
-
+    
         <div class="relative">
             <div class="absolute left-1/2 transform -translate-x-1/2 h-full w-[1px] bg-gray-100 hidden md:block">
                 <div id="scroll-progress" class="absolute top-0 left-[-1.5px] w-[4px] bg-gradient-to-b from-[#d9933e] via-[#f5c285] to-[#d9933e] transition-all duration-500 ease-out shadow-[0_0_25px_rgba(217,147,62,0.4)]" style="height: 0%;">
@@ -718,11 +928,11 @@
                 </div>
             </div>
 
-            <div class="space-y-40">
+            <div class="space-y-16">
                 
                 <div class="relative flex flex-col md:flex-row items-center group">
                     <div class="md:w-1/2 md:pr-24 text-right order-2 md:order-1 relative" data-aos="fade-right">
-                        <span class="absolute -top-16 -right-10 text-[12rem] font-black text-gray-100/60 select-none z-[-1] italic pointer-events-none group-hover:text-[#d9933e]/5 transition-colors duration-700">01</span>
+                        <span class="absolute -top-16 -right-10 text-[12rem] font-black text-gray-100/60 select-none z-[-1] italic pointer-events-none group-hover:text-[#d9933e]/20 transition-colors duration-700">01</span>
                         
                         <div class="inline-block px-4 py-1.5 bg-[#05080d] rounded-md mb-6 transform group-hover:-translate-y-1 transition-transform shadow-lg">
                              <span class="text-[10px] font-black text-[#d9933e] uppercase tracking-widest">Phase _Forge</span>
@@ -763,7 +973,7 @@
                     </div>
 
                     <div class="md:w-1/2 md:pl-24 text-left order-2 md:order-3 relative" data-aos="fade-left">
-                         <span class="absolute -top-16 -left-10 text-[12rem] font-black text-gray-100/60 select-none z-[-1] italic pointer-events-none group-hover:text-[#d9933e]/5 transition-colors duration-700">02</span>
+                         <span class="absolute -top-16 -left-10 text-[12rem] font-black text-gray-100/60 select-none z-[-1] italic pointer-events-none group-hover:text-[#d9933e]/20 transition-colors duration-700">02</span>
                         
                         <div class="inline-block px-4 py-1.5 bg-[#05080d] rounded-md mb-6 shadow-lg">
                              <span class="text-[10px] font-black text-[#d9933e] uppercase tracking-widest">Phase _Tactical</span>
@@ -780,7 +990,7 @@
 
                 <div class="relative flex flex-col md:flex-row items-center group">
                     <div class="md:w-1/2 md:pr-24 text-right order-2 md:order-1 relative" data-aos="fade-right">
-                         <span class="absolute -top-16 -right-10 text-[12rem] font-black text-gray-100/60 select-none z-[-1] italic pointer-events-none group-hover:text-[#d9933e]/5 transition-colors duration-700">03</span>
+                         <span class="absolute -top-16 -right-10 text-[12rem] font-black text-gray-100/60 select-none z-[-1] italic pointer-events-none group-hover:text-[#d9933e]/20 transition-colors duration-700">03</span>
                         
                         <div class="inline-block px-4 py-1.5 bg-[#05080d] rounded-md mb-6 shadow-lg">
                              <span class="text-[10px] font-black text-[#d9933e] uppercase tracking-widest">Phase _Apex</span>
@@ -878,6 +1088,11 @@
         -webkit-text-stroke: 1px rgba(0,0,0,0.02);
     }
 </style>
+
+
+
+
+
 
 
 
@@ -1041,7 +1256,7 @@
     .glass-card:hover .box-hover-overlay { opacity: 1; }
 </style>
 
-<section class="relative py-32 bg-[#ffffff] overflow-hidden font-['Plus_Jakarta_Sans']">
+<section class="relative py-24 mt-10 bg-[#ffffff] overflow-hidden font-['Plus_Jakarta_Sans']">
     <canvas id="sparta-particle-canvas"></canvas>
     
     <div class="absolute top-0 right-0 w-[800px] h-[800px] bg-[#d9933e]/10 rounded-full blur-[180px] -z-10 animate-pulse"></div>
@@ -1049,7 +1264,7 @@
 
     <div class="max-w-7xl mx-auto px-6 relative z-10">
         
-        <div class="relative mb-32 flex flex-col md:flex-row justify-between items-end gap-8" data-aos="fade-up">
+        <div class="relative mb-24 flex flex-col md:flex-row justify-between items-end gap-8" data-aos="fade-up">
             <div class="relative">
                 <span class="text-[10vw] absolute -top-28 left-0 titan-stroke font-black uppercase italic select-none opacity-10">Sparta</span>
                 <h2 class="text-7xl md:text-[55px] font-black leading-[0.85] tracking-tighter-extra sparta-main-title" style="color: var(--sparta-black);">
@@ -1066,7 +1281,7 @@
         
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             
-            <div class="group relative min-h-[400px] glass-card rounded-[20px] p-8 flex flex-col justify-between overflow-hidden" data-aos="fade-up" data-aos-delay="100">
+            <div class="group relative min-h-[400px] glass-card rounded-[20px] p-8 flex flex-col  justify-between overflow-hidden" data-aos="fade-up" data-aos-delay="100">
                 <div class="corner-ribbon"><div class="ribbon-content">PREMIUM UX</div></div>
                 <div class="box-hover-overlay"></div>
                 <div class="corner-balloon -top-12 -right-12"></div>
@@ -1247,6 +1462,534 @@
     init();
     animate();
 </script>
+
+
+
+
+
+
+
+<section class="relative py-24 bg-white overflow-hidden" style="font-family: 'Inter', sans-serif;">
+    
+    <div class="absolute top-10 left-10 opacity-40 pointer-events-none">
+        <svg width="250" height="120" viewBox="0 0 200 100" fill="none">
+            <path d="M0 50C50 50 50 10 100 10C150 10 150 90 200 90" stroke="#0a0f1a" stroke-width="3" stroke-dasharray="8 8"/>
+        </svg>
+    </div>
+    
+    <div class="absolute bottom-10 right-10 w-64 h-64 border-[3px] border-[#0a0f1a]/10 rounded-full -rotate-12 pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto px-12 relative z-10">
+        <div class="flex flex-col lg:flex-row items-center gap-20">
+            
+            <div class="lg:w-2/5">
+                <div class="relative">
+                    <div class="absolute -top-8 -left-8 w-24 h-24 border-t-[4px] border-l-[4px] border-[#d9933e]"></div>
+                    
+                    <span style="font-family: 'Syne', sans-serif;" class="text-[#d9933e] font-extrabold uppercase tracking-[0.5em] text-[12px]">Trusted Clients</span>
+                    <h2 style="font-family: 'Syne', sans-serif;" class="text-[#0a0f1a] text-5xl font-extrabold mt-4 leading-[1.1] tracking-tighter">
+                        What Our <br> 
+                        <span style="font-family: 'Instrument Serif', serif;" class="italic text-[#d9933e] lowercase">Happy Clients</span> Say
+                    </h2>
+                    <p class="text-slate-600 mt-8 text-lg font-light leading-relaxed">
+                        See how businesses thrive with <span class="text-[#0a0f1a] font-bold">Sparta Tech’s</span> innovation. We don't just deliver projects; we build legacies.
+                    </p>
+                    
+                    <div class="mt-10 flex items-center gap-6">
+                         <div class="h-[4px] w-16 bg-[#0a0f1a]"></div>
+                         <p class="text-xs uppercase font-black tracking-widest text-[#0a0f1a]">Global Partnerships</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="lg:w-3/5 w-full overflow-hidden py-12 relative">
+                <div class="absolute inset-y-0 right-0 w-full border-[2px] border-[#0a0f1a] rounded-[60px_20px_60px_20px] -z-10 translate-x-6 scale-95 opacity-5"></div>
+
+                <div class="testimonial-track flex gap-4">
+                    <div class="testimonial-card min-w-[350px] max-w-[350px] bg-white border-2 border-slate-100 p-10 rounded-[40px_10px_40px_10px] shadow-[20px_20px_60px_rgba(0,0,0,0.05)]">
+                        <div class="flex items-center gap-4 mb-8">
+                            <img src="https://ui-avatars.com/api/?name=John+Anderson&background=d9933e&color=fff&size=128" alt="John" class="w-16 h-16 rounded-2xl object-cover shadow-lg">
+                            <div>
+                                <h4 class="font-black text-[#0a0f1a] text-base">John Anderson</h4>
+                                <p class="text-[#d9933e] text-[10px] uppercase font-bold tracking-tighter">Marketing Manager</p>
+                            </div>
+                        </div>
+                        <p class="text-slate-500 text-sm leading-relaxed italic">"Sparta Tech’s strategies significantly boosted our online visibility. Their team is professional, innovative, and highly dedicated."</p>
+                        <div class="mt-6 flex text-[#d9933e] text-xs gap-1">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-card min-w-[350px] max-w-[350px] bg-[#0a0f1a] p-10 rounded-[10px_40px_10px_40px] shadow-2xl">
+                        <div class="flex items-center gap-4 mb-8">
+                            <img src="https://ui-avatars.com/api/?name=Michael+Collins&background=fff&color=0a0f1a&size=128" alt="Michael" class="w-16 h-16 rounded-2xl object-cover border-2 border-[#d9933e]">
+                            <div>
+                                <h4 class="font-black text-white text-base">Michael Collins</h4>
+                                <p class="text-[#d9933e] text-[10px] uppercase font-bold tracking-tighter">Tech Entrepreneur</p>
+                            </div>
+                        </div>
+                        <p class="text-slate-300 text-sm leading-relaxed italic">"They turned our brand into a recognized leader. Their personalized approach and creative solutions are outstanding. Perfectly wow!"</p>
+                        <div class="mt-6 flex text-[#d9933e] text-xs gap-1">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-card min-w-[350px] max-w-[350px] bg-white border-2 border-[#0a0f1a]/5 p-10 rounded-[40px_10px_40px_10px] shadow-xl">
+                        <div class="flex items-center gap-4 mb-8">
+                            <img src="https://ui-avatars.com/api/?name=Robert+Evans&background=0a0f1a&color=fff&size=128" alt="Robert" class="w-16 h-16 rounded-2xl object-cover shadow-lg">
+                            <div>
+                                <h4 class="font-black text-[#0a0f1a] text-base">Robert Evans</h4>
+                                <p class="text-[#d9933e] text-[10px] uppercase font-bold tracking-tighter">Corporate Strategist</p>
+                            </div>
+                        </div>
+                        <p class="text-slate-500 text-sm leading-relaxed italic">"Partnering with them was the best decision. Their execution exceeded expectations. Amazing and perfect digital services."</p>
+                        <div class="mt-6 flex text-[#d9933e] text-xs gap-1">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-card min-w-[350px] max-w-[350px] bg-white border-2 border-dashed border-[#0a0f1a] p-10 rounded-[10px_40px_10px_40px] shadow-xl">
+                        <div class="flex items-center gap-4 mb-8">
+                            <img src="https://ui-avatars.com/api/?name=Sarah+Jenkins&background=d9933e&color=000&size=128" alt="Sarah" class="w-16 h-16 rounded-2xl object-cover shadow-lg">
+                            <div>
+                                <h4 class="font-black text-[#0a0f1a] text-base">Sarah Jenkins</h4>
+                                <p class="text-[#d9933e] text-[10px] uppercase font-bold tracking-tighter">Operations Head</p>
+                            </div>
+                        </div>
+                        <p class="text-slate-500 text-sm leading-relaxed italic">"The results were game-changing. Truly a professional team that understands how to scale a business in the modern era."</p>
+                        <div class="mt-6 flex text-[#d9933e] text-xs gap-1">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+/* Smooth Horizontal Animation */
+@keyframes scrollTestimonials {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(calc(-350px * 2 - 2rem)); } /* Moves across the cards */
+}
+
+.testimonial-track {
+    display: flex;
+    width: max-content;
+    animation: scrollTestimonials 30s linear infinite alternate; /* Alternate moves it left then right */
+}
+
+.testimonial-track:hover {
+    animation-play-state: paused;
+}
+
+.testimonial-card {
+    transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.testimonial-card:hover {
+    transform: scale(1.05) translateY(-10px);
+    border-color: #d9933e;
+    z-index: 20;
+}
+</style>
+
+
+
+
+
+
+
+
+
+
+
+
+<section class="relative py-28 bg-[#fcfcfd] overflow-hidden" style="font-family: 'Inter', sans-serif;">
+    
+    <div class="absolute inset-0 opacity-[0.07] pointer-events-none">
+        <svg viewBox="0 0 100 100" class="w-full h-full text-[#0a0f1a]">
+            <pattern id="eliteGrid" width="10" height="10" patternUnits="userSpaceOnUse">
+                <circle cx="1" cy="1" r="0.5" fill="currentColor" />
+            </pattern>
+            <rect width="100" height="100" fill="url(#eliteGrid)" />
+        </svg>
+    </div>
+
+    <div class="absolute top-20 left-[5%] w-24 h-24 border-2 border-[#0a0f1a] opacity-10 rounded-2xl animate-float rotate-12"></div>
+    <div class="absolute bottom-40 left-[2%] w-12 h-12 border-4 border-[#d9933e] opacity-20 rounded-lg animate-float-delayed rotate-45"></div>
+    <div class="absolute top-1/4 right-[5%] w-32 h-32 border border-[#0a0f1a] opacity-5 rounded-full"></div>
+    
+    <div class="absolute -right-20 top-0 opacity-10 pointer-events-none">
+        <svg width="400" height="800" viewBox="0 0 100 400">
+            <path d="M50 0 C100 100 0 200 50 300 S100 400 50 500" stroke="#0a0f1a" stroke-width="1" fill="none" class="animate-dash" stroke-dasharray="10 5"/>
+        </svg>
+    </div>
+
+    <div class="max-w-7xl mx-auto px-8 relative z-10">
+        <div class="flex flex-col lg:flex-row gap-20">
+            
+            <div class="lg:w-5/12">
+                <div class="sticky top-24">
+                    <div class="flex items-center gap-3 mb-8">
+                        <span class="h-[1px] w-8 bg-[#d9933e]"></span>
+                        <span style="font-family: 'Syne', sans-serif;" class="text-[#d9933e] font-black uppercase tracking-[0.4em] text-[10px] animate-pulse">Expert Solutions</span>
+                    </div>
+                    
+                    <h2 style="font-family: 'Syne', sans-serif;" class="text-[#0a0f1a] text-6xl md:text-7xl font-black leading-[0.85] tracking-tighter relative">
+                        Frequently <br> Asked <br>
+                        <span style="font-family: 'Instrument Serif', serif;" class="italic text-[#d9933e] lowercase text-7xl md:text-9xl block mt-2">Questions.</span>
+                        
+                        <svg class="w-48 mt-4" viewBox="0 0 200 20" fill="none">
+                            <path d="M0 10 Q50 20 100 10 T200 10" stroke="#d9933e" stroke-width="3" stroke-linecap="round" class="animate-draw" />
+                        </svg>
+                    </h2>
+
+                    <div class="mt-10 max-w-sm">
+                        <p class="text-slate-500 text-sm font-medium leading-relaxed tracking-wide uppercase opacity-80 border-l-2 border-[#0a0f1a] pl-6 py-2">
+                            Unlock your digital potential with Sparta Tech. <br> 
+                            <span class="text-[#0a0f1a]">Precise. Powerful. Permanent.</span>
+                        </p>
+                    </div>
+
+                    <div class="mt-16 relative w-20 h-20">
+                        <div class="absolute inset-0 border-2 border-[#d9933e] translate-x-2 translate-y-2 opacity-30"></div>
+                        <div class="absolute inset-0 bg-[#0a0f1a] flex items-center justify-center">
+                            <i class="fas fa-bolt text-[#d9933e] text-xl"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="lg:w-7/12 space-y-3">
+                
+                <div class="faq-card group bg-white border border-slate-100 rounded-[40px_10px] hover:border-[#d9933e] transition-all duration-500 shadow-[0_0_15px_rgba(0,0,0,0.1)] hover:shadow-[0_20px_50px_rgba(217,147,62,0.1)]">
+                    <details class="group">
+                        <summary class="flex items-center justify-between cursor-pointer px-10 py-5 list-none outline-none">
+                            <div class="flex items-center gap-8">
+                                <span style="font-family: 'Syne', sans-serif;" class="text-4xl font-black text-[#0a0f1a]/5 group-hover:text-[#d9933e]/20 transition-all">01</span>
+                                <div class="w-12 h-12 bg-slate-50 rounded-2xl flex items-center justify-center group-hover:bg-[#0a0f1a] group-hover:rotate-[360deg] transition-all duration-700">
+                                    <i class="fas fa-layer-group text-xs text-[#d9933e]"></i>
+                                </div>
+                                <h3 style="font-family: 'Syne', sans-serif;" class="text-[16px] font-bold text-[#0a0f1a] tracking-tight">What services does Sparta Tech provide?</h3>
+                            </div>
+                            <div class="relative w-10 h-10 flex items-center justify-center border border-slate-100 rounded-full group-hover:border-[#d9933e] transition-all">
+                                <div class="absolute w-4 h-[2px] bg-[#0a0f1a] group-hover:bg-[#d9933e] transition-all group-open:rotate-180"></div>
+                                <div class="absolute h-4 w-[2px] bg-[#0a0f1a] group-hover:bg-[#d9933e] transition-all group-open:rotate-90"></div>
+                            </div>
+                        </summary>
+                        <div class="px-28 pb-10 animate-fadeInUp">
+                            <div class="bg-[#fafbfc] p-8 rounded-3xl border-l-4 border-[#d9933e]">
+                                <p class="text-slate-500 text-sm leading-relaxed font-medium">
+                                    We specialize in web design and development, graphic design, digital marketing, content writing, and business plan writing. Our goal is to provide creative and strategic solutions that help businesses grow online and offline.
+                                </p>
+                            </div>
+                        </div>
+                    </details>
+                </div>
+
+                <div class="faq-card group bg-white border border-slate-100 rounded-[40px_10px]  shadow-[0_0_15px_rgba(0,0,0,0.1)] hover:border-[#d9933e] transition-all duration-500">
+                    <details class="group">
+                        <summary class="flex items-center justify-between cursor-pointer px-10 py-5 list-none outline-none">
+                            <div class="flex items-center gap-8">
+                                <span style="font-family: 'Syne', sans-serif;" class="text-4xl font-black text-[#0a0f1a]/5 transition-all">02</span>
+                                <div class="w-12 h-12 bg-slate-50 rounded-2xl flex items-center justify-center group-hover:bg-[#0a0f1a] transition-all duration-700">
+                                    <i class="fas fa-clock text-xs text-[#d9933e]"></i>
+                                </div>
+                                <h3 style="font-family: 'Syne', sans-serif;" class="text-[16px] font-bold text-[#0a0f1a] tracking-tight">How long does it take to develop a website?</h3>
+                            </div>
+                            <div class="relative w-10 h-10 flex items-center justify-center border border-slate-100 rounded-full">
+                                <div class="absolute w-4 h-[2px] bg-[#0a0f1a] group-open:rotate-180"></div>
+                                <div class="absolute h-4 w-[2px] bg-[#0a0f1a] group-open:rotate-90"></div>
+                            </div>
+                        </summary>
+                        <div class="px-28 pb-10 animate-fadeInUp">
+                            <div class="bg-[#fafbfc] p-8 rounded-3xl border-l-4 border-[#d9933e]">
+                                <p class="text-slate-500 text-sm leading-relaxed font-medium">A premium high-performance website typically takes 2 to 4 weeks. We prioritize quality and Spartan-like precision in every build.</p>
+                            </div>
+                        </div>
+                    </details>
+                </div>
+
+                <div class="faq-card group bg-white border border-slate-100 rounded-[40px_10px] hover:border-[#d9933e] shadow-[0_0_15px_rgba(0,0,0,0.1)] transition-all duration-500">
+                    <details class="group">
+                        <summary class="flex items-center justify-between cursor-pointer px-10 py-5 list-none outline-none">
+                            <div class="flex items-center gap-8">
+                                <span style="font-family: 'Syne', sans-serif;" class="text-4xl font-black text-[#0a0f1a]/5 transition-all">03</span>
+                                <div class="w-12 h-12 bg-slate-50 rounded-2xl flex items-center justify-center group-hover:bg-[#0a0f1a]">
+                                    <i class="fas fa-paint-brush text-xs text-[#d9933e]"></i>
+                                </div>
+                                <h3 style="font-family: 'Syne', sans-serif;" class="text-[16px] font-bold text-[#0a0f1a] tracking-tight">Can you redesign my existing website?</h3>
+                            </div>
+                            <div class="relative w-10 h-10 flex items-center justify-center border border-slate-100 rounded-full">
+                                <div class="absolute w-4 h-[2px] bg-[#0a0f1a] group-open:rotate-180"></div>
+                                <div class="absolute h-4 w-[2px] bg-[#0a0f1a] group-open:rotate-90"></div>
+                            </div>
+                        </summary>
+                        <div class="px-28 pb-10 animate-fadeInUp">
+                            <div class="bg-[#fafbfc] p-8 rounded-3xl border-l-4 border-[#d9933e]">
+                                <p class="text-slate-500 text-sm leading-relaxed font-medium">Absolutely. We take outdated platforms and transform them into modern, high-converting digital assets with improved UI/UX.</p>
+                            </div>
+                        </div>
+                    </details>
+                </div>
+
+                <div class="faq-card group bg-white border border-slate-100 rounded-[40px_10px] hover:border-[#d9933e] shadow-[0_0_15px_rgba(0,0,0,0.1)] transition-all duration-500">
+                    <details class="group">
+                        <summary class="flex items-center justify-between cursor-pointer px-10 py-5 list-none outline-none">
+                            <div class="flex items-center gap-8">
+                                <span style="font-family: 'Syne', sans-serif;" class="text-4xl font-black text-[#0a0f1a]/5 transition-all">04</span>
+                                <div class="w-12 h-12 bg-slate-50 rounded-2xl flex items-center justify-center group-hover:bg-[#0a0f1a]">
+                                    <i class="fas fa-rocket text-xs text-[#d9933e]"></i>
+                                </div>
+                                <h3 style="font-family: 'Syne', sans-serif;" class="text-[16px] font-bold text-[#0a0f1a] tracking-tight">Do you work with startups?</h3>
+                            </div>
+                            <div class="relative w-10 h-10 flex items-center justify-center border border-slate-100 rounded-full">
+                                <div class="absolute w-4 h-[2px] bg-[#0a0f1a] group-open:rotate-180"></div>
+                                <div class="absolute h-4 w-[2px] bg-[#0a0f1a] group-open:rotate-90"></div>
+                            </div>
+                        </summary>
+                        <div class="px-28 pb-10 animate-fadeInUp">
+                            <div class="bg-[#fafbfc] p-8 rounded-3xl border-l-4 border-[#d9933e]">
+                                <p class="text-slate-500 text-sm leading-relaxed font-medium">Yes, we love scaling ideas. We provide the foundational digital infrastructure needed to make your startup a market leader.</p>
+                            </div>
+                        </div>
+                    </details>
+                </div>
+
+                <div class="faq-card group bg-white border border-slate-100 rounded-[40px_10px] hover:border-[#d9933e] shadow-[0_0_15px_rgba(0,0,0,0.1)] transition-all duration-500">
+                    <details class="group">
+                        <summary class="flex items-center justify-between cursor-pointer px-10 py-5 list-none outline-none">
+                            <div class="flex items-center gap-8">
+                                <span style="font-family: 'Syne', sans-serif;" class="text-4xl font-black text-[#0a0f1a]/5 transition-all">05</span>
+                                <div class="w-12 h-12 bg-slate-50 rounded-2xl flex items-center justify-center group-hover:bg-[#0a0f1a]">
+                                    <i class="fas fa-pen-nib text-xs text-[#d9933e]"></i>
+                                </div>
+                                <h3 style="font-family: 'Syne', sans-serif;" class="text-[16px] font-bold text-[#0a0f1a] tracking-tight">How does your content service work?</h3>
+                            </div>
+                            <div class="relative w-10 h-10 flex items-center justify-center border border-slate-100 rounded-full">
+                                <div class="absolute w-4 h-[2px] bg-[#0a0f1a] group-open:rotate-180"></div>
+                                <div class="absolute h-4 w-[2px] bg-[#0a0f1a] group-open:rotate-90"></div>
+                            </div>
+                        </summary>
+                        <div class="px-28 pb-10 animate-fadeInUp">
+                            <div class="bg-[#fafbfc] p-8 rounded-3xl border-l-4 border-[#d9933e]">
+                                <p class="text-slate-500 text-sm leading-relaxed font-medium">Our research-driven copy is SEO-optimized and designed to convert visitors into loyal advocates of your brand.</p>
+                            </div>
+                        </div>
+                    </details>
+                </div>
+
+                <div class="faq-card group bg-white border border-slate-100 rounded-[40px_10px] hover:border-[#d9933e] shadow-[0_0_15px_rgba(0,0,0,0.1)] transition-all duration-500">
+                    <details class="group">
+                        <summary class="flex items-center justify-between cursor-pointer px-10 py-5 list-none outline-none">
+                            <div class="flex items-center gap-8">
+                                <span style="font-family: 'Syne', sans-serif;" class="text-4xl font-black text-[#0a0f1a]/5 transition-all">06</span>
+                                <div class="w-12 h-12 bg-slate-50 rounded-2xl flex items-center justify-center group-hover:bg-[#0a0f1a]">
+                                    <i class="fas fa-chart-line text-xs text-[#d9933e]"></i>
+                                </div>
+                                <h3 style="font-family: 'Syne', sans-serif;" class="text-[16px] font-bold text-[#0a0f1a] tracking-tight">Do you manage digital marketing?</h3>
+                            </div>
+                            <div class="relative w-10 h-10 flex items-center justify-center border border-slate-100 rounded-full">
+                                <div class="absolute w-4 h-[2px] bg-[#0a0f1a] group-open:rotate-180"></div>
+                                <div class="absolute h-4 w-[2px] bg-[#0a0f1a] group-open:rotate-90"></div>
+                            </div>
+                        </summary>
+                        <div class="px-28 pb-10 animate-fadeInUp">
+                            <div class="bg-[#fafbfc] p-8 rounded-3xl border-l-4 border-[#d9933e]">
+                                <p class="text-slate-500 text-sm leading-relaxed font-medium">Yes. From SEO to PPC and Social Media Management, we provide full-funnel strategies for maximum ROI.</p>
+                            </div>
+                        </div>
+                    </details>
+                </div>
+                <div class="faq-card group bg-white border border-slate-100 rounded-[40px_10px] hover:border-[#d9933e] shadow-[0_0_15px_rgba(0,0,0,0.1)] transition-all duration-500">
+                    <details class="group">
+                        <summary class="flex items-center justify-between cursor-pointer px-10 py-5 list-none outline-none">
+                            <div class="flex items-center gap-8">
+                                <span style="font-family: 'Syne', sans-serif;" class="text-4xl font-black text-[#0a0f1a]/5 transition-all">07</span>
+                                <div class="w-12 h-12 bg-slate-50 rounded-2xl flex items-center justify-center group-hover:bg-[#0a0f1a]">
+                                    <i class="fas fa-file-invoice-dollar text-xs text-[#d9933e]"></i>
+                                </div>
+                                <h3 style="font-family: 'Syne', sans-serif;" class="text-[16px] font-bold text-[#0a0f1a] tracking-tight">How much do your services cost?</h3>
+                            </div>
+                            <div class="relative w-10 h-10 flex items-center justify-center border border-slate-100 rounded-full">
+                                <div class="absolute w-4 h-[2px] bg-[#0a0f1a] group-open:rotate-180"></div>
+                                <div class="absolute h-4 w-[2px] bg-[#0a0f1a] group-open:rotate-90"></div>
+                            </div>
+                        </summary>
+                        <div class="px-28 pb-10 animate-fadeInUp">
+                            <div class="bg-[#fafbfc] p-8 rounded-3xl border-l-4 border-[#d9933e]">
+                                <p class="text-slate-500 text-sm leading-relaxed font-medium">Pricing is bespoke. We offer tiered packages starting from small business essentials to enterprise dominance.</p>
+                            </div>
+                        </div>
+                    </details>
+                </div>
+
+                <div class="faq-card group bg-white border border-slate-100 rounded-[40px_10px] hover:border-[#d9933e] shadow-[0_0_15px_rgba(0,0,0,0.1)] transition-all duration-500">
+                    <details class="group">
+                        <summary class="flex items-center justify-between cursor-pointer px-10 py-5 list-none outline-none">
+                            <div class="flex items-center gap-8">
+                                <span style="font-family: 'Syne', sans-serif;" class="text-4xl font-black text-[#0a0f1a]/5 transition-all">08</span>
+                                <div class="w-12 h-12 bg-slate-50 rounded-2xl flex items-center justify-center group-hover:bg-[#0a0f1a]">
+                                    <i class="fas fa-headset text-xs text-[#d9933e]"></i>
+                                </div>
+                                <h3 style="font-family: 'Syne', sans-serif;" class="text-[16px] font-bold text-[#0a0f1a] tracking-tight">Do you provide ongoing support?</h3>
+                            </div>
+                            <div class="relative w-10 h-10 flex items-center justify-center border border-slate-100 rounded-full">
+                                <div class="absolute w-4 h-[2px] bg-[#0a0f1a] group-open:rotate-180"></div>
+                                <div class="absolute h-4 w-[2px] bg-[#0a0f1a] group-open:rotate-90"></div>
+                            </div>
+                        </summary>
+                        <div class="px-28 pb-10 animate-fadeInUp">
+                            <div class="bg-[#fafbfc] p-8 rounded-3xl border-l-4 border-[#d9933e]">
+                                <p class="text-slate-500 text-sm leading-relaxed font-medium">We provide continuous maintenance and technical support to ensure your digital empire never sleeps.</p>
+                            </div>
+                        </div>
+                    </details>
+                </div>
+
+
+               
+
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+/* CUSTOM ANIMATIONS & STYLING */
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); filter: blur(10px); }
+    to { opacity: 1; transform: translateY(0); filter: blur(0); }
+}
+.animate-fadeInUp {
+    animation: fadeInUp 0.6s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0) rotate(12deg); }
+    50% { transform: translateY(-20px) rotate(15deg); }
+}
+.animate-float { animation: float 6s ease-in-out infinite; }
+
+@keyframes float-delayed {
+    0%, 100% { transform: translateY(0) rotate(45deg); }
+    50% { transform: translateY(-15px) rotate(40deg); }
+}
+.animate-float-delayed { animation: float-delayed 8s ease-in-out infinite; }
+
+@keyframes dash {
+    to { stroke-dashoffset: 0; }
+}
+.animate-dash {
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 1000;
+    animation: dash 5s linear infinite;
+}
+
+@keyframes draw {
+    from { stroke-dasharray: 0 200; }
+    to { stroke-dasharray: 200 0; }
+}
+.animate-draw {
+    animation: draw 2s ease-out forwards;
+}
+
+summary::-webkit-details-marker {
+    display: none;
+}
+
+.faq-card {
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+</style>
+
+
+
+
+
+
+
+
+
+
+
+<footer class="bg-[#0f172a] text-white pt-16 pb-10 px-6 font-sans border-t-4 border-[#E89D4B]">
+    <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-">
+        
+        <div class="space-y-5 px-12">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 bg-[#E89D4B] rounded-lg flex items-center justify-center shadow-lg shadow-[#E89D4B]/20">
+                    <span class="text-[#0f172a] font-black text-xl">S</span>
+                </div>
+                <h2 class="text-2xl font-black tracking-tighter uppercase">Sparta <span class="text-[#E89D4B]">Tech</span></h2>
+            </div>
+            <p class="text-gray-400 text-sm leading-relaxed">
+                Empowering next-gen businesses with AI-driven growth systems and unified digital infrastructure. Scale beyond guesswork.
+            </p>
+            <div class="flex gap-4">
+                <a href="#" class="w-10 h-10 rounded-full border border-gray-700 flex items-center justify-center hover:border-[#E89D4B] hover:text-[#E89D4B] transition-all"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="w-10 h-10 rounded-full border border-gray-700 flex items-center justify-center hover:border-[#E89D4B] hover:text-[#E89D4B] transition-all"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#" class="w-10 h-10 rounded-full border border-gray-700 flex items-center justify-center hover:border-[#E89D4B] hover:text-[#E89D4B] transition-all"><i class="fab fa-twitter"></i></a>
+            </div>
+        </div>
+
+        <div>
+            <h4 class="text-lg font-bold mb-6 border-b-2 border-[#E89D4B] w-fit pb-1">Quick Links</h4>
+            <ul class="space-y-4 text-gray-400 text-sm">
+                <li><a href="#" class="hover:text-white hover:pl-2 transition-all duration-300 block border-l-0 hover:border-l-4 hover:border-[#E89D4B] pl-0">About Us</a></li>
+                <li><a href="#" class="hover:text-white hover:pl-2 transition-all duration-300 block border-l-0 hover:border-l-4 hover:border-[#E89D4B] pl-0">Services</a></li>
+                <li><a href="#" class="hover:text-white hover:pl-2 transition-all duration-300 block border-l-0 hover:border-l-4 hover:border-[#E89D4B] pl-0">Pricing</a></li>
+                <li><a href="#" class="hover:text-white hover:pl-2 transition-all duration-300 block border-l-0 hover:border-l-4 hover:border-[#E89D4B] pl-0">Contact Us</a></li>
+            </ul>
+        </div>
+
+        <div>
+            <h4 class="text-lg font-bold mb-6 border-b-2 border-[#E89D4B] w-fit pb-1">Our Services</h4>
+            <ul class="space-y-4 text-gray-400 text-sm">
+                <li><a href="#" class="hover:text-white hover:pl-2 transition-all duration-300 block border-l-0 hover:border-l-4 hover:border-[#E89D4B] pl-0">Web Design & Development</a></li>
+                <li><a href="#" class="hover:text-white hover:pl-2 transition-all duration-300 block border-l-0 hover:border-l-4 hover:border-[#E89D4B] pl-0">Graphic Design</a></li>
+                <li><a href="#" class="hover:text-white hover:pl-2 transition-all duration-300 block border-l-0 hover:border-l-4 hover:border-[#E89D4B] pl-0">Digital Marketing</a></li>
+                <li><a href="#" class="hover:text-white hover:pl-2 transition-all duration-300 block border-l-0 hover:border-l-4 hover:border-[#E89D4B] pl-0">Content Writing</a></li>
+            </ul>
+        </div>
+
+        <div class="space-y-6">
+            <h4 class="text-lg font-bold mb-6 border-b-2 border-[#E89D4B] w-fit pb-1">Connect With Us</h4>
+            <div class="space-y-4 text-sm text-gray-400">
+                <div class="flex items-start gap-3 group">
+                    <i class="fas fa-envelope mt-1 text-[#E89D4B]"></i>
+                    <span class="group-hover:text-white transition-colors">hello@spartatech.com</span>
+                </div>
+                <div class="flex items-start gap-3 group">
+                    <i class="fas fa-phone-alt mt-1 text-[#E89D4B]"></i>
+                    <span class="group-hover:text-white transition-colors">+1 (555) 2345 - 67890</span>
+                </div>
+                <div class="flex items-start gap-3 group">
+                    <i class="fas fa-map-marker-alt mt-1 text-[#E89D4B]"></i>
+                    <span class="group-hover:text-white transition-colors leading-relaxed">
+                        Avenue, Suite 567 TechVille, <br>California, 90210 United States
+                    </span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="max-w-7xl mx-auto mt-8 pt-4 px-12 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center gap-4">
+        <p class="text-gray-500 text-xs text-center md:text-left">
+            © 2026 <span class="text-[#E89D4B] font-bold">Sparta Tech</span>. All Rights Reserved. 
+            <span class="mx-2">|</span> Designed for Scale.
+        </p>
+        <div class="flex gap-6 text-xs text-gray-500">
+            <a href="#" class="hover:text-[#E89D4B] transition-colors">Privacy Policy</a>
+            <a href="#" class="hover:text-[#E89D4B] transition-colors">Terms of Service</a>
+            <a href="#" class="hover:text-[#E89D4B] transition-colors">Cookies Setting</a>
+        </div>
+    </div>
+</footer>
+
 
 
 

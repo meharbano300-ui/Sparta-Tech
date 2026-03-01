@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us | Sparta Tech - Innovation with Edge</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  
+
+
+</head>
+<body class="text-gray-800">
+
+  
+  <!-- ********** NAVBAR (navy/khaki theme) ********** -->
+ <style>
+  /* Ghoomti hui border line ka animation */
+  @keyframes rotateBorder {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+
+  .animated-border-box {
+    position: relative;
+    padding: 2px; /* Border ki thickness */
+    overflow: hidden;
+    border-radius: 12px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .animated-border-box::before {
+    content: '';
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    background: conic-gradient(transparent, #E89D4B, transparent, #E89D4B);
+    animation: rotateBorder 3s linear infinite;
+  }
+
+  .inner-button {
+    position: relative;
+    background: #1e2a4a;
+    color: white;
+    padding: 10px 24px;
+    border-radius: 10px;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 11px;
+    font-weight: 900;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    transition: 0.3s;
+  }
+  
+  .inner-button:hover {
+    background: #25335d;
+  }
+
+  .nav-link {
+    position: relative;
+    transition: all 0.3s ease;
+  }
+
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #E89D4B;
+    transition: width 0.3s ease;
+  }
+
+  .nav-link:hover::after {
+    width: 100%;
+  }
+</style>
+<script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+<header x-data="{ open: false }" class="fixed top-0 left-0 right-0 z-[100] w-full bg-[#0f172a]/95 backdrop-blur-md" id="navbar">
+    <div class="mx-auto max-w-full transition-all duration-500 ease-in-out px-6 md:px-12 py-3 flex items-center justify-between">
+      
+      <div class="flex items-center gap-3 group cursor-pointer">
+        <div class="relative h-10 w-10 flex items-center justify-center overflow-hidden rounded-lg border border-[#E89D4B]/30 shadow-sm">
+          <div class="h-full w-full bg-[#E89D4B] flex items-center justify-center transition-transform duration-500 group-hover:scale-110">
+              <i class="fas fa-shield-halved text-[#1e2a4a] text-xl"></i>
+          </div>
+        </div>
+        <div class="flex flex-col leading-none">
+            <span class="text-lg font-black tracking-tighter text-white">SPARTA <span class="text-[#E89D4B]">TECH</span></span>
+            <span class="text-[8px] tracking-[0.4em] text-[#E89D4B]/80 font-bold uppercase">Engineering Center</span>
+        </div>
+      </div>
+
+      <nav class="hidden md:flex items-center gap-8">
+        <a href="Index.html" class="nav-link text-[11px] font-bold text-white uppercase tracking-[0.2em] hover:text-[#E89D4B]">Home</a>
+        <a href="About.html" class="nav-link text-[11px] font-bold text-white uppercase tracking-[0.2em] hover:text-[#E89D4B]">About Us</a>
+        <a href="Services.html" class="nav-link text-[11px] font-bold text-white uppercase tracking-[0.2em] hover:text-[#E89D4B]">Services</a>
+        <a href="Pricing.html" class="nav-link text-[11px] font-bold text-white uppercase tracking-[0.2em] hover:text-[#E89D4B]">Pricing</a>
+        <a href="Contact.html" class="nav-link text-[11px] font-bold text-white uppercase tracking-[0.2em] hover:text-[#E89D4B]">Contact Us</a>
+      </nav>
+
+      <div class="flex items-center gap-4">
+        <div class="animated-border-box hidden sm:block">
+          <button class="inner-button">
+            <i class="fas fa-comments text-[#E89D4B] text-[17px]"></i>
+            <span>Let's Talk</span>
+          </button>
+        </div>
+
+        <button @click="open = !open" class="md:hidden text-[#E89D4B] text-2xl focus:outline-none">
+            <i :class="open ? 'fas fa-times' : 'fas fa-bars-staggered'"></i>
+        </button>
+      </div>
+    </div>
+
+    <div x-show="open" 
+         x-transition:enter="transition ease-out duration-300"
+         x-transition:enter-start="opacity-0 -translate-y-4"
+         x-transition:enter-end="opacity-100 translate-y-0"
+         x-transition:leave="transition ease-in duration-200"
+         x-transition:leave-start="opacity-100 translate-y-0"
+         x-transition:leave-end="opacity-0 -translate-y-4"
+         class="md:hidden bg-[#0f172a] border-t border-[#E89D4B]/10 px-6 py-6 flex flex-col gap-6 shadow-2xl">
+        
+        <a href="Index.html" class="text-[11px] font-bold text-white uppercase tracking-[0.2em] hover:text-[#E89D4B]">Home</a>
+        <a href="About.heml" class="text-[11px] font-bold text-white uppercase tracking-[0.2em] hover:text-[#E89D4B]">About Us</a>
+        <a href="Services.html" class="text-[11px] font-bold text-white uppercase tracking-[0.2em] hover:text-[#E89D4B]">Services</a>
+        <a href="Pricing.html" class="text-[11px] font-bold text-white uppercase tracking-[0.2em] hover:text-[#E89D4B]">Pricing</a>
+        <a href="Contact.heml" class="text-[11px] font-bold text-white uppercase tracking-[0.2em] hover:text-[#E89D4B]">Contact Us</a>
+        
+        <div class="animated-border-box w-full">
+            <button class="inner-button w-full justify-center">
+              <i class="fas fa-comments text-[#E89D4B] text-[17px]"></i>
+              <span>Let's Talk</span>
+            </button>
+        </div>
+    </div>
+</header>
+<div class="pt-16"></div>
+
+
+
+
+
+
+<div class="relative w-full h-[575px] overflow-hidden bg-[#0a0f1a] font-sans">
+    
+    <div class="absolute inset-0 z-0">
+        <div class="absolute inset-0 bg-gradient-to-b from-[#0a0f1a]/90 via-[#0a0f1a]/50 to-[#0a0f1a] z-10"></div>
+        <video autoplay muted loop playsinline class="w-full h-full object-cover opacity-40">
+            <source src="Images/Contact.mp4" type="video/mp4">
+        </video>
+        
+        <div class="absolute inset-0 opacity-20 z-20" 
+             style="background-image: linear-gradient(#E89D4B 1px, transparent 1px), linear-gradient(90deg, #E89D4B 1px, transparent 1px); background-size: 60px 60px; transform: perspective(1000px) rotateX(60deg) translateY(-100px); animation: grid-travel 30s linear infinite;">
+        </div>
+    </div>
+
+    <div class="absolute inset-0 z-20 pointer-events-none">
+        <div class="absolute top-[22%] left-[20%] md:left-[20%] p-[1px] bg-gradient-to-br from-[#E89D4B] to-transparent rounded-2xl animate-float">
+            <div class="bg-[#0a0f1a]/90 backdrop-blur-2xl p-4 rounded-2xl flex items-center gap-3 border border-white/10">
+                <div class="w-9 h-9 bg-[#E89D4B] rounded-lg flex items-center justify-center shadow-[0_0_15px_rgba(232,157,75,0.3)]">
+                    <i class="fas fa-bolt text-black text-sm"></i>
+                </div>
+                <div>
+                    <p class="text-[9px] text-[#E89D4B] font-black uppercase tracking-[0.2em]">Response</p>
+                    <p class="text-white font-bold text-xs"> 15 Mins</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="absolute bottom-[15%] left-[8%] md:left-[10%] p-[1px] bg-gradient-to-tr from-blue-500 to-transparent rounded-2xl animate-float-slow">
+            <div class="bg-[#0a0f1a]/90 backdrop-blur-2xl p-4 rounded-2xl flex items-center gap-3 border border-white/10">
+                <div class="w-9 h-9 bg-blue-600 rounded-lg flex items-center justify-center shadow-[0_0_15px_rgba(37,99,235,0.3)]">
+                    <i class="fas fa-globe-americas text-white text-sm"></i>
+                </div>
+                <div>
+                    <p class="text-[9px] text-blue-400 font-black uppercase tracking-[0.2em]">Presence</p>
+                    <p class="text-white font-bold text-xs">Global Hub</p>
+                </div>
+            </div>
+        </div>
+
+       <div class="absolute top-[55%] right-[25%] md:right-[15%] p-[1px] bg-gradient-to-bl from-green-500 to-transparent rounded-2xl animate-float">
+    <div class="bg-[#0a0f1a]/90 backdrop-blur-2xl p-4 rounded-2xl flex items-center gap-3 border border-white/10">
+        <div class="w-9 h-9 bg-green-500 rounded-lg flex items-center justify-center shadow-[0_0_15px_rgba(34,197,94,0.3)]">
+            <i class="fas fa-shield-alt text-white text-sm"></i>
+        </div>
+        <div>
+            <p class="text-[9px] text-green-400 font-black uppercase tracking-[0.2em]">Security</p>
+            <p class="text-white font-bold text-xs">Verified</p>
+        </div>
+    </div>
+</div>
+    </div>
+
+    <div class="relative z-40 flex flex-col items-center justify-center h-full text-center px-6 max-w-4xl mx-auto">
+        
+               <h2 class="text-[#E89D4B] uppercase tracking-[0.6em] text-[11px] font-black mb-4 animate-line-in-1">
+            Partner with Sparta
+        </h2>
+        
+        <h1 class="text-white text-5xl md:text-7xl font-black  leading-[1.1] tracking-tight animate-line-in-2">
+            Elevate <span class="font-serif italic text-[#E89D4B] font-medium lowercase opacity-90">your</span> <br> Digital Experience
+        </h1>
+
+        <div class="w-24 h-1 bg-gradient-to-r from-transparent via-[#E89D4B] to-transparent mb-8 opacity-50"></div>
+
+        <p class="text-gray-400 text-base md:text-lg max-w-xl mb-10 font-light leading-relaxed animate-line-in-3">
+            Stop waiting for the future. <span class="text-white font-semibold italic underline decoration-[#E89D4B]/40 decoration-2 underline-offset-4">Build it today</span> with our elite engineering and design squad.
+        </p>
+
+        <div class="animate-fade-in-up">
+            <div class="relative group">
+                <div class="absolute -inset-1 bg-gradient-to-r from-[#E89D4B] to-orange-500 rounded-xl blur-md opacity-20 group-hover:opacity-50 transition duration-500"></div>
+                <button class="relative px-10 py-4 bg-white text-black rounded-xl flex items-center gap-3 transition-all hover:translate-y-[-2px] active:scale-[0.98] shadow-xl">
+                    <span class="font-black uppercase tracking-widest text-xs">Initiate Project</span>
+                    <i class="fas fa-arrow-right text-xs transition-transform group-hover:translate-x-1"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+@keyframes grid-travel {
+    from { background-position: 0 0; }
+    to { background-position: 0 1000px; }
+}
+
+@keyframes line-in {
+    from { transform: translateY(30px); opacity: 0; filter: blur(5px); }
+    to { transform: translateY(0); opacity: 1; filter: blur(0); }
+}
+.animate-line-in-1 { animation: line-in 0.8s cubic-bezier(0.2, 1, 0.3, 1) forwards; }
+.animate-line-in-2 { animation: line-in 0.8s cubic-bezier(0.2, 1, 0.3, 1) 0.2s forwards; opacity: 0; }
+.animate-line-in-3 { animation: line-in 0.8s cubic-bezier(0.2, 1, 0.3, 1) 0.4s forwards; opacity: 0; }
+
+@keyframes fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+.animate-fade-in { animation: fade-in 1.2s ease-out forwards; }
+
+@keyframes fade-in-up {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-in-up { animation: fade-in-up 0.8s ease-out 0.6s forwards; opacity: 0; }
+
+@keyframes float {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-15px) rotate(1deg); }
+}
+@keyframes float-slow {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(15px) rotate(-1deg); }
+}
+.animate-float { animation: float 6s infinite ease-in-out; }
+.animate-float-slow { animation: float-slow 9s infinite ease-in-out; }
+</style>
+
+
+
+
+
+
+
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
+<section class="relative py-24 bg-[#f8fafc] overflow-hidden" style="font-family: 'Inter', sans-serif;">
+    
+    <div class="absolute top-0 right-0 w-1/3 h-full bg-[#0a0f1a]/5 -skew-x-12 translate-x-20 pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto px-6 relative z-10">
+        
+        <div class="flex flex-col lg:flex-row gap-16 items-center">
+            
+            <div class="lg:w-1/3 text-center lg:text-left">
+                <span style="font-family: 'Syne', sans-serif;" class="text-[#d9933e] font-extrabold uppercase tracking-[0.4em] text-[10px]">Direct Connect</span>
+                <h2 style="font-family: 'Syne', sans-serif;" class="text-[#0a0f1a] text-5xl md:text-[45px] font-extrabold mt-4 leading-[1] tracking-tighter">
+                    Get in <br> 
+                    <span style="font-family: 'Instrument Serif', serif;" class="italic text-[#d9933e] font-light lowercase">touch</span> 
+                    Today.
+                </h2>
+                <p class="text-slate-500 mt-6 font-light leading-relaxed max-w-xs mx-auto lg:mx-0 text-sm">
+                    Have a question or a project in mind? Reach out through any of these channels.
+                </p>
+            </div>
+
+            <div class="lg:w-2/3 grid grid-cols-1 md:grid-cols-3 gap-6">
+                
+                <div class="group relative pt-12 px-6 pb-10 bg-white border border-slate-100 rounded-[40px_10px_40px_10px] shadow-xl shadow-slate-200/50 hover:border-[#d9933e]/30 transition-all duration-500 hover:-translate-y-2 flex flex-col h-full">
+                    <div class="absolute -top-6 left-8 w-12 h-12 bg-[#0a0f1a] rounded-xl flex items-center justify-center rotate-12 group-hover:rotate-0 transition-transform duration-500 shadow-lg shadow-[#0a0f1a]/20">
+                        <i class="fas fa-phone-alt text-[#d9933e] text-lg"></i>
+                    </div>
+                    <h3 style="font-family: 'Syne', sans-serif;" class="text-[#0a0f1a] font-bold text-[11px] uppercase tracking-widest mb-4 mt-2">Give Us a Call</h3>
+                    <p class="text-slate-400 text-[9px] font-bold mb-2 uppercase tracking-tight">Available 24/7</p>
+                    <a href="tel:+18001234567" style="font-family: 'Syne', sans-serif;" class="text-[#0a0f1a] font-extrabold text-[15px] hover:text-[#d9933e] transition-colors tracking-tighter break-words">
+                        +1 (555) 2345 - 67890
+                    </a>
+                    <div class="mt-auto pt-6">
+                        <div class="w-8 h-1 bg-[#d9933e] group-hover:w-full transition-all duration-700"></div>
+                    </div>
+                </div>
+
+                <div class="group relative pt-12 px-6 pb-10 bg-[#0a0f1a] rounded-[10px_40px_10px_40px] shadow-2xl hover:border-[#d9933e]/30 transition-all duration-500 hover:-translate-y-2 flex flex-col h-full">
+                    <div class="absolute -top-6 left-8 w-12 h-12 bg-[#d9933e] rounded-xl flex items-center justify-center -rotate-12 group-hover:rotate-0 transition-transform duration-500 shadow-lg shadow-[#d9933e]/20">
+                        <i class="fas fa-envelope text-black text-lg"></i>
+                    </div>
+                    <h3 style="font-family: 'Syne', sans-serif;" class="text-white font-bold text-[11px] uppercase tracking-widest mb-4 mt-2">Send Us Email</h3>
+                    <p class="text-slate-500 text-[9px] font-bold mb-2 uppercase tracking-tight">Response in 1hr</p>
+                    <a href="mailto:hello@digipro.com" style="font-family: 'Syne', sans-serif;" class="text-white font-extrabold text-[16px] hover:text-[#d9933e] transition-colors tracking-tighter break-all">
+                        hello@spartatech.com
+                    </a>
+                    <div class="mt-auto pt-6">
+                        <div class="w-8 h-1 bg-[#d9933e] group-hover:w-full transition-all duration-700"></div>
+                    </div>
+                </div>
+
+                <div class="group relative pt-12 px-6 pb-10 bg-white border border-slate-100 rounded-[40px_10px_40px_10px] shadow-xl shadow-slate-200/50 hover:border-[#d9933e]/30 transition-all duration-500 hover:-translate-y-2 flex flex-col h-full">
+                    <div class="absolute -top-6 left-8 w-12 h-12 bg-[#0a0f1a] rounded-xl flex items-center justify-center rotate-12 group-hover:rotate-0 transition-transform duration-500 shadow-lg shadow-[#0a0f1a]/20">
+                        <i class="fas fa-map-marker-alt text-[#d9933e] text-lg"></i>
+                    </div>
+                    <h3 style="font-family: 'Syne', sans-serif;" class="text-[#0a0f1a] font-bold text-[11px] uppercase tracking-widest mb-4 mt-2">Visit Us At</h3>
+                    <p class="text-slate-400 text-[9px] font-bold mb-2 uppercase tracking-tight">Our Headquarters</p>
+                    <p style="font-family: 'Syne', sans-serif;" class="text-[#0a0f1a] font-extrabold text-[14px] tracking-tighter leading-tight">
+                        Suite 567 Tech Ville,
+                        California, 90210 US
+                    </p>
+                    <div class="mt-auto pt-6">
+                        <div class="w-8 h-1 bg-[#d9933e] group-hover:w-full transition-all duration-700"></div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+<section class="relative py-24 bg-[#f8fafc] overflow-hidden" style="font-family: 'Inter', sans-serif;">
+    
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[95%] h-[90%] border border-slate-200/60 rounded-[100px_30px_100px_30px] pointer-events-none -z-0"></div>
+
+    <div class="max-w-7xl mx-auto px-6 mb-16 text-center relative z-10">
+        <span style="font-family: 'Syne', sans-serif;" class="text-[#d9933e] font-extrabold uppercase tracking-[0.5em] text-[10px]">Get In Touch</span>
+        <h2 style="font-family: 'Syne', sans-serif;" class="text-[#0a0f1a] text-4xl md:text-5xl font-extrabold mt-2 tracking-tighter">
+            Ready to <span style="font-family: 'Instrument Serif', serif;" class="italic text-[#d9933e] lowercase">Collaborate?</span>
+        </h2>
+        <div class="mt-4 flex justify-center">
+            <div class="h-[3px] bg-[#d9933e] animate-line-width rounded-full"></div>
+        </div>
+    </div>
+
+    <div class="max-w-7xl mx-auto px-6 relative z-10">
+        <div class="flex flex-col lg:flex-row gap-12 items-stretch">
+            
+            <div class="lg:w-1/2 relative group">
+                <div class="absolute -top-4 -right-4 z-20 bg-[#0a0f1a] p-5 rounded-2xl shadow-xl border border-white/10 max-w-[190px] hidden md:block">
+                    <p class="text-[#d9933e] text-[10px] font-black uppercase tracking-widest mb-1">Quick Note</p>
+                    <p class="text-white text-[11px] leading-relaxed opacity-80 italic">"We usually respond within 60 minutes during office hours."</p>
+                </div>
+
+                <div class="absolute -inset-4 bg-slate-100 border border-slate-200 rounded-[60px_20px_60px_20px] -z-10"></div>
+                
+                <div class="w-full h-[500px] lg:h-[600px] min-h-[500px] rounded-[50px_15px_50px_15px] overflow-hidden shadow-2xl border-4 border-white relative">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3305.7332480437006!2d-118.401147!3d34.052234!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c2bb0b00000001%3A0x1d1d1d1d1d1d1d1d!2s90210!5e0!3m2!1sen!2sus!4v1700000000000" 
+                        class="w-full h-full grayscale-[0.2] contrast-[1.1] hover:grayscale-0 transition-all duration-700"
+                        style="border:0;" allowfullscreen="" loading="lazy">
+                    </iframe>
+                </div>
+
+                <div class="absolute bottom-10 left-10 bg-[#0a0f1a] text-white p-5 rounded-2xl shadow-2xl border border-white/10 animate-float">
+                    <div class="flex items-center gap-4">
+                        <div class="w-10 h-10 bg-[#d9933e] rounded-lg flex items-center justify-center">
+                            <i class="fas fa-map-marker-alt text-black text-lg"></i>
+                        </div>
+                        <div>
+                            <p class="text-[10px] text-slate-400 uppercase font-black tracking-widest">Location</p>
+                            <p class="text-sm font-bold">Avenue, Suite 567, CA</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="lg:w-1/2 relative">
+                <div class="absolute -inset-4 border border-[#0a0f1a]/5 rounded-[25px_60px_25px_60px] pointer-events-none translate-x-3 "></div>
+
+                <div class="bg-white border border-slate-100 rounded-[15px_50px_15px_50px] p-10 md:px-14 md:py-11 shadow-2xl relative overflow-hidden h-full">
+                    <div class="relative z-10 mb-6">
+                        <span style="font-family: 'Syne', sans-serif;" class="text-[#d9933e] font-extrabold uppercase tracking-[0.4em] text-[10px]">Send a Message</span>
+                        <h2 style="font-family: 'Syne', sans-serif;" class="text-[#0a0f1a] text-3xl font-extrabold mt-2 leading-tight">
+                            Drop us a <span style="font-family: 'Instrument Serif', serif;" class="italic text-[#d9933e] lowercase">line.</span>
+                        </h2>
+                    </div>
+
+                    <form class="space-y-3 relative z-10">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div class="space-y-2">
+                                <label class="text-[11px] font-black uppercase tracking-widest text-[#0a0f1a]/50 ml-1">Full Name</label>
+                                <input type="text" placeholder="John Doe" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-6 py-4 text-sm text-[#0a0f1a] focus:outline-none focus:border-[#d9933e] transition-all">
+                            </div>
+                            <div class="space-y-2">
+                                <label class="text-[11px] font-black uppercase tracking-widest text-[#0a0f1a]/50 ml-1">Email Address</label>
+                                <input type="email" placeholder="hello@sparta.com" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-6 py-4 text-sm text-[#0a0f1a] focus:outline-none focus:border-[#d9933e] transition-all">
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div class="space-y-2">
+                                <label class="text-[11px] font-black uppercase tracking-widest text-[#0a0f1a]/50 ml-1">Phone Number</label>
+                                <input type="tel" placeholder="+1 234 567 89" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-6 py-4 text-sm text-[#0a0f1a] focus:outline-none focus:border-[#d9933e] transition-all">
+                            </div>
+                            <div class="space-y-2">
+                                <label class="text-[11px] font-black uppercase tracking-widest text-[#0a0f1a]/50 ml-1">Service Type</label>
+                                <div class="relative">
+                                    <select class="w-full bg-slate-50 border border-slate-200 rounded-xl px-6 py-4 text-sm text-slate-500 focus:outline-none focus:border-[#d9933e] transition-all appearance-none">
+                                        <option>Select Service</option>
+                                        <option>Web Development</option>
+                                        <option>Digital Marketing</option>
+                                        <option>Content Writing</option>
+                                        <option>Wordpress Development</option>
+                                        <option>Graphic Designing</option>
+                                    </select>
+                                    <i class="fas fa-chevron-down absolute right-6 top-1/2 -translate-y-1/2 text-[10px] text-slate-400"></i>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="space-y-2">
+                            <label class="text-[11px] font-black uppercase tracking-widest text-[#0a0f1a]/50 ml-1">Your Message</label>
+                            <textarea rows="4" placeholder="Tell us about your project..." class="w-full bg-slate-50 border border-slate-200 rounded-xl px-6 py-4 text-sm text-[#0a0f1a] focus:outline-none focus:border-[#d9933e] transition-all resize-none"></textarea>
+                        </div>
+
+                        <button class="group relative w-full overflow-hidden bg-[#0a0f1a] py-5 rounded-xl transition-all active:scale-95 shadow-xl shadow-[#0a0f1a]/10">
+                            <div class="absolute inset-0 w-0 bg-[#d9933e] group-hover:w-full transition-all duration-500 ease-out"></div>
+                            <span style="font-family: 'Syne', sans-serif;" class="relative z-10 text-white group-hover:text-black font-black uppercase tracking-widest text-[12px] flex items-center justify-center gap-3">
+                                Send Message 
+                                <i class="fas fa-paper-plane text-[11px] group-hover:translate-x-2 transition-transform"></i>
+                            </span>
+                        </button>
+                    </form>
+
+                    <div class="absolute -bottom-10 -right-10 w-40 h-40 bg-[#d9933e]/5 rounded-full blur-3xl"></div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<style>
+/* Animated Line Width */
+@keyframes lineWidth {
+    0%, 100% { width: 60px; }
+    50% { width: 150px; }
+}
+.animate-line-width { animation: lineWidth 3s infinite ease-in-out; }
+
+/* Float animation */
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+}
+.animate-float { animation: float 5s infinite ease-in-out; }
+
+/* Custom Select Styling */
+select option { background: white; color: #0a0f1a; }
+</style>
+
+
+
+
+
+
+
+<section class="relative py-24 bg-white overflow-hidden" style="font-family: 'Inter', sans-serif;">
+    
+    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full opacity-[0.03] pointer-events-none">
+        <svg viewBox="0 0 100 100" class="w-full h-full text-[#0a0f1a]">
+            <pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse">
+                <path d="M 10 0 L 0 0 0 10" fill="none" stroke="currentColor" stroke-width="0.5"/>
+            </pattern>
+            <rect width="100" height="100" fill="url(#grid)" />
+        </svg>
+    </div>
+
+    <div class="max-w-7xl mx-auto px-8 relative z-10">
+        <div class="flex flex-col lg:flex-row gap-20">
+            
+            <div class="lg:w-1/3">
+                <div class="sticky top-10">
+                    <span style="font-family: 'Syne', sans-serif;" class="text-[#d9933e] font-extrabold uppercase tracking-[0.5em] text-[10px]">Support Hub</span>
+                    <h2 style="font-family: 'Syne', sans-serif;" class="text-[#0a0f1a] text-5xl font-extrabold mt-4 leading-[0.9] tracking-tighter">
+                        Common <br> 
+                        <span style="font-family: 'Instrument Serif', serif;" class="italic text-[#d9933e] lowercase">questions.</span>
+                    </h2>
+                    <p class="text-slate-500 mt-8 font-light leading-relaxed">
+                        Connecting with Sparta Tech for the first time? We’ve compiled answers to the most frequent inquiries to help you understand our elite digital ecosystem.
+                    </p>
+                    
+                    <div class="mt-12 group cursor-pointer">
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 rounded-full border border-slate-200 flex items-center justify-center group-hover:border-[#d9933e] transition-all duration-300">
+                                <i class="fas fa-arrow-right text-[#0a0f1a] group-hover:text-[#d9933e] -rotate-45 group-hover:rotate-0 transition-transform"></i>
+                            </div>
+                            <div>
+                                <h4 style="font-family: 'Syne', sans-serif;" class="font-bold text-[#0a0f1a] uppercase text-xs tracking-widest">Explore Sparta Tech</h4>
+                                <p class="text-[10px] text-slate-400">View our complete service catalog</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="lg:w-2/3 space-y-6">
+                
+                <div class="group bg-[#f8fafc] rounded-3xl p-8 border border-transparent hover:border-[#d9933e]/20 transition-all duration-500">
+                    <div class="flex justify-between items-start gap-6">
+                        <div class="flex gap-6">
+                            <span style="font-family: 'Syne', sans-serif;" class="text-4xl font-black text-[#0a0f1a]/5 group-hover:text-[#d9933e]/20 transition-colors uppercase tracking-tighter">01</span>
+                            <div>
+                                <h3 style="font-family: 'Syne', sans-serif;" class="text-xl font-bold text-[#0a0f1a] mb-4">What is the Sparta Tech workflow?</h3>
+                                <p class="text-slate-500 text-sm leading-relaxed max-w-lg">
+                                    Our process is built on precision. We begin with a deep discovery phase to analyze your needs, followed by strategic architecture and flawless execution to ensure market-leading results.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="w-10 h-10 bg-[#0a0f1a] rounded-full flex items-center justify-center shadow-lg shadow-[#0a0f1a]/10">
+                            <i class="fas fa-plus text-[#d9933e] text-[10px]"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="group relative bg-white rounded-3xl p-8 border-2 border-[#d9933e]/30 shadow-[0_20px_50px_rgba(217,147,62,0.1)] transition-all duration-500 hover:-translate-y-1 overflow-hidden">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-[#d9933e]/5 rounded-full blur-3xl -mr-16 -mt-16"></div>
+                    
+                    <div class="flex justify-between items-start gap-6 relative z-10">
+                        <div class="flex gap-6">
+                            <span style="font-family: 'Syne', sans-serif;" class="text-4xl font-black text-[#d9933e]/20 uppercase tracking-tighter">02</span>
+                            <div>
+                                <h3 style="font-family: 'Syne', sans-serif;" class="text-xl font-bold text-[#0a0f1a] mb-4">How long do Sparta Tech projects take?</h3>
+                                <p class="text-slate-600 text-sm leading-relaxed max-w-lg font-medium">
+                                    While timelines vary based on project complexity, a standard high-performance digital solution typically moves from concept to launch within 2 to 4 weeks.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="w-10 h-10 bg-[#d9933e] rounded-full flex items-center justify-center shadow-lg shadow-[#d9933e]/30 group-hover:scale-110 transition-transform">
+                            <i class="fas fa-clock text-black text-[12px]"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="group bg-[#f8fafc] rounded-3xl p-8 border border-transparent hover:border-[#d9933e]/20 transition-all duration-500">
+                    <div class="flex justify-between items-start gap-6">
+                        <div class="flex gap-6">
+                            <span style="font-family: 'Syne', sans-serif;" class="text-4xl font-black text-[#0a0f1a]/5 group-hover:text-[#d9933e]/20 transition-colors uppercase tracking-tighter">03</span>
+                            <div>
+                                <h3 style="font-family: 'Syne', sans-serif;" class="text-xl font-bold text-[#0a0f1a] mb-4">Do you provide custom technical solutions?</h3>
+                                <p class="text-slate-500 text-sm leading-relaxed max-w-lg">
+                                    Absolutely. Sparta Tech specializes in bespoke web architectures and marketing frameworks tailored specifically to your brand's unique digital footprint.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="w-10 h-10 bg-[#0a0f1a] rounded-full flex items-center justify-center">
+                            <i class="fas fa-check text-[#d9933e] text-[10px]"></i>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+
+  
+
+  
+
+<footer class="bg-[#0f172a] text-white pt-16 pb-10 px-6 font-sans border-t-4 border-[#E89D4B]">
+    <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-">
+        
+        <div class="space-y-5 px-12">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 bg-[#E89D4B] rounded-lg flex items-center justify-center shadow-lg shadow-[#E89D4B]/20">
+                    <span class="text-[#0f172a] font-black text-xl">S</span>
+                </div>
+                <h2 class="text-2xl font-black tracking-tighter uppercase">Sparta <span class="text-[#E89D4B]">Tech</span></h2>
+            </div>
+            <p class="text-gray-400 text-sm leading-relaxed">
+                Empowering next-gen businesses with AI-driven growth systems and unified digital infrastructure. Scale beyond guesswork.
+            </p>
+            <div class="flex gap-4">
+                <a href="#" class="w-10 h-10 rounded-full border border-gray-700 flex items-center justify-center hover:border-[#E89D4B] hover:text-[#E89D4B] transition-all"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="w-10 h-10 rounded-full border border-gray-700 flex items-center justify-center hover:border-[#E89D4B] hover:text-[#E89D4B] transition-all"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#" class="w-10 h-10 rounded-full border border-gray-700 flex items-center justify-center hover:border-[#E89D4B] hover:text-[#E89D4B] transition-all"><i class="fab fa-twitter"></i></a>
+            </div>
+        </div>
+
+        <div>
+            <h4 class="text-lg font-bold mb-6 border-b-2 border-[#E89D4B] w-fit pb-1">Quick Links</h4>
+            <ul class="space-y-4 text-gray-400 text-sm">
+                <li><a href="#" class="hover:text-white hover:pl-2 transition-all duration-300 block border-l-0 hover:border-l-4 hover:border-[#E89D4B] pl-0">About Us</a></li>
+                <li><a href="#" class="hover:text-white hover:pl-2 transition-all duration-300 block border-l-0 hover:border-l-4 hover:border-[#E89D4B] pl-0">Services</a></li>
+                <li><a href="#" class="hover:text-white hover:pl-2 transition-all duration-300 block border-l-0 hover:border-l-4 hover:border-[#E89D4B] pl-0">Pricing</a></li>
+                <li><a href="#" class="hover:text-white hover:pl-2 transition-all duration-300 block border-l-0 hover:border-l-4 hover:border-[#E89D4B] pl-0">Contact Us</a></li>
+            </ul>
+        </div>
+
+        <div>
+            <h4 class="text-lg font-bold mb-6 border-b-2 border-[#E89D4B] w-fit pb-1">Our Services</h4>
+            <ul class="space-y-4 text-gray-400 text-sm">
+                <li><a href="#" class="hover:text-white hover:pl-2 transition-all duration-300 block border-l-0 hover:border-l-4 hover:border-[#E89D4B] pl-0">Web Design & Development</a></li>
+                <li><a href="#" class="hover:text-white hover:pl-2 transition-all duration-300 block border-l-0 hover:border-l-4 hover:border-[#E89D4B] pl-0">Graphic Design</a></li>
+                <li><a href="#" class="hover:text-white hover:pl-2 transition-all duration-300 block border-l-0 hover:border-l-4 hover:border-[#E89D4B] pl-0">Digital Marketing</a></li>
+                <li><a href="#" class="hover:text-white hover:pl-2 transition-all duration-300 block border-l-0 hover:border-l-4 hover:border-[#E89D4B] pl-0">Content Writing</a></li>
+            </ul>
+        </div>
+
+        <div class="space-y-6">
+            <h4 class="text-lg font-bold mb-6 border-b-2 border-[#E89D4B] w-fit pb-1">Connect With Us</h4>
+            <div class="space-y-4 text-sm text-gray-400">
+                <div class="flex items-start gap-3 group">
+                    <i class="fas fa-envelope mt-1 text-[#E89D4B]"></i>
+                    <span class="group-hover:text-white transition-colors">hello@spartatech.com</span>
+                </div>
+                <div class="flex items-start gap-3 group">
+                    <i class="fas fa-phone-alt mt-1 text-[#E89D4B]"></i>
+                    <span class="group-hover:text-white transition-colors">+1 (555) 2345 - 67890</span>
+                </div>
+                <div class="flex items-start gap-3 group">
+                    <i class="fas fa-map-marker-alt mt-1 text-[#E89D4B]"></i>
+                    <span class="group-hover:text-white transition-colors leading-relaxed">
+                        Avenue, Suite 567 TechVille, <br>California, 90210 United States
+                    </span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="max-w-7xl mx-auto mt-8 pt-4 px-12 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center gap-4">
+        <p class="text-gray-500 text-xs text-center md:text-left">
+            © 2026 <span class="text-[#E89D4B] font-bold">Sparta Tech</span>. All Rights Reserved. 
+            <span class="mx-2">|</span> Designed for Scale.
+        </p>
+        <div class="flex gap-6 text-xs text-gray-500">
+            <a href="#" class="hover:text-[#E89D4B] transition-colors">Privacy Policy</a>
+            <a href="#" class="hover:text-[#E89D4B] transition-colors">Terms of Service</a>
+            <a href="#" class="hover:text-[#E89D4B] transition-colors">Cookies Setting</a>
+        </div>
+    </div>
+</footer>
+
+
+
+
+</body>
+</html>

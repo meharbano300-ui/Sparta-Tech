@@ -137,8 +137,9 @@
     width: 100%;
   }
 </style>
+<script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
 
-<header class="fixed top-0 left-0 right-0 z-[100] w-full bg-[#0f172a]/95 backdrop-blur-md " id="navbar">
+<header x-data="{ open: false }" class="fixed top-0 left-0 right-0 z-[100] w-full bg-[#0f172a]/95 backdrop-blur-md" id="navbar">
     <div class="mx-auto max-w-full transition-all duration-500 ease-in-out px-6 md:px-12 py-3 flex items-center justify-between">
       
       <div class="flex items-center gap-3 group cursor-pointer">
@@ -154,22 +155,48 @@
       </div>
 
       <nav class="hidden md:flex items-center gap-8">
-        <a href="#" class="nav-link text-[11px] font-bold text-white uppercase tracking-[0.2em] hover:text-[#E89D4B]">Home</a>
-        <a href="#" class="nav-link text-[11px] font-bold text-white uppercase tracking-[0.2em] hover:text-[#E89D4B]">About Us</a>
-        <a href="#" class="nav-link text-[11px] font-bold text-white uppercase tracking-[0.2em] hover:text-[#E89D4B]">Services</a>
-        <a href="#" class="nav-link text-[11px] font-bold text-white uppercase tracking-[0.2em] hover:text-[#E89D4B]">Pricing</a>
-        <a href="#" class="nav-link text-[11px] font-bold text-white uppercase tracking-[0.2em] hover:text-[#E89D4B]">Contact Us</a>
+        <a href="Index.html" class="nav-link text-[11px] font-bold text-white uppercase tracking-[0.2em] hover:text-[#E89D4B]">Home</a>
+        <a href="About.html" class="nav-link text-[11px] font-bold text-white uppercase tracking-[0.2em] hover:text-[#E89D4B]">About Us</a>
+        <a href="Services.html" class="nav-link text-[11px] font-bold text-white uppercase tracking-[0.2em] hover:text-[#E89D4B]">Services</a>
+        <a href="Pricing.html" class="nav-link text-[11px] font-bold text-white uppercase tracking-[0.2em] hover:text-[#E89D4B]">Pricing</a>
+        <a href="Contact.html" class="nav-link text-[11px] font-bold text-white uppercase tracking-[0.2em] hover:text-[#E89D4B]">Contact Us</a>
       </nav>
 
-      <div class="flex items-center">
-        <div class="animated-border-box">
-            <button class="inner-button">
-                <i class="fas fa-calendar-check text-[#E89D4B]"></i>
-                <span>Book Meeting</span>
+      <div class="flex items-center gap-4">
+        <div class="animated-border-box hidden sm:block">
+          <button class="inner-button">
+            <i class="fas fa-comments text-[#E89D4B] text-[17px]"></i>
+            <span>Let's Talk</span>
+          </button>
+        </div>
+
+        <button @click="open = !open" class="md:hidden text-[#E89D4B] text-2xl focus:outline-none">
+            <i :class="open ? 'fas fa-times' : 'fas fa-bars-staggered'"></i>
+        </button>
+      </div>
+    </div>
+
+    <div x-show="open" 
+         x-transition:enter="transition ease-out duration-300"
+         x-transition:enter-start="opacity-0 -translate-y-4"
+         x-transition:enter-end="opacity-100 translate-y-0"
+         x-transition:leave="transition ease-in duration-200"
+         x-transition:leave-start="opacity-100 translate-y-0"
+         x-transition:leave-end="opacity-0 -translate-y-4"
+         class="md:hidden bg-[#0f172a] border-t border-[#E89D4B]/10 px-6 py-6 flex flex-col gap-6 shadow-2xl">
+        
+        <a href="Index.html" class="text-[11px] font-bold text-white uppercase tracking-[0.2em] hover:text-[#E89D4B]">Home</a>
+        <a href="About.heml" class="text-[11px] font-bold text-white uppercase tracking-[0.2em] hover:text-[#E89D4B]">About Us</a>
+        <a href="Services.html" class="text-[11px] font-bold text-white uppercase tracking-[0.2em] hover:text-[#E89D4B]">Services</a>
+        <a href="Pricing.html" class="text-[11px] font-bold text-white uppercase tracking-[0.2em] hover:text-[#E89D4B]">Pricing</a>
+        <a href="Contact.heml" class="text-[11px] font-bold text-white uppercase tracking-[0.2em] hover:text-[#E89D4B]">Contact Us</a>
+        
+        <div class="animated-border-box w-full">
+            <button class="inner-button w-full justify-center">
+              <i class="fas fa-comments text-[#E89D4B] text-[17px]"></i>
+              <span>Let's Talk</span>
             </button>
         </div>
-      </div>
-
     </div>
 </header>
 
@@ -187,6 +214,7 @@
   justify-content: center;
   overflow: hidden;
   font-family: 'Plus Jakarta Sans', sans-serif;
+ 
 }
 
 .hero-section video {
@@ -194,6 +222,7 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  
 }
 
 .hero-overlay {
@@ -351,27 +380,31 @@
   left: 100%;
 }
 </style>
-
-<div class="hero-content">
-  <h1>
-    <div class="animate-left text-5xl md:text-7xl">
-      Building the <span class="italic">Future</span>
+<div class="hero-content text-center md:text-left">
+  <h1 class="leading-[1.1] tracking-tighter">
+    <div class="animate-left text-5xl md:text-[60px] font-extrabold text-white" style="font-family: 'Syne', sans-serif;">
+      Architecting the <span class="italic text-[#d9933e]" style="font-family: 'Instrument Serif', serif;">Future</span>
     </div>
-    <div class="animate-right text-5xl md:text-7xl">
-      With Spartan Discipline
+    <div class="animate-right text-4xl md:text-[61px] font-bold text-white/90 uppercase mt-2" style="font-family: 'Syne', sans-serif; letter-spacing: -2px;">
+      With Spartan <span class="text-[#d9933e]">Solutions</span>
     </div>
   </h1>
 
-  <p class="animate-up">
-    Hum sirf code nahi likhte, hum digital empire khara karte hain.
-    Modern engineering meets timeless dedication.
+  <p class="animate-up text-slate-300 mt-8 text-lg md:text-[20px] font-light max-w-2xl leading-relaxed" style="font-family: 'Inter', sans-serif;">
+    We don't just write code; we engineer <span class="text-white font-medium">Digital Empires</span>. 
+    Where cutting-edge innovation meets the relentless precision of timeless dedication.
   </p>
 
-  <a href="#our-values" class="hero-btn animate-zoom">
-    Explore Our Story
-  </a>
+  <div class="mt-10">
+    <a href="#our-values" class="hero-btn animate-zoom inline-block bg-[#d9933e] text-black font-black uppercase tracking-widest text-xs px-10 py-5 rounded-full hover:bg-white hover:scale-105 transition-all duration-300 shadow-lg shadow-[#d9933e]/20" style="font-family: 'Syne', sans-serif;">
+      Explore Our Story
+    </a>
+  </div>
 </div>
 </section>
+
+
+
 <script>
 const observer = new IntersectionObserver(entries => {
   entries.forEach(entry => {
@@ -392,7 +425,7 @@ document.querySelectorAll(".animate-left, .animate-right, .animate-up, .animate-
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
-<section class="relative -mt-20 z-20 max-w-7xl mx-auto px-4 overflow-visible">
+<section class="relative -mt-20 z-20 max-w-6xl mx-auto px-4 overflow-visible">
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
         
         <div class="premium-card group">
@@ -661,12 +694,12 @@ document.querySelectorAll(".animate-left, .animate-right, .animate-up, .animate-
 
  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;500;800&family=Playfair+Display:ital,wght@1,900&display=swap" rel="stylesheet">
 
-<section class="liquid-mission py-24 relative bg-white overflow-hidden">
+<section class="liquid-mission py-32  relative bg-white overflow-hidden">
     <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-[#f8b172]/10 blur-[120px] rounded-full -mr-40 -mt-40 animate-pulse"></div>
     <div class="absolute bottom-0 left-0 w-[400px] h-[400px] bg-[#1e2a5a]/5 blur-[100px] rounded-full -ml-20 -mb-20"></div>
 
-    <div class="max-w-7xl mx-auto px-6 relative z-10">
-        <div class="grid lg:grid-cols-2 gap-16 items-center">
+    <div class="max-w-7xl mx-auto px-6 ms-20 relative z-10">
+        <div class="grid lg:grid-cols-2 gap-10 items-center">
             
             <div class="order-2 lg:order-1">
                 <div class="flex items-center gap-3 mb-6">
@@ -1032,10 +1065,374 @@ document.querySelectorAll(".animate-left, .animate-right, .animate-up, .animate-
 
 
 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;900&family=Playfair+Display:italic,wght@700&family=Plus+Jakarta+Sans:wght@400;800&family=Space+Mono:italic&display=swap" rel="stylesheet">
 
+<section class="sparta-ultra-creative py-32 bg-[#ffffff] relative overflow-hidden">
+    
+    <div class="absolute top-10 right-10 w-40 h-40 border border-slate-100 rounded-full animate-spin-slow opacity-50"></div>
+    <div class="absolute -bottom-20 -left-20 w-80 h-80 border-2 border-dashed border-[#E89D4B]/20 rounded-[4rem] animate-float"></div>
+
+    <div class="max-w-7xl mx-auto px-10 ms-14 relative z-10">
+        <div class="grid lg:grid-cols-2 gap-8 items-center">
+            
+            <div class="relative space-y-4">
+                
+                <div class="absolute -top-16 -left-10 z-20 bg-[#E89D4B] p-4 shadow-xl -rotate-6 animate-float-delayed rounded-sm">
+                    <p class="text-[10px] font-bold text-[#1e2a5a] uppercase leading-none">Internal Protocol:<br><span class="text-white">v.4.0.2 Active</span></p>
+                </div>
+
+                <div class="relative">
+                    <span class="inline-block px-4 py-1 rounded-full bg-slate-100 text-[#1e2a5a] text-[10px] font-black tracking-widest uppercase  animate-pulse">
+                        <i class="fas fa-microchip mr-2"></i> AI Neural Architecture
+                    </span>
+
+                    <h2 class="leading-[0.85] select-none">
+                        <span class="block text-8xl md:text-[8rem] font-black text-[#1e2a5a] outfit-font tracking-tighter">THE</span>
+                        <div class="flex items-center gap-4">
+                            <span class="text-5xl md:text-7xl font-light text-slate-300 italic jakarta-font">creative</span>
+                            <span class="w-12 h-[2px] bg-[#E89D4B] animate-grow"></span>
+                        </div>
+                        <span class="block text-7xl md:text-9xl font-serif italic text-transparent bg-clip-text bg-gradient-to-r from-[#1e2a5a] to-[#E89D4B] playfair-font">Genius</span>
+                    </h2>
+
+                    <div class="mt-8 flex items-center gap-6">
+                        <div class="bg-[#1e2a5a] text-white p-3 rounded-2xl shadow-2xl group">
+                            <div class="text-[28px] font-black outfit-font"><span class="counter" data-target="99">0</span>%</div>
+                            <div class="text-[8px] font-bold uppercase tracking-widest text-[#E89D4B]">Accuracy Rate</div>
+                        </div>
+                        <p class="text-sm text-slate-400 max-w-[200px] space-mono-font italic">
+                             Analyzing <span class="text-[#1e2a5a] font-bold">Patterns</span>... 
+                            <br>Systems are evolving beyond <span class="underline decoration-[#E89D4B]">code</span>.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="relative border-l-4 border-[#1e2a5a] pl-8 py-3">
+                    <p class="text-lg text-slate-600 jakarta-font leading-relaxed">
+                        We don't just build, we <span class="text-2xl font-black text-[#1e2a5a]">ORCHESTRATE</span>. 
+                        Every pixel is a <span class="relative inline-block">
+                            <span class="relative z-10 px-2">Decision</span>
+                            <span class="absolute inset-0 bg-yellow-200 -rotate-2 z-0"></span>
+                        </span>.
+                    </p>
+                    <div class="absolute top-0 right-0 animate-bounce">
+                        <i class="fas fa-circle-nodes text-[#E89D4B] text-2xl"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-2 gap-4 relative">
+                
+                <div class="absolute -inset-4 border-2 border-slate-100 rounded-[3rem] -z-10 animate-pulse"></div>
+
+                <div class="group perspective h-[300px]">
+                    <div class="relative w-full h-full transition-transform duration-700 transform-style-3d group-hover:rotate-y-180 cursor-pointer">
+                        <div class="absolute inset-0 backface-hidden">
+                            <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=600" class="w-full h-full object-cover rounded-[2rem] grayscale group-hover:grayscale-0" alt="Team">
+                            <div class="absolute bottom-4 left-4 bg-white/90 backdrop-blur px-3 py-1 rounded-full text-[10px] font-black text-[#1e2a5a]">CVO</div>
+                        </div>
+                        <div class="absolute inset-0 backface-hidden rotate-y-180 bg-[#1e2a5a] rounded-[2rem] flex flex-col items-center justify-center p-6 text-center">
+                            <h4 class="text-white font-black text-xl">Alex</h4>
+                            <p class="text-[#E89D4B] text-xs">The Visionary</p>
+                            <div class="flex gap-2 mt-4 text-white/50"><i class="fab fa-twitter"></i><i class="fab fa-linkedin"></i></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="group relative h-[220px] self-end translate-y-8">
+                    <div class="w-full h-full bg-[#E89D4B] rounded-[2rem] overflow-hidden relative shadow-xl hover:scale-105 transition-all">
+                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=600" class="w-full h-full object-cover mix-blend-multiply opacity-80 group-hover:opacity-100 group-hover:mix-blend-normal transition-all" alt="Team">
+                        <div class="absolute top-4 right-4"><i class="fas fa-fingerprint text-white text-xl"></i></div>
+                    </div>
+                </div>
+
+                <div class="group relative h-[250px] -translate-y-10">
+                    <div class="w-full h-full border-4 border-[#1e2a5a] rounded-[2rem] overflow-hidden relative hover:rotate-3 transition-all">
+                         <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=600" class="w-full h-full object-cover grayscale" alt="Team">
+                         <div class="absolute inset-0 bg-gradient-to-t from-[#E89D4B] to-transparent opacity-0 group-hover:opacity-80 transition-opacity"></div>
+                    </div>
+                </div>
+
+                <div class="bg-slate-50 p-6 rounded-[2rem] flex flex-col justify-center items-center text-center border border-dashed border-slate-200 animate-float-delayed">
+                    <div class="w-10 h-10 rounded-full bg-white flex items-center justify-center mb-2 shadow-sm">
+                        <i class="fas fa-robot text-[#1e2a5a]"></i>
+                    </div>
+                    <p class="text-[9px] font-black text-slate-400 uppercase tracking-widest">Automation<br>In Sync</p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    .outfit-font { font-family: 'Outfit', sans-serif; }
+    .jakarta-font { font-family: 'Plus Jakarta Sans', sans-serif; }
+    .playfair-font { font-family: 'Playfair Display', serif; }
+    .space-mono-font { font-family: 'Space Mono', monospace; }
+
+    /* 3D Flip Styles */
+    .perspective { perspective: 1000px; }
+    .transform-style-3d { transform-style: preserve-3d; }
+    .backface-hidden { backface-visibility: hidden; }
+    .rotate-y-180 { transform: rotateY(180deg); }
+
+    /* Animations */
+    @keyframes spin-slow { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+    .animate-spin-slow { animation: spin-slow 15s linear infinite; }
+
+    @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-15px); } }
+    .animate-float { animation: float 6s infinite ease-in-out; }
+    .animate-float-delayed { animation: float 9s infinite ease-in-out; }
+
+    @keyframes grow { from { width: 0; } to { width: 3rem; } }
+    .animate-grow { animation: grow 1.5s forwards ease-in-out; }
+
+    .sparta-ultra-creative * {
+        transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+    }
+</style>
+
+<script>
+    // Pure Logic: AI Counter Animation
+    const counters = document.querySelectorAll('.counter');
+    counters.forEach(counter => {
+        const target = +counter.getAttribute('data-target');
+        const updateCount = () => {
+            const count = +counter.innerText;
+            const inc = target / 100;
+            if (count < target) {
+                counter.innerText = Math.ceil(count + inc);
+                setTimeout(updateCount, 20);
+            } else {
+                counter.innerText = target;
+            }
+        };
+        updateCount();
+    });
+</script>
 
 
   
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;900&family=Playfair+Display:italic,wght@700&family=Plus+Jakarta+Sans:wght@300;500;800&display=swap" rel="stylesheet">
+
+<section class="sparta-ultra-rich py-8 mb-24 bg-[#ffffff] overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4">
+        
+        <div class="text-center mb-16">
+            <h2 class="text-4xl md:text-6xl font-black text-[#1e2a5a] outfit-font leading-tight">
+                Mastering <span class="playfair-font text-[#E89D4B] italic" id="typing-text"></span>
+            </h2>
+            <div class="w-44 h-1.5 bg-gradient-to-r from-[#1e2a5a] to-[#E89D4B] mx-auto mt-10 rounded-full"></div>
+        </div>
+
+        <div class="flex flex-col lg:flex-row items-center justify-center gap-5 perspective-2000">
+            
+            <div class="flip-card w-full lg:w-[18%] h-[260px]"> <div class="flip-inner group"> <div class="flip-front bg-white rounded-[20px] p-6 overflow-hidden border border-slate-100 relative shadow-md">
+                        <div class="absolute top-0 left-0 w-full h-full opacity-[0.09] pointer-events-none" style="background-image: radial-gradient(#1e2a5a 1px, transparent 1px); background-size: 10px 10px;"></div>
+                        <span class="absolute -bottom-4 -right-2 text-7xl font-black text-slate-50 select-none">01</span>
+                        
+                        <div class="relative z-10 h-full flex flex-col justify-between">
+                            <div class="flex justify-between">
+                                <div class="w-10 h-10 bg-gradient-to-br from-[#1e2a5a] to-[#3a4a8a] rounded-xl flex items-center justify-center shadow-lg">
+                                    <i class="fas fa-feather text-white text-sm"></i> </div>
+                                <div class="animate-bounce mt-2 h-1.5 w-1.5 bg-[#E89D4B] rounded-full"></div>
+                            </div>
+                            
+                            <div class="mt-4">
+                                <h4 class="text-sm font-black text-[#1e2a5a] outfit-font uppercase tracking-widest leading-tight">Content<br><span class="playfair-font lowercase italic font-medium text-blue-500">Writting</span></h4>
+                                <p class="text-[9px] text-slate-500 jakarta-font mt-2 font-medium">Crafting <span class="font-bold text-[#1e2a5a]">narratives</span> that resonate and convert.</p>
+                                <div class="flex gap-1 mt-3">
+                                    <div class="h-1 w-8 bg-[#E89D4B] rounded-full"></div>
+                                    <div class="h-1 w-2 bg-slate-200 rounded-full"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="absolute top-10 right-4 w-6 h-6 bg-blue-100/50 rounded-full blur-sm animate-float"></div>
+                    </div>
+                    <div class="flip-back bg-[#1e2a5a] rounded-[2rem] p-6 flex flex-col justify-center text-center">
+                        <i class="fas fa-pen-nib text-[#E89D4B] mb-3 text-2xl"></i>
+                        <p class="text-white text-[10px] italic">SEO Optimized Copy</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flip-card w-full lg:w-[20%] h-[290px]"> <div class="flip-inner group">
+                    <div class="flip-front bg-white rounded-[20px] p-7 overflow-hidden border border-slate-100 relative shadow-md">
+                        <div class="absolute top-5 right-5 flex flex-col gap-1">
+                            <span class="w-1 h-1 bg-green-500 rounded-full animate-ping"></span>
+                            <span class="w-1 h-4 bg-slate-100 rounded-full"></span>
+                        </div>
+                        
+                        
+                        <div class="relative z-10 h-full flex flex-col justify-between">
+                            <div class="w-12 h-12 bg-[#E89D4B]/10 rounded-2xl flex items-center justify-center">
+                                <i class="fas fa-bolt-lightning text-[#E89D4B] text-lg"></i> </div>
+                            <div>
+                                <span class="text-[8px] font-bold text-slate-400 uppercase tracking-[3px]">Campaigns</span>
+                                <h4 class="text-lg font-black text-[#1e2a5a] outfit-font leading-none mt-1">Digital<br><span class="playfair-font lowercase italic font-medium text-[#E89D4B]">Marketing</span></h4>
+                                <p class="text-[9px] text-slate-500 mt-3 jakarta-font">Data-driven <span class="italic">strategies</span> for growth.</p>
+                                <div class="mt-4 p-2 bg-slate-50 rounded-lg border border-slate-100 flex items-center gap-2">
+                                    <i class="fas fa-chart-line text-green-500 text-[10px]"></i>
+                                    <span class="text-[8px] font-black text-[#1e2a5a]">98% Success Rate</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flip-back bg-[#E89D4B] rounded-[2rem] p-6 flex flex-col justify-center text-center">
+                        <h5 class="text-[#1e2a5a] font-black text-xs uppercase">Ads & Social</h5>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flip-card w-full lg:w-[26%] h-[340px]"> <div class="flip-inner group">
+                    <div class="flip-front bg-white rounded-[23px] p-8 overflow-hidden border-2 border-[#1e2a5a] relative shadow-xl">
+                        <div class="absolute top-0 left-0 w-full h-full opacity-[0.09] pointer-events-none" style="background-image: radial-gradient(#1e2a5a 1px, transparent 1px); background-size: 10px 10px;"></div>
+                        <div class="absolute -top-10 -left-10 w-32 h-32 bg-[#1e2a5a]/5 rounded-full blur-2xl"></div>
+                        
+                        <div class="relative z-10 h-full flex flex-col justify-between">
+                            <div class="flex justify-between items-center">
+                                <div class="w-14 h-14 bg-[#1e2a5a] rounded-2xl flex items-center justify-center shadow-xl group-hover:rotate-12 transition-transform">
+                                    <i class="fas fa-code-merge text-white text-2xl"></i> </div>
+                                <div class="text-right">
+                                    <span class="block text-[10px] font-black text-[#E89D4B]">PREMIUM</span>
+                                    <div class="flex gap-0.5 mt-1 justify-end">
+                                        <div class="w-1 h-1 bg-[#1e2a5a] rounded-full"></div>
+                                        <div class="w-4 h-1 bg-[#1e2a5a] rounded-full"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <h4 class="text-3xl font-black text-[#1e2a5a] outfit-font tracking-tighter leading-none">Web<br><span class="playfair-font lowercase italic font-medium text-[#E89D4B]">Architecture</span></h4>
+                                <p class="text-[11px] text-slate-500 mt-4 jakarta-font leading-relaxed">High-end architecture with <span class="font-bold text-[#1e2a5a]">modern tech</span> stacks like React & Node.</p>
+                                <div class="mt-6 flex items-center justify-between py-3 border-t border-slate-100">
+                                    <span class="text-[9px] font-bold text-[#1e2a5a]"><i class="fas fa-shield-halved mr-1 text-[#E89D4B]"></i> Ultra Fast</span>
+                                    <span class="text-[9px] font-bold text-[#1e2a5a]"><i class="fas fa-fingerprint mr-1 text-[#E89D4B]"></i> Secure</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flip-back bg-[#1e2a5a] rounded-[2.5rem] p-8 flex flex-col justify-center">
+                        <h4 class="text-[#E89D4B] font-black mb-4">The Stack:</h4>
+                        <div class="space-y-2">
+                            <div class="flex justify-between text-white text-[10px]"><span>React.js</span><span>95%</span></div>
+                            <div class="w-full h-1 bg-white/10 rounded-full"><div class="w-[95%] h-full bg-[#E89D4B] rounded-full"></div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flip-card w-full lg:w-[20%] h-[290px]"> <div class="flip-inner group">
+                    <div class="flip-front bg-white rounded-[20px] p-7 overflow-hidden border border-slate-100 relative shadow-md">
+                        <div class="relative z-10 h-full flex flex-col justify-between">
+                            <i class="fas fa-compass-drafting text-2xl text-[#1e2a5a]"></i> <div>
+                                <h4 class="text-lg font-black text-[#1e2a5a] outfit-font uppercase">Graphic<br><span class="playfair-font lowercase italic font-medium text-[#E89D4B]">Design</span></h4>
+                                <p class="text-[9px] text-slate-500 mt-2">Visual <span class="italic underline decoration-[#E89D4B]">identities</span> that define your brand's soul.</p>
+                                <div class="mt-4 flex gap-2">
+                                    <span class="w-4 h-4 rounded-full bg-red-400"></span>
+                                    <span class="w-4 h-4 rounded-full bg-blue-400"></span>
+                                    <span class="w-4 h-4 rounded-full bg-[#E89D4B]"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="absolute -bottom-6 -right-6 w-20 h-20 bg-slate-50 rounded-full"></div>
+                    </div>
+                    <div class="flip-back bg-[#1e2a5a] rounded-[2rem] p-6 flex flex-col justify-center text-center text-white">
+                        <i class="fas fa-eye text-[#E89D4B] mb-2 text-xl"></i>
+                        <span class="text-[10px] font-bold">Branding Magic</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flip-card w-full lg:w-[18%] h-[260px]"> <div class="flip-inner group">
+                    <div class="flip-front bg-white rounded-[20px] p-6 overflow-hidden border border-slate-100 relative shadow-md">
+                         <div class="absolute top-0 left-0 w-full h-full opacity-[0.09] pointer-events-none" style="background-image: radial-gradient(#1e2a5a 1px, transparent 1px); background-size: 10px 10px;"></div>
+                        <span class="absolute -bottom-1 -right-1 text-7xl font-black text-slate-50 select-none">02</span>
+                        <div class="relative z-10 h-full flex flex-col justify-between">
+                            <div class="flex justify-between items-start">
+                                <i class="fas fa-wand-magic-sparkles text-2xl text-blue-500"></i> <div class="px-2 py-0.5 bg-blue-50 text-blue-600 text-[7px] font-black rounded uppercase">v6.4</div>
+                            </div>
+                            <div>
+                                <h4 class="text-sm font-black text-[#1e2a5a] outfit-font uppercase">WordPress<br><span class="playfair-font lowercase italic font-medium text-blue-500">Solutions</span></h4>
+                                 <p class="text-[9px] text-slate-500 mt-3 jakarta-font">Data-driven <span class="italic">strategies</span> for growth.</p>
+                                <div class="w-full h-1 bg-slate-100 mt-3 rounded-full overflow-hidden">
+                                    <div class="w-3/4 h-full bg-blue-500"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="absolute -bottom-2 -left-2 w-10 h-10 bg-blue-50/50 rounded-full animate-float"></div>
+                    </div>
+                    <div class="flip-back bg-blue-600 rounded-[2rem] p-6 flex flex-col justify-center text-center text-white">
+                        <p class="text-[10px] font-bold">Custom Themes & Plugins</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<style>
+    .outfit-font { font-family: 'Outfit', sans-serif; }
+    .playfair-font { font-family: 'Playfair Display', serif; }
+    .jakarta-font { font-family: 'Plus Jakarta Sans', sans-serif; }
+    .perspective-2000 { perspective: 2000px; }
+
+    /* Clean Flip without extra gray background */
+    .flip-card { background-color: transparent; }
+    .flip-inner {
+        position: relative; width: 100%; height: 100%;
+        transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        transform-style: preserve-3d;
+    }
+    .flip-card:hover .flip-inner { transform: rotateY(180deg); }
+    .flip-front, .flip-back {
+        position: absolute; width: 100%; height: 100%;
+        -webkit-backface-visibility: hidden; backface-visibility: hidden;
+    }
+    .flip-back { transform: rotateY(180deg); }
+
+    @keyframes float {
+        0%, 100% { transform: translateY(0) scale(1); }
+        50% { transform: translateY(-12px) scale(1.05); }
+    }
+    .animate-float { animation: float 5s infinite ease-in-out; }
+    
+    #typing-text { border-right: 3px solid #1e2a5a; padding-right: 5px; animation: blink 0.7s infinite; }
+    @keyframes blink { 50% { border-color: transparent; } }
+</style>
+
+<script>
+    const textElement = document.getElementById('typing-text');
+    const words = ["Digital Ecosystems", "Custom Software", "Brand Identities", "Sales Engines"];
+    let wordIndex = 0, charIndex = 0, isDeleting = false;
+
+    function type() {
+        const currentWord = words[wordIndex];
+        textElement.textContent = isDeleting ? currentWord.substring(0, charIndex - 1) : currentWord.substring(0, charIndex + 1);
+        charIndex = isDeleting ? charIndex - 1 : charIndex + 1;
+        
+        let speed = isDeleting ? 40 : 100;
+        if (!isDeleting && charIndex === currentWord.length) { isDeleting = true; speed = 2000; }
+        else if (isDeleting && charIndex === 0) { isDeleting = false; wordIndex = (wordIndex + 1) % words.length; speed = 500; }
+        setTimeout(type, speed);
+    }
+    document.addEventListener('DOMContentLoaded', type);
+</script>
+
+
+
 
 
   
