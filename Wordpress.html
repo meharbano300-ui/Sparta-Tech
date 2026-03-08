@@ -858,20 +858,35 @@ body { padding-top: 0; }
 </footer>
 
 
-<!--Start of Tawk.to Script-->
+
 <script type="text/javascript">
 var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+
+// Yahan hum position manually set kar rahe hain
+Tawk_API.customStyle = {
+    visibility : {
+        desktop : {
+            position : 'br', // 'br' ka matlab Bottom Right hai
+            xOffset : 20,    // Right side se 20px door
+            yOffset : 20     // Bottom se 20px upar
+        },
+        mobile : {
+            position : 'br',
+            xOffset : 15,
+            yOffset : 15
+        }
+    }
+};
+
 (function(){
 var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
 s1.async=true;
-s1.src='https://embed.tawk.to/69ab08e783ad6d1c3b303624/1jj21li8t';
+s1.src='https://embed.tawk.to/68b7534df9429e1927344d95/1j461qpu2';
 s1.charset='UTF-8';
 s1.setAttribute('crossorigin','*');
 s0.parentNode.insertBefore(s1,s0);
 })();
 </script>
-<!--End of Tawk.to Script-->
-
 
 
 </body>
