@@ -30,7 +30,8 @@
 
 
 
-   <style>
+
+<style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Playfair+Display:ital,wght@1,900&display=swap');
         
         body { font-family: 'Inter', sans-serif;  overflow-x: hidden; }
@@ -105,9 +106,9 @@
     
     <div x-show="!scrolled" 
          x-transition:leave="transition ease-in duration-200"
-         x-transition:leave-start="opacity-100"
+         x-transition:leave-start="opacity"
          x-transition:leave-end="opacity-0"
-         class="w-full bg-gradient-to-r from-[#010409] via-[#020817] to-[#010409] py-3 px-6 md:px-16 flex justify-between items-center text-[13px] text-gray-400">
+         class="w-full bg-[#050c1f] py-3 px-6 md:px-16  flex justify-between items-center text-[13px] text-gray-400">
         <div class="flex items-center gap-6">
             <div class="flex items-center gap-2">
                 <i class="fa-regular fa-envelope"></i>
@@ -126,8 +127,8 @@
     </div>
 
     
-    <nav :class="scrolled ? 'fixed top-0 left-0 shadow-2xl ' : 'relative'" 
-         class="w-full py- px-6 md:px-16 flex justify-between items-center bg-gradient-to-r from-[#010409] via-[#020817] to-[#010409] z-[100] transition-all duration-300">
+    <nav :class="scrolled ? 'fixed top-0 left-0  ' : 'relative'" 
+         class="w-full py- px-6 md:px-16 flex justify-between  items-center bg-[#050c1f] z-[100] transition-all duration-300">
         
        <div class="flex items-center gap-3">
             <div class="w-16 h-16 flex items-center justify-center">
@@ -148,6 +149,8 @@
                 </a>
 
                 <div x-show="servicesOpen" 
+                     x-cloak
+                     @click.away="servicesOpen = false"
                      x-transition:enter="transition cubic-bezier(0.17, 0.67, 0.83, 0.67) duration-400"
                      x-transition:enter-start="opacity-0 -translate-y-2 scale-95 blur-md"
                      x-transition:enter-end="opacity-100 translate-y-0 scale-100 blur-0"
@@ -265,20 +268,20 @@
         </div>
 
 
- <div class="flex items-center gap-4">
+<div class="flex items-center gap-4">
     <div class="relative group p-[2px] rounded-full overflow-hidden inline-flex items-center justify-center transform active:scale-95 transition-transform">
-        <div class="absolute inset-0 w-full h-full bg-conic-gradient from-[#febd69] via-transparent to-[#febd69] animate-[spin_3s_linear_infinite] opacity-100"></div>
+        <div class="absolute inset-0 w-full h-full bg-conic-gradient from-[#050c1f] via-transparent to-[#050c1f] animate-[spin_3s_linear_infinite] opacity-100"></div>
         
         <a href="javascript:void(0)" 
            onclick="Tawk_API.maximize();" 
-           class="relative bg-gradient-to-r from-[#010409] via-[#020817] to-[#010409] shadow-[0_10px_40px_-15px_rgba(2,132,199,0.15)] 
-                  text-[#febd69] font-black px-3 py-2 md:px-5 md:py-2.5 rounded-full transition-all duration-500 
+           class="relative bg-[#febd69] shadow-[0_10px_40px_-15px_rgba(2,132,199,0.15)] 
+                  text-[#050c1f] font-black px-3 py-2 md:px-5 md:py-2.5 rounded-full transition-all duration-500 
                   text-[10px] md:text-[12px] flex items-center gap-2 whitespace-nowrap
-                  hover:bg-[#febd69] hover:text-[#010409] hover:shadow-[0_0_20px_rgba(254,189,105,0.8)] group/btn">
+                  hover:bg-[#050c1f] hover:text-[#febd69] hover:shadow-[0_0_20px_rgba(5,12,31,0.8)] group/btn">
             
-            <i class="fa-solid fa-comments text-sm transition-all duration-300 group-hover/btn:scale-125 group-hover/btn:rotate-[360deg] group-hover/btn:text-[#ffdb99]"></i>
+            <i class="fa-solid fa-comments text-sm transition-all duration-300 group-hover/btn:scale-125 group-hover/btn:rotate-[360deg] group-hover/btn:text-[#febd69]"></i>
             
-            <span class="tracking-wide uppercase transition-all duration-500 ease-in-out group-hover/btn:tracking-[0.2em] group-hover/btn:scale-110 group-hover/btn:text-[#ffdb99] group-active/btn:scale-90 inline-block">
+            <span class="tracking-wide uppercase transition-all duration-500 ease-in-out group-hover/btn:tracking-[0.2em] group-hover/btn:scale-110 group-hover/btn:text-[#febd69] group-active/btn:scale-90 inline-block">
                 Let's Talk
             </span>
         </a>
@@ -329,26 +332,24 @@
 }
 /* Ensure the page doesn't jump when navbar becomes fixed */
 body { padding-top: 0; }
-
-
+[x-cloak] { display: none !important; }
 </style>
 
 
 
 
 
-
-<main class="max-w-[1440px] mx-auto min-h-[90vh] bg-[#0a0f1a]  flex items-center -mt-12">
-    <div class="relative w-full px-6 h-[750px] md:h-[600px] lg:h-[600px] overflow-hidden bg-gradient-to-r from-[#010409] via-[#020817] to-[#010409] shadow-[0_10px_40px_-15px_rgba(2,132,199,0.15)] rounded-[1rem] border border-white/5 ">
+<main class="max-w-[1440px] mx-auto min-h-[90vh]   flex items-center -mt-12">
+    <div class="relative w-full px-6 h-[750px] md:h-[600px] lg:h-[600px] overflow-hidden rounded-[1rem] border border-white/5 ">
         
         <div class="absolute inset-0 z-0">
-            <div class="absolute inset-0 bg-black/60 z-10"></div> <div class="bg-slideshow absolute inset-0"></div>
+            <div class="absolute inset-0 bg-[#050c1f] z-10"></div> <div class="bg-slideshow absolute inset-0"></div>
         </div>
 
         <div class="bg-image-layer"></div>
 
-        <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-blue-600/10 blur-[150px] rounded-full"></div>
-        <div class="absolute bottom-0 left-0 w-[500px] h-[500px] bg-[#febd69]/5 blur-[150px] rounded-full"></div>
+        <div class="absolute top-0 right-0 w-[500px] h-[500px]  rounded-full"></div>
+        <div class="absolute bottom-0 left-0 w-[500px] h-[500px]  rounded-full"></div>
         
         <div class="relative h-full w-full flex flex-col lg:flex-row items-center  mt-5 px-6 md:px-12 lg:px-18">
             <div class="z-20 flex flex-col justify-center items-center lg:items-start lg:w-[45%] text-center lg:text-left mb-12 lg:mb-0">
@@ -356,7 +357,7 @@ body { padding-top: 0; }
  <div id="text-content" class="pt-20 lg:pt-0"> <h1 id="main-title" class="text-white text-[45px] md:text-[60px] lg:text-[75px] font-extrabold leading-[1.1] lg:leading-[0.9] tracking-tighter">
         <div class="flex items-center justify-center lg:justify-start gap-4 mb-3">
             <h1 id="line2" class="text-white   text-5xl md:text-7xl lg:text-[80px] font-black leading-[0.9] mb-8 tracking-tighter transition-all duration-1000">
-                Sparta <span class="text-[#E89D4B] italic font-serif-italic"> Tech </span> <br>
+                Sparta <span class="text-[#E89D4B] "> Tech </span> <br>
                 <span class="relative">
                      Solutions
                     <svg class="absolute -bottom-2 left-0 w-full h-3 text-[#febd69]/30" viewBox="0 0 400 20"><path d="M0 10 Q100 0 200 10 T400 10" fill="none" stroke="currentColor" stroke-width="4"/></svg>
@@ -385,7 +386,7 @@ body { padding-top: 0; }
             <div class="absolute inset-0 z-0 bg-white translate-y-full transition-transform duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] group-hover:translate-y-0"></div>
 
             <span class="relative z-10 transition-colors duration-500 group-hover:text-black">
-                Explore Services
+                Read More
             </span>
 
             <div class="relative z-10 flex h-7 w-7 items-center justify-center 
@@ -605,6 +606,9 @@ body { padding-top: 0; }
 
 
 
+
+
+
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;700&family=Syne:wght@800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
@@ -655,13 +659,13 @@ body { padding-top: 0; }
         /* Ye mask left aur right se 20% tak fade effect deta hai */
         mask-image: linear-gradient(to right, 
             transparent 0%, 
-            black 10%, 
-            black 90%, 
+            black 2%, 
+            black 98%, 
             transparent 100%);
         -webkit-mask-image: linear-gradient(to right, 
             transparent 0%, 
-            black 10%, 
-            black 90%, 
+            black 2%, 
+            black 98%, 
             transparent 100%);
     }
 
@@ -764,20 +768,7 @@ body { padding-top: 0; }
     }
 </style>
 
-     <div class="absolute top-1/4 -right-16 z-30 bg-white/85 backdrop-blur-[25px] border border-white/50 py-[18px] px-[22px] rounded-[2.5rem] shadow-[0_30px_60px_-12px_rgba(30,42,90,0.15)] animate-float-straight-delayed">
-    <div class="flex flex-col gap-3">
-        <div class="flex items-center justify-between">
-            <i class="fas fa-bolt-lightning text-[#E89D4B] text-xl"></i>
-            <span class="w-2 h-2 rounded-full bg-green-500 animate-ping"></span>
-        </div>
-        <div class="text-[10px] font-bold text-[#1e2a5a] tracking-tight uppercase">Spartan Precision</div>
-        <div class="flex gap-1">
-            <div class="h-1 w-4 bg-[#1e2a5a] rounded-full"></div>
-            <div class="h-1 w-4 bg-[#1e2a5a] rounded-full"></div>
-            <div class="h-1 w-4 bg-[#E89D4B] rounded-full"></div>
-        </div>
-    </div>
-</div>
+     
 <style>
     /* Sirf Animation Keyframes rakhe hain kyunki Tailwind ki default bounce smooth nahi hoti */
     @keyframes float-straight {
@@ -796,10 +787,10 @@ body { padding-top: 0; }
         <div class="p-3 bg-blue-50 rounded-2xl">
             <i class="fas fa-users-cog text-[#1e2a5a]"></i>
         </div>
-        <div>
-            <div class="text-lg font-black text-[#1e2a5a] leading-none">SPARTA TECH </div>
-            <div class="text-[8px] font-bold text-slate-400 uppercase tracking-widest mt-1">Innovation Unit</div>
-        </div>
+         <div>
+        <span class="text-[9px] font-black uppercase tracking-[0.2em] text-slate-400">Sparta Tech</span>
+        <div class="text-[15px] font-black text-[#1e2a5a] uppercase">Innovation Unit </div>
+    </div>
     </div>
 </div>
 
@@ -840,35 +831,36 @@ body { padding-top: 0; }
                     </h2>
 
                     <p class="text-gray-500 text-lg leading-relaxed mb-3 font-medium italic max-w-lg ">
-                      At Sparta Tech Solutions, innovation meets <span class="text-[#05080d] font-bold underline decoration-[#E89D4B] decoration-4">execution.</span> We design and build powerful digital platforms, brands, and marketing strategies that position 
+                      At Sparta Tech Solutions innovation meets <span class="text-[#05080d] font-bold underline decoration-[#E89D4B] decoration-4">execution.</span> We design and build powerful digital platforms, brands, and marketing strategies that position 
                    businesses for long-term growth.        
                     </p>
                   
 
-                    <div class="flex items-center justify-between pt-2 border-t border-slate-200">
+                   <div class="flex flex-col items-center gap-5 pt-2 border-t border-slate-200">
                         <div class="flex gap-10">
-                            <div class="relative">
-                                <div class="text-4xl font-black text-[#05080d] outfit-font leading-none">100<span class="text-[#E89D4B] text-xl">%</span></div>
-                                <div class="text-[9px] font-bold uppercase tracking-[0.2em] text-slate-400 mt-2">Dedication</div>
+                            <div class="relative text-center">
+                                <div class="text-3xl font-black text-[#05080d] outfit-font leading-none">100<span class="text-[#E89D4B] text-xl">%</span></div>
+                                <div class="text-[9px] font-bold uppercase tracking-[0.2em] text-slate-400 mt-1">Dedication</div>
                             </div>
-                            <div class="relative">
-                                <div class="text-4xl font-black text-[#05080d] outfit-font leading-none">Elite</div>
+                            <div class="relative text-center">
+                                <div class="text-3xl font-black text-[#05080d] outfit-font leading-none">Elite</div>
                                 <div class="text-[9px] font-bold uppercase tracking-[0.2em] text-slate-400 mt-2">Standards</div>
                             </div>
                         </div>
-                        <div class="flex items-center gap-4">
+ <div class=" flex items-center ">
     <a href="Contact.html" 
-       class="group flex items-center gap-3 px-5 py-3 rounded-[10px] bg-[#E89D4B] hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-[#E89D4B]/50 no-underline">
-        
-        <i class="fas fa-paper-plane text-black text-lg group-hover:-rotate-12 transition-transform"></i>
-        
-        <span class="text-black font-bold tracking-wide uppercase text-sm">
-            Contact Now
+       class="group relative flex items-center gap-3 px-5 py-2.5 bg-[#E89D4B] rounded-[10px] transition-all duration-300 hover:scale-105 hover:shadow-lg active:scale-95 no-underline">
+                
+        <span class="text-black font-bold uppercase text-[10px] tracking-wider">
+            Contact Us
         </span>
-        
+
+        <div class="absolute inset-0 rounded-full bg-black/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
     </a>
 </div>
                     </div>
+
+
                 </div>
             </div>
         </div>
@@ -991,7 +983,7 @@ body { padding-top: 0; }
                              <span class="text-[10px] font-black text-[#d9933e] uppercase tracking-widest">Phase _Development</span>
                         </div>
                         <h3 class="text-3xl md:text-5xl font-[900] text-[#05080d] mb-5 uppercase italic tracking-tighter group-hover:text-[#d9933e] transition-colors">Core Architecture</h3>
-                        <p class="text-gray-500 text-lg leading-relaxed mb-4 font-medium italic">Strong digital products start with strong architecture. We build reliable, scalable <br/> of foundations that support growth and performance.</p>
+                        <p class="text-gray-500 text-lg leading-relaxed mb-4 font-medium italic">Strong digital products start with strong architecture. We build reliable, scalable <br/> foundations that support growth and performance.</p>
                         
     <div class="flex flex-wrap justify-end gap-4  group-hover:opacity-100 transition-all duration-500">
     <div class="flex items-center space-x-2 border-r border-gray-200 pr-4">
@@ -1013,7 +1005,7 @@ body { padding-top: 0; }
 
                     <div class="md:w-1/2 md:pl-24 order-3" data-aos="fade-left">
                         <div class="relative p-2.5 bg-gray-50 rounded-[3rem] border border-gray-100 overflow-hidden group/img shadow-xl">
-                            <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=600" class="w-full h-64 object-cover rounded-[2.5rem] grayscale group-hover/img:grayscale-0 transition-all duration-1000 scale-105 group-hover/img:scale-100">
+                            <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=600" class="w-full h-64 object-cover rounded-[2rem] transition-all duration-1000 scale-105">
                         </div>
                     </div>
                 </div>
@@ -1021,7 +1013,7 @@ body { padding-top: 0; }
                 <div class="relative flex flex-col md:flex-row items-center group">
                     <div class="md:w-1/2 md:pr-24 order-3 md:order-1" data-aos="fade-right">
                         <div class="relative p-2.5 bg-gray-50 rounded-[3rem] border border-gray-100 overflow-hidden group/img shadow-xl">
-                            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=600" class="w-full h-64 object-cover rounded-[2.5rem] grayscale group-hover/img:grayscale-0 transition-all duration-1000 scale-105 group-hover/img:scale-100">
+                            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=600" class="w-full h-64 object-cover rounded-[2rem]  transition-all duration-1000 scale-105 ">
                         </div>
                     </div>
 
@@ -1083,7 +1075,7 @@ body { padding-top: 0; }
                     <div class="w-full md:w-1/2 md:pl-24 order-3 mt-10 md:mt-0" data-aos="fade-left">
     <div class="relative p-2 md:p-2.5 bg-gray-50 rounded-[2rem] md:rounded-[3rem] border border-gray-100 overflow-hidden group/img shadow-xl">
         <img src="https://images.unsplash.com/photo-1558655146-d09347e92766?auto=format&fit=crop&q=80&w=600" 
-             class="w-full h-48 md:h-64 object-cover rounded-[1.5rem] md:rounded-[2.5rem] grayscale group-hover/img:grayscale-0 transition-all duration-1000 scale-105 group-hover/img:scale-100" 
+             class="w-full h-48 md:h-64 object-cover rounded-[1.5rem] md:rounded-[2rem]  transition-all duration-1000 scale-105 " 
              alt="Tech Image">
     </div>
 </div>
@@ -1435,7 +1427,7 @@ body { padding-top: 0; }
         </div>
 
     <div class="relative z-10 flex flex-col gap-3">
-        <span class="text-6xl font-black text-gray-200/40 italic group-hover:text-[#d9933e]/30 transition-all duration-700">01</span>
+        <span class="text-6xl font-black text-gray-300/80 italic group-hover:text-[#d9933e]/30 transition-all duration-700">01</span>
         <div class="snake-btn-container">
             <a href="Web-Design.html" class="relative z-20 block w-full py-3 px-6 bg-[#05080d] text-white rounded-[10px] text-[10px] font-black uppercase tracking-[0.2em] text-center group-hover:bg-[#d9933e] group-hover:text-black transition-all">View More</a>
         </div>
@@ -1471,7 +1463,7 @@ body { padding-top: 0; }
         </div>
 
     <div class="relative z-10 flex flex-col gap-3">
-        <span class="text-6xl font-black text-gray-200/40 italic group-hover:text-[#d9933e]/30 transition-all">02</span>
+        <span class="text-6xl font-black text-gray-300/80 italic group-hover:text-[#d9933e]/30 transition-all">02</span>
         <div class="snake-btn-container">
             <a href="Digital-Marketing.html" class="relative z-20 block w-full py-3 px-6 bg-[#05080d] text-white rounded-[10px] text-[10px] font-black uppercase tracking-[0.2em] text-center group-hover:bg-[#d9933e] group-hover:text-black transition-all">View More</a>
         </div>
@@ -1506,7 +1498,7 @@ body { padding-top: 0; }
         </div>
 
     <div class="relative z-10 flex flex-col gap-3">
-        <span class="text-6xl font-black text-gray-200/40 italic group-hover:text-[#d9933e]/30 transition-all">03</span>
+        <span class="text-6xl font-black text-gray-300/80 italic group-hover:text-[#d9933e]/30 transition-all">03</span>
         <div class="snake-btn-container">
             <a href="Content-Writting.html" class="relative z-20 block w-full py-3 px-6 bg-[#05080d] text-white rounded-[10px] text-[10px] font-black uppercase tracking-[0.2em] text-center group-hover:bg-[#d9933e] group-hover:text-black transition-all">View More</a>
         </div>
@@ -1576,7 +1568,7 @@ body { padding-top: 0; }
         </div>
 
     <div class="relative z-10 flex flex-col gap-3">
-        <span class="text-6xl font-black text-gray-200/40 italic group-hover:text-[#d9933e]/30 transition-all duration-700">05</span>
+        <span class="text-6xl font-black text-gray-300/80 italic group-hover:text-[#d9933e]/30 transition-all duration-700">05</span>
         <div class="snake-btn-container">
             <a href="Web-App-Development.html" class="relative z-20 block w-full py-3 px-6 bg-[#05080d] text-white rounded-[10px] text-[10px] font-black uppercase tracking-[0.2em] text-center group-hover:bg-[#d9933e] group-hover:text-black transition-all">View More</a>
         </div>
@@ -1612,7 +1604,7 @@ body { padding-top: 0; }
         </div>
 
     <div class="relative z-10 flex flex-col gap-3">
-        <span class="text-6xl font-black text-gray-200/40 italic group-hover:text-[#d9933e]/30 transition-all">06</span>
+        <span class="text-6xl font-black text-gray-300/80 italic group-hover:text-[#d9933e]/30 transition-all">06</span>
         <div class="snake-btn-container">
             <a href="Wordpress.html" class="relative z-20 block w-full py-3 px-6 bg-[#05080d] text-white rounded-[10px] text-[10px] font-black uppercase tracking-[0.2em] text-center group-hover:bg-[#d9933e] group-hover:text-black transition-all">View More</a>
         </div>
@@ -1647,7 +1639,7 @@ body { padding-top: 0; }
         </div>
 
     <div class="relative z-10 flex flex-col gap-3">
-        <span class="text-6xl font-black text-gray-200/40 italic group-hover:text-[#d9933e]/30 transition-all">07</span>
+        <span class="text-6xl font-black text-gray-300/80 italic group-hover:text-[#d9933e]/30 transition-all">07</span>
         <div class="snake-btn-container">
             <a href="SEO-Optimization.html" class="relative z-20 block w-full py-3 px-6 bg-[#05080d] text-white rounded-[10px] text-[10px] font-black uppercase tracking-[0.2em] text-center group-hover:bg-[#d9933e] group-hover:text-black transition-all">View More</a>
         </div>
@@ -1738,11 +1730,9 @@ body { padding-top: 0; }
     <div class="mt-8 flex items-center gap-6">
     <a href="Contact.html" 
        class="group relative flex items-center gap-3 px-5 py-2.5 bg-[#E89D4B] rounded-[10px] transition-all duration-300 hover:scale-105 hover:shadow-lg active:scale-95 no-underline">
-        
-        <i class="fas fa-paper-plane text-black text-sm group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform"></i>
-        
+                
         <span class="text-black font-bold uppercase text-[10px] tracking-wider">
-            Contact Now
+            Contact Us
         </span>
 
         <div class="absolute inset-0 rounded-full bg-black/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
@@ -1854,6 +1844,9 @@ body { padding-top: 0; }
 
 
 
+
+
+
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;700;800&family=Playfair+Display:italic,wght@700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
@@ -1873,21 +1866,28 @@ body { padding-top: 0; }
         <div class="relative z-20 flex flex-wrap items-center justify-center gap-4 lg:gap-5 perspective-1000">
             
             <div class="group relative flex-1 min-w-[210px] max-w-[210px] h-[230px] preserve-3d transition-all duration-700 hover:rotate-y-180">
-                <div class="absolute inset-0 backface-hidden cursor-pointer p-5 rounded-[20px] bg-white border border-gray-200 shadow-[0_10px_30px_rgba(0,0,0,0.2)] bg-[radial-gradient(#d9933e_0.5px,transparent_0.5px)] [background-size:16px_16px]">
+                <div class="absolute inset-0 backface-hidden cursor-pointer p-5 rounded-[20px] bg-white border border-gray-200 shadow-[0_10px_30px_rgba(0,0,0,0.2)] bg-[radial-gradient(#d9933e_0.5px,transparent_0.5px)] [background-size:16px_16px] overflow-hidden">
+                    <div class="corner-balloon -top-16 -right-16  "></div>
+                    <div class="corner-balloon -bottom-24 -left-24  "></div>
+                    <div class="absolute top-0 right-0 w-24 h-24 overflow-hidden pointer-events-none z-10">
+                        <div class="absolute top-4 -right-8 bg-[#444b54] text-white text-[8px] font-bold py-1 px-10 transform rotate-45 shadow-[0_2px_10px_rgba(0,0,0,0.5)] uppercase tracking-tighter">Discover</div>
+                    </div>
+                    
                     <div class="absolute top-2 right-4 text-6xl font-['Playfair_Display'] italic text-gray-200/40 select-none pointer-events-none z-0">01</div>
                     <div class="flex justify-between items-start mb-4">
                         <div class="w-10 h-10 bg-[#05080d] rounded-xl flex items-center justify-center text-[#d9933e] shadow-lg">
                             <i class="fas fa-search-plus text-sm"></i>
                         </div>
-                        <div class="w-2 h-2 rounded-full bg-[#d9933e] shadow-[0_0_10px_#d9933e]"></div>
                     </div>
                     <span class="text-[9px] font-bold text-gray-500 uppercase tracking-widest block mb-1">Step 01</span>
                     <h3 class="text-lg font-extrabold text-[#05080d] uppercase leading-none">Discover</h3>
                     <h4 class="text-sm font-['Playfair_Display'] italic text-[#d9933e] mb-2">exploration</h4>
                     <p class="text-[10px] text-gray-600 leading-tight mb-4">Crafting <span class="font-bold text-black">insights</span> that resonate.</p>
-                    <div class="absolute bottom-6 left-6 right-6">
-                        <div class="w-10 h-1 bg-[#d9933e] rounded-full mb-1"></div>
-                        <div class="w-3 h-1 bg-gray-200 rounded-full"></div>
+                    
+                    <div class="absolute bottom-6 left-5 right-5">
+                        <div class="w-full h-1 bg-gray-100 rounded-full overflow-hidden">
+                            <div class="w-[90%] h-full bg-[#d9933e] rounded-full"></div>
+                        </div>
                     </div>
                 </div>
                 <div class="absolute inset-0 backface-hidden rotate-y-180 bg-white border-2 border-[#05080d] rounded-[20px] p-4 shadow-[0_20px_40px_rgba(0,0,0,0.2)] overflow-hidden">
@@ -1911,21 +1911,28 @@ body { padding-top: 0; }
             </div>
 
             <div class="group relative flex-1 min-w-[210px] max-w-[210px] h-[230px] preserve-3d transition-all duration-700 hover:rotate-y-180">
-                <div class="absolute inset-0 backface-hidden cursor-pointer p-5 rounded-[20px] bg-white border border-gray-200 shadow-[0_10px_30px_rgba(0,0,0,0.2)] bg-[radial-gradient(#d9933e_0.5px,transparent_0.5px)] [background-size:16px_16px]">
+                <div class="absolute inset-0 backface-hidden cursor-pointer p-5 rounded-[20px] bg-white border border-gray-200 shadow-[0_10px_30px_rgba(0,0,0,0.2)] bg-[radial-gradient(#d9933e_0.5px,transparent_0.5px)] [background-size:16px_16px] overflow-hidden">
+                   <div class="corner-balloon -top-16 -right-16  "></div>
+                    <div class="corner-balloon -bottom-24 -left-24  "></div>
+                    <div class="absolute top-0 right-0 w-24 h-24 overflow-hidden pointer-events-none z-10">
+                        <div class="absolute top-4 -right-8 bg-[#444b54] text-white text-[8px] font-bold py-1 px-10 transform rotate-45 shadow-[0_2px_10px_rgba(0,0,0,0.5)] uppercase tracking-tighter">Strategy</div>
+                    </div>
+
                     <div class="absolute top-2 right-4 text-6xl font-['Playfair_Display'] italic text-gray-200/40 select-none pointer-events-none z-0">02</div>
                     <div class="flex justify-between items-start mb-4">
                         <div class="w-10 h-10 bg-[#05080d] rounded-xl flex items-center justify-center text-[#d9933e] text-xl shadow-inner">
                             <i class="fas fa-chess-knight"></i>
                         </div>
-                        <div class="w-1 h-4 bg-[#d9933e]/20 rounded-full"></div>
                     </div>
                     <span class="text-[9px] font-bold text-gray-500 uppercase tracking-widest block mb-1">Step 02</span>
                     <h3 class="text-lg font-extrabold text-[#05080d] uppercase leading-none">Strategy</h3>
                     <h4 class="text-sm font-['Playfair_Display'] italic text-[#d9933e] mb-2">blueprinting</h4>
                     <p class="text-[10px] text-gray-600 leading-tight mb-4">Data-driven roadmaps.</p>
-                    <div class="bg-gray-50 rounded-lg p-2 flex items-center gap-2">
-                        <i class="fas fa-chart-line text-[#d9933e] text-[10px]"></i>
-                        <span class="text-[8px] font-black text-[#05080d]">98% SUCCESS</span>
+                    
+                    <div class="absolute bottom-6 left-5 right-5">
+                        <div class="w-full h-1 bg-gray-100 rounded-full overflow-hidden">
+                            <div class="w-[90%] h-full bg-[#d9933e] rounded-full"></div>
+                        </div>
                     </div>
                 </div>
                 <div class="absolute inset-0 backface-hidden rotate-y-180 bg-[#05080d] border-2 border-[#d9933e] rounded-[20px] p-4 shadow-[0_20px_40px_rgba(0,0,0,0.4)] overflow-hidden">
@@ -1949,26 +1956,28 @@ body { padding-top: 0; }
             </div>
 
             <div class="group relative flex-1 min-w-[210px] max-w-[210px] h-[230px] preserve-3d transition-all duration-700 hover:rotate-y-180">
-                <div class="absolute inset-0 backface-hidden cursor-pointer h-[230px] p-5 rounded-[20px] bg-white border border-gray-200 shadow-[0_10px_40px_rgba(0,0,0,0.2)] bg-[radial-gradient(#05080d_0.5px,transparent_0.5px)] [background-size:16px_16px]">
+                <div class="absolute inset-0 backface-hidden cursor-pointer h-[230px] p-5 rounded-[20px] bg-white border border-gray-200 shadow-[0_10px_40px_rgba(0,0,0,0.2)] bg-[radial-gradient(#05080d_0.5px,transparent_0.5px)] [background-size:16px_16px] overflow-hidden">
+                    <div class="corner-balloon -top-16 -right-16  "></div>
+                     <div class="corner-balloon -bottom-24 -left-24  "></div>
+                    <div class="absolute top-0 right-0 w-24 h-24 overflow-hidden pointer-events-none z-10">
+                        <div class="absolute top-4 -right-8 bg-[#444b54] text-white text-[8px] font-bold py-1 px-10 transform rotate-45 shadow-[0_2px_10px_rgba(0,0,0,0.5)] uppercase tracking-tighter">Design</div>
+                    </div>
+
                     <div class="absolute top-2 right-4 text-6xl font-['Playfair_Display'] italic text-gray-200/40 select-none pointer-events-none z-0">03</div>
                     <div class="flex justify-between items-start mb-4">
                         <div class="w-10 h-10 bg-[#05080d] rounded-xl flex items-center justify-center text-[#d9933e] text-xl shadow-2xl">
                             <i class="fas fa-bezier-curve"></i>
-                        </div>
-                        <div class="flex flex-col items-end">
-                            <span class="text-[8px] font-black text-[#d9933e] tracking-widest">PREMIUM</span>
-                            <div class="w-6 h-1 bg-[#05080d] rounded-full mt-1"></div>
                         </div>
                     </div>
                     <span class="text-[9px] font-black text-gray-500 uppercase tracking-widest block mb-1">Step 03</span>
                     <h3 class="text-lg font-black text-[#05080d] uppercase leading-none">Design</h3>
                     <h4 class="text-sm font-['Playfair_Display'] italic text-[#d9933e] mb-2">visual art</h4>
                     <p class="text-[10px] text-gray-600 leading-tight mb-4">Architecture with <span class="font-bold text-black">modern tech</span>.</p>
-                    <div class="flex gap-2">
-                        <i class="fas fa-shield-halved text-[#d9933e] text-[8px]"></i>
-                        <span class="text-[8px] font-black">FAST</span>
-                        <i class="fas fa-lock text-[#d9933e] text-[8px]"></i>
-                        <span class="text-[8px] font-black">SECURE</span>
+                    
+                    <div class="absolute bottom-6 left-5 right-5">
+                        <div class="w-full h-1 bg-gray-100 rounded-full overflow-hidden">
+                            <div class="w-[90%] h-full bg-[#d9933e] rounded-full"></div>
+                        </div>
                     </div>
                 </div>
                 <div class="absolute inset-0 backface-hidden rotate-y-180 bg-white border-2 border-[#05080d] rounded-[20px] p-4 shadow-[0_20px_40px_rgba(0,0,0,0.2)] overflow-hidden">
@@ -1992,7 +2001,13 @@ body { padding-top: 0; }
             </div>
 
             <div class="group relative flex-1 min-w-[210px] max-w-[210px] h-[230px] preserve-3d transition-all duration-700 hover:rotate-y-180">
-                <div class="absolute inset-0 backface-hidden cursor-pointer p-5 rounded-[20px] bg-white border border-gray-200 shadow-[0_10px_30px_rgba(0,0,0,0.2)] bg-[radial-gradient(#d9933e_0.5px,transparent_0.5px)] [background-size:16px_16px]">
+                <div class="absolute inset-0 backface-hidden cursor-pointer p-5 rounded-[20px] bg-white border border-gray-200 shadow-[0_10px_30px_rgba(0,0,0,0.2)] bg-[radial-gradient(#d9933e_0.5px,transparent_0.5px)] [background-size:16px_16px] overflow-hidden">
+                    <div class="corner-balloon -top-16 -right-16  "></div>
+                     <div class="corner-balloon -bottom-24 -left-24  "></div>
+                    <div class="absolute top-0 right-0 w-24 h-24 overflow-hidden pointer-events-none z-10">
+                        <div class="absolute top-4 -right-8 bg-[#444b54] text-white text-[8px] font-bold py-1 px-10 transform rotate-45 shadow-[0_2px_10px_rgba(0,0,0,0.5)] uppercase tracking-tighter">Build</div>
+                    </div>
+
                     <div class="absolute top-2 right-4 text-6xl font-['Playfair_Display'] italic text-gray-200/40 select-none pointer-events-none z-0">04</div>
                     <div class="flex justify-between items-start mb-4">
                         <div class="w-10 h-10 bg-[#05080d] rounded-xl flex items-center justify-center text-[#d9933e] text-xl">
@@ -2003,10 +2018,11 @@ body { padding-top: 0; }
                     <h3 class="text-lg font-extrabold text-[#05080d] uppercase leading-none">Build</h3>
                     <h4 class="text-sm font-['Playfair_Display'] italic text-[#d9933e] mb-2">engineering</h4>
                     <p class="text-[10px] text-gray-600 leading-tight mb-4">Scalable architecture.</p>
-                    <div class="flex gap-1.5">
-                        <span class="w-3 h-3 rounded-full bg-[#05080d]"></span>
-                        <span class="w-3 h-3 rounded-full bg-[#d9933e]"></span>
-                        <span class="w-3 h-3 rounded-full bg-gray-200"></span>
+                    
+                    <div class="absolute bottom-6 left-5 right-5">
+                        <div class="w-full h-1 bg-gray-100 rounded-full overflow-hidden">
+                            <div class="w-[90%] h-full bg-[#d9933e] rounded-full"></div>
+                        </div>
                     </div>
                 </div>
                 <div class="absolute inset-0 backface-hidden rotate-y-180 bg-[#05080d] border-2 border-[#d9933e] rounded-[20px] p-4 shadow-[0_20px_40px_rgba(0,0,0,0.4)] overflow-hidden">
@@ -2030,23 +2046,27 @@ body { padding-top: 0; }
             </div>
 
             <div class="group relative flex-1 min-w-[210px] max-w-[210px] h-[230px] preserve-3d transition-all duration-700 hover:rotate-y-180">
-                <div class="absolute inset-0 backface-hidden cursor-pointer p-5 rounded-[20px] bg-white border border-gray-200 shadow-[0_10px_30px_rgba(0,0,0,0.2)] bg-[radial-gradient(#d9933e_0.5px,transparent_0.5px)] [background-size:16px_16px]">
+                <div class="absolute inset-0 backface-hidden cursor-pointer p-5 rounded-[20px] bg-white border border-gray-200 shadow-[0_10px_30px_rgba(0,0,0,0.2)] bg-[radial-gradient(#d9933e_0.5px,transparent_0.5px)] [background-size:16px_16px] overflow-hidden">
+                   <div class="corner-balloon -top-16 -right-16  "></div>
+                    <div class="corner-balloon -bottom-24 -left-24  "></div>
+                    <div class="absolute top-0 right-0 w-24 h-24 overflow-hidden pointer-events-none z-10">
+                        <div class="absolute top-4 -right-8 bg-[#444b54] text-white text-[8px] font-bold py-1 px-10 transform rotate-45 shadow-[0_2px_10px_rgba(0,0,0,0.5)] uppercase tracking-tighter">Launch</div>
+                    </div>
+
                     <div class="absolute top-2 right-4 text-6xl font-['Playfair_Display'] italic text-gray-200/40 select-none pointer-events-none z-0">05</div>
                     <div class="flex justify-between items-start mb-4">
                         <div class="w-10 h-10 bg-[#05080d] shadow-lg rounded-xl flex items-center justify-center text-[#d9933e] text-xl">
                             <i class="fas fa-rocket"></i>
                         </div>
-                        <span class="text-[7px] font-black bg-[#d9933e] text-white px-2 py-0.5 rounded border border-[#d9933e]">V6.4</span>
                     </div>
                     <span class="text-[9px] font-bold text-gray-500 uppercase tracking-widest block mb-1">Step 05</span>
                     <h3 class="text-lg font-extrabold text-[#05080d] uppercase leading-none">Launch</h3>
                     <h4 class="text-sm font-['Playfair_Display'] italic text-[#d9933e] mb-2">go-live</h4>
                     <p class="text-[10px] text-gray-600 leading-tight mb-4">Global impact.</p>
-                    <div class="absolute bottom-6 left-6 right-6">
-                        <div class="w-full h-1 bg-[#05080d] rounded-full mb-1"></div>
-                        <div class="flex justify-between">
-                            <span class="text-[7px] font-bold text-[#05080d]">DEPLOYED</span>
-                            <span class="text-[7px] font-bold text-[#d9933e]">100%</span>
+                    
+                    <div class="absolute bottom-6 left-5 right-5">
+                        <div class="w-full h-1 bg-gray-100 rounded-full overflow-hidden">
+                            <div class="w-[90%] h-full bg-[#d9933e] rounded-full"></div>
                         </div>
                     </div>
                 </div>
@@ -2075,7 +2095,7 @@ body { padding-top: 0; }
 </section>
 
 <style>
-/* Shimmer Animation (No Change) */
+/* Shimmer Animation */
 @keyframes shimmer {
     0% { transform: translateX(-100%); }
     100% { transform: translateX(100%); }
@@ -2106,10 +2126,6 @@ body { padding-top: 0; }
     z-index: 100;
 }
 </style>
-
-
-
-
 
 
 
@@ -2172,7 +2188,7 @@ body { padding-top: 0; }
                     <details class="group">
                         <summary class="flex items-center justify-between cursor-pointer px-6 md:px-8 py-5 list-none outline-none">
                             <div class="flex items-center gap-4 md:gap-6">
-                                <span style="font-family: 'Syne', sans-serif;" class="text-2xl md:text-4xl font-black text-[#0a0f1a]/5 group-hover:text-[#d9933e]/20 transition-all">01</span>
+                                <span style="font-family: 'Syne', sans-serif;" class="text-2xl md:text-4xl font-black text-[#0a0f1a]/20 group-hover:text-[#d9933e]/20 transition-all">01</span>
                                 <div class="w-10 h-10 md:w-12 md:h-12 bg-slate-50 rounded-xl md:rounded-2xl flex items-center justify-center group-hover:bg-[#0a0f1a] group-hover:rotate-[360deg] transition-all duration-700">
                                     <i class="fas fa-layer-group text-[10px] md:text-xs text-[#d9933e]"></i>
                                 </div>
@@ -2197,7 +2213,7 @@ body { padding-top: 0; }
                     <details class="group">
                         <summary class="flex items-center justify-between cursor-pointer px-6 md:px-8 py-5 list-none outline-none">
                             <div class="flex items-center gap-4 md:gap-6">
-                                <span style="font-family: 'Syne', sans-serif;" class="text-2xl md:text-4xl font-black text-[#0a0f1a]/5 transition-all">02</span>
+                                <span style="font-family: 'Syne', sans-serif;" class="text-2xl md:text-4xl font-black text-[#0a0f1a]/20 transition-all">02</span>
                                 <div class="w-10 h-10 md:w-12 md:h-12 bg-slate-50 rounded-xl md:rounded-2xl flex items-center justify-center group-hover:bg-[#0a0f1a] transition-all duration-700">
                                     <i class="fas fa-clock text-[10px] md:text-xs text-[#d9933e]"></i>
                                 </div>
@@ -2220,7 +2236,7 @@ body { padding-top: 0; }
                     <details class="group">
                         <summary class="flex items-center justify-between cursor-pointer px-6 md:px-8 py-5 list-none outline-none">
                             <div class="flex items-center gap-4 md:gap-6">
-                                <span style="font-family: 'Syne', sans-serif;" class="text-2xl md:text-4xl font-black text-[#0a0f1a]/5 transition-all">03</span>
+                                <span style="font-family: 'Syne', sans-serif;" class="text-2xl md:text-4xl font-black text-[#0a0f1a]/20 transition-all">03</span>
                                 <div class="w-10 h-10 md:w-12 md:h-12 bg-slate-50 rounded-xl md:rounded-2xl flex items-center justify-center group-hover:bg-[#0a0f1a]">
                                     <i class="fas fa-paint-brush text-[10px] md:text-xs text-[#d9933e]"></i>
                                 </div>
@@ -2243,7 +2259,7 @@ body { padding-top: 0; }
                     <details class="group">
                         <summary class="flex items-center justify-between cursor-pointer px-6 md:px-8 py-5 list-none outline-none">
                             <div class="flex items-center gap-4 md:gap-6">
-                                <span style="font-family: 'Syne', sans-serif;" class="text-2xl md:text-4xl font-black text-[#0a0f1a]/5 transition-all">04</span>
+                                <span style="font-family: 'Syne', sans-serif;" class="text-2xl md:text-4xl font-black text-[#0a0f1a]/20 transition-all">04</span>
                                 <div class="w-10 h-10 md:w-12 md:h-12 bg-slate-50 rounded-xl md:rounded-2xl flex items-center justify-center group-hover:bg-[#0a0f1a]">
                                     <i class="fas fa-rocket text-[10px] md:text-xs text-[#d9933e]"></i>
                                 </div>
@@ -2266,7 +2282,7 @@ body { padding-top: 0; }
                     <details class="group">
                         <summary class="flex items-center justify-between cursor-pointer px-6 md:px-8 py-5 list-none outline-none">
                             <div class="flex items-center gap-4 md:gap-6">
-                                <span style="font-family: 'Syne', sans-serif;" class="text-2xl md:text-4xl font-black text-[#0a0f1a]/5 transition-all">05</span>
+                                <span style="font-family: 'Syne', sans-serif;" class="text-2xl md:text-4xl font-black text-[#0a0f1a]/20 transition-all">05</span>
                                 <div class="w-10 h-10 md:w-12 md:h-12 bg-slate-50 rounded-xl md:rounded-2xl flex items-center justify-center group-hover:bg-[#0a0f1a]">
                                     <i class="fas fa-pen-nib text-[10px] md:text-xs text-[#d9933e]"></i>
                                 </div>
@@ -2289,7 +2305,7 @@ body { padding-top: 0; }
                     <details class="group">
                         <summary class="flex items-center justify-between cursor-pointer px-6 md:px-8 py-5 list-none outline-none">
                             <div class="flex items-center gap-4 md:gap-6">
-                                <span style="font-family: 'Syne', sans-serif;" class="text-2xl md:text-4xl font-black text-[#0a0f1a]/5 transition-all">06</span>
+                                <span style="font-family: 'Syne', sans-serif;" class="text-2xl md:text-4xl font-black text-[#0a0f1a]/20 transition-all">06</span>
                                 <div class="w-10 h-10 md:w-12 md:h-12 bg-slate-50 rounded-xl md:rounded-2xl flex items-center justify-center group-hover:bg-[#0a0f1a]">
                                     <i class="fas fa-chart-line text-[10px] md:text-xs text-[#d9933e]"></i>
                                 </div>
@@ -2312,7 +2328,7 @@ body { padding-top: 0; }
                     <details class="group">
                         <summary class="flex items-center justify-between cursor-pointer px-6 md:px-8 py-5 list-none outline-none">
                             <div class="flex items-center gap-4 md:gap-6">
-                                <span style="font-family: 'Syne', sans-serif;" class="text-2xl md:text-4xl font-black text-[#0a0f1a]/5 transition-all">07</span>
+                                <span style="font-family: 'Syne', sans-serif;" class="text-2xl md:text-4xl font-black text-[#0a0f1a]/20 transition-all">07</span>
                                 <div class="w-10 h-10 md:w-12 md:h-12 bg-slate-50 rounded-xl md:rounded-2xl flex items-center justify-center group-hover:bg-[#0a0f1a]">
                                     <i class="fas fa-file-invoice-dollar text-[10px] md:text-xs text-[#d9933e]"></i>
                                 </div>
@@ -2335,7 +2351,7 @@ body { padding-top: 0; }
                     <details class="group">
                         <summary class="flex items-center justify-between cursor-pointer px-6 md:px-8 py-5 list-none outline-none">
                             <div class="flex items-center gap-4 md:gap-6">
-                                <span style="font-family: 'Syne', sans-serif;" class="text-2xl md:text-4xl font-black text-[#0a0f1a]/5 transition-all">08</span>
+                                <span style="font-family: 'Syne', sans-serif;" class="text-2xl md:text-4xl font-black text-[#0a0f1a]/20 transition-all">08</span>
                                 <div class="w-10 h-10 md:w-12 md:h-12 bg-slate-50 rounded-xl md:rounded-2xl flex items-center justify-center group-hover:bg-[#0a0f1a]">
                                     <i class="fas fa-headset text-[10px] md:text-xs text-[#d9933e]"></i>
                                 </div>
@@ -2357,7 +2373,7 @@ body { padding-top: 0; }
                     <details class="group">
                         <summary class="flex items-center justify-between cursor-pointer px-6 md:px-8 py-5 list-none outline-none">
                             <div class="flex items-center gap-4 md:gap-6">
-                                <span style="font-family: 'Syne', sans-serif;" class="text-2xl md:text-4xl font-black text-[#0a0f1a]/5 transition-all">09</span>
+                                <span style="font-family: 'Syne', sans-serif;" class="text-2xl md:text-4xl font-black text-[#0a0f1a]/20 transition-all">09</span>
                                 <div class="w-10 h-10 md:w-12 md:h-12 bg-slate-50 rounded-xl md:rounded-2xl flex items-center justify-center group-hover:bg-[#0a0f1a] transition-all duration-700">
                                     <i class="fas fa-clock text-[10px] md:text-xs text-[#d9933e]"></i>
                                 </div>
@@ -2436,7 +2452,7 @@ summary::-webkit-details-marker {
 
 
 
-<footer class="bg-gradient-to-r from-[#010409] via-[#020817] to-[#010409] text-white pt-12 pb-8 px-6 font-sans border-t-4 border-[#E89D4B]">
+<footer class="bg-[#050c1f] text-white pt-12 pb-8 px-6 font-sans border-t-4 border-[#E89D4B]">
     <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 px-10">
         
         <div class="space-y-3 px-4 lg:px-2">
@@ -2447,7 +2463,7 @@ summary::-webkit-details-marker {
                 <h2 class="text-2xl font-black tracking-tighter uppercase">Sparta <span class="text-[#E89D4B]">Tech</span></h2>
             </div>
             <p class="text-gray-400 text-sm leading-relaxed">
-                Empowering next-gen businesses with AI-driven growth systems and unified digital infrastructure. Scale beyond guesswork.
+                Empowering businesses with creative and technology-driven solutions that enhance digital presence and accelerate growth.
             </p>
             <div class="flex gap-4">
                 <a href="#" class="w-10 h-10 rounded-full border border-gray-700 flex items-center justify-center hover:border-[#E89D4B] hover:text-[#E89D4B] transition-all"><i class="fab fa-facebook-f"></i></a>
@@ -2487,31 +2503,35 @@ summary::-webkit-details-marker {
         </div>
           
         <div class="space-y-6">
-            <h4 class="text-lg font-bold mb-6 border-b-2 border-[#E89D4B] w-fit pb-1">Connect With Us</h4>
-            <div class="space-y-4 text-sm text-gray-400">
-                <div class="flex items-start gap-3 group">
-                    <i class="fas fa-envelope mt-1 text-[#E89D4B]"></i>
-                    <span class="group-hover:text-white transition-colors">hello@spartatech.com</span>
-                </div>
-                <div class="flex items-start gap-3 group">
-                    <i class="fas fa-phone-alt mt-1 text-[#E89D4B]"></i>
-                    <span class="group-hover:text-white transition-colors">+1 (555) 2345 - 67890</span>
-                </div>
-                <div class="flex items-start gap-3 group">
-                    <i class="fas fa-map-marker-alt mt-1 text-[#E89D4B]"></i>
-                    <span class="group-hover:text-white transition-colors leading-relaxed">
-                        TechVille, California, <br>90210 United States
-                    </span>
-                </div>
-            </div>
-        </div>
+    <h4 class="text-lg font-bold mb-6 border-b-2 border-[#E89D4B] w-fit pb-1">Connect With Us</h4>
+    <div class="space-y-4 text-sm text-gray-400">
+        
+        <a href="mailto:hello@spartatech.com" class="flex items-start gap-3 group cursor-pointer decoration-none">
+            <i class="fas fa-envelope mt-1 text-[#E89D4B]"></i>
+            <span class="group-hover:text-white transition-colors">hello@spartatech.com</span>
+        </a>
+
+        <a href="tel:+1555234567890" class="flex items-start gap-3 group cursor-pointer decoration-none">
+            <i class="fas fa-phone-alt mt-1 text-[#E89D4B]"></i>
+            <span class="group-hover:text-white transition-colors">+1 (555) 2345 - 67890</span>
+        </a>
+
+        <a href="https://www.google.com/maps/search/?api=1&query=TechVille+California+90210+United+States" target="_blank" class="flex items-start gap-3 group cursor-pointer decoration-none">
+            <i class="fas fa-map-marker-alt mt-1 text-[#E89D4B]"></i>
+            <span class="group-hover:text-white transition-colors leading-relaxed">
+                TechVille, California, <br>90210 United States
+            </span>
+        </a>
+
+    </div>
+</div>
 
     </div>
 
     <div class="max-w-10xl mx-auto mt-12 pt-4 px-40 lg:px-10 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center gap-4">
         <p class="text-gray-500 text-xs text-center md:text-left">
             © 2026 <span class="text-[#E89D4B] font-bold">Sparta Tech</span>. All Rights Reserved. 
-            <span class="mx-2">|</span> Designed for Scale.
+            
         </p>
         <div class="flex gap-6 text-xs text-gray-500">
             <a href="#" class="hover:text-[#E89D4B] transition-colors">Privacy Policy</a>
