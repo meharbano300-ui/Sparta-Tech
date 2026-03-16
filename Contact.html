@@ -100,13 +100,15 @@
     
     <div x-show="!scrolled" 
          x-transition:leave="transition ease-in duration-200"
-         x-transition:leave-start="opacity-100"
+         x-transition:leave-start="opacity"
          x-transition:leave-end="opacity-0"
-         class="w-full bg-gradient-to-r from-[#010409] via-[#020817] to-[#010409] py-3 px-6 md:px-16 flex justify-between items-center text-[13px] text-gray-400">
+         class="w-full bg-gradient-to-r from-[#010409] via-[#020817] to-[#010409] py-3 px-6 md:px-16  flex justify-between items-center text-[13px] text-gray-400">
         <div class="flex items-center gap-6">
             <div class="flex items-center gap-2">
                 <i class="fa-regular fa-envelope"></i>
-                <span>spartatechsolutions.com</span>
+                <a href="mailto:info@sparatechsolutions.com" class="hover:text-white transition-colors">
+                    info@sparatechsolutions.com
+                </a>
             </div>
             <div class="hidden md:flex items-center gap-2 border-l border-white/20 pl-6">
                 <i class="fa-regular fa-clock"></i>
@@ -133,7 +135,7 @@
         </div>
 
         <div class="hidden lg:flex items-center gap-10">
-            <a href="#" class="nav-link active font-black  text-white">Home</a>
+            <a href="Index.html" class="nav-link active font-black  text-white">Home</a>
             <a href="About.html" class="nav-link text-gray-300 font-black  hover:text-white transition-all">About us</a>
             
             <div class="relative group" @mouseenter="servicesOpen = true" @mouseleave="servicesOpen = false">
@@ -323,8 +325,10 @@ body { padding-top: 0; }
 
 
 
-    
-<div class="relative w-full h-[575px] overflow-hidden bg-[#0a0f1a] font-sans">
+
+
+
+<div class="relative w-full min-h-[500px] lg:h-[575px] overflow-hidden bg-[#0a0f1a] font-sans flex items-center justify-center">
     
     <div class="absolute inset-0 z-0">
         <div class="absolute inset-0 bg-gradient-to-br from-[#0a0f1a]/95 via-[#020408]/80 to-[#020408] z-10"></div>
@@ -338,8 +342,8 @@ body { padding-top: 0; }
     </div>
 
     <div class="absolute inset-0 z-20 pointer-events-none">
-        <div class="absolute top-[22%] left-[20%] md:left-[20%] p-[1px] bg-gradient-to-br from-[#E89D4B] to-transparent rounded-2xl animate-float">
-            <div class="bg-[#0a0f1a]/90 backdrop-blur-2xl p-4 rounded-2xl flex items-center gap-3 border border-white/10">
+        <div class="absolute top-[10%] left-[5%] md:top-[22%] md:left-[18%] p-[1px] bg-gradient-to-br from-[#E89D4B] to-transparent rounded-2xl animate-float scale-75 md:scale-100">
+            <div class="bg-[#0a0f1a]/90 backdrop-blur-2xl p-3 md:p-4 rounded-2xl flex items-center gap-3 border border-white/10">
                 <div class="w-9 h-9 bg-[#E89D4B] rounded-lg flex items-center justify-center shadow-[0_0_15px_rgba(232,157,75,0.3)]">
                     <i class="fas fa-bolt text-black text-sm"></i>
                 </div>
@@ -350,8 +354,8 @@ body { padding-top: 0; }
             </div>
         </div>
 
-        <div class="absolute bottom-[15%] left-[8%] md:left-[10%] p-[1px] bg-gradient-to-tr from-blue-500 to-transparent rounded-2xl animate-float-slow">
-            <div class="bg-[#0a0f1a]/90 backdrop-blur-2xl p-4 rounded-2xl flex items-center gap-3 border border-white/10">
+        <div class="absolute bottom-[10%] left-[5%] md:bottom-[15%] md:left-[10%] p-[1px] bg-gradient-to-tr from-blue-500 to-transparent rounded-2xl animate-float-slow scale-75 md:scale-100">
+            <div class="bg-[#0a0f1a]/90 backdrop-blur-2xl p-3 md:p-4 rounded-2xl flex items-center gap-3 border border-white/10">
                 <div class="w-9 h-9 bg-blue-600 rounded-lg flex items-center justify-center shadow-[0_0_15px_rgba(37,99,235,0.3)]">
                     <i class="fas fa-globe-americas text-white text-sm"></i>
                 </div>
@@ -362,47 +366,61 @@ body { padding-top: 0; }
             </div>
         </div>
 
-       <div class="absolute top-[55%] right-[25%] md:right-[15%] p-[1px] bg-gradient-to-bl from-green-500 to-transparent rounded-2xl animate-float">
-    <div class="bg-[#0a0f1a]/90 backdrop-blur-2xl p-4 rounded-2xl flex items-center gap-3 border border-white/10">
-        <div class="w-9 h-9 bg-green-500 rounded-lg flex items-center justify-center shadow-[0_0_15px_rgba(34,197,94,0.3)]">
-            <i class="fas fa-shield-alt text-white text-sm"></i>
+        <div class="absolute bottom-[10%] right-[5%] md:bottom-[25%] md:right-[20%] p-[1px] bg-gradient-to-bl from-green-500 to-transparent rounded-2xl animate-float-slow scale-75 md:scale-100">
+            <div class="bg-[#0a0f1a]/90 backdrop-blur-2xl p-3 md:p-4 rounded-2xl flex items-center gap-3 border border-white/10">
+                <div class="w-9 h-9 bg-green-500 rounded-lg flex items-center justify-center shadow-[0_0_15px_rgba(37,99,235,0.3)]">
+                    <i class="fas fa-shield-alt  text-white text-sm"></i>
+                </div>
+                <div>
+                    <p class="text-[9px] text-green-400 font-black uppercase tracking-[0.2em]">Security</p>
+                    <p class="text-white font-bold text-xs">Verified</p>
+                </div>
+            </div>
         </div>
-        <div>
-            <p class="text-[9px] text-green-400 font-black uppercase tracking-[0.2em]">Security</p>
-            <p class="text-white font-bold text-xs">Verified</p>
+
+        
+
+        <div class="absolute top-[10%] right-[5%] md:top-[18%] md:right-[14%] p-[1px] bg-gradient-to-bl from-[#FF5F5F] to-transparent rounded-2xl animate-float scale-75 md:scale-100">
+            <div class="bg-[#0a0f1a]/90 backdrop-blur-2xl p-3 md:p-4 rounded-2xl flex items-center gap-3 border border-white/10">
+                <div class="w-9 h-9 bg-[#FF5F5F] rounded-lg flex items-center justify-center shadow-[0_0_15px_rgba(255,95,95,0.3)]">
+                    <i class="fas fa-headset text-white text-sm"></i>
+                </div>
+                <div>
+                    <p class="text-[9px] text-[#FF5F5F] font-black uppercase tracking-[0.2em]">Available</p>
+                    <p class="text-white font-bold text-xs">24/7 Support</p>
+                </div>
+            </div>
         </div>
-    </div>
-</div>
     </div>
 
-    <div class="relative z-40 flex flex-col items-center justify-center h-full text-center px-6 max-w-4xl mx-auto">
+    <div class="relative z-40 flex flex-col items-center justify-center h-full text-center px-6 py-20 max-w-4xl mx-auto">
         
-               <h2 class="text-[#E89D4B] uppercase tracking-[0.6em] text-[11px] font-black mb-4 animate-line-in-1">
+        <h2 class="text-[#E89D4B] uppercase tracking-[0.6em] text-[10px] md:text-[11px] font-black mb-4 animate-line-in-1">
             Partner with Sparta
         </h2>
         
-        
-        <h1 id="line2" class="text-white text-5xl md:text-8xl lg:text-[80px] font-black leading-[0.9] mb-8 tracking-tighter transition-all duration-1000">
-                ELEVATE <span class="text-[#E89D4B] italic font-serif-italic">YOUR </span> <br>
-                <span class="relative">
-                     DIGITAL EXPERIENCE
-                    <svg class="absolute -bottom-2 left-0 w-full h-3 text-[#febd69]/60" viewBox="0 0 400 20"><path d="M0 10 Q100 0 200 10 T400 10" fill="none" stroke="currentColor" stroke-width="4"/></svg>
-                </span>
-            </h1>
-           
+        <h1 id="line2" class="text-white text-4xl sm:text-5xl md:text-8xl lg:text-[80px] font-black leading-[1] md:leading-[0.9] mb-8 tracking-tighter transition-all duration-1000">
+            ELEVATE <span class="text-[#E89D4B] italic font-serif-italic">YOUR </span> <br>
+            <span class="relative inline-block mt-2">
+                DIGITAL EXPERIENCE
+                <svg class="absolute -bottom-2 left-0 w-full h-3 text-[#febd69]/60" viewBox="0 0 400 20">
+                    <path d="M0 10 Q100 0 200 10 T400 10" fill="none" stroke="currentColor" stroke-width="4"/>
+                </svg>
+            </span>
+        </h1>
 
         <div class="w-28 h-1 bg-gradient-to-r from-transparent via-[#E89D4B] to-transparent mb-4 opacity-50"></div>
 
-        <p class="text-gray-400 text-base md:text-lg max-w-xl mb-10 font-light leading-relaxed animate-line-in-3">
-            Stop waiting for the future. <span class="text-white font-semibold italic underline decoration-[#E89D4B]/40 decoration-2 underline-offset-4">Build it today</span> with our Sparta Tech engineering and design squad.
+        <p class="text-gray-400 text-sm md:text-lg max-w-xl mb-10 font-light leading-relaxed animate-line-in-3">
+            Don’t wait for the future, <span class="text-white font-semibold italic underline decoration-[#E89D4B]/40 decoration-2 underline-offset-4">create it today </span> with the expert engineering and design team at Sparta Tech Solutions.
         </p>
 
         <div class="animate-fade-in-up">
             <div class="relative group">
                 <div class="absolute -inset-1 bg-gradient-to-r from-[#E89D4B] to-orange-500 rounded-xl blur-md opacity-20 group-hover:opacity-50 transition duration-500"></div>
-                <button class="relative px-10 py-4 bg-white text-black rounded-xl flex items-center gap-3 transition-all hover:translate-y-[-2px] active:scale-[0.98] shadow-xl">
-                    <span class="font-black uppercase tracking-widest text-xs">Initiate Project</span>
-                    <i class="fas fa-arrow-right text-xs transition-transform group-hover:translate-x-1"></i>
+                <button class="relative px-8 md:px-10 py-3 md:py-4 bg-white text-black rounded-xl flex items-center gap-3 transition-all hover:translate-y-[-2px] active:scale-[0.98] shadow-xl">
+                    <span class="font-black uppercase tracking-widest text-[10px] md:text-xs">Initiate Project</span>
+                    <i class="fas fa-arrow-right text-[10px] md:text-xs transition-transform group-hover:translate-x-1"></i>
                 </button>
             </div>
         </div>
@@ -414,7 +432,7 @@ body { padding-top: 0; }
     from { background-position: 0 0; }
     to { background-position: 0 1000px; }
 }
- 
+
 @keyframes line-in {
     from { transform: translateY(30px); opacity: 0; filter: blur(5px); }
     to { transform: translateY(0); opacity: 1; filter: blur(0); }
@@ -456,80 +474,6 @@ body { padding-top: 0; }
 
 
 
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
-
-<section class="relative py-20  bg-[#f8fafc] overflow-hidden" style="font-family: 'Inter', sans-serif;">
-    
-    <div class="absolute top-0 right-0 w-1/3 h-full bg-[#0a0f1a]/5 -skew-x-12 translate-x-20 pointer-events-none"></div>
-
-    <div class="max-w-7xl mx-auto px-12 relative z-10">
-        
-        <div class="flex flex-col lg:flex-row gap-16 items-center">
-            
-            <div class="lg:w-1/3 text-center lg:text-left">
-                <span style="font-family: 'Syne', sans-serif;" class="text-[#d9933e] font-extrabold uppercase tracking-[0.4em] text-[10px]">Direct Connect</span>
-                <h2 style="font-family: 'Syne', sans-serif;" class="text-[#0a0f1a] text-5xl md:text-[45px] font-extrabold mt-4 leading-[1] tracking-tighter">
-                    Get in <br> 
-                    <span style="font-family: 'Instrument Serif', serif;" class="italic text-[#d9933e] font-light lowercase">touch</span> 
-                    Today.
-                </h2>
-                <p class="text-slate-500 mt-6 font-light leading-relaxed max-w-xs mx-auto lg:mx-0 text-sm">
-                    Have a question or a project in mind? Reach out through any of these channels.
-                </p>
-            </div>
-
-            <div class="lg:w-2/3 grid grid-cols-1 md:grid-cols-3 gap-6 ">
-                
-                <div class="group relative pt-12 px-6 pb-10 bg-white border border-slate-100 rounded-[40px_10px_40px_10px] shadow-xl shadow-slate-300 hover:border-[#d9933e]/30 transition-all duration-500 hover:-translate-y-2 flex flex-col h-full">
-                    <div class="absolute -top-6 left-8 w-12 h-12 bg-[#0a0f1a] rounded-xl flex items-center justify-center rotate-12 group-hover:rotate-0 transition-transform duration-500 shadow-lg shadow-[#0a0f1a]/20">
-                        <i class="fas fa-phone-alt text-[#d9933e] text-lg"></i>
-                    </div>
-                    <h3 style="font-family: 'Syne', sans-serif;" class="text-[#0a0f1a] font-bold text-[11px] uppercase tracking-widest mb-4 mt-2">Give Us a Call</h3>
-                    <p class="text-slate-400 text-[9px] font-bold mb-2 uppercase tracking-tight">Available 24/7</p>
-                    <a href="tel:+18001234567" style="font-family: 'Syne', sans-serif;" class="text-[#0a0f1a] font-extrabold text-[15px] hover:text-[#d9933e] transition-colors tracking-tighter break-words">
-                        +1 (555) 2345 - 67890
-                    </a>
-                    <div class="mt-auto pt-6">
-                        <div class="w-8 h-1 bg-[#d9933e] group-hover:w-full transition-all duration-700"></div>
-                    </div>
-                </div>
-
-                <div class="group relative pt-12 px-6 pb-10 bg-[#0a0f1a] rounded-[10px_40px_10px_40px] shadow-2xl hover:border-[#d9933e]/30 transition-all duration-500 hover:-translate-y-2 flex flex-col h-full">
-                    <div class="absolute -top-6 left-8 w-12 h-12 bg-[#d9933e] rounded-xl flex items-center justify-center -rotate-12 group-hover:rotate-0 transition-transform duration-500 shadow-lg shadow-[#d9933e]/20">
-                        <i class="fas fa-envelope text-black text-lg"></i>
-                    </div>
-                    <h3 style="font-family: 'Syne', sans-serif;" class="text-white font-bold text-[11px] uppercase tracking-widest mb-4 mt-2">Send Us Email</h3>
-                    <p class="text-slate-500 text-[9px] font-bold mb-2 uppercase tracking-tight">Response in 1hr</p>
-                    <a href="mailto:hello@digipro.com" style="font-family: 'Syne', sans-serif;" class="text-white font-extrabold text-[16px] hover:text-[#d9933e] transition-colors tracking-tighter break-all">
-                        hello@spartatech.com
-                    </a>
-                    <div class="mt-auto pt-6">
-                        <div class="w-8 h-1 bg-[#d9933e] group-hover:w-full transition-all duration-700"></div>
-                    </div>
-                </div>
-
-                <div class="group relative pt-12 px-6 pb-10 bg-white border border-slate-100 rounded-[40px_10px_40px_10px] shadow-xl shadow-slate-300 hover:border-[#d9933e]/30 transition-all duration-500 hover:-translate-y-2 flex flex-col h-full">
-                    <div class="absolute -top-6 left-8 w-12 h-12 bg-[#0a0f1a] rounded-xl flex items-center justify-center rotate-12 group-hover:rotate-0 transition-transform duration-500 shadow-lg shadow-[#0a0f1a]/20">
-                        <i class="fas fa-map-marker-alt text-[#d9933e] text-lg"></i>
-                    </div>
-                    <h3 style="font-family: 'Syne', sans-serif;" class="text-[#0a0f1a] font-bold text-[11px] uppercase tracking-widest mb-4 mt-2">Visit Us At</h3>
-                    <p class="text-slate-400 text-[9px] font-bold mb-2 uppercase tracking-tight">Our Headquarters</p>
-                    <p style="font-family: 'Syne', sans-serif;" class="text-[#0a0f1a] font-extrabold text-[14px] tracking-tighter leading-tight">
-                        Suite 567 Tech Ville,
-                        California, 90210 US
-                    </p>
-                    <div class="mt-auto pt-6">
-                        <div class="w-8 h-1 bg-[#d9933e] group-hover:w-full transition-all duration-700"></div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </div>
-</section>
-
-
-
 
 
 
@@ -541,7 +485,7 @@ body { padding-top: 0; }
     <div class="max-w-7xl mx-auto px-6 mb-16 text-center relative z-10">
         <span style="font-family: 'Syne', sans-serif;" class="text-[#d9933e] font-extrabold uppercase tracking-[0.5em] text-[10px]">Get In Touch</span>
         <h2 style="font-family: 'Syne', sans-serif;" class="text-[#0a0f1a] text-4xl md:text-5xl font-extrabold mt-2 tracking-tighter">
-            Ready to <span style="font-family: 'Instrument Serif', serif;" class="italic text-[#d9933e] lowercase">Collaborate?</span>
+            Contact  <span style="font-family: 'Instrument Serif', serif;" class="italic text-[#d9933e] text-[60px] lowercase">Us</span>
         </h2>
         <div class="mt-4 flex justify-center">
             <div class="h-[3px] bg-[#d9933e] animate-line-width rounded-full"></div>
@@ -580,9 +524,6 @@ body { padding-top: 0; }
     </div>
 </div>
 
-
-
-
            
 
 
@@ -600,18 +541,18 @@ body { padding-top: 0; }
         <form id="contact-form" class="space-y-3 relative z-10">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div class="space-y-2">
-                    <label class="text-[11px] font-black uppercase tracking-widest text-[#0a0f1a]/50 ml-1">Full Name</label>
+                    <label class="text-[11px] font-black uppercase tracking-widest text-[#0a0f1a]/50 ml-1 required">Full Name</label>
                     <input type="text" name="user_name" required placeholder="John Doe" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-6 py-4 text-sm text-[#0a0f1a] focus:outline-none focus:border-[#d9933e] transition-all">
                 </div>
                 <div class="space-y-2">
-                    <label class="text-[11px] font-black uppercase tracking-widest text-[#0a0f1a]/50 ml-1">Email Address</label>
+                    <label class="text-[11px] font-black uppercase tracking-widest text-[#0a0f1a]/50 ml-1 required">Email Address</label>
                     <input type="email" name="user_email" required placeholder="hello@sparta.com" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-6 py-4 text-sm text-[#0a0f1a] focus:outline-none focus:border-[#d9933e] transition-all">
                 </div>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div class="space-y-2">
-                    <label class="text-[11px] font-black uppercase tracking-widest text-[#0a0f1a]/50 ml-1">Phone Number</label>
+                    <label class="text-[11px] font-black uppercase tracking-widest text-[#0a0f1a]/50 ml-1 required">Phone Number</label>
                     <input type="tel" name="user_phone" placeholder="+1 234 567 89" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-6 py-4 text-sm text-[#0a0f1a] focus:outline-none focus:border-[#d9933e] transition-all">
                 </div>
                 <div class="space-y-2">
@@ -678,13 +619,6 @@ body { padding-top: 0; }
 </script>
 
 
-
-
-
-
-
-
-
         </div>
     </div>
 </section>
@@ -714,97 +648,74 @@ select option { background: white; color: #0a0f1a; }
 
 
 
-<section class="relative py-24 bg-white overflow-hidden" style="font-family: 'Inter', sans-serif;">
+
+
+
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
+<section class="relative py-32  bg-[#f8fafc] overflow-hidden" style="font-family: 'Inter', sans-serif;">
     
-    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full opacity-[0.03] pointer-events-none">
-        <svg viewBox="0 0 100 100" class="w-full h-full text-[#0a0f1a]">
-            <pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse">
-                <path d="M 10 0 L 0 0 0 10" fill="none" stroke="currentColor" stroke-width="0.5"/>
-            </pattern>
-            <rect width="100" height="100" fill="url(#grid)" />
-        </svg>
-    </div>
+    <div class="absolute top-0 right-0 w-1/3 h-full bg-[#0a0f1a]/5 -skew-x-12 translate-x-20 pointer-events-none"></div>
 
     <div class="max-w-7xl mx-auto px-12 relative z-10">
-        <div class="flex flex-col lg:flex-row gap-20">
+        
+        <div class="flex flex-col lg:flex-row gap-16 items-center">
             
-            <div class="lg:w-1/3">
-                <div class="sticky top-10">
-                    <span style="font-family: 'Syne', sans-serif;" class="text-[#d9933e] font-extrabold uppercase tracking-[0.5em] text-[10px]">Support Hub</span>
-                    <h2 style="font-family: 'Syne', sans-serif;" class="text-[#0a0f1a] text-5xl font-extrabold mt-4 leading-[0.9] tracking-tighter">
-                        Common <br> 
-                        <span style="font-family: 'Instrument Serif', serif;" class="italic text-[#d9933e] lowercase">questions.</span>
-                    </h2>
-                    <p class="text-slate-500 mt-8 font-light leading-relaxed">
-                        Connecting with Sparta Tech for the first time? We’ve compiled answers to the most frequent inquiries to help you understand our elite digital ecosystem.
-                    </p>
+            <div class="lg:w-1/3 text-center lg:text-left">
+                <span style="font-family: 'Syne', sans-serif;" class="text-[#d9933e] font-extrabold uppercase tracking-[0.4em] text-[10px]">Direct Connect</span>
+                <h2 style="font-family: 'Syne', sans-serif;" class="text-[#0a0f1a] text-5xl md:text-[45px] font-extrabold mt-4 leading-[1] tracking-tighter">
+                    Get in <br> 
+                    <span style="font-family: 'Instrument Serif', serif;" class="italic text-[#d9933e] font-light lowercase">touch</span> 
+                    Today.
+                </h2>
+                <p class="text-slate-500 mt-6 font-light leading-relaxed max-w-xs mx-auto lg:mx-0 text-sm">
                     
-                    <div class="mt-12 group cursor-pointer">
-                        <div class="flex items-center gap-4">
-                            <div class="w-12 h-12 rounded-full border border-slate-200 flex items-center justify-center group-hover:border-[#d9933e] transition-all duration-300">
-                                <i class="fas fa-arrow-right text-[#0a0f1a] group-hover:text-[#d9933e] -rotate-45 group-hover:rotate-0 transition-transform"></i>
-                            </div>
-                            <div>
-                                <h4 style="font-family: 'Syne', sans-serif;" class="font-bold text-[#0a0f1a] uppercase text-xs tracking-widest">Explore Sparta Tech</h4>
-                                <p class="text-[10px] text-slate-400">View our complete service catalog</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                    Have a project in mind? We’re ready to make it happen.
+                </p>
             </div>
 
-            <div class="lg:w-2/3 space-y-6">
+            <div class="lg:w-2/3 grid grid-cols-1 md:grid-cols-3 gap-6 ">
                 
-                <div class="group bg-[#f8fafc] rounded-3xl p-8 border border-transparent hover:border-[#d9933e]/20 transition-all duration-500">
-                    <div class="flex justify-between items-start gap-6">
-                        <div class="flex gap-6">
-                            <span style="font-family: 'Syne', sans-serif;" class="text-4xl font-black text-[#0a0f1a]/5 group-hover:text-[#d9933e]/20 transition-colors uppercase tracking-tighter">01</span>
-                            <div>
-                                <h3 style="font-family: 'Syne', sans-serif;" class="text-xl font-bold text-[#0a0f1a] mb-4">What is the Sparta Tech workflow?</h3>
-                                <p class="text-slate-500 text-sm leading-relaxed max-w-lg">
-                                    Our process is built on precision. We begin with a deep discovery phase to analyze your needs, followed by strategic architecture and flawless execution to ensure market-leading results.
-                                </p>
-                            </div>
-                        </div>
-                        <div class="w-10 h-10 bg-[#0a0f1a] rounded-full flex items-center justify-center shadow-lg shadow-[#0a0f1a]/10">
-                            <i class="fas fa-plus text-[#d9933e] text-[10px]"></i>
-                        </div>
+                <div class="group relative pt-12 px-6 pb-10 bg-white border border-slate-100 rounded-[40px_10px_40px_10px] shadow-xl shadow-slate-300 hover:border-[#d9933e]/30 transition-all duration-500 hover:-translate-y-2 flex flex-col h-full">
+                    <div class="absolute -top-6 left-8 w-12 h-12 bg-[#0a0f1a] rounded-xl flex items-center justify-center rotate-12 group-hover:rotate-0 transition-transform duration-500 shadow-lg shadow-[#0a0f1a]/20">
+                        <i class="fas fa-phone-alt text-[#d9933e] text-lg"></i>
+                    </div>
+                    <h3 style="font-family: 'Syne', sans-serif;" class="text-[#0a0f1a] font-bold text-[11px] uppercase tracking-widest mb-4 mt-2">Give Us a Call</h3>
+                    <p class="text-slate-400 text-[9px] font-bold mb-2 uppercase tracking-tight">Available 24/7</p>
+                    <a href="tel:+18001234567" style="font-family: 'Syne', sans-serif;" class="text-[#0a0f1a] font-extrabold text-[15px] hover:text-[#d9933e] transition-colors tracking-tighter break-words">
+                        +1 (555) 2345 - 67890
+                    </a>
+                    <div class="mt-auto pt-6">
+                        <div class="w-8 h-1 bg-[#d9933e] group-hover:w-full transition-all duration-700"></div>
                     </div>
                 </div>
 
-                <div class="group relative bg-white rounded-3xl p-8 border-2 border-[#d9933e]/30 shadow-[0_20px_50px_rgba(217,147,62,0.1)] transition-all duration-500 hover:-translate-y-1 overflow-hidden">
-                    <div class="absolute top-0 right-0 w-32 h-32 bg-[#d9933e]/5 rounded-full blur-3xl -mr-16 -mt-16"></div>
-                    
-                    <div class="flex justify-between items-start gap-6 relative z-10">
-                        <div class="flex gap-6">
-                            <span style="font-family: 'Syne', sans-serif;" class="text-4xl font-black text-[#d9933e]/20 uppercase tracking-tighter">02</span>
-                            <div>
-                                <h3 style="font-family: 'Syne', sans-serif;" class="text-xl font-bold text-[#0a0f1a] mb-4">How long do Sparta Tech projects take?</h3>
-                                <p class="text-slate-600 text-sm leading-relaxed max-w-lg font-medium">
-                                    While timelines vary based on project complexity, a standard high-performance digital solution typically moves from concept to launch within 2 to 4 weeks.
-                                </p>
-                            </div>
-                        </div>
-                        <div class="w-10 h-10 bg-[#d9933e] rounded-full flex items-center justify-center shadow-lg shadow-[#d9933e]/30 group-hover:scale-110 transition-transform">
-                            <i class="fas fa-clock text-black text-[12px]"></i>
-                        </div>
+                <div class="group relative pt-12 px-6 pb-10 bg-[#0a0f1a] rounded-[10px_40px_10px_40px] shadow-2xl hover:border-[#d9933e]/30 transition-all duration-500 hover:-translate-y-2 flex flex-col h-full">
+                    <div class="absolute -top-6 left-8 w-12 h-12 bg-[#d9933e] rounded-xl flex items-center justify-center -rotate-12 group-hover:rotate-0 transition-transform duration-500 shadow-lg shadow-[#d9933e]/20">
+                        <i class="fas fa-envelope text-black text-lg"></i>
+                    </div>
+                    <h3 style="font-family: 'Syne', sans-serif;" class="text-white font-bold text-[11px] uppercase tracking-widest mb-4 mt-2">Send Us Email</h3>
+                    <p class="text-slate-500 text-[9px] font-bold mb-2 uppercase tracking-tight">Response in 1hr</p>
+                    <a href="mailto:hello@digipro.com" style="font-family: 'Syne', sans-serif;" class="text-white font-extrabold text-[16px] hover:text-[#d9933e] transition-colors tracking-tighter break-all">
+                        hello@spartatech.com
+                    </a>
+                    <div class="mt-auto pt-6">
+                        <div class="w-8 h-1 bg-[#d9933e] group-hover:w-full transition-all duration-700"></div>
                     </div>
                 </div>
 
-                <div class="group bg-[#f8fafc] rounded-3xl p-8 border border-transparent hover:border-[#d9933e]/20 transition-all duration-500">
-                    <div class="flex justify-between items-start gap-6">
-                        <div class="flex gap-6">
-                            <span style="font-family: 'Syne', sans-serif;" class="text-4xl font-black text-[#0a0f1a]/5 group-hover:text-[#d9933e]/20 transition-colors uppercase tracking-tighter">03</span>
-                            <div>
-                                <h3 style="font-family: 'Syne', sans-serif;" class="text-xl font-bold text-[#0a0f1a] mb-4">Do you provide custom technical solutions?</h3>
-                                <p class="text-slate-500 text-sm leading-relaxed max-w-lg">
-                                    Absolutely. Sparta Tech specializes in bespoke web architectures and marketing frameworks tailored specifically to your brand's unique digital footprint.
-                                </p>
-                            </div>
-                        </div>
-                        <div class="w-10 h-10 bg-[#0a0f1a] rounded-full flex items-center justify-center">
-                            <i class="fas fa-check text-[#d9933e] text-[10px]"></i>
-                        </div>
+                <div class="group relative pt-12 px-6 pb-10 bg-white border border-slate-100 rounded-[40px_10px_40px_10px] shadow-xl shadow-slate-300 hover:border-[#d9933e]/30 transition-all duration-500 hover:-translate-y-2 flex flex-col h-full">
+                    <div class="absolute -top-6 left-8 w-12 h-12 bg-[#0a0f1a] rounded-xl flex items-center justify-center rotate-12 group-hover:rotate-0 transition-transform duration-500 shadow-lg shadow-[#0a0f1a]/20">
+                        <i class="fas fa-map-marker-alt text-[#d9933e] text-lg"></i>
+                    </div>
+                    <h3 style="font-family: 'Syne', sans-serif;" class="text-[#0a0f1a] font-bold text-[11px] uppercase tracking-widest mb-4 mt-2">Visit Us At</h3>
+                    <p class="text-slate-400 text-[9px] font-bold mb-2 uppercase tracking-tight">Our Headquarters</p>
+                    <p style="font-family: 'Syne', sans-serif;" class="text-[#0a0f1a] font-extrabold text-[14px] tracking-tighter leading-tight">
+                        Suite 567 Tech Ville,
+                        California, 90210 US
+                    </p>
+                    <div class="mt-auto pt-6">
+                        <div class="w-8 h-1 bg-[#d9933e] group-hover:w-full transition-all duration-700"></div>
                     </div>
                 </div>
 
@@ -812,6 +723,10 @@ select option { background: white; color: #0a0f1a; }
         </div>
     </div>
 </section>
+
+
+
+
 
 
 

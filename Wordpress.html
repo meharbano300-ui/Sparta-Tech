@@ -96,15 +96,17 @@
         @scroll.window="scrolled = (window.pageYOffset > 50) ? true : false"
         class="w-full z-[100] relative font-sans">
     
-    <div x-show="!scrolled" 
+   <div x-show="!scrolled" 
          x-transition:leave="transition ease-in duration-200"
-         x-transition:leave-start="opacity-100"
+         x-transition:leave-start="opacity"
          x-transition:leave-end="opacity-0"
-         class="w-full bg-gradient-to-r from-[#010409] via-[#020817] to-[#010409] py-3 px-6 md:px-16 flex justify-between items-center text-[13px] text-gray-400">
+         class="w-full bg-gradient-to-r from-[#010409] via-[#020817] to-[#010409] py-3 px-6 md:px-16  flex justify-between items-center text-[13px] text-gray-400">
         <div class="flex items-center gap-6">
             <div class="flex items-center gap-2">
                 <i class="fa-regular fa-envelope"></i>
-                <span>spartatechsolutions.com</span>
+                <a href="mailto:info@sparatechsolutions.com" class="hover:text-white transition-colors">
+                    info@sparatechsolutions.com
+                </a>
             </div>
             <div class="hidden md:flex items-center gap-2 border-l border-white/20 pl-6">
                 <i class="fa-regular fa-clock"></i>
@@ -131,7 +133,7 @@
         </div>
 
         <div class="hidden lg:flex items-center gap-10">
-            <a href="#" class="nav-link active font-black  text-white">Home</a>
+            <a href="Index.html" class="nav-link active font-black  text-white">Home</a>
             <a href="About.html" class="nav-link text-gray-300 font-black  hover:text-white transition-all">About us</a>
             
             <div class="relative group" @mouseenter="servicesOpen = true" @mouseleave="servicesOpen = false">
@@ -349,10 +351,10 @@ body { padding-top: 0; }
                 </span>
             </h1>
             <p id="line3" class="text-gray-400 text-lg md:text-xl max-w-2xl mx-auto font-medium leading-relaxed mb-8">
-                We don't just create websites; we craft <span class="text-white">high-performance WordPress solutions</span> that scale your business. Empower your brand with Sparta Tech's elite CMS engineering and custom themes.
+                We don’t just build websites; we craft <span class="text-white">high-performance WordPress solutions</span> with custom CMS engineering that scale your business,<br> powered by Sparta Tech Solutions.
             </p>
-            
-            <div class="mt-5 flex justify-center items-center w-full">
+           
+            <a href="Contact.html" > <div class="mt-5 flex justify-center items-center w-full">
                 <div class="relative group cursor-pointer">
                     <div class="absolute -inset-[1px] rounded-full opacity-100 group-hover:opacity-100 transition duration-500 overflow-hidden">
                         <div class="absolute inset-0 w-[200%] h-[200%] top-[-50%] left-[-50%] bg-[conic-gradient(#febd69_0deg,#febd69_100deg,transparent_120deg,transparent_180deg,#febd69_220deg,transparent_300deg)] animate-spin-ultra-slow"></div>
@@ -371,7 +373,7 @@ body { padding-top: 0; }
                         </div>
 
                         <div class="flex flex-col items-start">
-                            <span class="text-[12px] font-black text-white uppercase tracking-[0.2em]">Start My WordPress Project</span>
+                            <span class="text-[12px] font-black text-white uppercase tracking-[0.2em]">Start WordPress Project</span>
                         </div>
 
                         <div class="flex items-center overflow-hidden w-0 group-hover:w-6 transition-all duration-500 ease-out">
@@ -381,7 +383,7 @@ body { padding-top: 0; }
                         </div>
                     </button>
                 </div>
-            </div>
+            </div></a>
         </div>
     </div>
 </section>
@@ -518,21 +520,28 @@ body { padding-top: 0; }
                     <span class="text-[#1e293b] font-black text-[9px] uppercase tracking-[0.5em]">Custom CMS Solutions</span>
                 </div>
                
-                <h2 class="text-black text-6xl md:text-7xl font-['Playfair_Display'] italic leading-[0.95] tracking-tighter mb-6">
-                    Beautiful <span class="text-gray-300">Design</span> <br>
-                    <span class="italic font-serif-italic text-[#E89D4B] relative">Meets</span> WordPress.
+                <h2 class="text-black text-6xl md:text-6xl font-['Playfair_Display'] italic leading-[0.95] tracking-tighter mb-6">
+                    Beautiful <span class="text-gray-300">WordPress</span> <br>
+                    <span class="italic font-serif-italic text-[#E89D4B] relative">Custom Built</span> Websites
                 </h2>
                 
                
  <div class="max-w-lg relative z-10 ">
     <p class="text-gray-500 text-[13px] md:text-[14px] leading-relaxed mb-4">
-    We create <span class="text-black font-bold">custom WordPress websites</span> that are visually stunning, fully responsive, and built to grow your business. Whether you need a sleek corporate site or an engaging blog, our solutions combine creative design with 
-    <span class="text-black font-semibold border-b-2 border-[#febd69]/30">powerful functionality</span>.
-    Our team specializes in custom themes, plugin integration, and speed optimization. We ensure your site looks perfect on any device while focusing on 
-    <span class="text-[#E89D4B] font-bold italic">security and SEO performance</span> to give you a website that performs as beautifully as it looks.
-    Boost your online visibility and drive more traffic with our <span class="text-black font-bold">expert SEO services</span>. We help businesses rank higher on search engines using technical optimization, on-page SEO, and content strategy to deliver 
-    <span class="text-black font-semibold border-b-2 border-[#febd69]/30">sustainable results</span> and long-term growth.
+    We create <span class="text-black font-bold">custom WordPress websites</span> that are visually stunning, fully responsive, and built to grow your business. 
+    Whether you need a sleek corporate site, an engaging blog, or a robust online store,
+     our solutions combine creative design with 
+    <span class="text-black font-semibold border-b-2 border-[#febd69]/70">powerful functionality</span>.
+    Our team specializes in custom themes, plugin integration, speed optimization, and WooCommerce development, 
+    ensuring your eCommerce site is secure,  
+    <span class="text-[#E89D4B] font-bold italic"> user-friendly, and optimized</span> for conversions.
+    Every website we build looks perfect on any device while focusing on <span class="text-black font-bold">SEO performance and security,</span> 
+   giving you a platform that performs as
+    <span class="text-black font-semibold border-b-2 border-[#febd69]/70">beautifully </span> as it looks.
 </p>
+
+
+
 
     <p class="mt-2 text-gray-500 text-[13px] md:text-[14px] leading-relaxed italic">
         💡 Need custom functionality or a specialized WP solution? 
@@ -542,7 +551,7 @@ body { padding-top: 0; }
 </div>
 
 
-                <a href="Contact.html" class="block max-w-[520px] shadow-[0_0_15px_5px_rgba(0,0,0,0.1)] mt-2 bg-gradient-to-r from-gray-100 to-transparent rounded-[1rem] transition-transform hover:scale-[1.01] active:scale-[0.98]">
+     <a href="Contact.html" class="block max-w-[520px] shadow-[0_0_15px_5px_rgba(0,0,0,0.1)] mt-2 bg-gradient-to-r from-gray-100 to-transparent rounded-[1rem] transition-transform hover:scale-[1.01] active:scale-[0.98]">
     <div class="bg-white p-4 rounded-[1rem] flex items-center justify-between shadow-sm hover:shadow-2xl transition-all duration-500 border border-white">
         <div class="flex items-center gap-5">
             <div class="w-10 h-10 bg-black rounded-[7px] flex items-center justify-center">
@@ -554,7 +563,7 @@ body { padding-top: 0; }
             <div>
                 <p class="text-[9px] font-black text-gray-400 uppercase tracking-widest mb-0.5">Premium Architecture</p>
                 <h5 class="text-xl font-black text-black tracking-tight italic">
-                    Sparta WP <span class="text-[#E89D4B] not-italic ml-1">Expert Solutions</span>
+                     WordPress <span class="text-[#E89D4B] not-italic ml-1">Expert Solutions</span>
                 </h5>
             </div>
         </div>
@@ -680,8 +689,8 @@ body { padding-top: 0; }
                     <span class="text-3xl md:text-5xl font-extralight opacity-70 block tracking-normal">Built for Business.</span>
                 </h2>
 
-                <p class="text-slate-700 text-base leading-relaxed max-w-xl relative z-10">
-                    We don't just use templates, we engineer <span class="text-[#1e293b] font-bold text-lg italic">Bespoke Themes</span>. 
+                <p class="text-gray-700 text-base leading-relaxed max-w-xl relative z-10">
+                    We don't just use templates, we also engineer <span class="text-[#1e293b] font-bold text-lg italic">Bespoke Themes</span>. 
                     Every line of PHP is clearly optimized for <span class="text-[#E89D4B] font-bold underline decoration-wavy">SEO-Performance</span> and robust editor power.
                 </p>
 
@@ -692,43 +701,43 @@ body { padding-top: 0; }
 
            <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4 pt-6 relative z-10">
     <div class="group border-b border-slate-100 pb-2 hover:border-[#D4883B] transition-all duration-300">
-        <h4 class="text-[#1e293b] font-black text-[10px] uppercase tracking-widest mb-1 flex items-center gap-2">
+        <h4 class="text-[#1e293b] font-black text-[12px] uppercase tracking-widest mb-1 flex items-center gap-2">
             <span class="flex items-center justify-center w-6 h-6 rounded-lg bg-orange-50 text-[#D4883B] group-hover:bg-[#D4883B] group-hover:text-white transition-all duration-300 shadow-sm">
-                <i class="fas fa-palette text-[10px]"></i>
+                <i class="fas fa-palette text-[15px]"></i>
             </span> 
             Custom Theme Dev
         </h4>
-        <p class="text-[11px] text-slate-600 font-medium ml-8">Tailor-made designs built from scratch for a unique brand identity.</p>
+        <p class="text-[13px] text-slate-600 font-medium ml-8">Tailor-made designs built from scratch for a unique brand identity.</p>
     </div>
 
     <div class="group border-b border-slate-100 pb-2 hover:border-[#1e293b] transition-all duration-300">
-        <h4 class="text-[#1e293b] font-black text-[10px] uppercase tracking-widest mb-1 flex items-center gap-2">
+        <h4 class="text-[#1e293b] font-black text-[12px] uppercase tracking-widest mb-1 flex items-center gap-2">
             <span class="flex items-center justify-center w-6 h-6 rounded-lg bg-blue-50 text-blue-500 group-hover:bg-[#1e293b] group-hover:text-white transition-all duration-300 shadow-sm">
-                <i class="fas fa-store text-[10px]"></i>
+                <i class="fas fa-store text-[15px]"></i>
             </span> 
             WooCommerce Mastery
         </h4>
-        <p class="text-[11px] text-slate-600 font-medium ml-8">Scalable e-commerce solutions with secure and seamless checkouts.</p>
+        <p class="text-[13px] text-slate-600 font-medium ml-8">Scalable e-commerce solutions with secure and seamless checkouts.</p>
     </div>
 
     <div class="group border-b border-slate-100 pb-2 hover:border-[#D4883B] transition-all duration-300">
-        <h4 class="text-[#1e293b] font-black text-[10px] uppercase tracking-widest mb-1 flex items-center gap-2">
+        <h4 class="text-[#1e293b] font-black text-[12px] uppercase tracking-widest mb-1 flex items-center gap-2">
             <span class="flex items-center justify-center w-6 h-6 rounded-lg bg-orange-50 text-[#D4883B] group-hover:bg-[#D4883B] group-hover:text-white transition-all duration-300 shadow-sm">
-                <i class="fas fa-plug text-[10px]"></i>
+                <i class="fas fa-plug text-[15px]"></i>
             </span> 
             Plugin Customization
         </h4>
-        <p class="text-[11px] text-slate-600 font-medium ml-8">Extending core functionality with custom PHP and expert integrations.</p>
+        <p class="text-[13px] text-slate-600 font-medium ml-8">Extending core functionality with custom PHP and expert integrations.</p>
     </div>
 
     <div class="group border-b border-slate-100 pb-2 hover:border-[#1e293b] transition-all duration-300">
-        <h4 class="text-[#1e293b] font-black text-[10px] uppercase tracking-widest mb-1 flex items-center gap-2">
+        <h4 class="text-[#1e293b] font-black text-[12px] uppercase tracking-widest mb-1 flex items-center gap-2">
             <span class="flex items-center justify-center w-6 h-6 rounded-lg bg-blue-50 text-blue-500 group-hover:bg-[#1e293b] group-hover:text-white transition-all duration-300 shadow-sm">
-                <i class="fas fa-tachometer-alt text-[10px]"></i>
+                <i class="fas fa-tachometer-alt text-[15px]"></i>
             </span> 
             Performance Tuning
         </h4>
-        <p class="text-[11px] text-slate-600 font-medium ml-8">Optimizing speed and security for a top-tier WordPress experience.</p>
+        <p class="text-[13px] text-slate-600 font-medium ml-8">Optimizing speed and security for a top-tier WordPress experience.</p>
     </div>
 </div>
 

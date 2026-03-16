@@ -98,13 +98,15 @@
     
     <div x-show="!scrolled" 
          x-transition:leave="transition ease-in duration-200"
-         x-transition:leave-start="opacity-100"
+         x-transition:leave-start="opacity"
          x-transition:leave-end="opacity-0"
-         class="w-full bg-gradient-to-r from-[#010409] via-[#020817] to-[#010409] py-3 px-6 md:px-16 flex justify-between items-center text-[13px] text-gray-400">
+         class="w-full bg-gradient-to-r from-[#010409] via-[#020817] to-[#010409] py-3 px-6 md:px-16  flex justify-between items-center text-[13px] text-gray-400">
         <div class="flex items-center gap-6">
             <div class="flex items-center gap-2">
                 <i class="fa-regular fa-envelope"></i>
-                <span>spartatechsolutions.com</span>
+                <a href="mailto:info@sparatechsolutions.com" class="hover:text-white transition-colors">
+                    info@sparatechsolutions.com
+                </a>
             </div>
             <div class="hidden md:flex items-center gap-2 border-l border-white/20 pl-6">
                 <i class="fa-regular fa-clock"></i>
@@ -131,7 +133,7 @@
         </div>
 
         <div class="hidden lg:flex items-center gap-10">
-            <a href="#" class="nav-link active font-black  text-white">Home</a>
+            <a href="Index.html" class="nav-link active font-black  text-white">Home</a>
             <a href="About.html" class="nav-link text-gray-300 font-black  hover:text-white transition-all">About us</a>
             
             <div class="relative group" @mouseenter="servicesOpen = true" @mouseleave="servicesOpen = false">
@@ -346,11 +348,14 @@ body { padding-top: 0; }
                     <svg class="absolute -bottom-2 left-0 w-full h-3 text-[#febd69]/30" viewBox="0 0 400 20"><path d="M0 10 Q100 0 200 10 T400 10" fill="none" stroke="currentColor" stroke-width="4"/></svg>
                 </span>
             </h1>
-            <p id="line3" class="text-gray-400 text-lg md:text-xl max-w-2xl mx-auto font-medium leading-relaxed mb-8">
-                We don't just run ads; we engineer <span class="text-white">revenue engines</span> that dominate the search engines. Scale your business with Sparta Tech's elite marketing.
+            
+            <p id="line3" class="text-gray-400 text-lg md:text-[18px] max-w-2xl mx-auto font-medium leading-relaxed mb-8">
+                From strategy to execution, we develop powerful <span class="text-white">marketing systems</span> that attract customers and 
+            generate consistent revenue. Take your business further with <br>Sparta Tech Solutions.
             </p>
             
-            <div class="mt-5 flex justify-center items-center w-full">
+            
+            <a href="Contact.html" ><div class="mt-5 flex justify-center items-center w-full">
                 <div class="relative group cursor-pointer">
                     <div class="absolute -inset-[1px] rounded-full opacity-100 group-hover:opacity-100 transition duration-500 overflow-hidden">
                         <div class="absolute inset-0 w-[200%] h-[200%] top-[-50%] left-[-50%] bg-[conic-gradient(#febd69_0deg,#febd69_100deg,transparent_120deg,transparent_180deg,#febd69_220deg,transparent_300deg)] animate-spin-ultra-slow"></div>
@@ -370,7 +375,7 @@ body { padding-top: 0; }
                         </div>
 
                         <div class="flex flex-col items-start">
-                            <span class="text-[12px] font-black text-white uppercase tracking-[0.2em]">Grow My Brand</span>
+                            <span class="text-[12px] font-black text-white uppercase tracking-[0.2em]">Grow Your Brand</span>
                         </div>
 
                         <div class="flex items-center overflow-hidden w-0 group-hover:w-6 transition-all duration-500 ease-out">
@@ -380,7 +385,7 @@ body { padding-top: 0; }
                         </div>
                     </button>
                 </div>
-            </div>
+            </div></a>
         </div>
     </div>
 </section>
@@ -521,13 +526,24 @@ body { padding-top: 0; }
                
                
                <div class="max-w-lg relative z-10 ">
+    
     <p class="text-gray-500 text-[13px] md:text-[14px] leading-relaxed mb-3">
-    We offer a wide range of <span class="text-black font-bold">digital marketing services</span> designed to help your business grow online. From strategy to execution, we know how to apply the right tools in the right way. The key is understanding your goals—whether it’s 
-    <span class="text-black font-semibold border-b-2 border-[#febd69]/30">increasing visibility, generating leads, or boosting sales</span>. 
-    Once we know what you’re aiming for, we craft a solution that is efficient, cost-effective, and results-driven.
-    
-    Our approach combines <span class="text-[#E89D4B] font-bold italic">SEO, social media marketing</span>, content marketing, email campaigns, and paid advertising to create a cohesive online presence. We focus on reaching your target audience with the right message, at the right time, on the right platforms. 
-    
+    We offer a full range of <span class="text-black font-bold">digital marketing services</span> 
+    designed to help businesses grow online and achieve measurable results. From strategy to execution, 
+    we use the right combination of tools to 
+    <span class="text-black font-semibold border-b-2 border-[#febd69]/30">increasing visibility, 
+    attract the right audience, and generate quality leads.</span> 
+    By understanding your goals whether it’s brand awareness, lead generation, or increasing sales 
+     we create tailored strategies that deliver real impact.
+
+    Our approach includes building effective <span class="text-[#E89D4B] font-bold italic">sales and marketing funnels</span>, that guide potential 
+    customers from discovery to conversion. By combining SEO, social media marketing, content marketing, email campaigns,
+   and paid advertising, we create a cohesive digital presence that drives traffic and turns visitors into loyal 
+ customers.
+</p>
+
+
+
 
     <p class="mt-4 text-gray-500 text-[13px] md:text-[14px] leading-relaxed italic">
         👉 Let’s discuss your goals! 
@@ -550,8 +566,11 @@ body { padding-top: 0; }
             <div>
                 <p class="text-[9px] font-black text-gray-400 uppercase tracking-widest mb-0.5">Elevate Your Brand</p>
                 <h5 class="text-xl font-black text-black tracking-tight italic">
-                    Sparta Tech <span class="text-[#E89D4B] not-italic ml-1">Elite Solutions</span>
-                </h5>
+  Social Media <span class="text-[#E89D4B] not-italic ml-1">Marketing Solutions</span>
+  <div class="text-lg font-medium text-black tracking-tight not-italic mt-2">
+   
+  </div>
+</h5>
             </div>
         </div>
 
@@ -668,7 +687,7 @@ body { padding-top: 0; }
             <div class="space-y-3 relative">
                  <div class="flex items-center gap-4">
                     <span class="h-[1.5px] w-12 bg-[#E89D4B]"></span>
-                    <span class="text-[#1e293b] font-black text-[9px] uppercase tracking-[0.5em]">Digital Marketing Elite</span>
+                    <span class="text-[#1e293b] font-black text-[9px] uppercase tracking-[0.5em]">Content Marketing</span>
                 </div>
                 
                 <h2 class="text-[#1e293b] leading-[0.9] tracking-tighter relative z-10">
@@ -677,7 +696,7 @@ body { padding-top: 0; }
                     <span class="text-3xl md:text-5xl font-extralight opacity-70 block tracking-normal">Results Driven Marketing.</span>
                 </h2>
 
-                <p class="text-slate-500 text-base leading-relaxed max-w-xl relative z-10">
+                <p class="text-slate-700 text-[16px] leading-relaxed max-w-xl relative z-10">
                     We don't just run ads, we engineer <span class="text-[#1e293b] font-bold text-lg italic">Sales Funnels</span>. 
                     Every lead is clearly optimized for <span class="text-[#E89D4B] font-bold underline decoration-wavy">Maximum ROI</span> results and market dominance.
                 </p>
@@ -690,43 +709,43 @@ body { padding-top: 0; }
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4 pt-6 relative z-10">
     <div class="group border-b border-slate-100 pb-2 hover:border-[#D4883B] transition-all duration-300">
-        <h4 class="text-[#1e293b] font-black text-[10px] uppercase tracking-widest mb-1 flex items-center gap-2">
+        <h4 class="text-[#1e293b] font-black text-[11px] uppercase tracking-widest mb-1 flex items-center gap-2">
             <span class="flex items-center justify-center w-6 h-6 rounded-lg bg-orange-50 text-[#D4883B] group-hover:bg-[#D4883B] group-hover:text-white transition-all duration-300 shadow-sm">
-                <i class="fas fa-chart-line text-[10px]"></i>
+                <i class="fas fa-chart-line text-[17px]"></i>
             </span> 
             Search Engine Mastery
         </h4>
-        <p class="text-[11px] text-slate-600 font-medium ml-8">Boosting your rankings and visibility with data-driven SEO strategies.</p>
+        <p class="text-[13px] text-gray-700 font-medium ml-8">Boosting your rankings and visibility with data-driven SEO strategies.</p>
     </div>
 
     <div class="group border-b border-slate-100 pb-2 hover:border-[#1e293b] transition-all duration-300">
-        <h4 class="text-[#1e293b] font-black text-[10px] uppercase tracking-widest mb-1 flex items-center gap-2">
+        <h4 class="text-[#1e293b] font-black text-[11px] uppercase tracking-widest mb-1 flex items-center gap-2">
             <span class="flex items-center justify-center w-6 h-6 rounded-lg bg-blue-50 text-blue-500 group-hover:bg-[#1e293b] group-hover:text-white transition-all duration-300 shadow-sm">
-                <i class="fas fa-bullhorn text-[10px]"></i>
+                <i class="fas fa-bullhorn text-[17px]"></i>
             </span> 
             Social Growth Hub
         </h4>
-        <p class="text-[11px] text-slate-600 font-medium ml-8">Scaling your brand presence and engagement across all social platforms.</p>
+        <p class="text-[13px] text-gray-700 font-medium ml-8">Scaling your brand presence and engagement across all social platforms.</p>
     </div>
 
     <div class="group border-b border-slate-100 pb-2 hover:border-[#D4883B] transition-all duration-300">
-        <h4 class="text-[#1e293b] font-black text-[10px] uppercase tracking-widest mb-1 flex items-center gap-2">
+        <h4 class="text-[#1e293b] font-black text-[11px] uppercase tracking-widest mb-1 flex items-center gap-2">
             <span class="flex items-center justify-center w-6 h-6 rounded-lg bg-orange-50 text-[#D4883B] group-hover:bg-[#D4883B] group-hover:text-white transition-all duration-300 shadow-sm">
-                <i class="fas fa-filter text-[10px]"></i>
+                <i class="fas fa-filter text-[17px]"></i>
             </span> 
             Conversion Optimization
         </h4>
-        <p class="text-[11px] text-slate-600 font-medium ml-8">Turning visitors into loyal customers with high-impact sales funnels.</p>
+        <p class="text-[13px] text-gray-700 font-medium ml-8">Turning visitors into loyal customers with high-impact sales funnels.</p>
     </div>
 
     <div class="group border-b border-slate-100 pb-2 hover:border-[#1e293b] transition-all duration-300">
-        <h4 class="text-[#1e293b] font-black text-[10px] uppercase tracking-widest mb-1 flex items-center gap-2">
+        <h4 class="text-[#1e293b] font-black text-[11px] uppercase tracking-widest mb-1 flex items-center gap-2">
             <span class="flex items-center justify-center w-6 h-6 rounded-lg bg-blue-50 text-blue-500 group-hover:bg-[#1e293b] group-hover:text-white transition-all duration-300 shadow-sm">
-                <i class="fas fa-lightbulb text-[10px]"></i>
+                <i class="fas fa-lightbulb text-[17px]"></i>
             </span> 
             Content Strategy
         </h4>
-        <p class="text-[11px] text-slate-600 font-medium ml-8">Creating compelling stories that resonate with your target audience.</p>
+        <p class="text-[13px] text-gray-700 font-medium ml-8">Creating compelling stories that resonate with your target audience.</p>
     </div>
 </div>
 

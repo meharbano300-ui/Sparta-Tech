@@ -99,13 +99,15 @@
     
     <div x-show="!scrolled" 
          x-transition:leave="transition ease-in duration-200"
-         x-transition:leave-start="opacity-100"
+         x-transition:leave-start="opacity"
          x-transition:leave-end="opacity-0"
-         class="w-full bg-gradient-to-r from-[#010409] via-[#020817] to-[#010409] py-3 px-6 md:px-16 flex justify-between items-center text-[13px] text-gray-400">
+         class="w-full bg-gradient-to-r from-[#010409] via-[#020817] to-[#010409] py-3 px-6 md:px-16  flex justify-between items-center text-[13px] text-gray-400">
         <div class="flex items-center gap-6">
             <div class="flex items-center gap-2">
                 <i class="fa-regular fa-envelope"></i>
-                <span>spartatechsolutions.com</span>
+                <a href="mailto:info@sparatechsolutions.com" class="hover:text-white transition-colors">
+                    info@sparatechsolutions.com
+                </a>
             </div>
             <div class="hidden md:flex items-center gap-2 border-l border-white/20 pl-6">
                 <i class="fa-regular fa-clock"></i>
@@ -132,7 +134,7 @@
         </div>
 
         <div class="hidden lg:flex items-center gap-10">
-            <a href="#" class="nav-link active font-black  text-white">Home</a>
+            <a href="Index.html" class="nav-link active font-black  text-white">Home</a>
             <a href="About.html" class="nav-link text-gray-300 font-black  hover:text-white transition-all">About us</a>
             
             <div class="relative group" @mouseenter="servicesOpen = true" @mouseleave="servicesOpen = false">
@@ -347,10 +349,10 @@ body { padding-top: 0; }
                 </span>
             </h1>
             <p id="line3" class="text-gray-400 text-lg md:text-xl max-w-2xl mx-auto font-medium leading-relaxed mb-8">
-                We don't just write words; we craft <span class="text-white">stunning visuals</span> that convert readers into customers. Ignite your brand with Sparta Tech's elite storytelling.
+                Transforming ideas into visuals that <span class="text-white">capture attention </span> and reflect <br>your brand with Sparta Tech Solutions.
             </p>
             
-            <div class="mt-5 flex justify-center items-center w-full">
+            <a href="Contact.html" ><div class="mt-5 flex justify-center items-center w-full">
                 <div class="relative group cursor-pointer">
                     <div class="absolute -inset-[1px] rounded-full opacity-100 group-hover:opacity-100 transition duration-500 overflow-hidden">
                         <div class="absolute inset-0 w-[200%] h-[200%] top-[-50%] left-[-50%] bg-[conic-gradient(#febd69_0deg,#febd69_100deg,transparent_120deg,transparent_180deg,#febd69_220deg,transparent_300deg)] animate-spin-ultra-slow"></div>
@@ -382,7 +384,7 @@ body { padding-top: 0; }
                         </div>
                     </button>
                 </div>
-            </div>
+            </div></a>
         </div>
     </div>
 </section>
@@ -521,16 +523,16 @@ body { padding-top: 0; }
                
                 <h2 class="text-black text-6xl md:text-8xl font-['Playfair_Display'] italic leading-[0.95] tracking-tighter mb-6">
                     Design <span class="text-gray-300">That</span> <br>
-                    <span class="italic font-serif-italic text-[#E89D4B] relative">Speaks</span> Loud.
+                    <span class="italic font-serif-italic text-[#E89D4B] relative">Speaks</span>
                 </h2>
                 
                 
                 
  <div class="max-w-lg relative z-10 ">
    <p class="text-gray-500 text-[13px] md:text-[14px] leading-relaxed mb-4">
-    A strong <span class="text-black font-bold">visual identity</span> can make your brand stand out, communicate your message, and connect with your audience. Our graphic design services combine creativity and technical expertise to deliver designs that are visually striking and purpose-driven.
+    A strong <span class="text-black font-bold">visual identity</span> can make your brand stand out, communicate your message, and connect with your audience. Our graphic design services combine creativity and technical expertise <span class="text-[#E89D4B] font-bold italic">DELIVERS</span> designs that are visually striking and purpose-driven.
     From logos, brochures, and social media graphics to marketing materials, we craft designs that 
-    <span class="text-black font-semibold border-b-2 border-[#febd69]/30">reflect your brand personality</span>. Every project begins with understanding your goals, ensuring each design element supports your business objectives.
+    <span class="text-black font-semibold border-b-2 border-[#febd69]/70">reflect your brand personality</span>. Every project begins with understanding your goals, ensuring each design element supports your business objectives.
     Our team uses industry-standard tools such as <span class="text-[#E89D4B] font-bold italic">Adobe Photoshop, Illustrator, and Figma</span> to create clean and professional visuals. we ensure your designs are 
     <span class="text-black font-bold">polished, impactful, and consistent</span> across all platforms.
 </p>
@@ -682,7 +684,7 @@ body { padding-top: 0; }
                     <span class="text-3xl md:text-5xl font-extralight opacity-70 block tracking-normal">Built to Captivate.</span>
                 </h2>
 
-                <p class="text-slate-700 text-base leading-relaxed max-w-xl relative z-10">
+                <p class="text-gray-700 text-[15px] leading-relaxed max-w-xl relative z-10">
                     We don't just create shapes, we engineer <span class="text-[#1e293b] font-bold text-lg italic">Visual Magic</span>. 
                     Every pixel is clearly optimized for <span class="text-[#E89D4B] font-bold underline decoration-wavy">Brand Identity</span> and stunning visual impact.
                 </p>
@@ -694,43 +696,43 @@ body { padding-top: 0; }
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4 pt-6 relative z-10">
     <div class="group border-b border-slate-100 pb-2 hover:border-[#D4883B] transition-all duration-300">
-        <h4 class="text-[#1e293b] font-black text-[10px] uppercase tracking-widest mb-1 flex items-center gap-2">
+        <h4 class="text-[#1e293b] font-black text-[12px] uppercase tracking-widest mb-1 flex items-center gap-2">
             <span class="flex items-center justify-center w-6 h-6 rounded-lg bg-orange-50 text-[#D4883B] group-hover:bg-[#D4883B] group-hover:text-white transition-all duration-300 shadow-sm">
-                <i class="fas fa-bezier-curve text-[10px]"></i>
+                <i class="fas fa-bezier-curve text-[15px]"></i>
             </span> 
             Logo & Identity
         </h4>
-        <p class="text-[11px] text-slate-600 font-medium ml-8">Designing memorable logos that define your brand’s core essence.</p>
+        <p class="text-[13px] text-slate-600 font-medium ml-8">Designing memorable logos that define your brand’s core essence.</p>
     </div>
 
     <div class="group border-b border-slate-100 pb-2 hover:border-[#1e293b] transition-all duration-300">
-        <h4 class="text-[#1e293b] font-black text-[10px] uppercase tracking-widest mb-1 flex items-center gap-2">
+        <h4 class="text-[#1e293b] font-black text-[12px] uppercase tracking-widest mb-1 flex items-center gap-2">
             <span class="flex items-center justify-center w-6 h-6 rounded-lg bg-blue-50 text-blue-500 group-hover:bg-[#1e293b] group-hover:text-white transition-all duration-300 shadow-sm">
-                <i class="fas fa-rectangle-ad text-[10px]"></i>
+                <i class="fas fa-rectangle-ad text-[15px]"></i>
             </span> 
             Marketing Assets
         </h4>
-        <p class="text-[11px] text-slate-600 font-medium ml-8">Creating high-impact flyers, brochures, and promotional materials.</p>
+        <p class="text-[13px] text-slate-600 font-medium ml-8">Creating high-impact flyers, brochures, and promotional materials.</p>
     </div>
 
     <div class="group border-b border-slate-100 pb-2 hover:border-[#D4883B] transition-all duration-300">
-        <h4 class="text-[#1e293b] font-black text-[10px] uppercase tracking-widest mb-1 flex items-center gap-2">
+        <h4 class="text-[#1e293b] font-black text-[12px] uppercase tracking-widest mb-1 flex items-center gap-2">
             <span class="flex items-center justify-center w-6 h-6 rounded-lg bg-orange-50 text-[#D4883B] group-hover:bg-[#D4883B] group-hover:text-white transition-all duration-300 shadow-sm">
-                <i class="fas fa-icons text-[10px]"></i>
+                <i class="fas fa-icons text-[15px]"></i>
             </span> 
             Social Media Kit
         </h4>
-        <p class="text-[11px] text-slate-600 font-medium ml-8">Engaging post designs tailored for Instagram, Facebook, and LinkedIn.</p>
+        <p class="text-[13px] text-slate-600 font-medium ml-8">Engaging post designs tailored for Instagram, Facebook, and LinkedIn.</p>
     </div>
 
     <div class="group border-b border-slate-100 pb-2 hover:border-[#1e293b] transition-all duration-300">
-        <h4 class="text-[#1e293b] font-black text-[10px] uppercase tracking-widest mb-1 flex items-center gap-2">
+        <h4 class="text-[#1e293b] font-black text-[12px] uppercase tracking-widest mb-1 flex items-center gap-2">
             <span class="flex items-center justify-center w-6 h-6 rounded-lg bg-blue-50 text-blue-500 group-hover:bg-[#1e293b] group-hover:text-white transition-all duration-300 shadow-sm">
-                <i class="fas fa-pen-nib text-[10px]"></i>
+                <i class="fas fa-pen-nib text-[15px]"></i>
             </span> 
             Vector Graphics
         </h4>
-        <p class="text-[11px] text-slate-600 font-medium ml-8">High-quality illustrations and custom icons for digital and print use.</p>
+        <p class="text-[13px] text-slate-600 font-medium ml-8">High-quality illustrations and custom icons for digital and print use.</p>
     </div>
 </div>
             <div class="pt-8 flex flex-wrap items-center gap-8 relative z-10">
