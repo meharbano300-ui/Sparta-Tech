@@ -30,64 +30,74 @@
 
 
 
-  
-  <style>
-    [x-cloak] { display: none !important; }
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Playfair+Display:ital,wght@1,900&display=swap');
-    
-    body { font-family: 'Inter', sans-serif;  overflow-x: hidden; }
-    .font-serif-italic { font-family: 'Playfair+Display', serif; }
+ 
+<style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Playfair+Display:ital,wght@1,900&display=swap');
+        
+        body { font-family: 'Inter', sans-serif;  overflow-x: hidden; }
+        .font-serif-italic { font-family: 'Playfair+Display', serif; }
 
-    .card-container {
-        transition: all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
-        perspective: 1200px;
-        transform-style: preserve-3d;
-    }
+        .card-container {
+            transition: all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+            perspective: 1200px;
+            transform-style: preserve-3d;
+        }
 
-    .glass-inner {
-        background: rgba(255, 255, 255, 0.03);
-        backdrop-filter: blur(25px);
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
-    }
+        .glass-inner {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(25px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        }
 
-    .bg-image-layer {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-image: url('Images/banner5.jfif');
-        background-size: cover;
-        background-position: center;
-        opacity: 90; 
-        mix-blend-mode: overlay;
-        pointer-events: none;
-    }
+        /* Background Image Layer Styling */
+        .bg-image-layer {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('Images/banner5.jfif');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.9; /* Isay set kiya takay background manageable rahay */
+            mix-blend-mode: overlay;
+            pointer-events: none;
+        }
 
-    .nav-link { font-weight: 700; color: white; position: relative; font-size: 15px; }
-    .nav-link::after {
-        content: '';
-        position: absolute;
-        width: 0; height: 2px;
-        bottom: -4px; left: 0;
-        background-color: white;
-        transition: width 0.3s;
-    }
-    .nav-link:hover::after, .nav-link.active::after { width: 100%; }
+        /* Navbar specific styles */
+        .nav-link { font-weight: 700; color: white; position: relative; font-size: 15px; }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0; height: 2px;
+            bottom: -4px; left: 0;
+            background-color: white;
+            transition: width 0.3s;
+        }
+        .nav-link:hover::after, .nav-link.active::after { width: 100%; }
 
-    @media (max-width: 768px) {
-        .slider-text-h1 { font-size: 2.8rem !important; line-height: 1; }
-    }
+        @media (max-width: 768px) {
+            .slider-text-h1 { font-size: 2.8rem !important; line-height: 1; }
+        }
 
-    @keyframes float-slow {
-        0%, 100% { transform: translateY(0px); }
-        50% { transform: translateY(-10px); }
-    }
-    .animate-float { animation: float-slow 4s ease-in-out infinite; }
-    
-    #slider-subtitle { transition: opacity 0.3s ease; }
-</style>
+        @keyframes float-slow {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        .animate-float { animation: float-slow 4s ease-in-out infinite; }
+        
+        #slider-subtitle { transition: opacity 0.3s ease; }
+
+
+        #tawk-chat-container a {
+    display: none !important;
+    visibility: hidden !important;
+}
+
+/* Alpine.js ke load hone tak elements hide rahein */
+[x-cloak] { display: none !important; }
+    </style>
 </head>
 <body>
 
@@ -97,7 +107,7 @@
         @scroll.window="scrolled = (window.pageYOffset > 50) ? true : false"
         class="w-full z-[100] relative font-sans">
     
-    <div x-show="!scrolled" 
+   <div x-show="!scrolled" 
          x-transition:leave="transition ease-in duration-200"
          x-transition:leave-start="opacity"
          x-transition:leave-end="opacity-0"
@@ -121,28 +131,32 @@
         </div>
     </div>
 
-    <nav :class="scrolled ? 'fixed top-0 left-0 shadow-2xl ' : 'relative'" 
+    
+    <nav :class="scrolled ? 'fixed top-0 left-0' : 'relative'" 
          class="w-full py- px-6 md:px-16 flex justify-between items-center bg-gradient-to-r from-[#010409] via-[#020817] to-[#010409] z-[100] transition-all duration-300">
         
-       <div class="flex items-center gap-3">
-            <div class="w-16 h-16 flex items-center justify-center">
-                <img src="Images/log2.png" alt="Logo" class="w-full h-full object-contain" />
+       <div class="flex items-center py-2">
+            <div class="w-16 h-14 flex items-center justify-center">
+                <img src="Images/go1.png" alt="Logo" class="w-full h-full object-contain" />
             </div>
-            <span class="text-white font-black text-xl tracking-tighter uppercase italic">
-                Sparta<span class="text-[#febd69] ml-1">Tech</span>
-            </span>
+             <div class="w-26 h-12 flex items-center justify-center">
+                <img src="Images/go2.png" alt="Logo" class="w-full h-full object-contain" />
+            </div>
         </div>
 
+
         <div class="hidden lg:flex items-center gap-10">
-            <a href="Index.html" class="nav-link active font-black  text-white">Home</a>
-            <a href="About.html" class="nav-link text-gray-300 font-black  hover:text-white transition-all">About us</a>
+            <a href="Index.html" class="nav-link active font-black text-white">Home</a>
+            <a href="About.html" class="nav-link text-gray-300 font-black hover:text-white transition-all">About us</a>
             
             <div class="relative group" @mouseenter="servicesOpen = true" @mouseleave="servicesOpen = false">
-                <a href="#" class="nav-link relative text-gray-300 hover:text-white transition-all flex items-center gap-2 py- font-black  text-[15px]  group">
+                <a href="#" class="nav-link relative text-gray-300 hover:text-white transition-all flex items-center gap-2 py- font-black text-[15px] group">
                     <span class="relative z-10">Services</span>
                 </a>
 
-                <div x-show="servicesOpen" x-cloak
+                <div x-show="servicesOpen" 
+                     x-cloak
+                     @click.away="servicesOpen = false"
                      x-transition:enter="transition cubic-bezier(0.17, 0.67, 0.83, 0.67) duration-400"
                      x-transition:enter-start="opacity-0 -translate-y-2 scale-95 blur-md"
                      x-transition:enter-end="opacity-100 translate-y-0 scale-100 blur-0"
@@ -151,6 +165,7 @@
                     <div class="absolute -top-24 -left-24 w-48 h-48 bg-[#D4883B]/10 blur-[60px] rounded-full pointer-events-none"></div>
 
                     <div class="relative z-10 grid grid-cols-2 gap-x-2 gap-y-1">
+                        
                         <div class="space-y-1">
                             <a href="Web-Design.html" class="group/item relative flex items-center gap-4 px-4 py-3 rounded-xl transition-all duration-500 hover:bg-white/[0.03]">
                                 <div class="absolute left-0 top-1/2 -translate-y-1/2 w-[3px] h-0 bg-[#D4883B] rounded-full transition-all duration-400 group-hover/item:h-3/4 group-hover/item:shadow-[0_0_15px_#D4883B]"></div>
@@ -184,16 +199,18 @@
                                     <span class="text-[9px] text-gray-500 font-medium group-hover/item:text-gray-400 transition-colors uppercase tracking-widest">Growth & SEO</span>
                                 </div>
                             </a>
-                           <a href="Wordpress.html" class="group/item relative flex items-center gap-4 px-4 py-3 rounded-xl transition-all duration-500 hover:bg-white/[0.03]">
-                            <div class="absolute left-0 top-1/2 -translate-y-1/2 w-[3px] h-0 bg-[#D4883B] rounded-full transition-all duration-400 group-hover/item:h-3/4 group-hover/item:shadow-[0_0_15px_#D4883B]"></div>
-                            <div class="relative flex items-center justify-center w-11 h-11 rounded-2xl bg-gradient-to-br from-white/5 to-white/[0.01] border border-white/10 group-hover/item:border-[#D4883B]/40 group-hover/item:rotate-[10deg] transition-all duration-500">
-                                <i class="fa-brands fa-wordpress text-[#D4883B] text-xl"></i>
-                            </div>
-                            <div class="flex flex-col">
-                                <span class="text-[13px] font-bold text-gray-200 group-hover/item:text-white transition-colors">WordPress Development</span>
-                                <span class="text-[9px] text-gray-500 font-medium group-hover/item:text-gray-400 transition-colors uppercase tracking-widest">Custom CMS & Blog</span>
-                            </div>
-                        </a>
+   <a href="Wordpress.html" class="group/item relative flex items-center gap-4 px-4 py-3 rounded-xl transition-all duration-500 hover:bg-white/[0.03]">
+    <div class="absolute left-0 top-1/2 -translate-y-1/2 w-[3px] h-0 bg-[#D4883B] rounded-full transition-all duration-400 group-hover/item:h-3/4 group-hover/item:shadow-[0_0_15px_#D4883B]"></div>
+    
+    <div class="relative flex items-center justify-center w-11 h-11 rounded-2xl bg-gradient-to-br from-white/5 to-white/[0.01] border border-white/10 group-hover/item:border-[#D4883B]/40 group-hover/item:rotate-[10deg] transition-all duration-500">
+        <i class="fa-brands fa-wordpress text-[#D4883B] text-xl"></i>
+    </div>
+    
+    <div class="flex flex-col">
+        <span class="text-[13px] font-bold text-gray-200 group-hover/item:text-white transition-colors">WordPress Development</span>
+        <span class="text-[9px] text-gray-500 font-medium group-hover/item:text-gray-400 transition-colors uppercase tracking-widest">Custom CMS & Blog</span>
+    </div>
+</a>
                         </div>
 
                         <div class="space-y-1 border-l border-white/5">
@@ -229,16 +246,18 @@
                                     <span class="text-[9px] text-gray-500 font-medium group-hover/item:text-gray-400 transition-colors uppercase tracking-widest">Visual Arts</span>
                                 </div>
                             </a>
-                            <a href="SEO-Optimization.html" class="group/item relative flex items-center gap-4 px-4 py-3 rounded-xl transition-all duration-500 hover:bg-white/[0.03]">
-                            <div class="absolute left-0 top-1/2 -translate-y-1/2 w-[3px] h-0 bg-[#D4883B] rounded-full transition-all duration-400 group-hover/item:h-3/4 group-hover/item:shadow-[0_0_15px_#D4883B]"></div>
-                            <div class="relative flex items-center justify-center w-11 h-11 rounded-2xl bg-gradient-to-br from-white/5 to-white/[0.01] border border-white/10 group-hover/item:border-[#D4883B]/40 group-hover/item:rotate-[10deg] transition-all duration-500">
-                                <i class="fa-solid fa-magnifying-glass-chart text-[#D4883B] text-lg"></i>
-                            </div>
-                            <div class="flex flex-col">
-                                <span class="text-[13px] font-bold text-gray-200 group-hover/item:text-white transition-colors">SEO Optimization</span>
-                                <span class="text-[9px] text-gray-500 font-medium group-hover/item:text-gray-400 transition-colors uppercase tracking-widest">Rank & Visibility</span>
-                            </div>
-                        </a>
+    <a href="SEO-Optimization.html" class="group/item relative flex items-center gap-4 px-4 py-3 rounded-xl transition-all duration-500 hover:bg-white/[0.03]">
+    <div class="absolute left-0 top-1/2 -translate-y-1/2 w-[3px] h-0 bg-[#D4883B] rounded-full transition-all duration-400 group-hover/item:h-3/4 group-hover/item:shadow-[0_0_15px_#D4883B]"></div>
+    
+    <div class="relative flex items-center justify-center w-11 h-11 rounded-2xl bg-gradient-to-br from-white/5 to-white/[0.01] border border-white/10 group-hover/item:border-[#D4883B]/40 group-hover/item:rotate-[10deg] transition-all duration-500">
+        <i class="fa-solid fa-magnifying-glass-chart text-[#D4883B] text-lg"></i>
+    </div>
+    
+    <div class="flex flex-col">
+        <span class="text-[13px] font-bold text-gray-200 group-hover/item:text-white transition-colors">SEO Optimization</span>
+        <span class="text-[9px] text-gray-500 font-medium group-hover/item:text-gray-400 transition-colors uppercase tracking-widest">Rank & Visibility</span>
+    </div>
+</a>
                         </div>
                     </div>
 
@@ -251,24 +270,24 @@
                 </div>
             </div>
 
-            <a href="Contact.html" class="nav-link font-black  text-gray-300 hover:text-white transition-all">Contact Us</a>
+            <a href="Contact.html" class="nav-link font-black text-gray-300 hover:text-white transition-all">Contact Us</a>
         </div>
 
 
- <div class="flex items-center gap-4">
+<div class="flex items-center gap-4">
     <div class="relative group p-[2px] rounded-full overflow-hidden inline-flex items-center justify-center transform active:scale-95 transition-transform">
-        <div class="absolute inset-0 w-full h-full bg-conic-gradient from-[#febd69] via-transparent to-[#febd69] animate-[spin_3s_linear_infinite] opacity-100"></div>
+        <div class="absolute inset-0 w-full h-full bg-conic-gradient from-[#050c1f] via-transparent to-[#050c1f] animate-[spin_3s_linear_infinite] opacity-100"></div>
         
         <a href="javascript:void(0)" 
            onclick="Tawk_API.maximize();" 
            class="relative bg-gradient-to-r from-[#010409] via-[#020817] to-[#010409] shadow-[0_10px_40px_-15px_rgba(2,132,199,0.15)] 
-                  text-[#febd69] font-black px-3 py-2 md:px-5 md:py-2.5 rounded-full transition-all duration-500 
+                  text-[#E89D4B] font-black px-3 py-2 md:px-5 md:py-2.5 rounded-full transition-all duration-500 
                   text-[10px] md:text-[12px] flex items-center gap-2 whitespace-nowrap
-                  hover:bg-[#febd69] hover:text-[#010409] hover:shadow-[0_0_20px_rgba(254,189,105,0.8)] group/btn">
+                  hover:bg-[#050c1f] hover:text-[#febd69] hover:shadow-[0_0_20px_rgba(5,12,31,0.8)] group/btn">
             
-            <i class="fa-solid fa-comments text-sm transition-all duration-300 group-hover/btn:scale-125 group-hover/btn:rotate-[360deg] group-hover/btn:text-[#ffdb99]"></i>
+            <i class="fa-solid fa-comments text-sm transition-all duration-300 group-hover/btn:scale-125 group-hover/btn:rotate-[360deg] group-hover/btn:text-[#febd69]"></i>
             
-            <span class="tracking-wide uppercase transition-all duration-500 ease-in-out group-hover/btn:tracking-[0.2em] group-hover/btn:scale-110 group-hover/btn:text-[#ffdb99] group-active/btn:scale-90 inline-block">
+            <span class="tracking-wide uppercase transition-all duration-500 ease-in-out group-hover/btn:tracking-[0.2em] group-hover/btn:scale-110 group-hover/btn:text-[#febd69] group-active/btn:scale-90 inline-block">
                 Let's Talk
             </span>
         </a>
@@ -280,6 +299,7 @@
 </div>
 
         <div x-show="mobileMenuOpen" 
+             x-cloak
              x-transition:enter="transition ease-out duration-200"
              x-transition:enter-start="opacity-0 -translate-y-5"
              x-transition:enter-end="opacity-100 translate-y-0"
@@ -291,7 +311,9 @@
                 <button @click="open = !open" class="w-full text-left nav-link text-gray-300 pb-2 border-b border-white/5 flex justify-between items-center">
                     Services <i class="fa-solid fa-plus text-xs" :class="open ? 'rotate-45' : ''"></i>
                 </button>
-                <div x-show="open" class="pl-4 mt-2 flex flex-col gap-3">
+                <div x-show="open" 
+                     x-cloak
+                     class="pl-4 mt-2 flex flex-col gap-3">
                     <a href="Web-Design.html" class="text-gray-400 text-sm">Web Design & Dev</a>
                     <a href="Web-App-Development.html" class="text-gray-400 text-sm">Web App Development</a>
                     <a href="Digital-Marketing.html" class="text-gray-400 text-sm">Digital Marketing</a>
@@ -309,6 +331,7 @@
 </header>
 
 <style>
+/* Rotating Border Glow Effect */
 @keyframes spin {
     from { transform: rotate(0deg); }
     to { transform: rotate(360deg); }
@@ -316,10 +339,9 @@
 .bg-conic-gradient {
     background: conic-gradient(from 0deg, transparent 0%, #febd69 50%, transparent 100%);
 }
+/* Ensure the page doesn't jump when navbar becomes fixed */
 body { padding-top: 0; }
 </style>
-
-
 
 
 
@@ -344,7 +366,7 @@ body { padding-top: 0; }
     <div class="relative z-10 container mx-auto px-6 text-center">
         <div class="max-w-5xl mx-auto">
             <h1 id="line2" class="text-white text-5xl md:text-8xl lg:text-[90px] font-black leading-[0.9] mb-8 tracking-tighter transition-all duration-1000">
-                WEB <span class="text-[#E89D4B] italic font-serif-italic">App &</span> <br>
+                WEB <span class="text-[#E89D4B] italic font-serif-italic">& Mobile App</span> <br>
                 <span class="relative">
                      DEVELOPMENT
                     <svg class="absolute -bottom-2 left-0 w-full h-3 text-[#febd69]/30" viewBox="0 0 400 20"><path d="M0 10 Q100 0 200 10 T400 10" fill="none" stroke="currentColor" stroke-width="4"/></svg>
@@ -353,7 +375,11 @@ body { padding-top: 0; }
            <p id="line3" class="text-gray-400 text-lg md:text-xl max-w-2xl mx-auto font-medium leading-relaxed mb-8">
     We don't just build apps; we architect <span class="text-white">scalable digital ecosystems</span> that redefine industries. Transform your vision into a high-performance reality with Sparta Tech's Web App engineering.
 </p>
+
+
+
             
+
             <a href="Contact.html" ><div class="mt-5 flex justify-center items-center w-full">
                 <div class="relative group cursor-pointer">
                     <div class="absolute -inset-[1px] rounded-full opacity-100 group-hover:opacity-100 transition duration-500 overflow-hidden">
@@ -438,48 +464,46 @@ body { padding-top: 0; }
 
 
 
-
-
-<section class="py-20 bg-[#fafafa] relative overflow-hidden">
+<section class="py-8 md:py-16 bg-[#fafafa] relative overflow-hidden">
     <div class="absolute top-0 left-0 w-full h-full pointer-events-none">
-        <div class="absolute -top-24 -left-24 w-[500px] h-[500px] bg-[#febd69]/10 rounded-full blur-[120px]"></div>
-        <div class="absolute bottom-0 right-0 w-[400px] h-[400px] bg-black/5 rounded-full blur-[100px]"></div>
+        <div class="absolute -top-24 -left-24 w-[300px] md:w-[500px] h-[300px] md:h-[500px] bg-[#febd69]/10 rounded-full blur-[80px] md:blur-[120px]"></div>
+        <div class="absolute bottom-0 right-0 w-[250px] md:w-[400px] h-[250px] md:h-[400px] bg-black/5 rounded-full blur-[70px] md:blur-[100px]"></div>
     </div>
 
-    <div class="container mx-auto px-6 relative z-10 mt-10">
-        <div class="flex flex-col lg:flex-row items-center gap-20">
+    <div class="container mx-auto px-6 md:px-8 relative z-10 mt-5 md:mt-10">
+        <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
             
-            <div class="lg:w-1/2 w-full relative min-h-[500px] flex items-center justify-center">
-                <div id="inner-image-slider" class="relative w-[85%]   h-auto max-h-[550px] aspect-[4/5] rounded-[2rem] overflow-hidden shadow-[0_40px_80px_-15px_rgba(0,0,0,0.1)] border border-white/50 z-20">
+            <div class="lg:w-1/2 w-full relative min-h-[420px] md:min-h-[500px] flex items-center justify-center">
+                <div id="inner-image-slider" class="relative w-[85%] md:w-[85%] h-auto max-h-[450px] md:max-h-[550px] aspect-[4/5] rounded-[2rem] overflow-hidden shadow-[0_40px_80px_-15px_rgba(0,0,0,0.1)] border border-white/50 z-20">
                     <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070" class="inner-slide active absolute inset-0 w-full h-full object-cover transition-opacity duration-1000">
                     <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2015" class="inner-slide absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-1000">
                 </div>
 
-                <div class="absolute -bottom-16 -right-1 w-[45%] aspect-square rounded-[2rem] overflow-hidden shadow-2xl border-[8px] border-white z-30 transform hover:-translate-y-2 transition-all duration-700">
+                <div class="absolute -bottom-8 -right-1 md:-bottom-16 md:-right-1 w-[45%] aspect-square rounded-[1.5rem] md:rounded-[2rem] overflow-hidden shadow-2xl border-[4px] md:border-[8px] border-white z-30 transform hover:-translate-y-2 transition-all duration-700">
                     <img src="https://images.unsplash.com/photo-1537432376769-00f5c2f4c8d2?q=80&w=2070" class="w-full h-full object-cover">
                 </div>
                 
-                <div class="absolute top-1/2 -left-8 md:left-[-1px] z-40 mt-10 bg-white/90 backdrop-blur-2xl p-5 rounded-[2rem] shadow-[0_30px_60px_rgba(0,0,0,0.08)] border border-white hidden md:block w-64 transform hover:rotate-0 transition-all duration-500">
+                <div class="absolute top-1/2 -left-4 md:-left-8 lg:left-[-1px] z-40 mt-10 bg-white/90 backdrop-blur-2xl p-4 md:p-5 rounded-[1.5rem] md:rounded-[2rem] shadow-[0_30px_60px_rgba(0,0,0,0.08)] border border-white hidden sm:block w-56 md:w-64 transform hover:rotate-0 transition-all duration-500">
                     <div class="flex items-center justify-between mb-4">
                         <div class="flex -space-x-2">
-                            <img class="w-8 h-8 bg-[#E89D4B] rounded-full border-2 border-white shadow-sm" src="https://ui-avatars.com/api/?name=Dev&background=febd69&color=fff" alt="User">
-                            <img class="w-8 h-8 rounded-full border-2 border-white shadow-sm" src="https://ui-avatars.com/api/?name=Ops&background=000&color=fff" alt="User">
+                            <img class="w-7 h-7 md:w-8 md:h-8 bg-[#E89D4B] rounded-full border-2 border-white shadow-sm" src="https://ui-avatars.com/api/?name=Dev&background=febd69&color=fff" alt="User">
+                            <img class="w-7 h-7 md:w-8 md:h-8 rounded-full border-2 border-white shadow-sm" src="https://ui-avatars.com/api/?name=Ops&background=000&color=fff" alt="User">
                         </div>
                         <div class="flex items-center gap-1.5 ">
                             <span class="relative flex h-2 w-2">
                                 <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
                                 <span class="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
                             </span>
-                            <span class="text-[9px] font-black uppercase tracking-widest text-black/40">App Sync</span>
+                            <span class="text-[8px] md:text-[9px] font-black uppercase tracking-widest text-black/40">App Sync</span>
                         </div>
                     </div>
                     <div class="space-y-3 mb-4">
                         <div class="flex justify-between items-center mb-1">
                              <div class="flex items-center gap-2">
                                 <i class="fas fa-server text-[10px] text-[#E89D4B]"></i>
-                                <span class="text-[9px] font-bold uppercase text-black">Server Load</span>
+                                <span class="text-[8px] md:text-[9px] font-bold uppercase text-black">Server Load</span>
                              </div>
-                             <span class="text-[9px] font-black text-green-500">Active</span>
+                             <span class="text-[8px] md:text-[9px] font-black text-green-500">Active</span>
                         </div>
                         <div class="h-1 w-full bg-gray-100 rounded-full overflow-hidden">
                             <div class="h-full bg-[#E89D4B] w-[95%] transition-all duration-[2000ms]"></div>
@@ -488,89 +512,87 @@ body { padding-top: 0; }
                         <div class="flex justify-between items-center mb-1 pt-1">
                              <div class="flex items-center gap-2">
                                 <i class="fas fa-database text-[10px] text-black"></i>
-                                <span class="text-[9px] font-bold uppercase text-black">Database</span>
+                                <span class="text-[8px] md:text-[9px] font-bold uppercase text-black">Database</span>
                              </div>
-                             <span class="text-[9px] font-black text-green-500">Active</span>
+                             <span class="text-[8px] md:text-[9px] font-black text-green-500">Active</span>
                         </div>
                         <div class="h-1 w-full bg-gray-100 rounded-full overflow-hidden">
                             <div class="h-full bg-[#E89D4B] w-[95%] transition-all duration-[2000ms]"></div>
                         </div>
                         <div class="flex justify-between items-center mb-1">
-    <div class="flex items-center gap-2">
-        <i class="fas fa-laptop-code text-[11px] text-[#E89D4B]"></i>
-        <span class="text-[9px] font-bold uppercase text-black tracking-wider">Interface Status</span>
-    </div>
-    <span class="text-[9px] font-black text-green-500">Active</span>
-</div>
+                            <div class="flex items-center gap-2">
+                                <i class="fas fa-laptop-code text-[11px] text-[#E89D4B]"></i>
+                                <span class="text-[8px] md:text-[9px] font-bold uppercase text-black tracking-wider">Interface Status</span>
+                            </div>
+                            <span class="text-[8px] md:text-[9px] font-black text-green-500">Active</span>
+                        </div>
                         <div class="h-1 w-full bg-gray-100 rounded-full overflow-hidden">
                             <div class="h-full bg-[#E89D4B] w-[95%] transition-all duration-[2000ms]"></div>
                         </div>
                     </div>
-                    
                 </div>
             </div>
 
-            <div class="lg:w-1/2 w-full flex flex-col">
-                  <div class="flex items-center gap-4">
+            <div class="lg:w-1/2 w-full flex flex-col mt-6 lg:mt-0">
+                <div class="flex items-center gap-4">
                     <span class="h-[1.5px] w-12 bg-[#E89D4B]"></span>
                     <span class="text-[#1e293b] font-black text-[9px] uppercase tracking-[0.5em]">Scalable Web Applications</span>
                 </div>
-               
-                <h2 class="text-black text-6xl md:text-8xl font-['Playfair_Display'] italic leading-[0.95] tracking-tighter mb-4">
-                    Powerful <span class="text-gray-300">Logic</span> <br>
-                    <span class="italic font-serif-italic text-[#E89D4B] relative">Meets</span> SaaS.
+                
+                <h2 class="text-black text-5xl sm:text-6xl md:text-[95px] font-['Playfair_Display'] italic leading-[0.95] tracking-tighter mb-4 ">
+                    Smart <span class="text-gray-300">Code</span> <br>
+                    <span class="italic font-serif-italic text-[#E89D4B] relative">Stunning</span> Apps
                 </h2>
                 
-               
-               
-    <div class="max-w-lg relative z-10 ">
-    <p class="text-gray-500 text-[13px] md:text-[14px] leading-relaxed mb-4">
-    We build <span class="text-black font-bold">custom web and mobile applications</span> that help businesses connect with users and streamline operations. From interactive web apps to sleek mobile apps, our solutions are fast, secure, and user-friendly.
-    
-    Our web apps are responsive and scalable, using modern frameworks like 
-    <span class="text-black font-semibold border-b-2 border-[#febd69]/70">React, Angular, and Node.js</span>. We create single-page apps, dashboards, and PWAs that deliver smooth, high-performance experiences.
-    For mobile apps, we develop both <span class="text-[#E89D4B] font-bold italic">iOS and Android solutions</span>, using native or cross-platform technologies like Flutter and React Native. 
-    From concept to launch, we guide your project through design and testing, turning your 
-    <span class="text-black font-bold">ideas into digital solutions</span> that engage users and drive results.
-</p>
+                <div class="max-w-lg relative z-10">
+                    <p class="text-gray-500 text-[14px] md:text-[14px] leading-relaxed mb-4 text-justify md:text-left">
+                        We build <span class="text-black font-bold">custom web and mobile applications</span> that help businesses connect with users and streamline operations.
+                        From interactive web apps to sleek mobile apps experiences, our solutions are designed to be fast, secure, and user-friendly.
+                       
+                        Our web apps are responsive and scalable, and built using modern technologies such as 
+                        <span class="text-black font-semibold border-b-2 border-[#febd69]/70">React, Angular, and Node.js</span>. 
+                        We develop single-page applications, dashboards, and progressive web
+                        apps (PWAs) that deliver smooth, high-performance user experiences.
+                        For mobile app development,
+                        we create powerful <span class="text-[#E89D4B] font-bold italic">iOS and Android applications</span> using
+                        both native and cross-platform technologies like Flutter and React Native. 
+                        Whether it’s a customer-facing app or an internal business tool,
+                        <span class="text-black font-bold">we focus on usability,</span> performance, and reliability.
+                    </p>
 
-    <p class="mt-2 text-gray-500 text-[13px] md:text-[14px] leading-relaxed italic">
-        💡 Planning a large-scale enterprise system or an AI-integrated tool? 
-        <span class="text-black font-bold not-italic hover:text-[#E89D4B] transition-colors duration-300 cursor-default">Let’s talk!</span> 
-        We’ll dive deep into your logic requirements to provide a precise roadmap and quote.
-    </p>
-</div>
-<a href="contact.html" class="block max-w-[520px] group/card mt-4 no-underline">
-    <div class="shadow-[0_0_15px_5px_rgba(0,0,0,0.1)] bg-gradient-to-r from-gray-100 to-transparent rounded-[1rem] transition-transform duration-300 active:scale-[0.97]">
-        <div class="bg-white p-4 rounded-[1rem] flex items-center justify-between shadow-sm group-hover/card:shadow-xl transition-all duration-500 border border-white">
-            
-            <div class="flex items-center gap-5">
-                <div class="w-10 h-10 bg-black rounded-[7px] flex items-center justify-center group-hover/card:bg-[#E89D4B] transition-colors duration-300">
-                    <svg class="w-5 h-5 text-[#E89D4B] group-hover/card:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
-                    </svg>
+                    <p class="mt-2 text-gray-500 text-[13px] md:text-[14px] leading-relaxed italic">
+                        💡 Planning a large-scale enterprise system or an AI-integrated AI Driven tool? 
+                        <span onclick="Tawk_API.maximize();" class="text-black font-bold not-italic hover:text-[#E89D4B] transition-colors duration-300 cursor-pointer">
+                            Let’s talk!
+                        </span>
+                        We’ll dive deep into your logic requirements to provide a precise roadmap and quote.
+                    </p>
                 </div>
 
-                <div>
-                    <p class="text-[9px] font-black text-gray-400 uppercase tracking-widest mb-0.5">Scalable Architecture</p>
-                    <h5 class="text-xl font-black text-black tracking-tight italic">
-                        FULL-STACK <span class="text-[#E89D4B] not-italic">Digital Systems</span>
-                    </h5>
-                </div>
-            </div>
-
-            <div class="w-12 h-12 bg-gray-50 group-hover/card:bg-black rounded-[10px] flex items-center justify-center transition-all border border-gray-100">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-black group-hover/card:text-[#febd69] transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                </svg>
-            </div>
-
-        </div>
-    </div>
-</a>
-
-
-
+                <a href="contact.html" class="block w-full max-w-[520px] group/card mt-4 no-underline mx-auto lg:mx-0">
+                    <div class="shadow-[0_0_15px_5px_rgba(0,0,0,0.05)] bg-gradient-to-r from-gray-100 to-transparent rounded-[1rem] transition-transform duration-300 active:scale-[0.97]">
+                        <div class="bg-white p-4 rounded-[1rem] flex items-center justify-between shadow-sm group-hover/card:shadow-xl transition-all duration-500 border border-white">
+                            <div class="flex items-center gap-3 sm:gap-5">
+                                <div class="w-10 h-10 shrink-0 bg-black rounded-[7px] flex items-center justify-center group-hover/card:bg-[#E89D4B] transition-colors duration-300">
+                                    <svg class="w-5 h-5 text-[#E89D4B] group-hover/card:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+                                    </svg>
+                                </div>
+                                <div>
+                                    <p class="text-[8px] sm:text-[9px] font-black text-gray-400 uppercase tracking-widest mb-0.5">Custom Solutions</p>
+                                    <h5 class="text-lg sm:text-xl font-black text-black tracking-tight italic leading-tight">
+                                        FULL STACK <span class="text-[#E89D4B] not-italic">Web & Mobile Apps</span>
+                                    </h5>
+                                </div>
+                            </div>
+                            <div class="w-10 h-10 sm:w-12 sm:h-12 shrink-0 bg-gray-50 group-hover/card:bg-black rounded-[10px] flex items-center justify-center transition-all border border-gray-100 ml-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 sm:h-5 sm:w-5 text-black group-hover/card:text-[#febd69] transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                </a>
 
             </div>
         </div>
@@ -581,7 +603,6 @@ body { padding-top: 0; }
     @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:italic@1&display=swap');
     @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css');
     .font-serif-italic { font-family: 'Playfair Display', serif; }
-    
     .inner-slide { opacity: 0; transition: opacity 1000ms ease-in-out; }
     .inner-slide.active { opacity: 1 !important; }
     
@@ -593,25 +614,18 @@ body { padding-top: 0; }
 </style>
 
 <script>
-    // INNER MINI SLIDER LOGIC
     (function() {
         let currentInnerSlide = 0;
         const innerSlides = document.querySelectorAll('.inner-slide');
-        
         function showInnerSlides() {
             if (innerSlides.length === 0) return;
             innerSlides.forEach(s => s.classList.remove('active'));
             innerSlides[currentInnerSlide].classList.add('active');
             currentInnerSlide = (currentInnerSlide + 1) % innerSlides.length;
         }
-        
-        // Initial start and interval
         setInterval(showInnerSlides, 4000);
     })();
 </script>
-
-
-
 
 
 
@@ -631,9 +645,7 @@ body { padding-top: 0; }
     </div>
 
     <div class="max-w-9xl mx-auto flex mb-24 flex-col lg:flex-row-reverse items-center gap-20 relative z-10">
-        
         <div class="lg:w-1/2 relative flex items-center justify-center min-h-[475px]">
-            
             <div class="absolute w-[90%] h-[100%] border-[2px] border-[#E89D4B]/40 rounded-[50px] rotate-[8deg] transition-transform duration-700 hover:rotate-0"></div>
             <div class="absolute w-[90%] h-[100%] border-[2px] border-[#1e293b]/10 rounded-[40px] -rotate-[4deg]"></div>
             <div class="absolute w-[90%] h-[100%] border-t-[1px] border-b-[1px] border-[#E89D4B]/20 rounded-full scale-110 opacity-50"></div>
@@ -685,12 +697,12 @@ body { padding-top: 0; }
                 </div>
                 
                 <h2 class="text-[#1e293b] leading-[0.9] tracking-tighter relative z-10">
-                    <span class="text-5xl md:text-6xl font-black block transform -translate-x-1">Web App</span> 
+                    <span class="text-5xl md:text-6xl font-black block transform -translate-x-1">Web & Mobile App</span> 
                     <span class="font-['Playfair_Display'] italic text-[#E89D4B] text-6xl md:text-8xl block my-2">Development.</span>
                     <span class="text-3xl md:text-5xl font-extralight opacity-70 block tracking-normal">Built for Scaling.</span>
                 </h2>
 
-                <p class="text-slate-700 text-base leading-relaxed max-w-xl relative z-10">
+                <p class="text-gray-700 text-base leading-relaxed max-w-xl relative z-10">
                     We don't just write code, we engineer <span class="text-[#1e293b] font-bold text-lg italic">Logic Systems</span>. 
                     Every function is clearly optimized for <span class="text-[#E89D4B] font-bold underline decoration-wavy">Seamless-Integration</span> and robust backend power.
                 </p>
@@ -702,43 +714,43 @@ body { padding-top: 0; }
 
            <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4 pt-6 relative z-10">
     <div class="group border-b border-slate-100 pb-2 hover:border-[#D4883B] transition-all duration-300">
-        <h4 class="text-[#1e293b] font-black text-[10px] uppercase tracking-widest mb-1 flex items-center gap-2">
+        <h4 class="text-[#1e293b] font-black text-[12px] uppercase tracking-widest mb-1 flex items-center gap-2">
             <span class="flex items-center justify-center w-6 h-6 rounded-lg bg-orange-50 text-[#D4883B] group-hover:bg-[#D4883B] group-hover:text-white transition-all duration-300 shadow-sm">
-                <i class="fas fa-cubes text-[10px]"></i>
+                <i class="fas fa-cubes text-[15px]"></i>
             </span> 
             Full-Stack Solutions
         </h4>
-        <p class="text-[11px] text-slate-600 font-medium ml-8">End-to-end development from database to user interface.</p>
+        <p class="text-[13px] text-slate-600 font-medium ml-8">End-to-end development from database to user interface.</p>
     </div>
 
     <div class="group border-b border-slate-100 pb-2 hover:border-[#1e293b] transition-all duration-300">
-        <h4 class="text-[#1e293b] font-black text-[10px] uppercase tracking-widest mb-1 flex items-center gap-2">
+        <h4 class="text-[#1e293b] font-black text-[12px] uppercase tracking-widest mb-1 flex items-center gap-2">
             <span class="flex items-center justify-center w-6 h-6 rounded-lg bg-blue-50 text-blue-500 group-hover:bg-[#1e293b] group-hover:text-white transition-all duration-300 shadow-sm">
-                <i class="fas fa-server text-[10px]"></i>
+                <i class="fas fa-server text-[15px]"></i>
             </span> 
             Scalable Architecture
         </h4>
-        <p class="text-[11px] text-slate-600 font-medium ml-8">Built to grow alongside your business and handle high loads.</p>
+        <p class="text-[13px] text-slate-600 font-medium ml-8">Built to grow alongside your business and handle high loads.</p>
     </div>
 
     <div class="group border-b border-slate-100 pb-2 hover:border-[#D4883B] transition-all duration-300">
-        <h4 class="text-[#1e293b] font-black text-[10px] uppercase tracking-widest mb-1 flex items-center gap-2">
+        <h4 class="text-[#1e293b] font-black text-[12px] uppercase tracking-widest mb-1 flex items-center gap-2">
             <span class="flex items-center justify-center w-6 h-6 rounded-lg bg-orange-50 text-[#D4883B] group-hover:bg-[#D4883B] group-hover:text-white transition-all duration-300 shadow-sm">
-                <i class="fas fa-project-diagram text-[10px]"></i>
+                <i class="fas fa-project-diagram text-[15px]"></i>
             </span> 
             API Integration
         </h4>
-        <p class="text-[11px] text-slate-600 font-medium ml-8">Connecting seamless third-party services and data workflows.</p>
+        <p class="text-[13px] text-slate-600 font-medium ml-8">Connecting seamless third-party services and data workflows.</p>
     </div>
 
     <div class="group border-b border-slate-100 pb-2 hover:border-[#1e293b] transition-all duration-300">
-        <h4 class="text-[#1e293b] font-black text-[10px] uppercase tracking-widest mb-1 flex items-center gap-2">
+        <h4 class="text-[#1e293b] font-black text-[12px] uppercase tracking-widest mb-1 flex items-center gap-2">
             <span class="flex items-center justify-center w-6 h-6 rounded-lg bg-blue-50 text-blue-500 group-hover:bg-[#1e293b] group-hover:text-white transition-all duration-300 shadow-sm">
-                <i class="fas fa-sync-alt text-[10px]"></i>
+                <i class="fas fa-sync-alt text-[15px]"></i>
             </span> 
             Real-time Features
         </h4>
-        <p class="text-[11px] text-slate-600 font-medium ml-8">Dynamic updates using modern tech like WebSockets and Push.</p>
+        <p class="text-[13px] text-slate-600 font-medium ml-8">Dynamic updates using modern tech like WebSockets and Push.</p>
     </div>
 </div>
 
@@ -783,17 +795,20 @@ body { padding-top: 0; }
 
 
 <footer class="bg-gradient-to-r from-[#010409] via-[#020817] to-[#010409] text-white pt-12 pb-8 px-6 font-sans border-t-4 border-[#E89D4B]">
-    <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 px-10">
+    <div class="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 md:gap-4 px-4 md:px-10">
         
         <div class="space-y-3 px-4 lg:px-2">
-            <div class="flex items-center gap-3">
-                <div class="w-14 h-14 rounded-lg flex items-center justify-center overflow-hidden">
-                    <img src="Images/log2.png" alt="Logo" class="w-full h-full object-cover">
+            <div class="flex items-center gap-2">
+                <div class="w-14 h-16 rounded-lg flex items-center justify-center overflow-hidden">
+                    <img src="Images/go1.png" alt="Logo" class="w-14 h-14 object-cover">
                 </div>
-                <h2 class="text-2xl font-black tracking-tighter uppercase">Sparta <span class="text-[#E89D4B]">Tech</span></h2>
+                <div class="w-24 h-14 rounded-lg flex items-center justify-center overflow-hidden">
+                    <img src="Images/go2.png" alt="Logo" class="w-full h-full object-cover">
+                </div>
+                
             </div>
             <p class="text-gray-400 text-sm leading-relaxed">
-                Empowering next-gen businesses with AI-driven growth systems and unified digital infrastructure. Scale beyond guesswork.
+                Empowering businesses with creative and technology-driven solutions that enhance digital presence and accelerate growth.
             </p>
             <div class="flex gap-4">
                 <a href="#" class="w-10 h-10 rounded-full border border-gray-700 flex items-center justify-center hover:border-[#E89D4B] hover:text-[#E89D4B] transition-all"><i class="fab fa-facebook-f"></i></a>
@@ -803,8 +818,8 @@ body { padding-top: 0; }
         </div>
 
         <div>
-            <h4 class="text-lg font-bold mb-6 border-b-2 border-[#E89D4B]  mx-10 w-fit pb-1">Quick Links</h4>
-            <ul class="space-y-4 text-gray-400 text-sm px-10">
+            <h4 class="text-lg font-bold mb-6 border-b-2 border-[#E89D4B] md:mx-10 w-fit pb-1">Quick Links</h4>
+            <ul class="space-y-4 text-gray-400 text-sm md:px-10">
                 <li><a href="Index.html" class="hover:text-white hover:pl-2 transition-all duration-300 block border-l-0 hover:border-l-4 hover:border-[#E89D4B] pl-0">Home</a></li>
                 <li><a href="About.html" class="hover:text-white hover:pl-2 transition-all duration-300 block border-l-0 hover:border-l-4 hover:border-[#E89D4B] pl-0">About Us</a></li>
                 <li><a href="Index.html" class="hover:text-white hover:pl-2 transition-all duration-300 block border-l-0 hover:border-l-4 hover:border-[#E89D4B] pl-0">Services</a></li>
@@ -833,43 +848,45 @@ body { padding-top: 0; }
         </div>
           
         <div class="space-y-6">
-    <h4 class="text-lg font-bold mb-6 border-b-2 border-[#E89D4B] w-fit pb-1">Connect With Us</h4>
-    <div class="space-y-4 text-sm text-gray-400">
-        
-        <a href="mailto:hello@spartatech.com" class="flex items-start gap-3 group cursor-pointer decoration-none">
-            <i class="fas fa-envelope mt-1 text-[#E89D4B]"></i>
-            <span class="group-hover:text-white transition-colors">hello@spartatech.com</span>
-        </a>
+            <h4 class="text-lg font-bold mb-6 border-b-2 border-[#E89D4B] w-fit pb-1">Connect With Us</h4>
+            <div class="space-y-4 text-sm text-gray-400">
+                
+                <a href="mailto:hello@spartatech.com" class="flex items-start gap-3 group cursor-pointer decoration-none">
+                    <i class="fas fa-envelope mt-1 text-[#E89D4B]"></i>
+                    <span class="group-hover:text-white transition-colors">hello@spartatech.com</span>
+                </a>
 
-        <a href="tel:+1555234567890" class="flex items-start gap-3 group cursor-pointer decoration-none">
-            <i class="fas fa-phone-alt mt-1 text-[#E89D4B]"></i>
-            <span class="group-hover:text-white transition-colors">+1 (555) 2345 - 67890</span>
-        </a>
+                <a href="tel:+1555234567890" class="flex items-start gap-3 group cursor-pointer decoration-none">
+                    <i class="fas fa-phone-alt mt-1 text-[#E89D4B]"></i>
+                    <span class="group-hover:text-white transition-colors">+1 (555) 2345 - 67890</span>
+                </a>
 
-        <a href="https://www.google.com/maps/search/?api=1&query=TechVille+California+90210+United+States" target="_blank" class="flex items-start gap-3 group cursor-pointer decoration-none">
-            <i class="fas fa-map-marker-alt mt-1 text-[#E89D4B]"></i>
-            <span class="group-hover:text-white transition-colors leading-relaxed">
-                TechVille, California, <br>90210 United States
-            </span>
-        </a>
+                <a href="https://www.google.com/maps/search/?api=1&query=TechVille+California+90210+United+States" target="_blank" class="flex items-start gap-3 group cursor-pointer decoration-none">
+                    <i class="fas fa-map-marker-alt mt-1 text-[#E89D4B]"></i>
+                    <span class="group-hover:text-white transition-colors leading-relaxed">
+                        TechVille, California, <br>90210 United States
+                    </span>
+                </a>
+
+            </div>
+        </div>
 
     </div>
-</div>
 
-    </div>
-
-    <div class="max-w-10xl mx-auto mt-12 pt-4 px-40 lg:px-10 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center gap-4">
+    <div class="max-w-7xl mx-auto mt-12 pt-4 px-6 md:px-10 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center gap-4">
         <p class="text-gray-500 text-xs text-center md:text-left">
             © 2026 <span class="text-[#E89D4B] font-bold">Sparta Tech</span>. All Rights Reserved. 
-            <span class="mx-2">|</span> Designed for Scale.
+            
         </p>
-        <div class="flex gap-6 text-xs text-gray-500">
+        <div class="flex flex-wrap justify-center gap-6 text-xs text-gray-500">
             <a href="#" class="hover:text-[#E89D4B] transition-colors">Privacy Policy</a>
             <a href="#" class="hover:text-[#E89D4B] transition-colors">Terms of Service</a>
             <a href="#" class="hover:text-[#E89D4B] transition-colors">Cookies Setting</a>
         </div>
     </div>
 </footer>
+
+
 
 
 
