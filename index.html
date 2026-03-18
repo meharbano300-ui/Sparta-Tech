@@ -137,14 +137,13 @@
     <nav :class="scrolled ? 'fixed top-0 left-0' : 'relative'" 
          class="w-full py- px-6 md:px-16 flex justify-between items-center bg-gradient-to-r from-[#010409] via-[#020817] to-[#010409] z-[100] transition-all duration-300">
         
-       <div class="flex items-center gap-3">
-            <div class="w-26 h-16 flex items-center justify-center">
+       <div class="flex items-center py-2 ">
+            <div class="w-20 h-16 flex items-center justify-center">
                 <img src="Images/go1.png" alt="Logo" class="w-full h-full object-contain" />
             </div>
-             <div class="w-26 h-20 flex items-center justify-center">
+             <div class="w-32 h-22 flex items-center justify-center">
                 <img src="Images/go2.png" alt="Logo" class="w-full h-full object-contain" />
             </div>
-           
         </div>
 
         <div class="hidden lg:flex items-center gap-10">
@@ -386,31 +385,34 @@ body { padding-top: 0; }
 
 <div class="flex flex-col lg:items-start items-center gap-6 mt-8">
     <div id="cta-buttons" class="flex gap-3">
+    <a id="dynamic-cta" href="#" 
+       class="group relative inline-flex items-center gap-6 px-7 py-3 
+              bg-[#05080d] text-[#E89D4B] 
+              text-[12px] font-black uppercase tracking-[0.3em]
+              transition-all duration-500 rounded-lg overflow-hidden
+              border border-[#E89D4B] shadow-[0_0_15px_rgba(232,157,75,0.2)]
+              hover:shadow-[0_0_35px_rgba(232,157,75,0.5)]">
         
-        <a id="dynamic-cta" href="#" 
-           class="group relative inline-flex items-center gap-4 bg-[#E89D4B] px-5 py-2 
-                  text-[10px] font-black uppercase tracking-[0.2em] text-black 
-                  transition-all duration-500 ease-[cubic-bezier(0.23,1,0.32,1)]
-                  hover:-translate-y-1 active:scale-95
-                  shadow-[0_12px_24px_rgba(254,189,105,0.3)] hover:shadow-[0_18px_30px_rgba(254,189,105,0.5)]
-                  rounded-full no-underline overflow-hidden">
-            
-            <div class="absolute inset-0 z-0 bg-white translate-y-full transition-transform duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] group-hover:translate-y-0"></div>
-            <span class="relative z-10 transition-colors duration-500 group-hover:text-black">
-                Read More
-            </span>
+        <div class="absolute top-0 left-0 w-[2px] h-full bg-[#E89D4B]"></div>
+        <div class="absolute bottom-0 right-0 h-[2px] w-full bg-[#E89D4B]"></div>
 
-            <div class="relative z-10 flex h-7 w-7 items-center justify-center 
-                        bg-[#febd69] text-black rounded-full shadow-sm
-                        transition-all duration-700 ease-[cubic-bezier(0.68,-0.55,0.265,1.55)] 
-                        group-hover:rotate-[360deg] group-hover:bg-black group-hover:text-white group-hover:scale-105">
-                <i class="fa-solid fa-plus text-[12px]"></i>
-            </div>
+        <div class="absolute inset-0 z-0 bg-[#E89D4B] translate-y-full transition-transform duration-500 ease-[cubic-bezier(0.19,1,0.22,1)] group-hover:translate-y-0"></div>
 
-            <div class="absolute top-0 -inset-full h-full w-1/2 z-5 block transform -skew-x-12 bg-gradient-to-r from-transparent via-white/50 to-transparent transition-all duration-1000 group-hover:left-full"></div>
-        </a>
+        <span class="relative z-10 transition-all duration-500 group-hover:tracking-[0.4em] group-hover:text-black">
+            Read More
+        </span>
 
-    </div>
+        <div class="relative z-10 flex h-6 w-6 items-center justify-center 
+                    border border-[#E89D4B] rounded-sm rotate-45
+                    transition-all duration-700 ease-[cubic-bezier(0.19,1,0.22,1)]
+                    group-hover:rotate-[225deg] group-hover:bg-black group-hover:border-black">
+            <i class="fa-solid fa-plus -rotate-45 text-[10px] text-[#E89D4B] group-hover:text-[#E89D4B]"></i>
+        </div>
+
+        <div class="absolute inset-0 z-5 opacity-30 bg-gradient-to-r from-transparent via-white/5 to-transparent animate-pulse"></div>
+    </a>
+</div>
+
     <div id="indicators" class="flex gap-2"></div>
 </div>
 </div>
@@ -619,68 +621,6 @@ body { padding-top: 0; }
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;700&family=Syne:wght@800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
-<section class="premium-slim-marquee">
-    <div class="marquee-wrapper">
-        <div class="marquee-track animate-loop">
- <div class="logo-unit">
-    <img src="Images/05.jpg" alt="Logo" class="marquee-img" style="width: 100px; height: 60px;">
-</div>
-<div class="logo-unit">
-    <img src="Images/02.jpg" alt="Logo" class="marquee-img" style="width: 90px; height: 60px;">
-</div>
-<div class="logo-unit">
-    <img src="Images/03.jpg" alt="Logo" class="marquee-img" style="width: 100px; height: 70px;">
-</div>
-<div class="logo-unit">
-    <img src="Images/04.jpg" alt="Logo" class="marquee-img" style="width: 100px; height: auto;">
-</div>
-<div class="logo-unit">
-    <img src="Images/01.png" alt="Logo" class="marquee-img" style="width: 100px; height: 70px;">
-</div>
-<div class="logo-unit">
-    <img src="Images/06.jpg" alt="Logo" class="marquee-img" style="width: 110px; height: 50px;">
-</div>
-<div class="logo-unit">
-    <img src="Images/07.png" alt="Logo" class="marquee-img" style="width: 100px; height: 50px;">
-</div>
-<div class="logo-unit">
-    <img src="Images/08.png" alt="Logo" class="marquee-img" style="width: 120px; height: 50px;">
-</div>
-<div class="logo-unit">
-    <img src="Images/09.png" alt="Logo" class="marquee-img" style="width: 110px; height: 50px;">
-</div>
-
-            
-             <div class="logo-unit">
-    <img src="Images/05.jpg" alt="Logo" class="marquee-img" style="width: 100px; height: 50px;">
-</div>
-<div class="logo-unit">
-    <img src="Images/02.jpg" alt="Logo" class="marquee-img" style="width: 90px; height: 60px;">
-</div>
-<div class="logo-unit">
-    <img src="Images/03.jpg" alt="Logo" class="marquee-img" style="width: 100px; height: 70px;">
-</div>
-<div class="logo-unit">
-    <img src="Images/04.jpg" alt="Logo" class="marquee-img" style="width: 100px; height: auto;">
-</div>
-<div class="logo-unit">
-    <img src="Images/01.png" alt="Logo" class="marquee-img" style="width: 100px; height: 55px;">
-</div>
-<div class="logo-unit">
-    <img src="Images/06.jpg" alt="Logo" class="marquee-img" style="width: 110px; height: 50px;">
-</div>
-<div class="logo-unit">
-    <img src="Images/07.png" alt="Logo" class="marquee-img" style="width: 100px; height: 50px;">
-</div>
-<div class="logo-unit">
-    <img src="Images/08.png" alt="Logo" class="marquee-img" style="width: 120px; height: 50px;">
-</div>
-<div class="logo-unit">
-    <img src="Images/09.png" alt="Logo" class="marquee-img" style="width: 110px; height: 50px;">
-</div>
-        </div>
-    </div>
-</section>
 
 <style>
     .premium-slim-marquee {
@@ -750,6 +690,238 @@ body { padding-top: 0; }
         animation-play-state: paused;
     }
 </style>
+
+
+
+
+
+
+
+
+
+
+
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;700&family=Syne:wght@800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+<section class="premium-slim-marquee">
+ 
+
+    <div class="marquee-wrapper">
+        <div class="marquee-track animate-loop">
+            
+            <div class="logo-unit">
+                <div class="icon-bw">
+  <img src="Images/a3.jpg" alt="Icon" style="height: 50px; width: 50px; object-fit: contain;">
+</div>
+                <div class="text-group">
+                    <span class="main-name">Bosch Company</span>
+                    <span class="sub-label">Innovation</span>
+                </div>
+            </div>
+
+            <div class="logo-unit">
+               <div class="icon-bw">
+  <img src="Images/a4.jpg" alt="Icon" style="height: 50px; width: 50px; object-fit: contain;">
+</div>
+                <div class="text-group">
+                    <span class="main-name">Google Cloud</span>
+                    <span class="sub-label">technology</span>
+                </div>
+            </div>
+
+            <div class="logo-unit">
+                <div class="icon-bw">
+  <img src="Images/a1.png" alt="Icon" style="height: 50px; width: 50px; object-fit: contain;">
+</div>
+                <div class="text-group">
+                    <span class="main-name">John Lewis</span>
+                    <span class="sub-label">Innovation</span>
+                </div>
+            </div>
+
+            <div class="logo-unit">
+                <div class="icon-bw">
+  <img src="Images/a5.png" alt="Icon" style="height: 50px; width: 50px; object-fit: contain;">
+</div>
+                <div class="text-group">
+                    <span class="main-name">IONOS WEB </span>
+                    <span class="sub-label">hosting provider</span>
+                </div>
+            </div>
+
+            <div class="logo-unit">
+               <div class="icon-bw">
+  <img src="Images/a7.jpg" alt="Icon" style="height: 50px; width: 50px; object-fit: contain;">
+</div>
+                <div class="text-group">
+                    <span class="main-name">The Venue</span>
+                    <span class="sub-label">Gallery</span>
+                </div>
+            </div>
+
+            <div class="logo-unit">
+                <div class="icon-bw">
+  <img src="Images/a6.png" alt="Icon" style="height: 50px; width: 50px; object-fit: contain;">
+</div>
+                <div class="text-group">
+                    <span class="main-name">EyeSpy360</span>
+                    <span class="sub-label">Innovation</span>
+                </div>
+            </div>
+
+            <div class="logo-unit">
+               <div class="icon-bw">
+  <img src="Images/a8.jpg" alt="Icon" style="height: 50px; width: 50px; object-fit: contain;">
+</div>
+                <div class="text-group">
+                    <span class="main-name">Sound Cloud</span>
+                    <span class="sub-label">platform</span>
+                </div>
+            </div>
+
+            <div class="logo-unit">
+               <div class="icon-bw">
+  <img src="Images/a9.png" alt="Icon" style="height: 50px; width: 50px; object-fit: contain;">
+</div>
+                <div class="text-group">
+                    <span class="main-name">NAO SYSTEM </span>
+                    <span class="sub-label">branding identity</span>
+                </div>
+            </div>
+
+            <div class="logo-unit">
+                <div class="icon-bw">
+  <img src="Images/a2.jpg" alt="Icon" style="height: 50px; width: 50px; object-fit: contain;">
+</div>
+                <div class="text-group">
+                    <span class="main-name">Bryant Heating</span>
+                    <span class="sub-label"> residential & commercial</span>
+                </div>
+            </div>
+             <div class="logo-unit">
+                <div class="icon-bw"><i class="fas fa-rocket"></i></div>
+                <div class="text-group">
+                    <span class="main-name">Velocity</span>
+                    <span class="sub-label">Fast Track</span>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<style>
+    /* 1. BALANCED HEIGHT BASE */
+    .premium-slim-marquee {
+        background: #ffffff;
+        padding: 65px 0; /* Height thori barha di hai as requested */
+        position: relative;
+        overflow: hidden;
+        font-family: 'Plus Jakarta Sans', sans-serif;
+        display: flex;
+        align-items: center;
+    }
+
+    /* 2. BACKGROUND BUBBLES */
+    .organic-bg {
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+    }
+    .bubble {
+        position: absolute;
+        border-radius: 50%;
+        background: rgba(241, 245, 249, 0.6);
+        border: 1px solid rgba(226, 232, 240, 0.4);
+    }
+    .b1 { width: 120px; height: 120px; top: -40px; left: 15%; }
+    .b2 { width: 80px; height: 80px; bottom: -20px; right: 20%; }
+
+    /* 3. SEAMLESS MARQUEE ENGINE */
+    .marquee-wrapper {
+        width: 85%;
+        mask-image: linear-gradient(to right, transparent, black 1%, black 98%, transparent);
+        -webkit-mask-image: linear-gradient(to right, transparent, black 1%, black 99%, transparent);
+    }
+
+    .marquee-track {
+        display: flex;
+        width: max-content;
+        gap: 80px; /* Logos ke darmian space */
+        padding-left: 80px; /* Initial gap reset */
+    }
+
+    /* Animation logic for NO GAP transition */
+    .animate-loop {
+        animation: scroll-seamless 30s linear infinite;
+    }
+
+    @keyframes scroll-seamless {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(-50%); } /* Exactly half because we have 2 sets */
+    }
+
+    /* 4. COMPACT LOGO UNIT */
+    .logo-unit {
+        display: flex;
+        align-items: center;
+        gap: 12px; /* Perfect tight gap */
+        cursor: pointer;
+        transition: transform 0.3s ease;
+        flex-shrink: 0;
+    }
+
+    .icon-bw {
+        font-size: 26px; /* Slightly more prominent */
+        color: #1e293b;
+        transition: 0.3s ease;
+    }
+
+    .text-group {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .main-name {
+        font-family: 'Syne', sans-serif;
+        font-weight: 800;
+        font-size: 20px;
+        color: #0f172a;
+        letter-spacing: -0.5px;
+        line-height: 1.1;
+    }
+
+    .sub-label {
+        font-size: 10px;
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        color: #94a3b8;
+        font-weight: 700;
+        margin-top: 2px;
+    }
+
+    /* HOVER INTERACTION */
+    .logo-unit:hover {
+        transform: scale(1.05);
+    }
+    .logo-unit:hover .icon-bw,
+    .logo-unit:hover .main-name {
+        color: #E89D4B;
+    }
+
+    .premium-slim-marquee:hover .animate-loop {
+        animation-play-state: paused;
+    }
+</style>
+
+
+
+
+
+
+
+
 
 
 
@@ -883,7 +1055,7 @@ body { padding-top: 0; }
                   <div class="flex flex-col items-center gap-10 pt-2 border-t border-slate-200">
     <div class="flex justify-between items-center w-full px-4 md:px-2">
         
-        <div class="flex gap-10">
+        <div class="flex gap-4">
             <div class="relative text-left">
                 <div class="text-3xl font-black text-[#05080d] outfit-font leading-none">100<span class="text-[#E89D4B] text-xl">%</span></div>
                 <div class="text-[9px] font-bold uppercase tracking-[0.2em] text-slate-400 mt-1">Dedication</div>
@@ -892,12 +1064,13 @@ body { padding-top: 0; }
                 <div class="text-3xl font-black text-[#05080d] outfit-font leading-none">Elite</div>
                 <div class="text-[9px] font-bold uppercase tracking-[0.2em] text-slate-400 mt-2">Standards</div>
             </div>
-        </div>
-
-        <div class="relative text-right">
+        <div class="relative text-left ms-6">
             <div class="text-3xl font-black text-[#05080d] outfit-font leading-none">24<span class="text-[#E89D4B] text-xl">/</span>7</div>
             <div class="text-[9px] font-bold uppercase tracking-[0.2em] text-slate-400 mt-2">Global Support</div>
         </div>
+        </div>
+
+       
 
     </div>
 </div>
@@ -996,22 +1169,27 @@ body { padding-top: 0; }
     
     <div class="max-w-6xl mx-auto px-6 relative z-10">
      
-        <div class="flex flex-col items-center mb-6" data-aos="fade-up">
-            <div class="flex items-center space-x-3 mb-6">
-                <span class="w-12 h-[1px] bg-[#d9933e]"></span>
-                <span class="text-[#d9933e] text-[12px] font-extrabold uppercase tracking-[0.7em]">Expert Implementation</span>
-                <span class="w-12 h-[1px] bg-[#d9933e]"></span>
-            </div>
-           <h2 class="text-5xl md:text-7xl font-[900]  text-[#05080d] tracking-[-0.05em] text-center leading-[0.95] uppercase italic">
-    The 
-    <span class="relative inline-block pr-[0.1em] text-transparent bg-clip-text bg-gradient-to-r from-[#d9933e] to-[#b0742a]">
-        Spartan
-    </span> 
-    Method
-</h2>
-            <p class="mt-6 text-gray-400 text-center max-w-lg font-medium italic">Where strategy, design, and technology work together to grow your business.</p>
-        </div>
-    
+       <div class="flex flex-col items-center mb-6 px-4" data-aos="fade-up">
+    <div class="flex items-center space-x-2 md:space-x-3 mb-4 md:mb-6">
+        <span class="w-8 md:w-12 h-[1px] bg-[#d9933e]"></span>
+        <span class="text-[#d9933e] text-[10px] md:text-[12px] font-extrabold uppercase tracking-[0.4em] md:tracking-[0.7em] text-center">
+            Expert Implementation
+        </span>
+        <span class="w-8 md:w-12 h-[1px] bg-[#d9933e]"></span>
+    </div>
+
+    <h2 class="text-4xl sm:text-5xl md:text-7xl font-[900] text-[#05080d] tracking-[-0.05em] text-center leading-[1.1] md:leading-[0.95] uppercase italic">
+        The 
+        <span class="relative inline-block pr-[0.1em] text-transparent bg-clip-text bg-gradient-to-r from-[#d9933e] to-[#b0742a]">
+            Spartan
+        </span> 
+        Method
+    </h2>
+
+    <p class="mt-4 md:mt-6 text-gray-400 text-center max-w-xs md:max-w-lg text-sm md:text-base font-medium italic">
+        Where strategy, design, and technology work together to grow your business.
+    </p>
+</div>
         <div class="relative">
             <div class="absolute left-1/2 transform -translate-x-1/2 h-full w-[1px] bg-gray-100 hidden md:block">
                 <div id="scroll-progress" class="absolute top-0 left-[-1.5px] w-[4px] bg-gradient-to-b from-[#d9933e] via-[#f5c285] to-[#d9933e] transition-all duration-500 ease-out shadow-[0_0_25px_rgba(217,147,62,0.4)]" style="height: 0%;">
@@ -1381,25 +1559,27 @@ body { padding-top: 0; }
     
     
 
-        <div class="relative mb-16 flex flex-col items-center justify-center text-center gap-8" data-aos="fade-up">
-    <div class="relative flex flex-col items-center">
-        <div class="absolute -top-20 left-1/2 -translate-x-1/2 w-[260px] h-[260px] opacity-[0.3] select-none pointer-events-none">
+<div class="relative mb-16 flex flex-col items-center justify-center text-center gap-8 px-4" data-aos="fade-up">
+    <div class="relative flex flex-col items-center w-full">
+        <div class="absolute -top-10 md:-top-20 left-1/2 -translate-x-1/2 w-[180px] md:w-[260px] h-[180px] md:h-[260px] opacity-[0.2] select-none pointer-events-none">
             <img src="Images/watermark1.png" alt="watermark logo" class="w-full h-full object-contain grayscale">
         </div>
 
-        <h2 class="font-black leading-[0.85] tracking-tighter-extra sparta-main-title" style="color: var(--sparta-black);">
-            <div class="h-[75px] flex items-end justify-center">
+        <h2 class="font-black leading-tight md:leading-[0.85] tracking-tighter-extra sparta-main-title w-full">
+            <div class="min-h-[60px] md:h-[85px] flex items-end justify-center mb-2">
                 <span id="sparta-typing-hero" class="text-[#05080d] transition-all duration-500 block"></span>
             </div>
             
-            <span class="text-transparent font-black bg-clip-text bg-gradient-to-r from-[#d9933e] via-[#b67a2d] to-[#8a5a1f] block text-[55px]">Plan For Your Growth</span>
+            <span class="text-transparent font-black bg-clip-text bg-gradient-to-r from-[#d9933e] via-[#b67a2d] to-[#8a5a1f] block text-[32px] sm:text-[45px] md:text-[55px] uppercase">
+                Plan For Your Growth
+            </span>
         </h2>
 
         <script>
             const spanElement = document.getElementById('sparta-typing-hero');
             const headings = [
                 "Choose The Right",    // Small
-                "Scale Your Business",    // Small
+                "Scale Your Business", // Small
                 "Sparta Tech Solutions"   // BIG
             ];
 
@@ -1410,11 +1590,13 @@ body { padding-top: 0; }
             function typeEffect() {
                 const currentWord = headings[wordIndex];
                 
-                // LOGIC: Sizing control (Design same rakha hai)
+                // FIXED: Mobile Responsive Classes
                 if (wordIndex === 2) {
-                    spanElement.className = "text-[#05080d] transition-all duration-500 block text-6xl font-black";
+                    // Mobile: text-3xl (ya 4xl), Desktop: text-6xl
+                    spanElement.className = "text-[#05080d] transition-all duration-500 block text-3xl sm:text-4xl md:text-6xl font-[900] uppercase";
                 } else {
-                    spanElement.className = "text-[#05080d] transition-all duration-500 block text-[40px] font-black";
+                    // Mobile: text-2xl, Desktop: text-[40px]
+                    spanElement.className = "text-[#05080d] transition-all duration-500 block text-xl sm:text-2xl md:text-[40px] font-black uppercase";
                 }
 
                 if (isDeleting) {
@@ -1439,13 +1621,12 @@ body { padding-top: 0; }
                 setTimeout(typeEffect, typeSpeed);
             }
 
-            // Start effect
             typeEffect();
         </script>
     </div>
 </div>
 
-<div class="mt-[-24px] mb-8 flex justify-center">
+<a href="Contact.html" ><div class="mt-[-24px] mb-8 flex justify-center">
     <button class="group relative inline-flex items-center justify-center p-[2px] rounded-2xl overflow-hidden transition-all duration-500 hover:shadow-[0_0_30px_rgba(217,147,62,0.3)] active:scale-95">
         
         <div class="absolute inset-[-1000%] animate-[spin_3s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#d9933e_0%,#05080d_50%,#d9933e_100%)]"></div>
@@ -1459,13 +1640,13 @@ body { padding-top: 0; }
 
             <div class="w-[1px] h-6 bg-white/20"></div>
             
-            <div class="relative flex items-center justify-center w-8 h-8 rounded-lg bg-gradient-to-br from-[#d9933e] to-[#8a5a1f] text-[#05080d] transition-all duration-500 group-hover:rotate-90">
-                <i class="fas fa-arrow-right text-[10px]"></i>
-                <div class="absolute inset-0 rounded-lg border border-white/30"></div>
+            <div class="relative flex items-center justify-center w-4 h-8 rounded-lg text-white transition-all duration-500 group-hover:rotate-90">
+                <i class="fas fa-arrow-right text-[20px]"></i>
+                <div class="absolute inset-0 rounded-lg "></div>
             </div>
         </div>
     </button>
-</div>
+</div></a>
 
 <style>
 @keyframes spin {
@@ -1782,11 +1963,294 @@ body { padding-top: 0; }
 
 
 
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;700;800&family=Playfair_Display:italic,wght@700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+<section class="overflow-visible font-['Plus_Jakarta_Sans'] bg-[#ffffff] mb-4">
+    <div class="container mx-auto px-4 mb-16">
+        
+        <div class="text-center mb-10" data-aos="fade-down">
+            <h2 class="text-4xl md:text-5xl lg:text-7xl font-black text-[#05080d] uppercase italic tracking-tighter">
+                <span class="text-transparent bg-clip-text pr-[0.1em] bg-gradient-to-r from-[#d9933e] to-[#8a5a1f]">Our</span> Process
+            </h2>
+            <div class="w-24 md:w-32 h-2 bg-[#05080d] mx-auto mt-4 rounded-full relative overflow-hidden">
+                <div class="absolute inset-0 bg-[#d9933e] translate-x-[-100%] animate-[shimmer_2s_infinite]"></div>
+            </div>
+            <p class="text-gray-600 mt-6 max-w-2xl mx-auto font-bold text-[13px] md:text-[14px] leading-relaxed px-4">How Sparta Tech transforms your vision into a digital powerhouse <br class="hidden md:block"/>through a 5-step strategic roadmap.</p>
+        </div>
+
+        <div class="relative z-20 grid grid-cols-1 sm:grid-cols-2 lg:flex lg:flex-nowrap justify-items-center justify-center gap-6 lg:gap-5 perspective-1000">
+            
+            <div class="group relative w-full max-w-[220px] h-[240px] preserve-3d transition-all duration-700 hover:rotate-y-180">
+                <div class="absolute inset-0 backface-hidden cursor-pointer p-5 rounded-[20px] bg-white border border-gray-200 shadow-[0_10px_30px_rgba(0,0,0,0.2)] bg-[radial-gradient(#d9933e_0.5px,transparent_0.5px)] [background-size:16px_16px] overflow-hidden">
+                    <div class="corner-balloon -top-16 -right-16"></div>
+                    <div class="corner-balloon -bottom-24 -left-24"></div>
+                    <div class="absolute top-0 right-0 w-24 h-24 overflow-hidden pointer-events-none z-10">
+                        <div class="absolute top-4 -right-8 bg-[#444b54] text-white text-[8px] font-bold py-1 px-10 transform rotate-45 shadow-[0_2px_10px_rgba(0,0,0,0.5)] uppercase tracking-tighter">Discover</div>
+                    </div>
+                    <div class="absolute top-2 right-4 text-6xl font-['Playfair_Display'] italic text-gray-200/40 select-none pointer-events-none z-0">01</div>
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="w-10 h-10 bg-[#05080d] rounded-xl flex items-center justify-center text-[#d9933e] shadow-lg">
+                            <i class="fas fa-search-plus text-sm"></i>
+                        </div>
+                    </div>
+                    <span class="text-[9px] font-bold text-gray-500 uppercase tracking-widest block mb-1">Step 01</span>
+                    <h3 class="text-lg font-extrabold text-[#05080d] uppercase leading-none">Discover</h3>
+                    <h4 class="text-sm font-['Playfair_Display'] italic text-[#d9933e] mb-2">exploration</h4>
+                    <p class="text-[10px] text-gray-600 leading-tight mb-4">Crafting <span class="font-bold text-black">insights</span> that resonate.</p>
+                    <div class="absolute bottom-6 left-5 right-5 flex items-center gap-3">
+                        <span class="text-[#d9933e] text-xs font-bold tracking-[0.2em] uppercase italic leading-none" style="font-family: 'Inter', 'Plus Jakarta Sans', sans-serif;">More</span>
+                        <div class="flex-1 h-[4px] bg-gray-100 rounded-full overflow-hidden">
+                            <div class="w-[85%] h-full bg-gradient-to-r from-[#d9933e] to-[#b0742a] rounded-full"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="absolute inset-0 backface-hidden rotate-y-180 bg-white border-2 border-[#05080d] rounded-[20px] p-4 shadow-[0_20px_40px_rgba(0,0,0,0.2)] overflow-hidden">
+                    <div class="flex items-center gap-2 mb-3">
+                        <div class="p-1.5 bg-[#05080d] rounded-lg">
+                            <i class="fas fa-search-plus text-sm text-[#d9933e]"></i>
+                        </div>
+                        <span class="font-black text-[10px] uppercase tracking-tighter text-[#05080d]">Phase: Exploration</span>
+                    </div>
+                    <p class="text-[11px] text-[#05080d] leading-snug mb-3 italic border-l-3 border-[#d9933e] pl-2 font-bold">Understand the business, goals, needs and audience</p>
+                    <ul class="space-y-2">
+                        <li class="flex items-center gap-2 text-[9px] font-black text-[#05080d] uppercase"><i class="fas fa-check-double text-[#d9933e]"></i> Competitor Benchmarking</li>
+                        <li class="flex items-center gap-2 text-[9px] font-black text-[#05080d] uppercase"><i class="fas fa-check-double text-[#d9933e]"></i> User Persona Mapping</li>
+                        <li class="flex items-center gap-2 text-[9px] font-black text-[#05080d] uppercase"><i class="fas fa-check-double text-[#d9933e]"></i> SEO Gap Analysis</li>
+                    </ul>
+                    <div class="mt-4 pt-3 border-t-2 border-dashed border-gray-100 flex flex-wrap gap-1">
+                        <span class="text-[8px] font-black bg-[#05080d] text-[#d9933e] px-2 py-0.5 rounded-md">ANALYTICS</span>
+                        <span class="text-[8px] font-black border border-[#05080d] text-[#05080d] px-2 py-0.5 rounded-md">MARKET-READY</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="group relative w-full max-w-[220px] h-[240px] preserve-3d transition-all duration-700 hover:rotate-y-180">
+                <div class="absolute inset-0 backface-hidden cursor-pointer p-5 rounded-[20px] bg-white border border-gray-200 shadow-[0_10px_30px_rgba(0,0,0,0.2)] bg-[radial-gradient(#d9933e_0.5px,transparent_0.5px)] [background-size:16px_16px] overflow-hidden">
+                   <div class="corner-balloon -top-16 -right-16"></div>
+                    <div class="corner-balloon -bottom-24 -left-24"></div>
+                    <div class="absolute top-0 right-0 w-24 h-24 overflow-hidden pointer-events-none z-10">
+                        <div class="absolute top-4 -right-8 bg-[#444b54] text-white text-[8px] font-bold py-1 px-10 transform rotate-45 shadow-[0_2px_10px_rgba(0,0,0,0.5)] uppercase tracking-tighter">Strategy</div>
+                    </div>
+                    <div class="absolute top-2 right-4 text-6xl font-['Playfair_Display'] italic text-gray-200/40 select-none pointer-events-none z-0">02</div>
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="w-10 h-10 bg-[#05080d] rounded-xl flex items-center justify-center text-[#d9933e] text-xl shadow-inner">
+                            <i class="fas fa-chess-knight"></i>
+                        </div>
+                    </div>
+                    <span class="text-[9px] font-bold text-gray-500 uppercase tracking-widest block mb-1">Step 02</span>
+                    <h3 class="text-lg font-extrabold text-[#05080d] uppercase leading-none">Strategy</h3>
+                    <h4 class="text-sm font-['Playfair_Display'] italic text-[#d9933e] mb-2">blueprinting</h4>
+                    <p class="text-[10px] text-gray-600 leading-tight mb-4">Data-driven roadmaps.</p>
+                    <div class="absolute bottom-6 left-5 right-5 flex items-center gap-3">
+                        <span class="text-[#d9933e] text-xs font-bold tracking-[0.2em] uppercase italic leading-none" style="font-family: 'Inter', 'Plus Jakarta Sans', sans-serif;">More</span>
+                        <div class="flex-1 h-[4px] bg-gray-100 rounded-full overflow-hidden">
+                            <div class="w-[85%] h-full bg-gradient-to-r from-[#d9933e] to-[#b0742a] rounded-full"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="absolute inset-0 backface-hidden rotate-y-180 bg-[#05080d] border-2 border-[#d9933e] rounded-[20px] p-4 shadow-[0_20px_40px_rgba(0,0,0,0.4)] overflow-hidden">
+                    <div class="flex items-center gap-2 mb-3">
+                        <div class="p-1.5 bg-white/10 rounded-lg">
+                            <i class="fas fa-chess-knight text-sm text-[#d9933e]"></i>
+                        </div>
+                        <span class="font-black text-[10px] uppercase tracking-tighter text-white">Phase: Blueprinting</span>
+                    </div>
+                    <p class="text-[11px] text-gray-300 leading-snug mb-3 italic border-l-3 border-[#d9933e] pl-2 font-bold">Create a clear strategy and project roadmap for elite results.</p>
+                    <ul class="space-y-2">
+                        <li class="flex items-center gap-2 text-[9px] font-black text-white uppercase"><i class="fas fa-bolt text-[#d9933e]"></i> ROI Focused KPIs</li>
+                        <li class="flex items-center gap-2 text-[9px] font-black text-white uppercase"><i class="fas fa-bolt text-[#d9933e]"></i> Content Ecosystem</li>
+                        <li class="flex items-center gap-2 text-[9px] font-black text-white uppercase"><i class="fas fa-bolt text-[#d9933e]"></i> Funnel Optimization</li>
+                    </ul>
+                    <div class="mt-2 pt-2 border-t border-white/10 flex flex-wrap gap-1">
+                        <span class="text-[8px] font-black bg-[#d9933e] text-black px-2 py-0.5 rounded-md">DYNAMIC</span>
+                        <span class="text-[8px] font-black border border-[#d9933e] text-[#d9933e] px-2 py-0.5 rounded-md">SCALABLE</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="group relative w-full max-w-[220px] h-[240px] preserve-3d transition-all duration-700 hover:rotate-y-180">
+                <div class="absolute inset-0 backface-hidden cursor-pointer h-[240px] p-5 rounded-[20px] bg-white border border-gray-200 shadow-[0_10px_40px_rgba(0,0,0,0.2)] bg-[radial-gradient(#05080d_0.5px,transparent_0.5px)] [background-size:16px_16px] overflow-hidden">
+                    <div class="corner-balloon -top-16 -right-16"></div>
+                     <div class="corner-balloon -bottom-24 -left-24"></div>
+                    <div class="absolute top-0 right-0 w-24 h-24 overflow-hidden pointer-events-none z-10">
+                        <div class="absolute top-4 -right-8 bg-[#444b54] text-white text-[8px] font-bold py-1 px-10 transform rotate-45 shadow-[0_2px_10px_rgba(0,0,0,0.5)] uppercase tracking-tighter">Design</div>
+                    </div>
+                    <div class="absolute top-2 right-4 text-6xl font-['Playfair_Display'] italic text-gray-200/40 select-none pointer-events-none z-0">03</div>
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="w-10 h-10 bg-[#05080d] rounded-xl flex items-center justify-center text-[#d9933e] text-xl shadow-2xl">
+                            <i class="fas fa-bezier-curve"></i>
+                        </div>
+                    </div>
+                    <span class="text-[9px] font-black text-gray-500 uppercase tracking-widest block mb-1">Step 03</span>
+                    <h3 class="text-lg font-black text-[#05080d] uppercase leading-none">Design</h3>
+                    <h4 class="text-sm font-['Playfair_Display'] italic text-[#d9933e] mb-2">visual art</h4>
+                    <p class="text-[10px] text-gray-600 leading-tight mb-4">Architecture with <span class="font-bold text-black">modern tech</span>.</p>
+                    <div class="absolute bottom-6 left-5 right-5 flex items-center gap-3">
+                        <span class="text-[#d9933e] text-xs font-bold tracking-[0.2em] uppercase italic leading-none" style="font-family: 'Inter', 'Plus Jakarta Sans', sans-serif;">More</span>
+                        <div class="flex-1 h-[4px] bg-gray-100 rounded-full overflow-hidden">
+                            <div class="w-[85%] h-full bg-gradient-to-r from-[#d9933e] to-[#b0742a] rounded-full"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="absolute inset-0 backface-hidden rotate-y-180 bg-white border-2 border-[#05080d] rounded-[20px] p-4 shadow-[0_20px_40px_rgba(0,0,0,0.2)] overflow-hidden">
+                    <div class="flex items-center gap-2 mb-3">
+                        <div class="p-1.5 bg-[#05080d] rounded-lg">
+                            <i class="fas fa-bezier-curve text-sm text-[#d9933e]"></i>
+                        </div>
+                        <span class="font-black text-[10px] uppercase tracking-tighter text-[#05080d]">Phase: Visual Art</span>
+                    </div>
+                    <p class="text-[11px] text-[#05080d] leading-snug mb-3 italic border-l-3 border-[#d9933e] pl-2 font-bold">Craft intuitive and visually powerful experiences.</p>
+                    <ul class="space-y-2">
+                        <li class="flex items-center gap-2 text-[9px] font-black text-[#05080d] uppercase"><i class="fas fa-pen-nib text-[#d9933e]"></i> UX Architecture</li>
+                        <li class="flex items-center gap-2 text-[9px] font-black text-[#05080d] uppercase"><i class="fas fa-pen-nib text-[#d9933e]"></i> High-Fidelity UI</li>
+                        <li class="flex items-center gap-2 text-[9px] font-black text-[#05080d] uppercase"><i class="fas fa-pen-nib text-[#d9933e]"></i> Micro-Interactions</li>
+                    </ul>
+                    <div class="mt-4 pt-3 border-t border-gray-100 flex flex-wrap gap-1">
+                        <span class="text-[8px] font-black bg-[#05080d] text-[#d9933e] px-2 py-0.5 rounded-md">PIXEL PERFECT</span>
+                        <span class="text-[8px] font-black border border-[#05080d] text-[#05080d] px-2 py-0.5 rounded-md">MODERN UX</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="group relative w-full max-w-[220px] h-[240px] preserve-3d transition-all duration-700 hover:rotate-y-180">
+                <div class="absolute inset-0 backface-hidden cursor-pointer p-5 rounded-[20px] bg-white border border-gray-200 shadow-[0_10px_30px_rgba(0,0,0,0.2)] bg-[radial-gradient(#d9933e_0.5px,transparent_0.5px)] [background-size:16px_16px] overflow-hidden">
+                    <div class="corner-balloon -top-16 -right-16"></div>
+                     <div class="corner-balloon -bottom-24 -left-24"></div>
+                    <div class="absolute top-0 right-0 w-24 h-24 overflow-hidden pointer-events-none z-10">
+                        <div class="absolute top-4 -right-8 bg-[#444b54] text-white text-[8px] font-bold py-1 px-10 transform rotate-45 shadow-[0_2px_10px_rgba(0,0,0,0.5)] uppercase tracking-tighter">Build</div>
+                    </div>
+                    <div class="absolute top-2 right-4 text-6xl font-['Playfair_Display'] italic text-gray-200/40 select-none pointer-events-none z-0">04</div>
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="w-10 h-10 bg-[#05080d] rounded-xl flex items-center justify-center text-[#d9933e] text-xl">
+                            <i class="fas fa-code"></i>
+                        </div>
+                    </div>
+                    <span class="text-[9px] font-bold text-gray-500 uppercase tracking-widest block mb-1">Step 04</span>
+                    <h3 class="text-lg font-extrabold text-[#05080d] uppercase leading-none">Build</h3>
+                    <h4 class="text-sm font-['Playfair_Display'] italic text-[#d9933e] mb-2">engineering</h4>
+                    <p class="text-[10px] text-gray-600 leading-tight mb-4">Scalable architecture.</p>
+                    <div class="absolute bottom-6 left-5 right-5 flex items-center gap-3">
+                        <span class="text-[#d9933e] text-xs font-bold tracking-[0.2em] uppercase italic leading-none" style="font-family: 'Inter', 'Plus Jakarta Sans', sans-serif;">More</span>
+                        <div class="flex-1 h-[4px] bg-gray-100 rounded-full overflow-hidden">
+                            <div class="w-[85%] h-full bg-gradient-to-r from-[#d9933e] to-[#b0742a] rounded-full"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="absolute inset-0 backface-hidden rotate-y-180 bg-[#05080d] border-2 border-[#d9933e] rounded-[20px] p-4 shadow-[0_20px_40px_rgba(0,0,0,0.4)] overflow-hidden">
+                    <div class="flex items-center gap-2 mb-3">
+                        <div class="p-1.5 bg-white/10 rounded-lg">
+                            <i class="fas fa-code text-sm text-[#d9933e]"></i>
+                        </div>
+                        <span class="font-black text-[10px] uppercase tracking-tighter text-white">Phase: Engineering</span>
+                    </div>
+                    <p class="text-[11px] text-gray-300 leading-snug mb-3 italic border-l-3 border-[#d9933e] pl-2 font-bold">Develop secure and scalable digital solutions for performance.</p>
+                    <ul class="space-y-2">
+                        <li class="flex items-center gap-2 text-[9px] font-black text-white uppercase"><i class="fas fa-microchip text-[#d9933e]"></i> Clean Code Dev</li>
+                        <li class="flex items-center gap-2 text-[9px] font-black text-white uppercase"><i class="fas fa-microchip text-[#d9933e]"></i> API Integration</li>
+                        <li class="flex items-center gap-2 text-[9px] font-black text-white uppercase"><i class="fas fa-microchip text-[#d9933e]"></i> Security Protocols</li>
+                    </ul>
+                    <div class="mt-2 pt-2 border-t border-white/10 flex flex-wrap gap-1">
+                        <span class="text-[8px] font-black bg-[#d9933e] text-black px-2 py-0.5 rounded-md">LIGHTNING FAST</span>
+                        <span class="text-[8px] font-black border border-[#d9933e] text-[#d9933e] px-2 py-0.5 rounded-md">SECURE</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="group relative w-full max-w-[220px] h-[240px] preserve-3d transition-all duration-700 hover:rotate-y-180">
+                <div class="absolute inset-0 backface-hidden cursor-pointer p-5 rounded-[20px] bg-white border border-gray-200 shadow-[0_10px_30px_rgba(0,0,0,0.2)] bg-[radial-gradient(#d9933e_0.5px,transparent_0.5px)] [background-size:16px_16px] overflow-hidden">
+                   <div class="corner-balloon -top-16 -right-16"></div>
+                    <div class="corner-balloon -bottom-24 -left-24"></div>
+                    <div class="absolute top-0 right-0 w-24 h-24 overflow-hidden pointer-events-none z-10">
+                        <div class="absolute top-4 -right-8 bg-[#444b54] text-white text-[8px] font-bold py-1 px-10 transform rotate-45 shadow-[0_2px_10px_rgba(0,0,0,0.5)] uppercase tracking-tighter">Launch</div>
+                    </div>
+                    <div class="absolute top-2 right-4 text-6xl font-['Playfair_Display'] italic text-gray-200/40 select-none pointer-events-none z-0">05</div>
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="w-10 h-10 bg-[#05080d] shadow-lg rounded-xl flex items-center justify-center text-[#d9933e] text-xl">
+                            <i class="fas fa-rocket"></i>
+                        </div>
+                    </div>
+                    <span class="text-[9px] font-bold text-gray-500 uppercase tracking-widest block mb-1">Step 05</span>
+                    <h3 class="text-lg font-extrabold text-[#05080d] uppercase leading-none">Launch</h3>
+                    <h4 class="text-sm font-['Playfair_Display'] italic text-[#d9933e] mb-2">go-live</h4>
+                    <p class="text-[10px] text-gray-600 leading-tight mb-4">Global impact.</p>
+                    <div class="absolute bottom-6 left-5 right-5 flex items-center gap-3">
+                        <span class="text-[#d9933e] text-xs font-bold tracking-[0.2em] uppercase italic leading-none" style="font-family: 'Inter', 'Plus Jakarta Sans', sans-serif;">More</span>
+                        <div class="flex-1 h-[4px] bg-gray-100 rounded-full overflow-hidden">
+                            <div class="w-[85%] h-full bg-gradient-to-r from-[#d9933e] to-[#b0742a] rounded-full"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="absolute inset-0 backface-hidden rotate-y-180 bg-white border-2 border-[#05080d] rounded-[20px] p-4 shadow-[0_20px_40px_rgba(0,0,0,0.2)] overflow-hidden">
+                    <div class="flex items-center gap-2 mb-3">
+                        <div class="p-1.5 bg-[#05080d] rounded-lg">
+                            <i class="fas fa-rocket text-sm text-[#d9933e]"></i>
+                        </div>
+                        <span class="font-black text-[10px] uppercase tracking-tighter text-[#05080d]">Phase: Go-Live</span>
+                    </div>
+                    <p class="text-[11px] text-[#05080d] leading-snug mb-3 italic border-l-3 border-[#d9933e] pl-2 font-bold">Deploy, optimize, and scale for long-term success.</p>
+                    <ul class="space-y-2">
+                        <li class="flex items-center gap-2 text-[9px] font-black text-[#05080d] uppercase"><i class="fas fa-globe-americas text-[#d9933e]"></i> Live Deployment</li>
+                        <li class="flex items-center gap-2 text-[9px] font-black text-[#05080d] uppercase"><i class="fas fa-globe-americas text-[#d9933e]"></i> Post-Launch QA</li>
+                        <li class="flex items-center gap-2 text-[9px] font-black text-[#05080d] uppercase"><i class="fas fa-globe-americas text-[#d9933e]"></i> Performance Tracking</li>
+                    </ul>
+                    <div class="mt-4 pt-3 border-t border-gray-100 flex flex-wrap gap-1">
+                        <span class="text-[8px] font-black bg-[#05080d] text-[#d9933e] px-2 py-0.5 rounded-md">IMPACTFUL</span>
+                        <span class="text-[8px] font-black border border-[#05080d] text-[#05080d] px-2 py-0.5 rounded-md">GLOBAL READY</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<style>
+/* Shimmer Animation */
+@keyframes shimmer {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}
+
+/* 3D Flip Essentials */
+.perspective-1000 {
+    perspective: 1000px;
+}
+.preserve-3d {
+    transform-style: preserve-3d;
+}
+.backface-hidden {
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+}
+.rotate-y-180 {
+    transform: rotateY(180deg);
+}
+
+/* Hover Effect for Flip */
+.hover\:rotate-y-180:hover {
+    transform: rotateY(180deg);
+}
+
+/* Smooth Shadow on Hover */
+.group:hover {
+    z-index: 100;
+}
+</style>
 
 
 
 
-<section class="relative  py-10 mb-10 bg-white overflow-hidden" style="font-family: 'Inter', sans-serif;">
+
+
+
+
+
+
+
+
+
+<section class="relative  py-10  bg-white overflow-hidden" style="font-family: 'Inter', sans-serif;">
         
     <div class="absolute bottom-10 right-10 w-64 h-64 border-[3px] border-[#0a0f1a]/10 rounded-full -rotate-12 pointer-events-none"></div>
 
@@ -1918,288 +2382,11 @@ body { padding-top: 0; }
 
 
 
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;700;800&family=Playfair_Display:italic,wght@700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-
-<section class="overflow-visible font-['Plus_Jakarta_Sans'] bg-[#ffffff] mb-4">
-    <div class="container mx-auto px-4 mb-16">
-        
-        <div class="text-center mb-10" data-aos="fade-down">
-            <h2 class="text-4xl md:text-5xl lg:text-7xl font-black text-[#05080d] uppercase italic tracking-tighter">
-                <span class="text-transparent bg-clip-text pr-[0.1em] bg-gradient-to-r from-[#d9933e] to-[#8a5a1f]">Our</span> Process
-            </h2>
-            <div class="w-24 md:w-32 h-2 bg-[#05080d] mx-auto mt-4 rounded-full relative overflow-hidden">
-                <div class="absolute inset-0 bg-[#d9933e] translate-x-[-100%] animate-[shimmer_2s_infinite]"></div>
-            </div>
-            <p class="text-gray-600 mt-6 max-w-2xl mx-auto font-bold text-[13px] md:text-[14px] leading-relaxed px-4">How Sparta Tech transforms your vision into a digital powerhouse <br class="hidden md:block"/>through a 5-step strategic roadmap.</p>
-        </div>
-
-        <div class="relative z-20 grid grid-cols-1 sm:grid-cols-2 lg:flex lg:flex-nowrap justify-items-center justify-center gap-6 lg:gap-5 perspective-1000">
-            
-            <div class="group relative w-full max-w-[210px] h-[230px] preserve-3d transition-all duration-700 hover:rotate-y-180">
-                <div class="absolute inset-0 backface-hidden cursor-pointer p-5 rounded-[20px] bg-white border border-gray-200 shadow-[0_10px_30px_rgba(0,0,0,0.2)] bg-[radial-gradient(#d9933e_0.5px,transparent_0.5px)] [background-size:16px_16px] overflow-hidden">
-                    <div class="corner-balloon -top-16 -right-16"></div>
-                    <div class="corner-balloon -bottom-24 -left-24"></div>
-                    <div class="absolute top-0 right-0 w-24 h-24 overflow-hidden pointer-events-none z-10">
-                        <div class="absolute top-4 -right-8 bg-[#444b54] text-white text-[8px] font-bold py-1 px-10 transform rotate-45 shadow-[0_2px_10px_rgba(0,0,0,0.5)] uppercase tracking-tighter">Discover</div>
-                    </div>
-                    <div class="absolute top-2 right-4 text-6xl font-['Playfair_Display'] italic text-gray-200/40 select-none pointer-events-none z-0">01</div>
-                    <div class="flex justify-between items-start mb-4">
-                        <div class="w-10 h-10 bg-[#05080d] rounded-xl flex items-center justify-center text-[#d9933e] shadow-lg">
-                            <i class="fas fa-search-plus text-sm"></i>
-                        </div>
-                    </div>
-                    <span class="text-[9px] font-bold text-gray-500 uppercase tracking-widest block mb-1">Step 01</span>
-                    <h3 class="text-lg font-extrabold text-[#05080d] uppercase leading-none">Discover</h3>
-                    <h4 class="text-sm font-['Playfair_Display'] italic text-[#d9933e] mb-2">exploration</h4>
-                    <p class="text-[10px] text-gray-600 leading-tight mb-4">Crafting <span class="font-bold text-black">insights</span> that resonate.</p>
-                    <div class="absolute bottom-6 left-5 right-5 flex items-center gap-3">
-                        <span class="text-[#d9933e] text-xs font-bold tracking-[0.2em] uppercase italic leading-none" style="font-family: 'Inter', 'Plus Jakarta Sans', sans-serif;">More</span>
-                        <div class="flex-1 h-[4px] bg-gray-100 rounded-full overflow-hidden">
-                            <div class="w-[85%] h-full bg-gradient-to-r from-[#d9933e] to-[#b0742a] rounded-full"></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="absolute inset-0 backface-hidden rotate-y-180 bg-white border-2 border-[#05080d] rounded-[20px] p-4 shadow-[0_20px_40px_rgba(0,0,0,0.2)] overflow-hidden">
-                    <div class="flex items-center gap-2 mb-3">
-                        <div class="p-1.5 bg-[#05080d] rounded-lg">
-                            <i class="fas fa-search-plus text-sm text-[#d9933e]"></i>
-                        </div>
-                        <span class="font-black text-[10px] uppercase tracking-tighter text-[#05080d]">Phase: Exploration</span>
-                    </div>
-                    <p class="text-[11px] text-[#05080d] leading-snug mb-3 italic border-l-3 border-[#d9933e] pl-2 font-bold">Understand the business, goals, needs and audience</p>
-                    <ul class="space-y-2">
-                        <li class="flex items-center gap-2 text-[9px] font-black text-[#05080d] uppercase"><i class="fas fa-check-double text-[#d9933e]"></i> Competitor Benchmarking</li>
-                        <li class="flex items-center gap-2 text-[9px] font-black text-[#05080d] uppercase"><i class="fas fa-check-double text-[#d9933e]"></i> User Persona Mapping</li>
-                        <li class="flex items-center gap-2 text-[9px] font-black text-[#05080d] uppercase"><i class="fas fa-check-double text-[#d9933e]"></i> SEO Gap Analysis</li>
-                    </ul>
-                    <div class="mt-4 pt-3 border-t-2 border-dashed border-gray-100 flex flex-wrap gap-1">
-                        <span class="text-[8px] font-black bg-[#05080d] text-[#d9933e] px-2 py-0.5 rounded-md">ANALYTICS</span>
-                        <span class="text-[8px] font-black border border-[#05080d] text-[#05080d] px-2 py-0.5 rounded-md">MARKET-READY</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="group relative w-full max-w-[210px] h-[230px] preserve-3d transition-all duration-700 hover:rotate-y-180">
-                <div class="absolute inset-0 backface-hidden cursor-pointer p-5 rounded-[20px] bg-white border border-gray-200 shadow-[0_10px_30px_rgba(0,0,0,0.2)] bg-[radial-gradient(#d9933e_0.5px,transparent_0.5px)] [background-size:16px_16px] overflow-hidden">
-                   <div class="corner-balloon -top-16 -right-16"></div>
-                    <div class="corner-balloon -bottom-24 -left-24"></div>
-                    <div class="absolute top-0 right-0 w-24 h-24 overflow-hidden pointer-events-none z-10">
-                        <div class="absolute top-4 -right-8 bg-[#444b54] text-white text-[8px] font-bold py-1 px-10 transform rotate-45 shadow-[0_2px_10px_rgba(0,0,0,0.5)] uppercase tracking-tighter">Strategy</div>
-                    </div>
-                    <div class="absolute top-2 right-4 text-6xl font-['Playfair_Display'] italic text-gray-200/40 select-none pointer-events-none z-0">02</div>
-                    <div class="flex justify-between items-start mb-4">
-                        <div class="w-10 h-10 bg-[#05080d] rounded-xl flex items-center justify-center text-[#d9933e] text-xl shadow-inner">
-                            <i class="fas fa-chess-knight"></i>
-                        </div>
-                    </div>
-                    <span class="text-[9px] font-bold text-gray-500 uppercase tracking-widest block mb-1">Step 02</span>
-                    <h3 class="text-lg font-extrabold text-[#05080d] uppercase leading-none">Strategy</h3>
-                    <h4 class="text-sm font-['Playfair_Display'] italic text-[#d9933e] mb-2">blueprinting</h4>
-                    <p class="text-[10px] text-gray-600 leading-tight mb-4">Data-driven roadmaps.</p>
-                    <div class="absolute bottom-6 left-5 right-5 flex items-center gap-3">
-                        <span class="text-[#d9933e] text-xs font-bold tracking-[0.2em] uppercase italic leading-none" style="font-family: 'Inter', 'Plus Jakarta Sans', sans-serif;">More</span>
-                        <div class="flex-1 h-[4px] bg-gray-100 rounded-full overflow-hidden">
-                            <div class="w-[85%] h-full bg-gradient-to-r from-[#d9933e] to-[#b0742a] rounded-full"></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="absolute inset-0 backface-hidden rotate-y-180 bg-[#05080d] border-2 border-[#d9933e] rounded-[20px] p-4 shadow-[0_20px_40px_rgba(0,0,0,0.4)] overflow-hidden">
-                    <div class="flex items-center gap-2 mb-3">
-                        <div class="p-1.5 bg-white/10 rounded-lg">
-                            <i class="fas fa-chess-knight text-sm text-[#d9933e]"></i>
-                        </div>
-                        <span class="font-black text-[10px] uppercase tracking-tighter text-white">Phase: Blueprinting</span>
-                    </div>
-                    <p class="text-[11px] text-gray-300 leading-snug mb-3 italic border-l-3 border-[#d9933e] pl-2 font-bold">Create a clear strategy and project roadmap for elite results.</p>
-                    <ul class="space-y-2">
-                        <li class="flex items-center gap-2 text-[9px] font-black text-white uppercase"><i class="fas fa-bolt text-[#d9933e]"></i> ROI Focused KPIs</li>
-                        <li class="flex items-center gap-2 text-[9px] font-black text-white uppercase"><i class="fas fa-bolt text-[#d9933e]"></i> Content Ecosystem</li>
-                        <li class="flex items-center gap-2 text-[9px] font-black text-white uppercase"><i class="fas fa-bolt text-[#d9933e]"></i> Funnel Optimization</li>
-                    </ul>
-                    <div class="mt-2 pt-2 border-t border-white/10 flex flex-wrap gap-1">
-                        <span class="text-[8px] font-black bg-[#d9933e] text-black px-2 py-0.5 rounded-md">DYNAMIC</span>
-                        <span class="text-[8px] font-black border border-[#d9933e] text-[#d9933e] px-2 py-0.5 rounded-md">SCALABLE</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="group relative w-full max-w-[210px] h-[230px] preserve-3d transition-all duration-700 hover:rotate-y-180">
-                <div class="absolute inset-0 backface-hidden cursor-pointer h-[230px] p-5 rounded-[20px] bg-white border border-gray-200 shadow-[0_10px_40px_rgba(0,0,0,0.2)] bg-[radial-gradient(#05080d_0.5px,transparent_0.5px)] [background-size:16px_16px] overflow-hidden">
-                    <div class="corner-balloon -top-16 -right-16"></div>
-                     <div class="corner-balloon -bottom-24 -left-24"></div>
-                    <div class="absolute top-0 right-0 w-24 h-24 overflow-hidden pointer-events-none z-10">
-                        <div class="absolute top-4 -right-8 bg-[#444b54] text-white text-[8px] font-bold py-1 px-10 transform rotate-45 shadow-[0_2px_10px_rgba(0,0,0,0.5)] uppercase tracking-tighter">Design</div>
-                    </div>
-                    <div class="absolute top-2 right-4 text-6xl font-['Playfair_Display'] italic text-gray-200/40 select-none pointer-events-none z-0">03</div>
-                    <div class="flex justify-between items-start mb-4">
-                        <div class="w-10 h-10 bg-[#05080d] rounded-xl flex items-center justify-center text-[#d9933e] text-xl shadow-2xl">
-                            <i class="fas fa-bezier-curve"></i>
-                        </div>
-                    </div>
-                    <span class="text-[9px] font-black text-gray-500 uppercase tracking-widest block mb-1">Step 03</span>
-                    <h3 class="text-lg font-black text-[#05080d] uppercase leading-none">Design</h3>
-                    <h4 class="text-sm font-['Playfair_Display'] italic text-[#d9933e] mb-2">visual art</h4>
-                    <p class="text-[10px] text-gray-600 leading-tight mb-4">Architecture with <span class="font-bold text-black">modern tech</span>.</p>
-                    <div class="absolute bottom-6 left-5 right-5 flex items-center gap-3">
-                        <span class="text-[#d9933e] text-xs font-bold tracking-[0.2em] uppercase italic leading-none" style="font-family: 'Inter', 'Plus Jakarta Sans', sans-serif;">More</span>
-                        <div class="flex-1 h-[4px] bg-gray-100 rounded-full overflow-hidden">
-                            <div class="w-[85%] h-full bg-gradient-to-r from-[#d9933e] to-[#b0742a] rounded-full"></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="absolute inset-0 backface-hidden rotate-y-180 bg-white border-2 border-[#05080d] rounded-[20px] p-4 shadow-[0_20px_40px_rgba(0,0,0,0.2)] overflow-hidden">
-                    <div class="flex items-center gap-2 mb-3">
-                        <div class="p-1.5 bg-[#05080d] rounded-lg">
-                            <i class="fas fa-bezier-curve text-sm text-[#d9933e]"></i>
-                        </div>
-                        <span class="font-black text-[10px] uppercase tracking-tighter text-[#05080d]">Phase: Visual Art</span>
-                    </div>
-                    <p class="text-[11px] text-[#05080d] leading-snug mb-3 italic border-l-3 border-[#d9933e] pl-2 font-bold">Craft intuitive and visually powerful experiences.</p>
-                    <ul class="space-y-2">
-                        <li class="flex items-center gap-2 text-[9px] font-black text-[#05080d] uppercase"><i class="fas fa-pen-nib text-[#d9933e]"></i> UX Architecture</li>
-                        <li class="flex items-center gap-2 text-[9px] font-black text-[#05080d] uppercase"><i class="fas fa-pen-nib text-[#d9933e]"></i> High-Fidelity UI</li>
-                        <li class="flex items-center gap-2 text-[9px] font-black text-[#05080d] uppercase"><i class="fas fa-pen-nib text-[#d9933e]"></i> Micro-Interactions</li>
-                    </ul>
-                    <div class="mt-4 pt-3 border-t border-gray-100 flex flex-wrap gap-1">
-                        <span class="text-[8px] font-black bg-[#05080d] text-[#d9933e] px-2 py-0.5 rounded-md">PIXEL PERFECT</span>
-                        <span class="text-[8px] font-black border border-[#05080d] text-[#05080d] px-2 py-0.5 rounded-md">MODERN UX</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="group relative w-full max-w-[210px] h-[230px] preserve-3d transition-all duration-700 hover:rotate-y-180">
-                <div class="absolute inset-0 backface-hidden cursor-pointer p-5 rounded-[20px] bg-white border border-gray-200 shadow-[0_10px_30px_rgba(0,0,0,0.2)] bg-[radial-gradient(#d9933e_0.5px,transparent_0.5px)] [background-size:16px_16px] overflow-hidden">
-                    <div class="corner-balloon -top-16 -right-16"></div>
-                     <div class="corner-balloon -bottom-24 -left-24"></div>
-                    <div class="absolute top-0 right-0 w-24 h-24 overflow-hidden pointer-events-none z-10">
-                        <div class="absolute top-4 -right-8 bg-[#444b54] text-white text-[8px] font-bold py-1 px-10 transform rotate-45 shadow-[0_2px_10px_rgba(0,0,0,0.5)] uppercase tracking-tighter">Build</div>
-                    </div>
-                    <div class="absolute top-2 right-4 text-6xl font-['Playfair_Display'] italic text-gray-200/40 select-none pointer-events-none z-0">04</div>
-                    <div class="flex justify-between items-start mb-4">
-                        <div class="w-10 h-10 bg-[#05080d] rounded-xl flex items-center justify-center text-[#d9933e] text-xl">
-                            <i class="fas fa-code"></i>
-                        </div>
-                    </div>
-                    <span class="text-[9px] font-bold text-gray-500 uppercase tracking-widest block mb-1">Step 04</span>
-                    <h3 class="text-lg font-extrabold text-[#05080d] uppercase leading-none">Build</h3>
-                    <h4 class="text-sm font-['Playfair_Display'] italic text-[#d9933e] mb-2">engineering</h4>
-                    <p class="text-[10px] text-gray-600 leading-tight mb-4">Scalable architecture.</p>
-                    <div class="absolute bottom-6 left-5 right-5 flex items-center gap-3">
-                        <span class="text-[#d9933e] text-xs font-bold tracking-[0.2em] uppercase italic leading-none" style="font-family: 'Inter', 'Plus Jakarta Sans', sans-serif;">More</span>
-                        <div class="flex-1 h-[4px] bg-gray-100 rounded-full overflow-hidden">
-                            <div class="w-[85%] h-full bg-gradient-to-r from-[#d9933e] to-[#b0742a] rounded-full"></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="absolute inset-0 backface-hidden rotate-y-180 bg-[#05080d] border-2 border-[#d9933e] rounded-[20px] p-4 shadow-[0_20px_40px_rgba(0,0,0,0.4)] overflow-hidden">
-                    <div class="flex items-center gap-2 mb-3">
-                        <div class="p-1.5 bg-white/10 rounded-lg">
-                            <i class="fas fa-code text-sm text-[#d9933e]"></i>
-                        </div>
-                        <span class="font-black text-[10px] uppercase tracking-tighter text-white">Phase: Engineering</span>
-                    </div>
-                    <p class="text-[11px] text-gray-300 leading-snug mb-3 italic border-l-3 border-[#d9933e] pl-2 font-bold">Develop secure and scalable digital solutions for performance.</p>
-                    <ul class="space-y-2">
-                        <li class="flex items-center gap-2 text-[9px] font-black text-white uppercase"><i class="fas fa-microchip text-[#d9933e]"></i> Clean Code Dev</li>
-                        <li class="flex items-center gap-2 text-[9px] font-black text-white uppercase"><i class="fas fa-microchip text-[#d9933e]"></i> API Integration</li>
-                        <li class="flex items-center gap-2 text-[9px] font-black text-white uppercase"><i class="fas fa-microchip text-[#d9933e]"></i> Security Protocols</li>
-                    </ul>
-                    <div class="mt-2 pt-2 border-t border-white/10 flex flex-wrap gap-1">
-                        <span class="text-[8px] font-black bg-[#d9933e] text-black px-2 py-0.5 rounded-md">LIGHTNING FAST</span>
-                        <span class="text-[8px] font-black border border-[#d9933e] text-[#d9933e] px-2 py-0.5 rounded-md">SECURE</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="group relative w-full max-w-[210px] h-[230px] preserve-3d transition-all duration-700 hover:rotate-y-180">
-                <div class="absolute inset-0 backface-hidden cursor-pointer p-5 rounded-[20px] bg-white border border-gray-200 shadow-[0_10px_30px_rgba(0,0,0,0.2)] bg-[radial-gradient(#d9933e_0.5px,transparent_0.5px)] [background-size:16px_16px] overflow-hidden">
-                   <div class="corner-balloon -top-16 -right-16"></div>
-                    <div class="corner-balloon -bottom-24 -left-24"></div>
-                    <div class="absolute top-0 right-0 w-24 h-24 overflow-hidden pointer-events-none z-10">
-                        <div class="absolute top-4 -right-8 bg-[#444b54] text-white text-[8px] font-bold py-1 px-10 transform rotate-45 shadow-[0_2px_10px_rgba(0,0,0,0.5)] uppercase tracking-tighter">Launch</div>
-                    </div>
-                    <div class="absolute top-2 right-4 text-6xl font-['Playfair_Display'] italic text-gray-200/40 select-none pointer-events-none z-0">05</div>
-                    <div class="flex justify-between items-start mb-4">
-                        <div class="w-10 h-10 bg-[#05080d] shadow-lg rounded-xl flex items-center justify-center text-[#d9933e] text-xl">
-                            <i class="fas fa-rocket"></i>
-                        </div>
-                    </div>
-                    <span class="text-[9px] font-bold text-gray-500 uppercase tracking-widest block mb-1">Step 05</span>
-                    <h3 class="text-lg font-extrabold text-[#05080d] uppercase leading-none">Launch</h3>
-                    <h4 class="text-sm font-['Playfair_Display'] italic text-[#d9933e] mb-2">go-live</h4>
-                    <p class="text-[10px] text-gray-600 leading-tight mb-4">Global impact.</p>
-                    <div class="absolute bottom-6 left-5 right-5 flex items-center gap-3">
-                        <span class="text-[#d9933e] text-xs font-bold tracking-[0.2em] uppercase italic leading-none" style="font-family: 'Inter', 'Plus Jakarta Sans', sans-serif;">More</span>
-                        <div class="flex-1 h-[4px] bg-gray-100 rounded-full overflow-hidden">
-                            <div class="w-[85%] h-full bg-gradient-to-r from-[#d9933e] to-[#b0742a] rounded-full"></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="absolute inset-0 backface-hidden rotate-y-180 bg-white border-2 border-[#05080d] rounded-[20px] p-4 shadow-[0_20px_40px_rgba(0,0,0,0.2)] overflow-hidden">
-                    <div class="flex items-center gap-2 mb-3">
-                        <div class="p-1.5 bg-[#05080d] rounded-lg">
-                            <i class="fas fa-rocket text-sm text-[#d9933e]"></i>
-                        </div>
-                        <span class="font-black text-[10px] uppercase tracking-tighter text-[#05080d]">Phase: Go-Live</span>
-                    </div>
-                    <p class="text-[11px] text-[#05080d] leading-snug mb-3 italic border-l-3 border-[#d9933e] pl-2 font-bold">Deploy, optimize, and scale for long-term success.</p>
-                    <ul class="space-y-2">
-                        <li class="flex items-center gap-2 text-[9px] font-black text-[#05080d] uppercase"><i class="fas fa-globe-americas text-[#d9933e]"></i> Live Deployment</li>
-                        <li class="flex items-center gap-2 text-[9px] font-black text-[#05080d] uppercase"><i class="fas fa-globe-americas text-[#d9933e]"></i> Post-Launch QA</li>
-                        <li class="flex items-center gap-2 text-[9px] font-black text-[#05080d] uppercase"><i class="fas fa-globe-americas text-[#d9933e]"></i> Performance Tracking</li>
-                    </ul>
-                    <div class="mt-4 pt-3 border-t border-gray-100 flex flex-wrap gap-1">
-                        <span class="text-[8px] font-black bg-[#05080d] text-[#d9933e] px-2 py-0.5 rounded-md">IMPACTFUL</span>
-                        <span class="text-[8px] font-black border border-[#05080d] text-[#05080d] px-2 py-0.5 rounded-md">GLOBAL READY</span>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </div>
-</section>
-
-<style>
-/* Shimmer Animation */
-@keyframes shimmer {
-    0% { transform: translateX(-100%); }
-    100% { transform: translateX(100%); }
-}
-
-/* 3D Flip Essentials */
-.perspective-1000 {
-    perspective: 1000px;
-}
-.preserve-3d {
-    transform-style: preserve-3d;
-}
-.backface-hidden {
-    backface-visibility: hidden;
-    -webkit-backface-visibility: hidden;
-}
-.rotate-y-180 {
-    transform: rotateY(180deg);
-}
-
-/* Hover Effect for Flip */
-.hover\:rotate-y-180:hover {
-    transform: rotateY(180deg);
-}
-
-/* Smooth Shadow on Hover */
-.group:hover {
-    z-index: 100;
-}
-</style>
-
-
-
 
 <section class="relative py-12 md:py-18 bg-[#fcfcfd] overflow-hidden" style="font-family: 'Inter', sans-serif;">
     
-    <div class="absolute top-10 md:top-20 left-[5%] w-12 h-12 md:w-24 md:h-24 border-2 border-[#0a0f1a] opacity-10 rounded-2xl animate-float rotate-12"></div>
-    <div class="absolute bottom-20 md:bottom-40 left-[2%] w-8 h-8 md:w-12 md:h-12 border-4 border-[#d9933e] opacity-20 rounded-lg animate-float-delayed rotate-45"></div>
+    <div class="absolute top-10 md:top-20 left-[5%] w-12 h-12 md:w-24 md:h-24 border-2 border-[#0a0f1a] opacity-30 rounded-2xl animate-float rotate-12"></div>
+    <div class="absolute bottom-20 md:bottom-40 left-[2%] w-8 h-8 md:w-12 md:h-12 border-4 border-[#d9933e] opacity-80 rounded-lg animate-float-delayed rotate-45"></div>
     <div class="absolute top-1/4 right-[5%] w-16 h-16 md:w-32 md:h-32 border border-[#0a0f1a] opacity-5 rounded-full"></div>
     
     <div class="absolute -right-20 top-0 opacity-10 pointer-events-none">
@@ -2235,7 +2422,7 @@ body { padding-top: 0; }
                     </div>
 
                     <div class="mt-10 md:mt-12 relative w-14 h-14 md:w-16 md:h-16">
-                        <div class="absolute inset-0 border-2 border-[#d9933e] translate-x-2 translate-y-2 opacity-30"></div>
+                        <div class="absolute inset-0 border-2 border-[#d9933e] translate-x-2 translate-y-2 opacity-90"></div>
                         <div class="absolute inset-0 bg-[#0a0f1a] flex items-center justify-center">
                             <i class="fas fa-bolt text-[#d9933e] text-lg md:text-xl"></i>
                         </div>
@@ -2513,15 +2700,18 @@ summary::-webkit-details-marker {
 
 
 
-<footer class="bg-[#050c1f] text-white pt-12 pb-8 px-6 font-sans border-t-4 border-[#E89D4B]">
-    <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 px-10">
+<footer class="bg-gradient-to-r from-[#010409] via-[#020817] to-[#010409] text-white pt-12 pb-8 px-6 font-sans border-t-4 border-[#E89D4B]">
+    <div class="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 md:gap-4 px-4 md:px-10">
         
         <div class="space-y-3 px-4 lg:px-2">
-            <div class="flex items-center gap-3">
-                <div class="w-14 h-14 rounded-lg flex items-center justify-center overflow-hidden">
-                    <img src="Images/log2.png" alt="Logo" class="w-full h-full object-cover">
+            <div class="flex items-center gap-2">
+                <div class="w-14 h-16 rounded-lg flex items-center justify-center overflow-hidden">
+                    <img src="Images/go1.png" alt="Logo" class="w-14 h-14 object-cover">
                 </div>
-                <h2 class="text-2xl font-black tracking-tighter uppercase">Sparta <span class="text-[#E89D4B]">Tech</span></h2>
+                <div class="w-30 h-10 rounded-lg flex items-center justify-center overflow-hidden">
+                    <img src="Images/go2.png" alt="Logo" class="w-full h-full object-cover">
+                </div>
+                
             </div>
             <p class="text-gray-400 text-sm leading-relaxed">
                 Empowering businesses with creative and technology-driven solutions that enhance digital presence and accelerate growth.
@@ -2534,8 +2724,8 @@ summary::-webkit-details-marker {
         </div>
 
         <div>
-            <h4 class="text-lg font-bold mb-6 border-b-2 border-[#E89D4B]  mx-10 w-fit pb-1">Quick Links</h4>
-            <ul class="space-y-4 text-gray-400 text-sm px-10">
+            <h4 class="text-lg font-bold mb-6 border-b-2 border-[#E89D4B] md:mx-10 w-fit pb-1">Quick Links</h4>
+            <ul class="space-y-4 text-gray-400 text-sm md:px-10">
                 <li><a href="Index.html" class="hover:text-white hover:pl-2 transition-all duration-300 block border-l-0 hover:border-l-4 hover:border-[#E89D4B] pl-0">Home</a></li>
                 <li><a href="About.html" class="hover:text-white hover:pl-2 transition-all duration-300 block border-l-0 hover:border-l-4 hover:border-[#E89D4B] pl-0">About Us</a></li>
                 <li><a href="Index.html" class="hover:text-white hover:pl-2 transition-all duration-300 block border-l-0 hover:border-l-4 hover:border-[#E89D4B] pl-0">Services</a></li>
@@ -2564,43 +2754,45 @@ summary::-webkit-details-marker {
         </div>
           
         <div class="space-y-6">
-    <h4 class="text-lg font-bold mb-6 border-b-2 border-[#E89D4B] w-fit pb-1">Connect With Us</h4>
-    <div class="space-y-4 text-sm text-gray-400">
-        
-        <a href="mailto:hello@spartatech.com" class="flex items-start gap-3 group cursor-pointer decoration-none">
-            <i class="fas fa-envelope mt-1 text-[#E89D4B]"></i>
-            <span class="group-hover:text-white transition-colors">hello@spartatech.com</span>
-        </a>
+            <h4 class="text-lg font-bold mb-6 border-b-2 border-[#E89D4B] w-fit pb-1">Connect With Us</h4>
+            <div class="space-y-4 text-sm text-gray-400">
+                
+                <a href="mailto:hello@spartatech.com" class="flex items-start gap-3 group cursor-pointer decoration-none">
+                    <i class="fas fa-envelope mt-1 text-[#E89D4B]"></i>
+                    <span class="group-hover:text-white transition-colors">hello@spartatech.com</span>
+                </a>
 
-        <a href="tel:+1555234567890" class="flex items-start gap-3 group cursor-pointer decoration-none">
-            <i class="fas fa-phone-alt mt-1 text-[#E89D4B]"></i>
-            <span class="group-hover:text-white transition-colors">+1 (555) 2345 - 67890</span>
-        </a>
+                <a href="tel:+1555234567890" class="flex items-start gap-3 group cursor-pointer decoration-none">
+                    <i class="fas fa-phone-alt mt-1 text-[#E89D4B]"></i>
+                    <span class="group-hover:text-white transition-colors">+1 (555) 2345 - 67890</span>
+                </a>
 
-        <a href="https://www.google.com/maps/search/?api=1&query=TechVille+California+90210+United+States" target="_blank" class="flex items-start gap-3 group cursor-pointer decoration-none">
-            <i class="fas fa-map-marker-alt mt-1 text-[#E89D4B]"></i>
-            <span class="group-hover:text-white transition-colors leading-relaxed">
-                TechVille, California, <br>90210 United States
-            </span>
-        </a>
+                <a href="https://www.google.com/maps/search/?api=1&query=TechVille+California+90210+United+States" target="_blank" class="flex items-start gap-3 group cursor-pointer decoration-none">
+                    <i class="fas fa-map-marker-alt mt-1 text-[#E89D4B]"></i>
+                    <span class="group-hover:text-white transition-colors leading-relaxed">
+                        TechVille, California, <br>90210 United States
+                    </span>
+                </a>
+
+            </div>
+        </div>
 
     </div>
-</div>
 
-    </div>
-
-    <div class="max-w-10xl mx-auto mt-12 pt-4 px-40 lg:px-10 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center gap-4">
+    <div class="max-w-7xl mx-auto mt-12 pt-4 px-6 md:px-10 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center gap-4">
         <p class="text-gray-500 text-xs text-center md:text-left">
             © 2026 <span class="text-[#E89D4B] font-bold">Sparta Tech</span>. All Rights Reserved. 
             
         </p>
-        <div class="flex gap-6 text-xs text-gray-500">
+        <div class="flex flex-wrap justify-center gap-6 text-xs text-gray-500">
             <a href="#" class="hover:text-[#E89D4B] transition-colors">Privacy Policy</a>
             <a href="#" class="hover:text-[#E89D4B] transition-colors">Terms of Service</a>
             <a href="#" class="hover:text-[#E89D4B] transition-colors">Cookies Setting</a>
         </div>
     </div>
 </footer>
+
+
 
 
 <script type="text/javascript">

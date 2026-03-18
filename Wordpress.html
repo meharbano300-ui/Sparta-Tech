@@ -123,15 +123,16 @@
     <nav :class="scrolled ? 'fixed top-0 left-0 shadow-2xl ' : 'relative'" 
          class="w-full py- px-6 md:px-16 flex justify-between items-center bg-gradient-to-r from-[#010409] via-[#020817] to-[#010409] z-[100] transition-all duration-300">
         
-       <div class="flex items-center gap-3">
-            <div class="w-16 h-16 flex items-center justify-center">
-                <img src="Images/log2.png" alt="Logo" class="w-full h-full object-contain" />
+       <div class="flex items-center py-2 ">
+            <div class="w-20 h-16 flex items-center justify-center">
+                <img src="Images/go1.png" alt="Logo" class="w-full h-full object-contain" />
             </div>
-            <span class="text-white font-black text-xl tracking-tighter uppercase italic">
-                Sparta<span class="text-[#febd69] ml-1">Tech</span>
-            </span>
+             <div class="w-32 h-22 flex items-center justify-center">
+                <img src="Images/go2.png" alt="Logo" class="w-full h-full object-contain" />
+            </div>
         </div>
 
+        
         <div class="hidden lg:flex items-center gap-10">
             <a href="Index.html" class="nav-link active font-black  text-white">Home</a>
             <a href="About.html" class="nav-link text-gray-300 font-black  hover:text-white transition-all">About us</a>
@@ -781,17 +782,20 @@ body { padding-top: 0; }
 
 
 <footer class="bg-gradient-to-r from-[#010409] via-[#020817] to-[#010409] text-white pt-12 pb-8 px-6 font-sans border-t-4 border-[#E89D4B]">
-    <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 px-10">
+    <div class="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 md:gap-4 px-4 md:px-10">
         
         <div class="space-y-3 px-4 lg:px-2">
-            <div class="flex items-center gap-3">
-                <div class="w-14 h-14 rounded-lg flex items-center justify-center overflow-hidden">
-                    <img src="Images/log2.png" alt="Logo" class="w-full h-full object-cover">
+            <div class="flex items-center gap-2">
+                <div class="w-14 h-16 rounded-lg flex items-center justify-center overflow-hidden">
+                    <img src="Images/go1.png" alt="Logo" class="w-14 h-14 object-cover">
                 </div>
-                <h2 class="text-2xl font-black tracking-tighter uppercase">Sparta <span class="text-[#E89D4B]">Tech</span></h2>
+                <div class="w-30 h-10 rounded-lg flex items-center justify-center overflow-hidden">
+                    <img src="Images/go2.png" alt="Logo" class="w-full h-full object-cover">
+                </div>
+                
             </div>
             <p class="text-gray-400 text-sm leading-relaxed">
-                Empowering next-gen businesses with AI-driven growth systems and unified digital infrastructure. Scale beyond guesswork.
+                Empowering businesses with creative and technology-driven solutions that enhance digital presence and accelerate growth.
             </p>
             <div class="flex gap-4">
                 <a href="#" class="w-10 h-10 rounded-full border border-gray-700 flex items-center justify-center hover:border-[#E89D4B] hover:text-[#E89D4B] transition-all"><i class="fab fa-facebook-f"></i></a>
@@ -801,8 +805,8 @@ body { padding-top: 0; }
         </div>
 
         <div>
-            <h4 class="text-lg font-bold mb-6 border-b-2 border-[#E89D4B]  mx-10 w-fit pb-1">Quick Links</h4>
-            <ul class="space-y-4 text-gray-400 text-sm px-10">
+            <h4 class="text-lg font-bold mb-6 border-b-2 border-[#E89D4B] md:mx-10 w-fit pb-1">Quick Links</h4>
+            <ul class="space-y-4 text-gray-400 text-sm md:px-10">
                 <li><a href="Index.html" class="hover:text-white hover:pl-2 transition-all duration-300 block border-l-0 hover:border-l-4 hover:border-[#E89D4B] pl-0">Home</a></li>
                 <li><a href="About.html" class="hover:text-white hover:pl-2 transition-all duration-300 block border-l-0 hover:border-l-4 hover:border-[#E89D4B] pl-0">About Us</a></li>
                 <li><a href="Index.html" class="hover:text-white hover:pl-2 transition-all duration-300 block border-l-0 hover:border-l-4 hover:border-[#E89D4B] pl-0">Services</a></li>
@@ -830,44 +834,45 @@ body { padding-top: 0; }
             </ul>
         </div>
           
-       <div class="space-y-6">
-    <h4 class="text-lg font-bold mb-6 border-b-2 border-[#E89D4B] w-fit pb-1">Connect With Us</h4>
-    <div class="space-y-4 text-sm text-gray-400">
-        
-        <a href="mailto:hello@spartatech.com" class="flex items-start gap-3 group cursor-pointer decoration-none">
-            <i class="fas fa-envelope mt-1 text-[#E89D4B]"></i>
-            <span class="group-hover:text-white transition-colors">hello@spartatech.com</span>
-        </a>
+        <div class="space-y-6">
+            <h4 class="text-lg font-bold mb-6 border-b-2 border-[#E89D4B] w-fit pb-1">Connect With Us</h4>
+            <div class="space-y-4 text-sm text-gray-400">
+                
+                <a href="mailto:hello@spartatech.com" class="flex items-start gap-3 group cursor-pointer decoration-none">
+                    <i class="fas fa-envelope mt-1 text-[#E89D4B]"></i>
+                    <span class="group-hover:text-white transition-colors">hello@spartatech.com</span>
+                </a>
 
-        <a href="tel:+1555234567890" class="flex items-start gap-3 group cursor-pointer decoration-none">
-            <i class="fas fa-phone-alt mt-1 text-[#E89D4B]"></i>
-            <span class="group-hover:text-white transition-colors">+1 (555) 2345 - 67890</span>
-        </a>
+                <a href="tel:+1555234567890" class="flex items-start gap-3 group cursor-pointer decoration-none">
+                    <i class="fas fa-phone-alt mt-1 text-[#E89D4B]"></i>
+                    <span class="group-hover:text-white transition-colors">+1 (555) 2345 - 67890</span>
+                </a>
 
-        <a href="https://www.google.com/maps/search/?api=1&query=TechVille+California+90210+United+States" target="_blank" class="flex items-start gap-3 group cursor-pointer decoration-none">
-            <i class="fas fa-map-marker-alt mt-1 text-[#E89D4B]"></i>
-            <span class="group-hover:text-white transition-colors leading-relaxed">
-                TechVille, California, <br>90210 United States
-            </span>
-        </a>
+                <a href="https://www.google.com/maps/search/?api=1&query=TechVille+California+90210+United+States" target="_blank" class="flex items-start gap-3 group cursor-pointer decoration-none">
+                    <i class="fas fa-map-marker-alt mt-1 text-[#E89D4B]"></i>
+                    <span class="group-hover:text-white transition-colors leading-relaxed">
+                        TechVille, California, <br>90210 United States
+                    </span>
+                </a>
+
+            </div>
+        </div>
 
     </div>
-</div>
 
-    </div>
-
-    <div class="max-w-10xl mx-auto mt-12 pt-4 px-40 lg:px-10 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center gap-4">
+    <div class="max-w-7xl mx-auto mt-12 pt-4 px-6 md:px-10 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center gap-4">
         <p class="text-gray-500 text-xs text-center md:text-left">
             © 2026 <span class="text-[#E89D4B] font-bold">Sparta Tech</span>. All Rights Reserved. 
-            <span class="mx-2">|</span> Designed for Scale.
+            
         </p>
-        <div class="flex gap-6 text-xs text-gray-500">
+        <div class="flex flex-wrap justify-center gap-6 text-xs text-gray-500">
             <a href="#" class="hover:text-[#E89D4B] transition-colors">Privacy Policy</a>
             <a href="#" class="hover:text-[#E89D4B] transition-colors">Terms of Service</a>
             <a href="#" class="hover:text-[#E89D4B] transition-colors">Cookies Setting</a>
         </div>
     </div>
 </footer>
+
 
 
 
